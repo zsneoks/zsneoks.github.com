@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.external.logging.Handler</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        <a href="Ganga.Utility.external-module.html">Package&nbsp;external</a> ::
+        <a href="Ganga.Utility.external.logging-module.html">Package&nbsp;logging</a> ::
+        Class&nbsp;Handler
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.external.logging.Handler-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Handler</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+<a href="Ganga.Utility.external.logging.Filterer-class.html">Filterer</a> --+
+           |
+          <strong class="uidshort">Handler</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="Ganga.Utility.external.logging.StreamHandler-class.html">StreamHandler</a></li><li>, <a href="Ganga.Utility.external.logging.handlers.BufferingHandler-class.html">handlers.BufferingHandler</a></li><li>, <a href="Ganga.Utility.external.logging.handlers.SocketHandler-class.html">handlers.SocketHandler</a></li><li>, <a href="Ganga.Utility.external.logging.handlers.HTTPHandler-class.html">handlers.HTTPHandler</a></li><li>, <a href="Ganga.Utility.external.logging.handlers.NTEventLogHandler-class.html">handlers.NTEventLogHandler</a></li><li>, <a href="Ganga.Utility.external.logging.handlers.SMTPHandler-class.html">handlers.SMTPHandler</a></li><li>, <a href="Ganga.Utility.external.logging.handlers.SysLogHandler-class.html">handlers.SysLogHandler</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<p>Handler instances dispatch logging events to specific 
+  destinations.</p>
+  <p>The base handler class. Acts as a placeholder which defines the 
+  Handler interface. Handlers can optionally use Formatter instances to 
+  format records as desired. By default, no formatter is specified; in this
+  case, the 'raw' message as determined by record.message is logged.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Initializes the instance - basically setting the formatter to None 
+      and the filter list to empty.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="acquire"></a><span class="summary-sig-name">acquire</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Acquire the I/O thread lock.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.acquire">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#close" class="summary-sig-name">close</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Tidy up any resources used by the handler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.close">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="createLock"></a><span class="summary-sig-name">createLock</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Acquire a thread lock for serializing access to the underlying I/O.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.createLock">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#emit" class="summary-sig-name">emit</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">record</span>)</span><br />
+      Do whatever it takes to actually log the specified logging record.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.emit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#flush" class="summary-sig-name">flush</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Ensure all logging output has been flushed.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.flush">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#format" class="summary-sig-name">format</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">record</span>)</span><br />
+      Format the specified record.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.format">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#handle" class="summary-sig-name">handle</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">record</span>)</span><br />
+      Conditionally emit the specified logging record.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.handle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Handler-class.html#handleError" class="summary-sig-name">handleError</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">record</span>)</span><br />
+      Handle errors which occur during an emit() call.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.handleError">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="release"></a><span class="summary-sig-name">release</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Release the I/O thread lock.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.release">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setFormatter"></a><span class="summary-sig-name">setFormatter</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">fmt</span>)</span><br />
+      Set the formatter for this handler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.setFormatter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setLevel"></a><span class="summary-sig-name">setLevel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>)</span><br />
+      Set the logging level of this handler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.setLevel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Ganga.Utility.external.logging.Filterer-class.html">Filterer</a></code></b>:
+      <code><a href="Ganga.Utility.external.logging.Filterer-class.html#addFilter">addFilter</a></code>,
+      <code><a href="Ganga.Utility.external.logging.Filterer-class.html#filter">filter</a></code>,
+      <code><a href="Ganga.Utility.external.logging.Filterer-class.html#removeFilter">removeFilter</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">level</span>=<span class="sig-default">0</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializes the instance - basically setting the formatter to None and
+  the filter list to empty.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.Utility.external.logging.Filterer-class.html#__init__">Filterer.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="close"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">close</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.close">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Tidy up any resources used by the handler.</p>
+  <p>This version does removes the handler from an internal list of 
+  handlers which is closed when shutdown() is called. Subclasses should 
+  ensure that this gets called from overridden close() methods.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="emit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">emit</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">record</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.emit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Do whatever it takes to actually log the specified logging record.</p>
+  <p>This version is intended to be implemented by subclasses and so raises
+  a NotImplementedError.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="flush"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">flush</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.flush">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Ensure all logging output has been flushed.</p>
+  <p>This version does nothing and is intended to be implemented by 
+  subclasses.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="format"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">format</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">record</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.format">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Format the specified record.</p>
+  <p>If a formatter is set, use it. Otherwise, use the default formatter 
+  for the module.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="handle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">handle</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">record</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.handle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Conditionally emit the specified logging record.</p>
+  <p>Emission depends on filters which may have been added to the handler. 
+  Wrap the actual emission of the record with acquisition/release of the 
+  I/O thread lock. Returns whether the filter passed the record for 
+  emission.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="handleError"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">handleError</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">record</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Handler.handleError">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handle errors which occur during an emit() call.</p>
+  <p>This method should be called from handlers when an exception is 
+  encountered during an emit() call. If raiseExceptions is false, 
+  exceptions get silently ignored. This is what is mostly wanted for a 
+  logging system - most users will not care about errors in the logging 
+  system, they are more interested in application errors. You could, 
+  however, replace this with a custom handler if you wish. The record which
+  was being processed is passed in to this method.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:23 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

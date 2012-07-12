@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Runtime.associations</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Runtime-module.html">Package&nbsp;Runtime</a> ::
+        Module&nbsp;associations
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Runtime.associations-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Runtime.associations-module.html">Module Ganga.Runtime.associations</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################# Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># $Id: associations.py,v 1.2 2009-03-10 12:19:20 moscicki Exp $</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment">#################################################################################</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># File: associations.py</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># Author: K. Harrison</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># Created: 061123</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Module defining default associations</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">between file types and file-viewing commands.</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">Values are stored in a configuration object,</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">and modifications/additions can be made</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">in the [File_Associations] section of a</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">configuration file.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                                                                                 </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-name">__author__</tt>  <tt class="py-op">=</tt> <tt class="py-string">"K.Harrison &lt;Harrison@hep.phy.cam.ac.uk&gt;"</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-name">__date__</tt>    <tt class="py-op">=</tt> <tt class="py-string">"23 November 2006"</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-name">__version__</tt> <tt class="py-op">=</tt> <tt class="py-string">"1.0"</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-0', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-1', 'Utility', 'link-1');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Ganga.GPIDev.Lib.Config=Ganga.GPIDev.Lib.Config-module.html,Module Ganga.GPIDev.Lib.Config.Config=Ganga.GPIDev.Lib.Config.Config-module.html,Package Ganga.Utility.Config=Ganga.Utility.Config-module.html,Module Ganga.Utility.Config.Config=Ganga.Utility.Config.Config-module.html"><a title="Ganga.GPIDev.Lib.Config
+Ganga.GPIDev.Lib.Config.Config
+Ganga.Utility.Config
+Ganga.Utility.Config.Config" class="py-name" href="#" onclick="return doclink('link-2', 'Config', 'link-2');">Config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Function Ganga.Utility.Config.Config.makeConfig()=Ganga.Utility.Config.Config-module.html#makeConfig"><a title="Ganga.Utility.Config.Config.makeConfig" class="py-name" href="#" onclick="return doclink('link-3', 'makeConfig', 'link-3');">makeConfig</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#config,Variable Ganga.GPIDev.Base.Filters.config=Ganga.GPIDev.Base.Filters-module.html#config,Variable Ganga.GPIDev.Lib.Config.Config.config=Ganga.GPIDev.Lib.Config.Config-module.html#config,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.config=Ganga.GPIDev.Lib.Registry.BoxRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.JobRegistry'.config=Ganga.GPIDev.Lib.Registry.JobRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.RegistrySlice.config=Ganga.GPIDev.Lib.Registry.RegistrySlice-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.config=Ganga.GPIDev.Lib.Tasks.ArgTransform-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Task'.config=Ganga.GPIDev.Lib.Tasks.Task%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.config=Ganga.GPIDev.Lib.Tasks.TaskApplication-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Transform'.config=Ganga.GPIDev.Lib.Tasks.Transform%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.common.config=Ganga.GPIDev.Lib.Tasks.common-module.html#config,Variable Ganga.GPIDev.Streamers.MigrationControl.config=Ganga.GPIDev.Streamers.MigrationControl-module.html#config,Variable Ganga.Lib.Batch.Batch'.LSF.config=Ganga.Lib.Batch.Batch%27.LSF-class.html#config,Variable Ganga.Lib.Batch.Batch'.PBS.config=Ganga.Lib.Batch.Batch%27.PBS-class.html#config,Variable Ganga.Lib.Batch.Batch'.SGE.config=Ganga.Lib.Batch.Batch%27.SGE-class.html#config,Variable Ganga.Lib.Batch.Batch'.config=Ganga.Lib.Batch.Batch%27-module.html#config,Variable Ganga.Lib.Batch.config=Ganga.Lib.Batch-module.html#config,Variable Ganga.Lib.Condor.CondorRequirements'.config=Ganga.Lib.Condor.CondorRequirements%27-module.html#config,Variable Ganga.Lib.Executable.Executable'.config=Ganga.Lib.Executable.Executable%27-module.html#config,Variable Ganga.Lib.Executable.config=Ganga.Lib.Executable-module.html#config,Variable Ganga.Lib.LCG.CREAM.config=Ganga.Lib.LCG.CREAM-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.config=Ganga.Lib.LCG.GridSimulator.GridSimulator-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.simulator.config=Ganga.Lib.LCG.GridSimulator.simulator-module.html#config,Variable Ganga.Lib.LCG.LCG.config=Ganga.Lib.LCG.LCG-module.html#config,Variable Ganga.Lib.Localhost.Localhost'.config=Ganga.Lib.Localhost.Localhost%27-module.html#config,Variable Ganga.Lib.Localhost.config=Ganga.Lib.Localhost-module.html#config,Variable Ganga.Lib.Mergers.Merger.config=Ganga.Lib.Mergers.Merger-module.html#config,Variable Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#config,Variable Ganga.Lib.Root.Root'.config=Ganga.Lib.Root.Root%27-module.html#config,Variable Ganga.Lib.Root.config=Ganga.Lib.Root-module.html#config,Variable Ganga.Runtime.AMGA_repository_runtime.config=Ganga.Runtime.AMGA_repository_runtime-module.html#config,Variable Ganga.Runtime.Repository_runtime.config=Ganga.Runtime.Repository_runtime-module.html#config,Variable Ganga.Runtime.XML_repository_runtime.config=Ganga.Runtime.XML_repository_runtime-module.html#config,Variable Ganga.Runtime.associations.config=Ganga.Runtime.associations-module.html#config,Variable Ganga.Runtime.spyware.config=Ganga.Runtime.spyware-module.html#config,Variable Ganga.Utility.Caching.config=Ganga.Utility.Caching-module.html#config,Module Ganga.Utility.external.logging.config=Ganga.Utility.external.logging.config-module.html,Variable Ganga.Utility.logging.config=Ganga.Utility.logging-module.html#config"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-4', 'config', 'link-4');">config</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Ganga.Utility.Config.Config.makeConfig" class="py-name" href="#" onclick="return doclink('link-5', 'makeConfig', 'link-3');">makeConfig</a></tt><tt class="py-op">(</tt> <tt class="py-string">"File_Associations"</tt><tt class="py-op">,</tt><tt class="py-string">'Default associations between file types and file-viewing commands. The name identifies the extension and the value the commans. New extensions can be added. A single &amp; after the command indicates that the process will be started in the background. A &amp;&amp; after the command indicates that a new terminal will be opened and the command executed in that terminal.'</tt> <tt class="py-op">,</tt> <tt class="py-name">is_open</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt id="link-6" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-6', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method Ganga.Utility.Config.Config.PackageConfig.addOption()=Ganga.Utility.Config.Config.PackageConfig-class.html#addOption"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-7', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">"newterm_command"</tt><tt class="py-op">,</tt><tt class="py-string">"xterm"</tt><tt class="py-op">,</tt><tt class="py-string">'Command for opening a new terminal (xterm, gnome-terminal, ...'</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt id="link-8" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-8', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-9', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">"newterm_exeopt"</tt><tt class="py-op">,</tt><tt class="py-string">"-e"</tt><tt class="py-op">,</tt><tt class="py-string">'Option to give to a new terminal to tell it to execute a command.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt id="link-10" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-10', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-11', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">"listing_command"</tt><tt class="py-op">,</tt><tt class="py-string">"ls -ltr"</tt><tt class="py-op">,</tt><tt class="py-string">'Command for listing the content of a directory'</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt id="link-12" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-12', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-13', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'fallback_command'</tt><tt class="py-op">,</tt><tt class="py-string">'less'</tt><tt class="py-op">,</tt><tt class="py-string">'Default command to use if there is no association with the file type'</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt id="link-14" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-14', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-15', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'htm'</tt><tt class="py-op">,</tt><tt class="py-string">'firefox &amp;'</tt><tt class="py-op">,</tt><tt class="py-string">'Command for viewing html files.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt id="link-16" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-16', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-17', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'html'</tt><tt class="py-op">,</tt><tt class="py-string">'firefox &amp;'</tt><tt class="py-op">,</tt><tt class="py-string">'Command for viewing html files.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt id="link-18" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-18', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-19', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'root'</tt><tt class="py-op">,</tt><tt class="py-string">'root.exe &amp;&amp;'</tt><tt class="py-op">,</tt><tt class="py-string">'Command for opening ROOT files.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt id="link-20" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-20', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-21', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'tar'</tt><tt class="py-op">,</tt><tt class="py-string">'file-roller &amp;'</tt><tt class="py-op">,</tt><tt class="py-string">'Command for opening tar files.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt id="link-22" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-22', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-23', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'tgz'</tt><tt class="py-op">,</tt><tt class="py-string">'file-roller &amp;'</tt><tt class="py-op">,</tt><tt class="py-string">'Command for opening tar files.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:28 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

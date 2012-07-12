@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.GPIDev.Base.Filters</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.GPIDev-module.html">Package&nbsp;GPIDev</a> ::
+        <a href="Ganga.GPIDev.Base-module.html">Package&nbsp;Base</a> ::
+        Module&nbsp;Filters
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.GPIDev.Base.Filters-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.GPIDev.Base.Filters-module.html">Module Ganga.GPIDev.Base.Filters</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># Customization of GPI component object assignment: Component Filters</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># Example of usage:</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#  j.f = 'myfile'  &lt;=&gt;  j.f = File('myfile')</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#  j.application = 'DaVinci' &lt;=&gt; DaVinci()</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#  j = Job()</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#  j2 = Job(j)  &lt;=&gt; copy constructor</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#  </tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"># Semantics:</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#  gpi_proxy.x = v  --&gt; f = select_filter(category_of(x)); f(v,schema_item_of(x))</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#  gpi_proxy.y = [v1,v2] --&gt; f = select_filter(category_of(x)); [f(v,schema_item_of(y)) for v in [v1,v2]]</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#  x = X(y,...) --&gt; f = select_filter(X._category); f(y,None)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"># Component filters are applied *only* to component properties and they are applied *before* attribute filters.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment"># Component filter has the following signature:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#     filter(val,item) --&gt; return a GangaObject instance or None if no conversion performed</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#     item is None if the filter is called outside of the attribute assignment context</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"># If conversion takes place filter MUST return an object which is an instance (derived) of GangaObject.</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># Void filter does nothing. This is the default filter if no other default has been defined.</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-0', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-1', 'Utility', 'link-1');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Ganga.GPIDev.Lib.Config=Ganga.GPIDev.Lib.Config-module.html,Module Ganga.GPIDev.Lib.Config.Config=Ganga.GPIDev.Lib.Config.Config-module.html,Package Ganga.Utility.Config=Ganga.Utility.Config-module.html,Module Ganga.Utility.Config.Config=Ganga.Utility.Config.Config-module.html"><a title="Ganga.GPIDev.Lib.Config
+Ganga.GPIDev.Lib.Config.Config
+Ganga.Utility.Config
+Ganga.Utility.Config.Config" class="py-name" href="#" onclick="return doclink('link-2', 'Config', 'link-2');">Config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Function Ganga.Utility.Config.Config.makeConfig()=Ganga.Utility.Config.Config-module.html#makeConfig"><a title="Ganga.Utility.Config.Config.makeConfig" class="py-name" href="#" onclick="return doclink('link-3', 'makeConfig', 'link-3');">makeConfig</a></tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-4', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-5', 'Utility', 'link-1');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Ganga.GPIDev.Lib.Config
+Ganga.GPIDev.Lib.Config.Config
+Ganga.Utility.Config
+Ganga.Utility.Config.Config" class="py-name" href="#" onclick="return doclink('link-6', 'Config', 'link-2');">Config</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Ganga.GPIDev.Lib.Config
+Ganga.GPIDev.Lib.Config.Config
+Ganga.Utility.Config
+Ganga.Utility.Config.Config" class="py-name" href="#" onclick="return doclink('link-7', 'Config', 'link-2');">Config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Class Ganga.Utility.Config.Config.ConfigError=Ganga.Utility.Config.Config.ConfigError-class.html"><a title="Ganga.Utility.Config.Config.ConfigError" class="py-name" href="#" onclick="return doclink('link-8', 'ConfigError', 'link-8');">ConfigError</a></tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"># test configuration properties</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#config,Variable Ganga.GPIDev.Base.Filters.config=Ganga.GPIDev.Base.Filters-module.html#config,Variable Ganga.GPIDev.Lib.Config.Config.config=Ganga.GPIDev.Lib.Config.Config-module.html#config,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.config=Ganga.GPIDev.Lib.Registry.BoxRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.JobRegistry'.config=Ganga.GPIDev.Lib.Registry.JobRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.RegistrySlice.config=Ganga.GPIDev.Lib.Registry.RegistrySlice-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.config=Ganga.GPIDev.Lib.Tasks.ArgTransform-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Task'.config=Ganga.GPIDev.Lib.Tasks.Task%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.config=Ganga.GPIDev.Lib.Tasks.TaskApplication-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Transform'.config=Ganga.GPIDev.Lib.Tasks.Transform%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.common.config=Ganga.GPIDev.Lib.Tasks.common-module.html#config,Variable Ganga.GPIDev.Streamers.MigrationControl.config=Ganga.GPIDev.Streamers.MigrationControl-module.html#config,Variable Ganga.Lib.Batch.Batch'.LSF.config=Ganga.Lib.Batch.Batch%27.LSF-class.html#config,Variable Ganga.Lib.Batch.Batch'.PBS.config=Ganga.Lib.Batch.Batch%27.PBS-class.html#config,Variable Ganga.Lib.Batch.Batch'.SGE.config=Ganga.Lib.Batch.Batch%27.SGE-class.html#config,Variable Ganga.Lib.Batch.Batch'.config=Ganga.Lib.Batch.Batch%27-module.html#config,Variable Ganga.Lib.Batch.config=Ganga.Lib.Batch-module.html#config,Variable Ganga.Lib.Condor.CondorRequirements'.config=Ganga.Lib.Condor.CondorRequirements%27-module.html#config,Variable Ganga.Lib.Executable.Executable'.config=Ganga.Lib.Executable.Executable%27-module.html#config,Variable Ganga.Lib.Executable.config=Ganga.Lib.Executable-module.html#config,Variable Ganga.Lib.LCG.CREAM.config=Ganga.Lib.LCG.CREAM-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.config=Ganga.Lib.LCG.GridSimulator.GridSimulator-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.simulator.config=Ganga.Lib.LCG.GridSimulator.simulator-module.html#config,Variable Ganga.Lib.LCG.LCG.config=Ganga.Lib.LCG.LCG-module.html#config,Variable Ganga.Lib.Localhost.Localhost'.config=Ganga.Lib.Localhost.Localhost%27-module.html#config,Variable Ganga.Lib.Localhost.config=Ganga.Lib.Localhost-module.html#config,Variable Ganga.Lib.Mergers.Merger.config=Ganga.Lib.Mergers.Merger-module.html#config,Variable Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#config,Variable Ganga.Lib.Root.Root'.config=Ganga.Lib.Root.Root%27-module.html#config,Variable Ganga.Lib.Root.config=Ganga.Lib.Root-module.html#config,Variable Ganga.Runtime.AMGA_repository_runtime.config=Ganga.Runtime.AMGA_repository_runtime-module.html#config,Variable Ganga.Runtime.Repository_runtime.config=Ganga.Runtime.Repository_runtime-module.html#config,Variable Ganga.Runtime.XML_repository_runtime.config=Ganga.Runtime.XML_repository_runtime-module.html#config,Variable Ganga.Runtime.associations.config=Ganga.Runtime.associations-module.html#config,Variable Ganga.Runtime.spyware.config=Ganga.Runtime.spyware-module.html#config,Variable Ganga.Utility.Caching.config=Ganga.Utility.Caching-module.html#config,Module Ganga.Utility.external.logging.config=Ganga.Utility.external.logging.config-module.html,Variable Ganga.Utility.logging.config=Ganga.Utility.logging-module.html#config"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-9', 'config', 'link-9');">config</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="Ganga.Utility.Config.Config.makeConfig" class="py-name" href="#" onclick="return doclink('link-10', 'makeConfig', 'link-3');">makeConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'GPIComponentFilters'</tt><tt class="py-op">,</tt><tt class="py-string">"""Customization of GPI component object assignment</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-string">for each category there may be multiple filters registered, the one used being defined </tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-string">in the configuration file in [GPIComponentFilters]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-string">e.g: {'datasets':{'lhcbdatasets':lhcbFilter, 'testdatasets':testFilter}...}</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-string">"""</tt><tt class="py-op">,</tt><tt class="py-name">is_open</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="void_filter"></a><div id="void_filter-def"><a name="L39"></a><tt class="py-lineno"> 39</tt> <a class="py-toggle" href="#" id="void_filter-toggle" onclick="return toggle('void_filter');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Base.Filters-module.html#void_filter">void_filter</a><tt class="py-op">(</tt><tt class="py-param">val</tt><tt class="py-op">,</tt><tt class="py-param">item</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="void_filter-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="void_filter-expanded"><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="_ComponentFilterManager"></a><div id="_ComponentFilterManager-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="_ComponentFilterManager-toggle" onclick="return toggle('_ComponentFilterManager');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html">_ComponentFilterManager</a><tt class="py-op">:</tt> </tt>
+</div><div id="_ComponentFilterManager-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_ComponentFilterManager-expanded"><a name="_ComponentFilterManager.__init__"></a><div id="_ComponentFilterManager.__init__-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="_ComponentFilterManager.__init__-toggle" onclick="return toggle('_ComponentFilterManager.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_ComponentFilterManager.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="_ComponentFilterManager.__init__-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-comment">#for each category there may be multiple filters registered, the one used being defined </tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-comment">#in the configuration file in [GPIComponentFilters]</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-comment">#e.g: {'datasets':{'lhcbdatasets':lhcbFilter, 'testdatasets':testFilter}...}</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">default</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">         </tt>
+<a name="_ComponentFilterManager.__setitem__"></a><div id="_ComponentFilterManager.__setitem__-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="_ComponentFilterManager.__setitem__-toggle" onclick="return toggle('_ComponentFilterManager.__setitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html#__setitem__">__setitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">category</tt><tt class="py-op">,</tt><tt class="py-param">filter</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>         </tt>
+</div><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">         </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.has_key()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#has_key,Method Ganga.Utility.external.ordereddict.oDict.has_key()=Ganga.Utility.external.ordereddict.oDict-class.html#has_key"><a title="Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.has_key
+Ganga.Utility.external.ordereddict.oDict.has_key" class="py-name" href="#" onclick="return doclink('link-11', 'has_key', 'link-11');">has_key</a></tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Variable Ganga.GPIDev.Schema.Schema'.Schema.category=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#category"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-12', 'category', 'link-12');">category</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt><tt id="link-13" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-13', 'category', 'link-12');">category</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">         </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-comment">#the filter can be registered as a tuple: ('filtername',filterfunction)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-comment">#or just as a function in which case the function name is used as an alias</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name" targets="Method Ganga.Utility.external.logging.Filter.filter()=Ganga.Utility.external.logging.Filter-class.html#filter,Method Ganga.Utility.external.logging.Filterer.filter()=Ganga.Utility.external.logging.Filterer-class.html#filter"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-14', 'filter', 'link-14');">filter</a></tt><tt class="py-op">)</tt><tt class="py-op">==</tt><tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-15', 'filter', 'link-14');">filter</a></tt><tt class="py-op">)</tt><tt class="py-op">&gt;=</tt><tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-name">filtername</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-16', 'filter', 'link-14');">filter</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-name">filterfunc</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-17', 'filter', 'link-14');">filter</a></tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt>             </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-name">filtername</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-18', 'filter', 'link-14');">filter</a></tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-name">filterfunc</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-19', 'filter', 'link-14');">filter</a></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">,</tt><tt id="link-20" class="py-name" targets="Variable Ganga.Utility.AMGAServerTools.mdclient.e=Ganga.Utility.AMGAServerTools.mdclient-module.html#e,Variable Ganga.Utility.external.ARDAMDClient.mdclient.e=Ganga.Utility.external.ARDAMDClient.mdclient-module.html#e"><a title="Ganga.Utility.AMGAServerTools.mdclient.e
+Ganga.Utility.external.ARDAMDClient.mdclient.e" class="py-name" href="#" onclick="return doclink('link-20', 'e', 'link-20');">e</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'FilterManager: Invalid component filter %s.'</tt><tt class="py-op">%</tt><tt id="link-21" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-21', 'filter', 'link-14');">filter</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">         </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt><tt id="link-22" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-22', 'category', 'link-12');">category</a></tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.has_key
+Ganga.Utility.external.ordereddict.oDict.has_key" class="py-name" href="#" onclick="return doclink('link-23', 'has_key', 'link-11');">has_key</a></tt><tt class="py-op">(</tt><tt class="py-name">filtername</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'FilterManager: %s component filter already exists for %s category '</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">filtername</tt><tt class="py-op">,</tt><tt id="link-24" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-24', 'category', 'link-12');">category</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-25" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-25', 'config', 'link-9');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">options</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.has_key
+Ganga.Utility.external.ordereddict.oDict.has_key" class="py-name" href="#" onclick="return doclink('link-26', 'has_key', 'link-11');">has_key</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-27', 'category', 'link-12');">category</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt id="link-28" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-28', 'config', 'link-9');">config</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method Ganga.Utility.Config.Config.PackageConfig.addOption()=Ganga.Utility.Config.Config.PackageConfig-class.html#addOption"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-29', 'addOption', 'link-29');">addOption</a></tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-30', 'category', 'link-12');">category</a></tt><tt class="py-op">,</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-string">""</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt id="link-31" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-31', 'config', 'link-9');">config</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method Ganga.Utility.Config.Config.ConfigOption.overrideDefaultValue()=Ganga.Utility.Config.Config.ConfigOption-class.html#overrideDefaultValue,Method Ganga.Utility.Config.Config.PackageConfig.overrideDefaultValue()=Ganga.Utility.Config.Config.PackageConfig-class.html#overrideDefaultValue"><a title="Ganga.Utility.Config.Config.ConfigOption.overrideDefaultValue
+Ganga.Utility.Config.Config.PackageConfig.overrideDefaultValue" class="py-name" href="#" onclick="return doclink('link-32', 'overrideDefaultValue', 'link-32');">overrideDefaultValue</a></tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-33', 'category', 'link-12');">category</a></tt><tt class="py-op">,</tt><tt class="py-name">filtername</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt><tt id="link-34" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-34', 'category', 'link-12');">category</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">filtername</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">filterfunc</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="_ComponentFilterManager.setDefault"></a><div id="_ComponentFilterManager.setDefault-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="_ComponentFilterManager.setDefault-toggle" onclick="return toggle('_ComponentFilterManager.setDefault');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html#setDefault">setDefault</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">filter</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_ComponentFilterManager.setDefault-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="_ComponentFilterManager.setDefault-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">default</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'FilterManager: default filter already exists'</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">default</tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-35', 'filter', 'link-14');">filter</a></tt> </tt>
+</div><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="_ComponentFilterManager.__getitem__"></a><div id="_ComponentFilterManager.__getitem__-def"><a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="_ComponentFilterManager.__getitem__-toggle" onclick="return toggle('_ComponentFilterManager.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">category</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_ComponentFilterManager.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="_ComponentFilterManager.__getitem__-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">filters</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_dict</tt><tt class="py-op">[</tt><tt id="link-36" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-36', 'category', 'link-12');">category</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-comment">#no filters registered for this category</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">default</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">default</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-37" class="py-name" targets="Function Ganga.GPIDev.Base.Filters.void_filter()=Ganga.GPIDev.Base.Filters-module.html#void_filter"><a title="Ganga.GPIDev.Base.Filters.void_filter" class="py-name" href="#" onclick="return doclink('link-37', 'void_filter', 'link-37');">void_filter</a></tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">         </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">filtername</tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-38', 'config', 'link-9');">config</a></tt><tt class="py-op">[</tt><tt id="link-39" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-39', 'category', 'link-12');">category</a></tt><tt class="py-op">]</tt>             </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">filters</tt><tt class="py-op">[</tt><tt class="py-name">filtername</tt><tt class="py-op">]</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-40" class="py-name"><a title="Ganga.Utility.Config.Config.ConfigError" class="py-name" href="#" onclick="return doclink('link-40', 'ConfigError', 'link-8');">ConfigError</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-comment">#if we have only one filter registered for this category we use it</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">filters</tt><tt class="py-op">)</tt><tt class="py-op">==</tt><tt class="py-number">1</tt><tt class="py-op">:</tt>  </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">filters</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.values()=Ganga.Core.GangaRepository.Registry.Registry-class.html#values,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.values=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter._proxyClass-class.html#values,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.values=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#values,Method Ganga.Utility.external.ordereddict.oDict.values()=Ganga.Utility.external.ordereddict.oDict-class.html#values"><a title="Ganga.Core.GangaRepository.Registry.Registry.values
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.values
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.values
+Ganga.Utility.external.ordereddict.oDict.values" class="py-name" href="#" onclick="return doclink('link-41', 'values', 'link-41');">values</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-comment">#ambiguity</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'FilterManager: Multiple filters detected for %s category: %s, '</tt>\ </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                                 <tt class="py-string">'but no one has be set as default in [GPIComponentFilters] section of the configuration file'</tt>  </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                                 <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-42', 'category', 'link-12');">category</a></tt><tt class="py-op">,</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">filters</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.keys()=Ganga.Core.GangaRepository.Registry.Registry-class.html#keys,Method Ganga.Utility.external.ordereddict.oDict.keys()=Ganga.Utility.external.ordereddict.oDict-class.html#keys"><a title="Ganga.Core.GangaRepository.Registry.Registry.keys
+Ganga.Utility.external.ordereddict.oDict.keys" class="py-name" href="#" onclick="return doclink('link-43', 'keys', 'link-43');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-comment">#wrong filter name in configuration for this category</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'FilterManager: %s filter is not registered for %s category.'</tt>\ </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                             <tt class="py-string">'Check your [GPIComponentFilters] section of the configuration file'</tt>  </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                             <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">filtername</tt><tt class="py-op">,</tt><tt id="link-44" class="py-name"><a title="Ganga.GPIDev.Schema.Schema'.Schema.category" class="py-name" href="#" onclick="return doclink('link-44', 'category', 'link-12');">category</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">         </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-comment"># all filters register here...</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt id="link-45" class="py-name" targets="Variable Ganga.GPIDev.Base.Filters.allComponentFilters=Ganga.GPIDev.Base.Filters-module.html#allComponentFilters,Variable Ganga.GPIDev.Lib.File.File'.allComponentFilters=Ganga.GPIDev.Lib.File.File%27-module.html#allComponentFilters,Variable Ganga.GPIDev.Lib.GangaList.GangaList'.allComponentFilters=Ganga.GPIDev.Lib.GangaList.GangaList%27-module.html#allComponentFilters"><a title="Ganga.GPIDev.Base.Filters.allComponentFilters
+Ganga.GPIDev.Lib.File.File'.allComponentFilters
+Ganga.GPIDev.Lib.GangaList.GangaList'.allComponentFilters" class="py-name" href="#" onclick="return doclink('link-45', 'allComponentFilters', 'link-45');">allComponentFilters</a></tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name" targets="Class Ganga.GPIDev.Base.Filters._ComponentFilterManager=Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html"><a title="Ganga.GPIDev.Base.Filters._ComponentFilterManager" class="py-name" href="#" onclick="return doclink('link-46', '_ComponentFilterManager', 'link-46');">_ComponentFilterManager</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:26 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

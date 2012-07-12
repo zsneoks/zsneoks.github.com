@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.Config</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        Package&nbsp;Config
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.Config-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.Config-module.html">Package Ganga.Utility.Config</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Ganga.GPIDev.Lib.Config=Ganga.GPIDev.Lib.Config-module.html,Module Ganga.GPIDev.Lib.Config.Config=Ganga.GPIDev.Lib.Config.Config-module.html,Package Ganga.Utility.Config=Ganga.Utility.Config-module.html,Module Ganga.Utility.Config.Config=Ganga.Utility.Config.Config-module.html"><a title="Ganga.GPIDev.Lib.Config
+Ganga.GPIDev.Lib.Config.Config
+Ganga.Utility.Config
+Ganga.Utility.Config.Config" class="py-name" href="#" onclick="return doclink('link-0', 'Config', 'link-0');">Config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Static Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getConfig,Static Method Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig()=Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS-class.html#getConfig,Static Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#getConfig,Function Ganga.Utility.Config.Config.getConfig()=Ganga.Utility.Config.Config-module.html#getConfig"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-1', 'getConfig', 'link-1');">getConfig</a></tt><tt class="py-op">,</tt><tt id="link-2" class="py-name" targets="Function Ganga.Utility.Config.Config.makeConfig()=Ganga.Utility.Config.Config-module.html#makeConfig"><a title="Ganga.Utility.Config.Config.makeConfig" class="py-name" href="#" onclick="return doclink('link-2', 'makeConfig', 'link-2');">makeConfig</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Class Ganga.Utility.Config.Config.ConfigError=Ganga.Utility.Config.Config.ConfigError-class.html"><a title="Ganga.Utility.Config.Config.ConfigError" class="py-name" href="#" onclick="return doclink('link-3', 'ConfigError', 'link-3');">ConfigError</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Method Ganga.GPIDev.Adapters.IApplication.IApplication.configure()=Ganga.GPIDev.Adapters.IApplication.IApplication-class.html#configure,Method Ganga.Lib.Executable.Executable'.Executable.configure()=Ganga.Lib.Executable.Executable%27.Executable-class.html#configure,Method Ganga.Lib.Root.Root'.Root.configure()=Ganga.Lib.Root.Root%27.Root-class.html#configure,Method Ganga.Runtime.bootstrap.GangaProgram.configure()=Ganga.Runtime.bootstrap.GangaProgram-class.html#configure,Function Ganga.Utility.Config.Config.configure()=Ganga.Utility.Config.Config-module.html#configure"><a title="Ganga.GPIDev.Adapters.IApplication.IApplication.configure
+Ganga.Lib.Executable.Executable'.Executable.configure
+Ganga.Lib.Root.Root'.Root.configure
+Ganga.Runtime.bootstrap.GangaProgram.configure
+Ganga.Utility.Config.Config.configure" class="py-name" href="#" onclick="return doclink('link-4', 'configure', 'link-4');">configure</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Variable Ganga.Utility.Config.Config.allConfigs=Ganga.Utility.Config.Config-module.html#allConfigs"><a title="Ganga.Utility.Config.Config.allConfigs" class="py-name" href="#" onclick="return doclink('link-5', 'allConfigs', 'link-5');">allConfigs</a></tt><tt class="py-op">,</tt><tt id="link-6" class="py-name" targets="Function Ganga.Utility.Config.Config.setConfigOption()=Ganga.Utility.Config.Config-module.html#setConfigOption"><a title="Ganga.Utility.Config.Config.setConfigOption" class="py-name" href="#" onclick="return doclink('link-6', 'setConfigOption', 'link-6');">setConfigOption</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Function Ganga.Utility.Config.Config.expandConfigPath()=Ganga.Utility.Config.Config-module.html#expandConfigPath"><a title="Ganga.Utility.Config.Config.expandConfigPath" class="py-name" href="#" onclick="return doclink('link-7', 'expandConfigPath', 'link-7');">expandConfigPath</a></tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Variable Ganga.Utility.Config.Config.config_scope=Ganga.Utility.Config.Config-module.html#config_scope"><a title="Ganga.Utility.Config.Config.config_scope" class="py-name" href="#" onclick="return doclink('link-8', 'config_scope', 'link-8');">config_scope</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Method Ganga.Utility.Config.Config.ConfigOption.setSessionValue()=Ganga.Utility.Config.Config.ConfigOption-class.html#setSessionValue,Method Ganga.Utility.Config.Config.PackageConfig.setSessionValue()=Ganga.Utility.Config.Config.PackageConfig-class.html#setSessionValue,Function Ganga.Utility.Config.Config.setSessionValue()=Ganga.Utility.Config.Config-module.html#setSessionValue"><a title="Ganga.Utility.Config.Config.ConfigOption.setSessionValue
+Ganga.Utility.Config.Config.PackageConfig.setSessionValue
+Ganga.Utility.Config.Config.setSessionValue" class="py-name" href="#" onclick="return doclink('link-9', 'setSessionValue', 'link-9');">setSessionValue</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Function Ganga.Utility.Config.Config.getFlavour()=Ganga.Utility.Config.Config-module.html#getFlavour"><a title="Ganga.Utility.Config.Config.getFlavour" class="py-name" href="#" onclick="return doclink('link-10', 'getFlavour', 'link-10');">getFlavour</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">## from Config import getConfigDict</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># here are some useful option filters </tt> </tt>
+<a name="expandvars"></a><div id="expandvars-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="expandvars-toggle" onclick="return toggle('expandvars');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.Config-module.html#expandvars">expandvars</a><tt class="py-op">(</tt><tt class="py-param">c</tt><tt class="py-op">,</tt><tt class="py-param">v</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="expandvars-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="expandvars-expanded"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">    <tt class="py-docstring">"""The ~ and $VARS are automatically expanded. """</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expandvars</tt><tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="expandgangasystemvars"></a><div id="expandgangasystemvars-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="expandgangasystemvars-toggle" onclick="return toggle('expandgangasystemvars');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.Config-module.html#expandgangasystemvars">expandgangasystemvars</a><tt class="py-op">(</tt><tt class="py-param">c</tt><tt class="py-op">,</tt> <tt class="py-param">v</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="expandgangasystemvars-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="expandgangasystemvars-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt class="py-docstring">"""Expands vars with the syntax '@{VAR}' from the System config item."""</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Method Ganga.Utility.Shell.Shell.system()=Ganga.Utility.Shell.Shell-class.html#system"><a title="Ganga.Utility.Shell.Shell.system" class="py-name" href="#" onclick="return doclink('link-11', 'system', 'link-11');">system</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-12', 'getConfig', 'link-1');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'System'</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-13" class="py-name" targets="Method Ganga.Utility.Caching.Cache.key()=Ganga.Utility.Caching.Cache-class.html#key"><a title="Ganga.Utility.Caching.Cache.key" class="py-name" href="#" onclick="return doclink('link-13', 'key', 'link-13');">key</a></tt> <tt class="py-keyword">in</tt> <tt id="link-14" class="py-name"><a title="Ganga.Utility.Shell.Shell.system" class="py-name" href="#" onclick="return doclink('link-14', 'system', 'link-11');">system</a></tt><tt class="py-op">.</tt><tt class="py-name">options</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Ganga.Utility.external.ordereddict.oDict.iterkeys()=Ganga.Utility.external.ordereddict.oDict-class.html#iterkeys"><a title="Ganga.Utility.external.ordereddict.oDict.iterkeys" class="py-name" href="#" onclick="return doclink('link-15', 'iterkeys', 'link-15');">iterkeys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-name">option</tt> <tt class="py-op">=</tt> <tt class="py-string">'@{%s}'</tt> <tt class="py-op">%</tt> <tt id="link-16" class="py-name"><a title="Ganga.Utility.Caching.Cache.key" class="py-name" href="#" onclick="return doclink('link-16', 'key', 'link-13');">key</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">option</tt> <tt class="py-keyword">in</tt> <tt class="py-name">v</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">            <tt class="py-name">v</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-name">option</tt><tt class="py-op">,</tt><tt id="link-17" class="py-name"><a title="Ganga.Utility.Shell.Shell.system" class="py-name" href="#" onclick="return doclink('link-17', 'system', 'link-11');">system</a></tt><tt class="py-op">[</tt><tt id="link-18" class="py-name"><a title="Ganga.Utility.Caching.Cache.key" class="py-name" href="#" onclick="return doclink('link-18', 'key', 'link-13');">key</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">v</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:37 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

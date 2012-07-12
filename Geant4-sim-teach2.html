@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Geant4模拟总结（二）</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="zsneoks.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="木大 Atom Feed" />
+        
+        <link href="zsneoks.github.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="木大 RSS Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+        <header id="banner" class="body">
+                <h1><a href=".">木大 </a></h1>
+                <nav><ul>
+                
+                
+                
+                
+                
+                    <li ><a href="./category/Ganga.html">Ganga</a></li>
+                
+                    <li ><a href="./category/linux.html">linux</a></li>
+                
+                    <li ><a href="./category/关于.html">关于</a></li>
+                
+                    <li ><a href="./category/测试.html">测试</a></li>
+                
+                    <li class="active"><a href="./category/物理.html">物理</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="Geant4-sim-teach2.html" rel="bookmark"
+           title="Permalink to Geant4模拟总结（二）">Geant4模拟总结（二）</a></h1>
+      
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2011-08-02T00:00:00">
+                二 02 八月 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href="./category/物理.html">物理</a>. </p>
+<p>tags: <a href="./tag/geant4.html">geant4</a><a href="./tag/模拟.html">模拟</a></p>
+
+
+</footer><!-- /.post-info -->
+      <p>今天要讲的主要是DetectorConstructor的编写。</p>
+<p>首先介绍下神马是DetectorConstructor。我们知道唱戏先得搭台子。创建编写DetectorConstructor类就是为模拟搭戏台舞台。比如你要模拟中子穿过晶体的过程。那么你首先得摆一块晶体。要摆一块晶体，除非你已经有一块形状尺寸材料都很理想的晶体了，然后你可以把它摆到某一个位置，放到位置后还可以再转一转方向什么的。否则，你就得自己去定义一块晶体出来，就像上边提到的，定义出晶体的材料、形状、尺寸。然后你就可以把这块晶体放到你想放置的位置了。</p>
+<p><strong>首先</strong>，定义材料。比如你想用的材料是纯CsI材料。你要先定义Cs原子和I原子。你可以像这样来定义：</p>
+<div class="codehilite"><pre><span class="n">G4Element</span><span class="o">*</span> <span class="n">elementCs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4Element</span><span class="p">(</span> <span class="s">&quot;Cesium&quot;</span><span class="p">,</span> <span class="s">&quot;Cs&quot;</span><span class="p">,</span> <span class="mi">55</span><span class="o">.</span> <span class="p">,</span> <span class="mf">132.90543</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">mole</span> <span class="p">);</span>
+<span class="n">G4Element</span><span class="o">*</span> <span class="n">elementI</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4Element</span><span class="p">(</span> <span class="s">&quot;Iodine&quot;</span><span class="p">,</span> <span class="s">&quot;I&quot;</span><span class="p">,</span> <span class="mi">53</span><span class="o">.</span> <span class="p">,</span> <span class="mf">126.90447</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">mole</span> <span class="p">);</span>
+</pre></div>
+
+
+<p>我们知道，上边的c++代码的语义是：第一行，创建一个指针elementCs，指向一个G4Element类的对象，并初始化该对象。构造函数中使用了四个参数，前两个字符串是该对象代表的原子的名称和简写。第三个参数是该原子的原子充数A，第四个是该原子的摩尔质量。这样，第一行就定义了Cs原子。同样的方法第二行代码定义了I原子。
+之后，我们就可以用定义好的两种原子来定义纯CsI这种材料。代码：</p>
+<div class="codehilite"><pre><span class="n">G4Material</span><span class="o">*</span> <span class="n">CsI</span> <span class="o">=</span> 
+    <span class="k">new</span> <span class="n">G4Material</span><span class="p">(</span><span class="s">&quot;CsI&quot;</span><span class="p">,</span><span class="mf">4.51</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">cm3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">kStateUndefined</span><span class="p">,</span> <span class="mf">273.15</span><span class="o">*</span><span class="n">kelvin</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">atmosphere</span><span class="p">);</span>
+<span class="n">CsI</span><span class="o">-&gt;</span><span class="n">AddElement</span><span class="p">(</span> <span class="n">elementI</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+<span class="n">CsI</span><span class="o">-&gt;</span><span class="n">AddElement</span><span class="p">(</span> <span class="n">elementCs</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+</pre></div>
+
+
+<p>第一行代码，创建一个指针CsI，指向一个G4Material类的对象，并用一些参数来初始化该对象。构造函数中使用了六个参数。分别是名称、密度、几种成份（在这里是表示有两种原子）、状态（气态、液态、未定义等）、温度、压强。其中状态定义为未定，则Geant4可自行通过密度压强以及温度等参数计算其状态。后两行代码则表示这种材料的两种成份是什么。这里说明是前边我们定义的elementI和elementCs，并且原子个数比例是1：1。</p>
+<p>经过这两段代码我们就定义出来可以后边使用的取名为CsI的材料。我们后边可以使用CsI这个指针来调用这种材料。</p>
+<p>然后，我们还要定义晶体的尺寸和形状。比如我们要定义成立方体。立方体的类是G4Box。我们先用下边一行代码定义一个边长2.5cm的立方体。</p>
+<div class="codehilite"><pre><span class="n">G4Box</span><span class="o">*</span>  <span class="n">solidCsI_log</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4Box</span><span class="p">(</span><span class="s">&quot;solidCsI_log&quot;</span><span class="p">,</span><span class="mf">1.25</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">1.25</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span> <span class="mf">1.25</span><span class="o">*</span><span class="n">cm</span> <span class="p">);</span>
+</pre></div>
+
+
+<p>上边代码的四个参数分别是名称和立方体的半长、半高、半宽（对应x、y、z三个坐标）。</p>
+<p>之后，我们把材料和形状合在一起，合成一个包含材料和形状信息的CsI晶体实体，我们叫它几何体(或者LogicalVolume)。代码：</p>
+<div class="codehilite"><pre><span class="n">G4LogicalVolume</span> <span class="o">*</span> <span class="n">CsI_log</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4LogicalVolume</span><span class="p">(</span><span class="n">solidCsI_log</span><span class="p">,</span>   <span class="sr">//i</span><span class="n">ts</span> <span class="n">shape</span>
+        <span class="n">CsI</span><span class="p">,</span>        <span class="sr">//i</span><span class="n">ts</span>  <span class="n">materical</span>
+        <span class="s">&quot;CsI_log&quot;</span> <span class="p">,</span> <span class="sr">//i</span><span class="n">ts</span> <span class="n">name</span>
+        <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>     <span class="sr">//</span><span class="n">position</span> <span class="n">in</span> <span class="n">self</span> <span class="n">coordinate</span> <span class="nb">system</span>
+</pre></div>
+
+
+<p>这样，CsI_log就已经是我们定义好的一块完整的晶体了。我们现在用下边的代码把它摆放到世界中:   <br />
+</p>
+<div class="codehilite"><pre><span class="n">G4PhysicalVolume</span><span class="o">*</span> <span class="n">CsI_phy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4PVPlacement</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">G4ThreeVector</span><span class="p">(</span><span class="mf">0.0</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span><span class="mf">0.0</span><span class="o">*</span><span class="n">cm</span><span class="p">,</span><span class="mf">0.0</span><span class="o">*</span><span class="n">cm</span><span class="p">),</span>
+        <span class="n">CsI_log</span><span class="p">,</span>         <span class="sr">//i</span><span class="n">ts</span> <span class="n">logical</span> <span class="n">volume</span>
+        <span class="s">&quot;CsI_phy&quot;</span><span class="p">,</span>      <span class="sr">//i</span><span class="n">ts</span> <span class="n">name</span>    
+        <span class="n">World_log</span><span class="p">,</span>      <span class="sr">//i</span><span class="n">ts</span> <span class="n">mother</span> <span class="n">volume</span>
+        <span class="n">false</span><span class="p">,</span>          <span class="sr">//</span><span class="nb">no</span> <span class="n">boolean</span> <span class="n">operation</span>
+        <span class="mi">0</span><span class="p">);</span>             <span class="sr">//co</span><span class="n">py</span> <span class="n">number</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "Geant4-sim-teach2.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://zsneoks.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+
+  </article>
+</section>
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                        
+                            <li><a href="http://python.org">Python.org</a></li>
+                        
+                            <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="zsneoks.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+                            <li><a href="zsneoks.github.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/zsneoks">twitter</a></li>
+                        
+                            <li><a href="http://lastfm.com/user/zsneoks">lastfm</a></li>
+                        
+                            <li><a href="http://github.com/zsneoks">github</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32881388-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'zsneoks';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>

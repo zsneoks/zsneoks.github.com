@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Core.JobRepository.Base</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Core-module.html">Package&nbsp;Core</a> ::
+        <a href="Ganga.Core.JobRepository-module.html">Package&nbsp;JobRepository</a> ::
+        Module&nbsp;Base
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Core.JobRepository.Base-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Core.JobRepository.Base-module.html">Module Ganga.Core.JobRepository.Base</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># $Id: Base.py,v 1.1 2008-07-17 16:40:50 moscicki Exp $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository"></a><div id="JobRepository-def"><a name="L7"></a><tt class="py-lineno">  7</tt> <a class="py-toggle" href="#" id="JobRepository-toggle" onclick="return toggle('JobRepository');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html">JobRepository</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="JobRepository-expanded"><a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">    <tt class="py-docstring">"""JobRepository class is an interface for developers, that need to access</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">    jobs/job attributes stored in the database.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">    Implementation details are given in the derived class.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.__init__"></a><div id="JobRepository.__init__-def"><a name="L13"></a><tt class="py-lineno"> 13</tt> <a class="py-toggle" href="#" id="JobRepository.__init__-toggle" onclick="return toggle('JobRepository.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">schema</tt><tt class="py-op">,</tt> <tt class="py-param">role</tt><tt class="py-op">,</tt> <tt class="py-param">streamer</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">tree_streamer</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.__init__-expanded"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">        <tt class="py-docstring">"""schema is a subset of job schema. It should be list of tuples</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">        (attr, dbtype), where attr is a name of attribute, and dbtype is</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">        database specific type.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">        role can be 'Client' or 'JobManager'. 'Client' can only modify job</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">        status of 'new' jobs</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">        streamer is an object which converts job dictionary into a string and</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">        vice versa.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">        tree_streamer is an object which converts jobtree into a string and</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        vice versa.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable Ganga.Core.JobRepository.ARDA.schema=Ganga.Core.JobRepository.ARDA-module.html#schema"><a title="Ganga.Core.JobRepository.ARDA.schema" class="py-name" href="#" onclick="return doclink('link-0', 'schema', 'link-0');">schema</a></tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name"><a title="Ganga.Core.JobRepository.ARDA.schema" class="py-name" href="#" onclick="return doclink('link-1', 'schema', 'link-0');">schema</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt class="py-name">role</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'Client'</tt><tt class="py-op">,</tt> <tt class="py-string">'JobManager'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_role</tt> <tt class="py-op">=</tt> <tt class="py-name">role</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_streamer</tt> <tt class="py-op">=</tt> <tt class="py-name">streamer</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_tree_streamer</tt> <tt class="py-op">=</tt> <tt class="py-name">tree_streamer</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-2', 'Ganga', 'link-2');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-3', 'Utility', 'link-3');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module Ganga.Utility.external.ARDAMDClient.guid=Ganga.Utility.external.ARDAMDClient.guid-module.html,Module Ganga.Utility.guid=Ganga.Utility.guid-module.html"><a title="Ganga.Utility.external.ARDAMDClient.guid
+Ganga.Utility.guid" class="py-name" href="#" onclick="return doclink('link-4', 'guid', 'link-4');">guid</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Function Ganga.Utility.external.ARDAMDClient.diskutils.newGuid()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#newGuid,Function Ganga.Utility.external.ARDAMDClient.guid.newGuid()=Ganga.Utility.external.ARDAMDClient.guid-module.html#newGuid,Function Ganga.Utility.guid.newGuid()=Ganga.Utility.guid-module.html#newGuid"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.newGuid
+Ganga.Utility.external.ARDAMDClient.guid.newGuid
+Ganga.Utility.guid.newGuid" class="py-name" href="#" onclick="return doclink('link-5', 'newGuid', 'link-5');">newGuid</a></tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.guid
+Ganga.Utility.guid" class="py-name" href="#" onclick="return doclink('link-6', 'guid', 'link-4');">guid</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.newGuid
+Ganga.Utility.external.ARDAMDClient.guid.newGuid
+Ganga.Utility.guid.newGuid" class="py-name" href="#" onclick="return doclink('link-7', 'newGuid', 'link-5');">newGuid</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository._getStreamFromJob"></a><div id="JobRepository._getStreamFromJob-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="JobRepository._getStreamFromJob-toggle" onclick="return toggle('JobRepository._getStreamFromJob');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#_getStreamFromJob">_getStreamFromJob</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">job</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository._getStreamFromJob-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository._getStreamFromJob-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_streamer</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_streamer</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method Ganga.GPIDev.Streamers.PickleStreamer.PickleJobStreamer.getStreamFromJob()=Ganga.GPIDev.Streamers.PickleStreamer.PickleJobStreamer-class.html#getStreamFromJob,Method Ganga.GPIDev.Streamers.SimpleStreamer.SimpleJobStreamer.getStreamFromJob()=Ganga.GPIDev.Streamers.SimpleStreamer.SimpleJobStreamer-class.html#getStreamFromJob"><a title="Ganga.GPIDev.Streamers.PickleStreamer.PickleJobStreamer.getStreamFromJob
+Ganga.GPIDev.Streamers.SimpleStreamer.SimpleJobStreamer.getStreamFromJob" class="py-name" href="#" onclick="return doclink('link-8', 'getStreamFromJob', 'link-8');">getStreamFromJob</a></tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository._getJobFromStream"></a><div id="JobRepository._getJobFromStream-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="JobRepository._getJobFromStream-toggle" onclick="return toggle('JobRepository._getJobFromStream');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#_getJobFromStream">_getJobFromStream</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">stream</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository._getJobFromStream-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository._getJobFromStream-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_streamer</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_streamer</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method Ganga.GPIDev.Streamers.PickleStreamer.PickleJobStreamer.getJobFromStream()=Ganga.GPIDev.Streamers.PickleStreamer.PickleJobStreamer-class.html#getJobFromStream,Method Ganga.GPIDev.Streamers.SimpleStreamer.SimpleJobStreamer.getJobFromStream()=Ganga.GPIDev.Streamers.SimpleStreamer.SimpleJobStreamer-class.html#getJobFromStream"><a title="Ganga.GPIDev.Streamers.PickleStreamer.PickleJobStreamer.getJobFromStream
+Ganga.GPIDev.Streamers.SimpleStreamer.SimpleJobStreamer.getJobFromStream" class="py-name" href="#" onclick="return doclink('link-9', 'getJobFromStream', 'link-9');">getJobFromStream</a></tt><tt class="py-op">(</tt><tt class="py-name">stream</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">         </tt>
+<a name="JobRepository.registerJobs"></a><div id="JobRepository.registerJobs-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="JobRepository.registerJobs-toggle" onclick="return toggle('JobRepository.registerJobs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#registerJobs">registerJobs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">jobs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.registerJobs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.registerJobs-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-docstring">"""registerJobs(self, jobs) --&gt; None</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        jobs -- list of jobs to register</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.commitJobs"></a><div id="JobRepository.commitJobs-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="JobRepository.commitJobs-toggle" onclick="return toggle('JobRepository.commitJobs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#commitJobs">commitJobs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">jobs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.commitJobs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.commitJobs-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-docstring">"""commitJobs(self, jobs) --&gt; None</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">        jobs -- list of jobs to commit</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">        jobs must already be registered </tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.checkoutJobs"></a><div id="JobRepository.checkoutJobs-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="JobRepository.checkoutJobs-toggle" onclick="return toggle('JobRepository.checkoutJobs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#checkoutJobs">checkoutJobs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ids_or_attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.checkoutJobs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.checkoutJobs-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-docstring">"""checkoutJobs(self, ids_or_attributes) --&gt; list of jobs</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        ids_or_attributes -- list of job ids</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        or dictionary of job attributes saved</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        in the DB as metadata. Example of attributes:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">        attributes = {'status':'submitted', 'application':'DaVinci'}</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.deleteJobs"></a><div id="JobRepository.deleteJobs-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="JobRepository.deleteJobs-toggle" onclick="return toggle('JobRepository.deleteJobs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#deleteJobs">deleteJobs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ids</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.deleteJobs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.deleteJobs-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-docstring">"""deleteJob(self, ids) --&gt; None</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        ids -- list of job ids</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.getJobIds"></a><div id="JobRepository.getJobIds-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="JobRepository.getJobIds-toggle" onclick="return toggle('JobRepository.getJobIds');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#getJobIds">getJobIds</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ids_or_attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.getJobIds-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.getJobIds-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-docstring">"""getJobIds(self, ids_or_attributes) --&gt; list of ids for the jobs having</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        specified attributes.</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">        ids_or_attributes -- list of job ids</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        or dictionary of job attributes saved</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        in the DB as metadata. Example of attributes:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        attributes = {'status':'submitted', 'application':'DaVinci'}</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">         </tt>
+<a name="JobRepository.getJobAttributes"></a><div id="JobRepository.getJobAttributes-def"><a name="L86"></a><tt class="py-lineno"> 86</tt> <a class="py-toggle" href="#" id="JobRepository.getJobAttributes-toggle" onclick="return toggle('JobRepository.getJobAttributes');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#getJobAttributes">getJobAttributes</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ids_or_attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.getJobAttributes-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.getJobAttributes-expanded"><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-docstring">"""getJobAttributes(self, ids_or_attributes) --&gt; list of dictionaries with </tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">        job metadata stored in the registry.</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        ids_or_attributes -- list of job ids</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        or dictionary of job attributes saved</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">        in the DB as metadata. Example of attributes:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        attributes = {'status':'submitted', 'application':'DaVinci'}</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">     </tt>
+<a name="JobRepository.setJobsStatus"></a><div id="JobRepository.setJobsStatus-def"><a name="L97"></a><tt class="py-lineno"> 97</tt> <a class="py-toggle" href="#" id="JobRepository.setJobsStatus-toggle" onclick="return toggle('JobRepository.setJobsStatus');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#setJobsStatus">setJobsStatus</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">statusList</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.setJobsStatus-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.setJobsStatus-expanded"><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-docstring">"""setJobsStatus(self, statusList) --&gt; None</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">        statusList -- list of tuples (&lt;jobId&gt;, &lt;status&gt;)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">        Supposed to be used by JobManager</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.getJobsStatus"></a><div id="JobRepository.getJobsStatus-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="JobRepository.getJobsStatus-toggle" onclick="return toggle('JobRepository.getJobsStatus');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#getJobsStatus">getJobsStatus</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ids_or_attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.getJobsStatus-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.getJobsStatus-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-docstring">"""getJobsStatus(self, ids_or_attributes) --&gt; list of tuples, indicating </tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">        jobid and job status: (id, status).</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">        ids_or_attributes -- list of job ids</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        or dictionary of job attributes saved</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">        in the DB as metadata. Example of attributes:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">        attributes = {'application':'DaVinci'}        </tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.getJobTree"></a><div id="JobRepository.getJobTree-def"><a name="L116"></a><tt class="py-lineno">116</tt> <a class="py-toggle" href="#" id="JobRepository.getJobTree-toggle" onclick="return toggle('JobRepository.getJobTree');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#getJobTree">getJobTree</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tree_id</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.getJobTree-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.getJobTree-expanded"><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-docstring">"""getJobTree(self, tree_id = 0) --&gt; jobtree object.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError.</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">        tree_id - id of jobtree in registry. Can be used to support back up"""</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"> </tt>
+<a name="JobRepository.setJobTree"></a><div id="JobRepository.setJobTree-def"><a name="L122"></a><tt class="py-lineno">122</tt> <a class="py-toggle" href="#" id="JobRepository.setJobTree-toggle" onclick="return toggle('JobRepository.setJobTree');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.JobRepository.Base.JobRepository-class.html#setJobTree">setJobTree</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">jobtree</tt><tt class="py-op">,</tt> <tt class="py-param">tree_id</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobRepository.setJobTree-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="JobRepository.setJobTree-expanded"><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-docstring">"""setJobTree(self, jobtree, tree_id = 0) --&gt; None.</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        throws RepositoryError.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">        Registers and/or modifies jobtree object in the repository.</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        jobtree - jobtree object</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">        tree_id - id of jobtree in registry. Can be used to support back up"""</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+</div></div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:32 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>木大</title><link>zsneoks.github.com/</link><description></description><atom:link href="zsneoks.github.com/feeds/%E6%B5%8B%E8%AF%95.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 24 Jun 2012 00:00:00 +0800</lastBuildDate><item><title>new test</title><link>zsneoks.github.com/new-test.html</link><description>&lt;p&gt;Just a new test&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Sun, 24 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-24:new-test.html</guid><category>test</category></item><item><title>测试snip</title><link>zsneoks.github.com/testsnip-htmlname.html</link><description>&lt;p&gt;test test 
+test test 
+test test 
+test test 
+test test 
+test test 
+test test 
+test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;
+&lt;p&gt;test test &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Sun, 24 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-24:testsnip-htmlname.html</guid><category>test</category><category></category></item><item><title>庆祝终端与fcitx相安无事</title><link>zsneoks.github.com/terminal-fcitx.html</link><description>&lt;p&gt;如题。此帖专为庆祝fcitx终于不再与gtk3打架了。以后可以相安无事了。&lt;/p&gt;
+&lt;p&gt;休息！~&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Mon, 22 Aug 2011 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2011-08-22:terminal-fcitx.html</guid><category>linux</category><category>fcitx</category></item><item><title>test</title><link>zsneoks.github.com/test2.html</link><description>&lt;p&gt;\ \ \ \ 测试段首空格。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Fri, 29 Jul 2011 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2011-07-29:test2.html</guid><category>test</category></item><item><title>代码高亮测试</title><link>zsneoks.github.com/script-high.html</link><description>&lt;p&gt;如下：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;”foo”&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello World!&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s2"&gt;n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+ &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cp"&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here is an example of AppleScript:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nb"&gt;tell&lt;/span&gt; &lt;span class="n"&gt;application&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Foo&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;beep&lt;/span&gt;
+            &lt;span class="n"&gt;end&lt;/span&gt; &lt;span class="nb"&gt;tell&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Wed, 27 Jul 2011 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2011-07-27:script-high.html</guid><category>test</category></item><item><title>another test</title><link>zsneoks.github.com/test1.html</link><description>&lt;p&gt;So, you know this is a test post.&lt;/p&gt;
+&lt;p&gt;this is a test for code&lt;/p&gt;
+&lt;p&gt;c++:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;#include &amp;lt;iostream&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
+   &lt;span class="n"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;endl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is &lt;a href="http://example.com/" title="Title"&gt;an example&lt;/a&gt; inline link.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://example.net/"&gt;This link&lt;/a&gt; has no title attribute.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Wed, 27 Jul 2011 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2011-07-27:test1.html</guid><category>test</category></item></channel></rss>

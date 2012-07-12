@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.Config.Config</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        <a href="Ganga.Utility.Config-module.html">Package&nbsp;Config</a> ::
+        Module&nbsp;Config
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.Config.Config-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module Config</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+A simple configuration interface for Ganga packages.
+
+1) Overview
+
+PackageConfig object corresponds to a configuration section in the INI file.
+Typically each plugin handler has its own section. Additionally Ganga provides
+a somewhat arbitrary number of other configuration packages.
+
+Configuration of the package is done in several phases:
+ - phase one: developer defines the hardcoded values in his package (default level);
+              addOption
+ - phase two: at startup ganga reads config files and set options (session level);
+              setSessionValue() is used
+ - phase three: at runtime user may modify options via GPI (user level);
+              setUserValue() is used for setting, getEffectiveOption() for getting
+
+
+2) Defining default options for your package:
+
+#MyPackage.py#
+
+import Ganga.Utility.Config
+
+config = Ganga.Utility.Config.getConfig('MyPackage')
+
+config.addOption('opt1','x','this is option 1')
+config.addOption('opt2',3.0, 'this is option 2')
+
+The  default  values of  the  options  may  be strings,  numbers,other
+built-in  types  or  any  GPI  objects names  defined  in  the  global
+config_scope dictionary (in this module).
+
+IMPORTANT: choose the type of the default value carefully: session and
+user options  will be automatically  converted to the type  implied by
+the default value (you may  also override the type checking default in
+setDefaultOption)  .   The  conversion   is  done  as  following  (for
+setSessionValue and setUserValue):
+
+ - nothing is done (value is assigned 'as-is'):
+    - if the default type is a string and the assigned value is a string
+    - if there is no default value
+
+ - eval the string value
+
+ - check if the type matches the default type and raise ConfigError in case of mismatch
+    - unless the default type is None
+ 
+Typically strings are assigned via setSessionValue() as they are read
+from the config file or command line.
+
+Note for bootstrap procedure: it is OK to first set the session option
+and  then  to  set  it's  default  value. That  is  to  say  that  the
+configuration may  be read from the  config file prior  to loading the
+corresponding module which  uses it. It is NOT OK  to set user options
+before the end of the bootstrap procedure.
+
+
+3) Getting effective values and using callback handlers
+
+To get the effective value of an option you may use:
+
+print config['opt1']
+print config.getEffectiveOption('opt1')
+print config.getEffectiveOptions() # all options
+
+The  effective value  takes  into account  default,  session and  user
+settings  and  may change  at  runtime.  In  GPI  users  only get  the
+effective values and may only set values at the user level.
+
+You  may also attach  the callback  handlers at  the session  and user
+level.     Pre-process   handlers   may    modify   what    has   been
+set. Post-process handlers may be used to trigger extra actions.
+
+def pre(opt,val):
+    print 'always setting a square of the value'
+    return val*2
+
+def post(opt,val):
+    print 'effectively set',val
+    
+config.attachUserHandler(pre,post)
+
+4) How does user see all this in GPI ?
+
+There is a GPI wrapper in Ganga.GPIDev.Lib.Config which:
+     - internally uses setUserValue and getEffectiveOption
+     - has a more appealing interface
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Utility.Config.Config.ConfigError-class.html" class="summary-name">ConfigError</a><br />
+      ConfigError indicates that an option does not exist or it cannot be
+        set.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Utility.Config.Config.ConfigOption-class.html" class="summary-name">ConfigOption</a><br />
+      Configuration Option has a name, default value and a docstring.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Utility.Config.Config.PackageConfig-class.html" class="summary-name">PackageConfig</a><br />
+      Package  Config object  represents a  Configuration  Unit 
+        (typically related to Ganga Packages).
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getLogger"></a><span class="summary-sig-name">getLogger</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#getLogger">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_migrate_name"></a><span class="summary-sig-name">_migrate_name</span>(<span class="summary-sig-arg">name</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#_migrate_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#getConfig" class="summary-sig-name">getConfig</a>(<span class="summary-sig-arg">name</span>)</span><br />
+      Get an exisiting PackageConfig or create a new one if needed.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#getConfig">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#makeConfig" class="summary-sig-name">makeConfig</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">docstring</span>,
+        <span class="summary-sig-arg">**kwds</span>)</span><br />
+      Create a config package and attach metadata to it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#makeConfig">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="make_config_parser"></a><span class="summary-sig-name">make_config_parser</span>(<span class="summary-sig-arg">system_vars</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#make_config_parser">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#transform_PATH_option" class="summary-sig-name">transform_PATH_option</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">new_value</span>,
+        <span class="summary-sig-arg">current_value</span>)</span><br />
+      Return the new value of the option 'name' taking into account special rules for PATH-like variables:</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#transform_PATH_option">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#read_ini_files" class="summary-sig-name">read_ini_files</a>(<span class="summary-sig-arg">filenames</span>,
+        <span class="summary-sig-arg">system_vars</span>)</span><br />
+      Return  a ConfigParser object  which contains  all options  from the 
+      sequence of files (which are parsed from left-to-right).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#read_ini_files">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setSessionValue"></a><span class="summary-sig-name">setSessionValue</span>(<span class="summary-sig-arg">config_name</span>,
+        <span class="summary-sig-arg">option_name</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#setSessionValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#configure" class="summary-sig-name">configure</a>(<span class="summary-sig-arg">filenames</span>,
+        <span class="summary-sig-arg">system_vars</span>)</span><br />
+      Sets session values for all options in all configuration units 
+      defined in the sequence of config files.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#configure">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#setConfigOption" class="summary-sig-name">setConfigOption</a>(<span class="summary-sig-arg">section</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">item</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">value</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span><br />
+      Function to overwrite option values set in configuration file:</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#setConfigOption">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.Config.Config-module.html#expandConfigPath" class="summary-sig-name">expandConfigPath</a>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">top</span>)</span><br />
+      Split the path and return a list, where all relative path components 
+      will have top prepended.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#expandConfigPath">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sanityCheck"></a><span class="summary-sig-name">sanityCheck</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#sanityCheck">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getFlavour"></a><span class="summary-sig-name">getFlavour</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#getFlavour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="logger"></a><span class="summary-name">logger</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="allConfigs"></a><span class="summary-name">allConfigs</span> = <code title="{}">{}</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="allConfigFileValues"></a><span class="summary-name">allConfigFileValues</span> = <code title="{}"><code class="variable-group">{</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_after_bootstrap"></a><span class="summary-name">_after_bootstrap</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Utility.Config.Config-module.html#config_scope" class="summary-name">config_scope</a> = <code title="{'File': &lt;class 'Ganga.GPIDev.Lib.File.File.File'&gt;,
+ 'datetime': &lt;module 'datetime' from '/usr/lib/python2.7/lib-dynload/d\
+atetime.so'&gt;}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">File</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;class 'Ganga.GPIDev.Lib.File.File.Fil<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_configured"></a><span class="summary-name">_configured</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'Ganga.Utility.Config'"><code class="variable-quote">'</code><code class="variable-string">Ganga.Utility.Config</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="getConfig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getConfig</span>(<span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#getConfig">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get an exisiting PackageConfig or create a new one if needed. 
+  Temporary name migration conversion applies -- see _migrate_name(). 
+  Principle is the same as for getLogger() -- the config instances may be 
+  easily shared between different parts of the program.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="makeConfig"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">makeConfig</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">docstring</span>,
+        <span class="sig-arg">**kwds</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#makeConfig">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a config package and attach metadata to it. makeConfig() should
+  be called once for each package.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="transform_PATH_option"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">transform_PATH_option</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">new_value</span>,
+        <span class="sig-arg">current_value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#transform_PATH_option">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Return the new value of the option 'name' taking into account special rules for PATH-like variables:
+
+   A variable is PATH-like if the name ends in _PATH.
+   Return 'new_value:current_value' unless new_value starts in ':::' or current_value is None.
+   In that case return new_value.
+
+   Example:
+   if a name of a option terminates in _PATH then the value will not be overriden but
+   appended:
+   file1.ini:
+     ANY_PATH = x
+   file2.ini:
+     ANY_PATH = y
+   
+   result of the merge is: ANY_PATH = x:y
+   
+   If you want to override the path you should use :::path, for example:
+   file1.ini:
+     ANY_PATH = x
+   file2.ini
+     ANY_PATH = :::y
+   result of the merge is: ANY_PATH = y
+
+For other variables just return the new_value.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read_ini_files"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_ini_files</span>(<span class="sig-arg">filenames</span>,
+        <span class="sig-arg">system_vars</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#read_ini_files">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return  a ConfigParser object  which contains  all options  from the 
+  sequence of files (which are parsed from left-to-right). Apply special 
+  rules for PATH-like variables - see transform_PATH_option()</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="configure"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">configure</span>(<span class="sig-arg">filenames</span>,
+        <span class="sig-arg">system_vars</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#configure">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets session values for all options in all configuration units defined
+  in the sequence of config files.  Initialize config parser object with 
+  system variables (such as GANGA_TOP, GANGA_VERSION and alike).  Contrary 
+  to standard  config parser behaviour the options from the  DEFAULTS 
+  section  are not visible  in the  config units.</p>
+  <p>At the time of reading the initialization files, the default options 
+  in the configuration options (default values) may have not yet been 
+  defined.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setConfigOption"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setConfigOption</span>(<span class="sig-arg">section</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">item</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">value</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#setConfigOption">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Function to overwrite option values set in configuration file:
+
+Arguments:
+   section - Name of relevant section within configuration file
+   item    - Item for which value is to be changed
+   value   - Value to be assigned
+
+Function needs to be called after configuration file has been parsed.
+
+Return value: None
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="expandConfigPath"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">expandConfigPath</span>(<span class="sig-arg">path</span>,
+        <span class="sig-arg">top</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.Config.Config-pysrc.html#expandConfigPath">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Split the path and return a list, where all relative path components 
+  will have top prepended. Example: 'A:/B/C::D/E' -&gt; 
+  ['top/A','/B/C','top/D/E']</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="config_scope"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">config_scope</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">File</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;class 'Ganga.GPIDev.Lib.File.File.File'&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">datetime</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;module 'datetime' from '/usr/lib/python2.7/lib-dynload/d<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+atetime.so'&gt;<code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:17 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

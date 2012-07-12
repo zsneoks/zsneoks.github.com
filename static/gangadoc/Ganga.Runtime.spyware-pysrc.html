@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Runtime.spyware</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Runtime-module.html">Package&nbsp;Runtime</a> ::
+        Module&nbsp;spyware
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Runtime.spyware-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Runtime.spyware-module.html">Module Ganga.Runtime.spyware</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-0', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-1', 'Utility', 'link-1');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Ganga.GPIDev.Lib.Config=Ganga.GPIDev.Lib.Config-module.html,Module Ganga.GPIDev.Lib.Config.Config=Ganga.GPIDev.Lib.Config.Config-module.html,Package Ganga.Utility.Config=Ganga.Utility.Config-module.html,Module Ganga.Utility.Config.Config=Ganga.Utility.Config.Config-module.html"><a title="Ganga.GPIDev.Lib.Config
+Ganga.GPIDev.Lib.Config.Config
+Ganga.Utility.Config
+Ganga.Utility.Config.Config" class="py-name" href="#" onclick="return doclink('link-2', 'Config', 'link-2');">Config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Static Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getConfig,Static Method Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig()=Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS-class.html#getConfig,Static Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#getConfig,Function Ganga.Utility.Config.Config.getConfig()=Ganga.Utility.Config.Config-module.html#getConfig"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-3', 'getConfig', 'link-3');">getConfig</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#config,Variable Ganga.GPIDev.Base.Filters.config=Ganga.GPIDev.Base.Filters-module.html#config,Variable Ganga.GPIDev.Lib.Config.Config.config=Ganga.GPIDev.Lib.Config.Config-module.html#config,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.config=Ganga.GPIDev.Lib.Registry.BoxRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.JobRegistry'.config=Ganga.GPIDev.Lib.Registry.JobRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.RegistrySlice.config=Ganga.GPIDev.Lib.Registry.RegistrySlice-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.config=Ganga.GPIDev.Lib.Tasks.ArgTransform-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Task'.config=Ganga.GPIDev.Lib.Tasks.Task%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.config=Ganga.GPIDev.Lib.Tasks.TaskApplication-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Transform'.config=Ganga.GPIDev.Lib.Tasks.Transform%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.common.config=Ganga.GPIDev.Lib.Tasks.common-module.html#config,Variable Ganga.GPIDev.Streamers.MigrationControl.config=Ganga.GPIDev.Streamers.MigrationControl-module.html#config,Variable Ganga.Lib.Batch.Batch'.LSF.config=Ganga.Lib.Batch.Batch%27.LSF-class.html#config,Variable Ganga.Lib.Batch.Batch'.PBS.config=Ganga.Lib.Batch.Batch%27.PBS-class.html#config,Variable Ganga.Lib.Batch.Batch'.SGE.config=Ganga.Lib.Batch.Batch%27.SGE-class.html#config,Variable Ganga.Lib.Batch.Batch'.config=Ganga.Lib.Batch.Batch%27-module.html#config,Variable Ganga.Lib.Batch.config=Ganga.Lib.Batch-module.html#config,Variable Ganga.Lib.Condor.CondorRequirements'.config=Ganga.Lib.Condor.CondorRequirements%27-module.html#config,Variable Ganga.Lib.Executable.Executable'.config=Ganga.Lib.Executable.Executable%27-module.html#config,Variable Ganga.Lib.Executable.config=Ganga.Lib.Executable-module.html#config,Variable Ganga.Lib.LCG.CREAM.config=Ganga.Lib.LCG.CREAM-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.config=Ganga.Lib.LCG.GridSimulator.GridSimulator-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.simulator.config=Ganga.Lib.LCG.GridSimulator.simulator-module.html#config,Variable Ganga.Lib.LCG.LCG.config=Ganga.Lib.LCG.LCG-module.html#config,Variable Ganga.Lib.Localhost.Localhost'.config=Ganga.Lib.Localhost.Localhost%27-module.html#config,Variable Ganga.Lib.Localhost.config=Ganga.Lib.Localhost-module.html#config,Variable Ganga.Lib.Mergers.Merger.config=Ganga.Lib.Mergers.Merger-module.html#config,Variable Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#config,Variable Ganga.Lib.Root.Root'.config=Ganga.Lib.Root.Root%27-module.html#config,Variable Ganga.Lib.Root.config=Ganga.Lib.Root-module.html#config,Variable Ganga.Runtime.AMGA_repository_runtime.config=Ganga.Runtime.AMGA_repository_runtime-module.html#config,Variable Ganga.Runtime.Repository_runtime.config=Ganga.Runtime.Repository_runtime-module.html#config,Variable Ganga.Runtime.XML_repository_runtime.config=Ganga.Runtime.XML_repository_runtime-module.html#config,Variable Ganga.Runtime.associations.config=Ganga.Runtime.associations-module.html#config,Variable Ganga.Runtime.spyware.config=Ganga.Runtime.spyware-module.html#config,Variable Ganga.Utility.Caching.config=Ganga.Utility.Caching-module.html#config,Module Ganga.Utility.external.logging.config=Ganga.Utility.external.logging.config-module.html,Variable Ganga.Utility.logging.config=Ganga.Utility.logging-module.html#config"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-4', 'config', 'link-4');">config</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-5', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'Configuration'</tt><tt class="py-op">)</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt id="link-6" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-6', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method Ganga.Utility.Config.Config.PackageConfig.addOption()=Ganga.Utility.Config.Config.PackageConfig-class.html#addOption"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-7', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'UsageMonitoringURL'</tt><tt class="py-op">,</tt> <tt class="py-string">"http://gangamon.cern.ch:8888/apmon/ganga.conf"</tt><tt class="py-op">,</tt><tt class="py-string">'MonALISA configuration file used to setup the destination of usage messages'</tt><tt class="py-op">)</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt id="link-8" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-8', 'config', 'link-4');">config</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Ganga.Utility.Config.Config.PackageConfig.addOption" class="py-name" href="#" onclick="return doclink('link-9', 'addOption', 'link-7');">addOption</a></tt><tt class="py-op">(</tt><tt class="py-string">'UsageMonitoringMSG'</tt><tt class="py-op">,</tt><tt class="py-name">True</tt><tt class="py-op">,</tt><tt class="py-string">"enable usage monitoring through MSG server defined in MSGMS configuration"</tt><tt class="py-op">)</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.monitor=Ganga.GPIDev.Lib.Job.Job%27.JobInfo._proxyClass-class.html#monitor,Variable Ganga.GPIDev.Lib.Job.Job'.JobInfo.monitor=Ganga.GPIDev.Lib.Job.Job%27.JobInfo-class.html#monitor,Variable Ganga.Runtime.spyware.monitor=Ganga.Runtime.spyware-module.html#monitor"><a title="Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.monitor
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.monitor
+Ganga.Runtime.spyware.monitor" class="py-name" href="#" onclick="return doclink('link-10', 'monitor', 'link-10');">monitor</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.Job.time=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#time"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-11', 'time', 'link-11');">time</a></tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="ganga_started"></a><div id="ganga_started-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="ganga_started-toggle" onclick="return toggle('ganga_started');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Runtime.spyware-module.html#ganga_started">ganga_started</a><tt class="py-op">(</tt><tt class="py-param">session_type</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">extended_attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ganga_started-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ganga_started-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable Ganga.Lib.Remote.Remote'.Remote._proxyClass.host=Ganga.Lib.Remote.Remote%27.Remote._proxyClass-class.html#host,Variable Ganga.Lib.Remote.Remote'.Remote.host=Ganga.Lib.Remote.Remote%27.Remote-class.html#host"><a title="Ganga.Lib.Remote.Remote'.Remote._proxyClass.host
+Ganga.Lib.Remote.Remote'.Remote.host" class="py-name" href="#" onclick="return doclink('link-12', 'host', 'link-12');">host</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-13', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'System'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">'GANGA_HOSTNAME'</tt><tt class="py-op">]</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Variable Ganga.Core.JobRepositoryXML.Repository'.version=Ganga.Core.JobRepositoryXML.Repository%27-module.html#version,Variable Ganga.Lib.Root.Root'.Root._proxyClass.version=Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#version,Variable Ganga.Lib.Root.Root'.Root.version=Ganga.Lib.Root.Root%27.Root-class.html#version"><a title="Ganga.Core.JobRepositoryXML.Repository'.version
+Ganga.Lib.Root.Root'.Root._proxyClass.version
+Ganga.Lib.Root.Root'.Root.version" class="py-name" href="#" onclick="return doclink('link-14', 'version', 'link-14');">version</a></tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-15', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'System'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">'GANGA_VERSION'</tt><tt class="py-op">]</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-name">user</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-16', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'Configuration'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">'user'</tt><tt class="py-op">]</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-name">runtime_packages</tt> <tt class="py-op">=</tt> <tt class="py-string">':'</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#join,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#join"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-17', 'join', 'link-17');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">,</tt><tt id="link-18" class="py-name" targets="Method Ganga.Utility.external.logging.Filter.filter()=Ganga.Utility.external.logging.Filter-class.html#filter,Method Ganga.Utility.external.logging.Filterer.filter()=Ganga.Utility.external.logging.Filterer-class.html#filter"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-18', 'filter', 'link-18');">filter</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt id="link-19" class="py-name" targets="Variable Ganga.Utility.external.textwrap.TextWrapper.x=Ganga.Utility.external.textwrap.TextWrapper-class.html#x"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-19', 'x', 'link-19');">x</a></tt><tt class="py-op">:</tt><tt id="link-20" class="py-name"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-20', 'x', 'link-19');">x</a></tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-21', 'config', 'link-4');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'RUNTIME_PATH'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method Ganga.GPIDev.Adapters.ISplitter.ISplitter.split()=Ganga.GPIDev.Adapters.ISplitter.ISplitter-class.html#split,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split()=Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter-class.html#split,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter-class.html#split,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter-class.html#split,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#split"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-22', 'split', 'link-22');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">':'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>     </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt id="link-23" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#start,Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#start,Method Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start()=Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler-class.html#start,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#start,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#start,Method Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start()=Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS-class.html#start,Method Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start()=Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS-class.html#start,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#start,Method Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start()=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html#start"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-23', 'start', 'link-23');">start</a></tt> <tt class="py-op">=</tt> <tt class="py-name">long</tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-24', 'time', 'link-11');">time</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-25', 'time', 'link-11');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-number">1000</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-name">usage_message</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'user'</tt><tt class="py-op">:</tt><tt class="py-name">user</tt><tt class="py-op">,</tt><tt class="py-string">'host'</tt><tt class="py-op">:</tt><tt id="link-26" class="py-name"><a title="Ganga.Lib.Remote.Remote'.Remote._proxyClass.host
+Ganga.Lib.Remote.Remote'.Remote.host" class="py-name" href="#" onclick="return doclink('link-26', 'host', 'link-12');">host</a></tt><tt class="py-op">,</tt><tt class="py-string">'start'</tt><tt class="py-op">:</tt><tt id="link-27" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-27', 'start', 'link-23');">start</a></tt><tt class="py-op">,</tt><tt class="py-string">'session'</tt><tt class="py-op">:</tt><tt class="py-name">session_type</tt><tt class="py-op">,</tt><tt class="py-string">'runtime_packages'</tt><tt class="py-op">:</tt><tt class="py-name">runtime_packages</tt><tt class="py-op">,</tt><tt class="py-string">'version'</tt><tt class="py-op">:</tt><tt id="link-28" class="py-name"><a title="Ganga.Core.JobRepositoryXML.Repository'.version
+Ganga.Lib.Root.Root'.Root._proxyClass.version
+Ganga.Lib.Root.Root'.Root.version" class="py-name" href="#" onclick="return doclink('link-28', 'version', 'link-14');">version</a></tt><tt class="py-op">}</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-name">usage_message</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.update()=Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient-class.html#update,Method Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.update()=Ganga.Utility.external.ARDAMDClient.mdclient.MDClient-class.html#update,Method Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.update()=Ganga.Utility.external.ARDAMDClient.mdtable.MDTable-class.html#update,Method Ganga.Utility.external.ordereddict.oDict.update()=Ganga.Utility.external.ordereddict.oDict-class.html#update,Method Ganga.Utility.external.sets.Set.update()=Ganga.Utility.external.sets.Set-class.html#update"><a title="Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.update
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.update
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.update
+Ganga.Utility.external.ordereddict.oDict.update
+Ganga.Utility.external.sets.Set.update" class="py-name" href="#" onclick="return doclink('link-29', 'update', 'link-29');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">extended_attributes</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-30" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-30', 'config', 'link-4');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'UsageMonitoringURL'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">ApMon</tt><tt class="py-op">.</tt><tt class="py-name">apmon</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">global</tt> <tt id="link-31" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.monitor
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.monitor
+Ganga.Runtime.spyware.monitor" class="py-name" href="#" onclick="return doclink('link-31', 'monitor', 'link-10');">monitor</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-comment"># the ApMon constructor may start background threads to refresh the configuration from URL</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-comment"># NOTE: the configuration (including defaultLogLevel) is overriden from the config file specified in URL</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt id="link-32" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.monitor
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.monitor
+Ganga.Runtime.spyware.monitor" class="py-name" href="#" onclick="return doclink('link-32', 'monitor', 'link-10');">monitor</a></tt> <tt class="py-op">=</tt> <tt class="py-name">ApMon</tt><tt class="py-op">.</tt><tt class="py-name">apmon</tt><tt class="py-op">.</tt><tt class="py-name">ApMon</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-33', 'config', 'link-4');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'UsageMonitoringURL'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">defaultLogLevel</tt><tt class="py-op">=</tt><tt class="py-name">ApMon</tt><tt class="py-op">.</tt><tt class="py-name">apmon</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Class Ganga.Core.GangaRepository.SessionLock.Logger=Ganga.Core.GangaRepository.SessionLock.Logger-class.html,Class Ganga.Utility.external.logging.Logger=Ganga.Utility.external.logging.Logger-class.html"><a title="Ganga.Core.GangaRepository.SessionLock.Logger
+Ganga.Utility.external.logging.Logger" class="py-name" href="#" onclick="return doclink('link-34', 'Logger', 'link-34');">Logger</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Variable Ganga.Utility.external.logging.FATAL=Ganga.Utility.external.logging-module.html#FATAL"><a title="Ganga.Utility.external.logging.FATAL" class="py-name" href="#" onclick="return doclink('link-35', 'FATAL', 'link-35');">FATAL</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt id="link-36" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.monitor
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.monitor
+Ganga.Runtime.spyware.monitor" class="py-name" href="#" onclick="return doclink('link-36', 'monitor', 'link-10');">monitor</a></tt><tt class="py-op">.</tt><tt class="py-name">sendParameters</tt><tt class="py-op">(</tt><tt class="py-string">'GangaUsage'</tt><tt class="py-op">,</tt><tt class="py-string">'%s@%s_%s'</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">user</tt><tt class="py-op">,</tt><tt id="link-37" class="py-name"><a title="Ganga.Lib.Remote.Remote'.Remote._proxyClass.host
+Ganga.Lib.Remote.Remote'.Remote.host" class="py-name" href="#" onclick="return doclink('link-37', 'host', 'link-12');">host</a></tt><tt class="py-op">,</tt><tt id="link-38" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-38', 'start', 'link-23');">start</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">usage_message</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-comment"># stop any background threads started by the ApMon constructor</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt id="link-39" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.monitor
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.monitor
+Ganga.Runtime.spyware.monitor" class="py-name" href="#" onclick="return doclink('link-39', 'monitor', 'link-10');">monitor</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method Ganga.Lib.MonitoringServices.ARDADashboard.DashboardAPI.DashboardAPI.free()=Ganga.Lib.MonitoringServices.ARDADashboard.DashboardAPI.DashboardAPI-class.html#free"><a title="Ganga.Lib.MonitoringServices.ARDADashboard.DashboardAPI.DashboardAPI.free" class="py-name" href="#" onclick="return doclink('link-40', 'free', 'link-40');">free</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-41" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-41', 'config', 'link-4');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'UsageMonitoringMSG'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-42" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-42', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Package Ganga.GPIDev.Lib=Ganga.GPIDev.Lib-module.html,Package Ganga.Lib=Ganga.Lib-module.html"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-43', 'Lib', 'link-43');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Package Ganga.GPIDev.MonitoringServices=Ganga.GPIDev.MonitoringServices-module.html,Package Ganga.Lib.MonitoringServices=Ganga.Lib.MonitoringServices-module.html"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-44', 'MonitoringServices', 'link-44');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name" targets="Package Ganga.Lib.MonitoringServices.MSGMS=Ganga.Lib.MonitoringServices.MSGMS-module.html,Module Ganga.Lib.MonitoringServices.MSGMS.MSGMS=Ganga.Lib.MonitoringServices.MSGMS.MSGMS-module.html,Class Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html"><a title="Ganga.Lib.MonitoringServices.MSGMS
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS" class="py-name" href="#" onclick="return doclink('link-45', 'MSGMS', 'link-45');">MSGMS</a></tt> <tt class="py-keyword">import</tt> <tt id="link-46" class="py-name" targets="Module Ganga.Lib.MonitoringServices.MSGMS.MSGUtil=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGUtil" class="py-name" href="#" onclick="return doclink('link-46', 'MSGUtil', 'link-46');">MSGUtil</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">msg_config</tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-47', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'MSGMS'</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt id="link-48" class="py-name" targets="Function Ganga.Core.JobRepositoryXML.VStreamer.p()=Ganga.Core.JobRepositoryXML.VStreamer-module.html#p,Variable Ganga.Lib.MonitoringServices.Octopus.oreader.p=Ganga.Lib.MonitoringServices.Octopus.oreader-module.html#p,Variable Ganga.PACKAGE.p=Ganga.PACKAGE-module.html#p"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-48', 'p', 'link-48');">p</a></tt> <tt class="py-op">=</tt> <tt id="link-49" class="py-name"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGUtil" class="py-name" href="#" onclick="return doclink('link-49', 'MSGUtil', 'link-46');">MSGUtil</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Function Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.createPublisher()=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#createPublisher"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.createPublisher" class="py-name" href="#" onclick="return doclink('link-50', 'createPublisher', 'link-50');">createPublisher</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'server'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'port'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'username'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'password'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-comment"># start publisher thread and enqueue usage message for sending</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt id="link-51" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-51', 'p', 'link-48');">p</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-52', 'start', 'link-23');">start</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt id="link-53" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-53', 'p', 'link-48');">p</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.send()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#send,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.send()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#send,Method Ganga.Utility.external.logging.handlers.DatagramHandler.send()=Ganga.Utility.external.logging.handlers.DatagramHandler-class.html#send,Method Ganga.Utility.external.logging.handlers.SocketHandler.send()=Ganga.Utility.external.logging.handlers.SocketHandler-class.html#send"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.send
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.send
+Ganga.Utility.external.logging.handlers.DatagramHandler.send
+Ganga.Utility.external.logging.handlers.SocketHandler.send" class="py-name" href="#" onclick="return doclink('link-54', 'send', 'link-54');">send</a></tt><tt class="py-op">(</tt><tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'usage_message_destination'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">usage_message</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'persistent'</tt><tt class="py-op">:</tt><tt class="py-string">'true'</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-comment"># ask publisher thread to stop. it will send queued message anyway.</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt id="link-55" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-55', 'p', 'link-48');">p</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Method Ganga.Core.GangaRepository.SessionLock.GangaThread.stop()=Ganga.Core.GangaRepository.SessionLock.GangaThread-class.html#stop,Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.stop()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#stop,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor.stop()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor-class.html#stop,Method Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.stop()=Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient-class.html#stop,Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.stop()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#stop,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.stop()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#stop,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.stop()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#stop,Method Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.stop()=Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS-class.html#stop,Method Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.stop()=Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS-class.html#stop,Method Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.stop()=Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS-class.html#stop,Method Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.stop()=Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS-class.html#stop,Method Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.stop()=Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS-class.html#stop,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.stop()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#stop,Method Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.stop()=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html#stop,Method Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.stop()=Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS%27.OutputServerMS-class.html#stop,Method Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.stop()=Ganga.Utility.AMGAServerTools.PipeReader.PipeReader-class.html#stop"><a title="Ganga.Core.GangaRepository.SessionLock.GangaThread.stop
+Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.stop
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor.stop
+Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.stop
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.stop
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.stop
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.stop
+Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.stop
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.stop
+Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.stop
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.stop
+Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.stop
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.stop
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.stop
+Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.stop
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.stop" class="py-name" href="#" onclick="return doclink('link-56', 'stop', 'link-56');">stop</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="ganga_job_submitted"></a><div id="ganga_job_submitted-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="ganga_job_submitted-toggle" onclick="return toggle('ganga_job_submitted');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Runtime.spyware-module.html#ganga_job_submitted">ganga_job_submitted</a><tt class="py-op">(</tt><tt class="py-param">application_name</tt><tt class="py-op">,</tt> <tt class="py-param">backend_name</tt><tt class="py-op">,</tt> <tt class="py-param">plain_job</tt><tt class="py-op">,</tt> <tt class="py-param">master_job</tt><tt class="py-op">,</tt> <tt class="py-param">sub_jobs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ganga_job_submitted-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ganga_job_submitted-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt id="link-57" class="py-name"><a title="Ganga.Lib.Remote.Remote'.Remote._proxyClass.host
+Ganga.Lib.Remote.Remote'.Remote.host" class="py-name" href="#" onclick="return doclink('link-57', 'host', 'link-12');">host</a></tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-58', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'System'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">'GANGA_HOSTNAME'</tt><tt class="py-op">]</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-name">user</tt> <tt class="py-op">=</tt> <tt id="link-59" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-59', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'Configuration'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">'user'</tt><tt class="py-op">]</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-name">runtime_packages</tt> <tt class="py-op">=</tt> <tt class="py-string">':'</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-60', 'join', 'link-17');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">,</tt><tt id="link-61" class="py-name"><a title="Ganga.Utility.external.logging.Filter.filter
+Ganga.Utility.external.logging.Filterer.filter" class="py-name" href="#" onclick="return doclink('link-61', 'filter', 'link-18');">filter</a></tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt id="link-62" class="py-name"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-62', 'x', 'link-19');">x</a></tt><tt class="py-op">:</tt><tt id="link-63" class="py-name"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-63', 'x', 'link-19');">x</a></tt><tt class="py-op">,</tt> <tt id="link-64" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-64', 'config', 'link-4');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'RUNTIME_PATH'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-65', 'split', 'link-22');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">':'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>     </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt id="link-66" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-66', 'start', 'link-23');">start</a></tt> <tt class="py-op">=</tt> <tt class="py-name">long</tt><tt class="py-op">(</tt><tt id="link-67" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-67', 'time', 'link-11');">time</a></tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-68', 'time', 'link-11');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-number">1000</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-name">job_submitted_message</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'application'</tt><tt class="py-op">:</tt><tt class="py-name">application_name</tt><tt class="py-op">,</tt> <tt class="py-string">'backend'</tt><tt class="py-op">:</tt><tt class="py-name">backend_name</tt><tt class="py-op">,</tt> <tt class="py-string">'user'</tt><tt class="py-op">:</tt><tt class="py-name">user</tt><tt class="py-op">,</tt> <tt class="py-string">'host'</tt><tt class="py-op">:</tt><tt id="link-69" class="py-name"><a title="Ganga.Lib.Remote.Remote'.Remote._proxyClass.host
+Ganga.Lib.Remote.Remote'.Remote.host" class="py-name" href="#" onclick="return doclink('link-69', 'host', 'link-12');">host</a></tt><tt class="py-op">,</tt> <tt class="py-string">'start'</tt><tt class="py-op">:</tt><tt id="link-70" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-70', 'start', 'link-23');">start</a></tt><tt class="py-op">,</tt> <tt class="py-string">'plain_job'</tt><tt class="py-op">:</tt><tt class="py-name">plain_job</tt><tt class="py-op">,</tt> <tt class="py-string">'master_job'</tt><tt class="py-op">:</tt><tt class="py-name">master_job</tt><tt class="py-op">,</tt> <tt class="py-string">'sub_jobs'</tt><tt class="py-op">:</tt><tt class="py-name">sub_jobs</tt><tt class="py-op">,</tt> <tt class="py-string">'runtime_packages'</tt><tt class="py-op">:</tt><tt class="py-name">runtime_packages</tt><tt class="py-op">}</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-71" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-71', 'config', 'link-4');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'UsageMonitoringMSG'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-72" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-72', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-73', 'Lib', 'link-43');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-74', 'MonitoringServices', 'link-44');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="Ganga.Lib.MonitoringServices.MSGMS
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS" class="py-name" href="#" onclick="return doclink('link-75', 'MSGMS', 'link-45');">MSGMS</a></tt> <tt class="py-keyword">import</tt> <tt id="link-76" class="py-name"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGUtil" class="py-name" href="#" onclick="return doclink('link-76', 'MSGUtil', 'link-46');">MSGUtil</a></tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">msg_config</tt> <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-77', 'getConfig', 'link-3');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-string">'MSGMS'</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt id="link-78" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-78', 'p', 'link-48');">p</a></tt> <tt class="py-op">=</tt> <tt id="link-79" class="py-name"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGUtil" class="py-name" href="#" onclick="return doclink('link-79', 'MSGUtil', 'link-46');">MSGUtil</a></tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.createPublisher" class="py-name" href="#" onclick="return doclink('link-80', 'createPublisher', 'link-50');">createPublisher</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'server'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'port'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'username'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'password'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-comment"># start publisher thread and enqueue usage message for sending</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">        <tt id="link-81" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-81', 'p', 'link-48');">p</a></tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.start
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.start
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.start
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.start
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.start
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.start
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.start
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.start
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.start" class="py-name" href="#" onclick="return doclink('link-82', 'start', 'link-23');">start</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt id="link-83" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-83', 'p', 'link-48');">p</a></tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.send
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.send
+Ganga.Utility.external.logging.handlers.DatagramHandler.send
+Ganga.Utility.external.logging.handlers.SocketHandler.send" class="py-name" href="#" onclick="return doclink('link-84', 'send', 'link-54');">send</a></tt><tt class="py-op">(</tt><tt class="py-name">msg_config</tt><tt class="py-op">[</tt><tt class="py-string">'job_submission_message_destination'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">job_submitted_message</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'persistent'</tt><tt class="py-op">:</tt><tt class="py-string">'true'</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-comment">#p.send('/queue/test.ganga.jobsubmission',repr(job_submitted_message),{'persistent':'true'})</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-comment"># ask publisher thread to stop. it will send queued message anyway.</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt id="link-85" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-85', 'p', 'link-48');">p</a></tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.GangaThread.stop
+Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.stop
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor.stop
+Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.stop
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.stop
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.stop
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.stop
+Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.stop
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.stop
+Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.stop
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.stop
+Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.stop
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.stop
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.stop
+Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.stop
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.stop" class="py-name" href="#" onclick="return doclink('link-86', 'stop', 'link-56');">stop</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:28 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

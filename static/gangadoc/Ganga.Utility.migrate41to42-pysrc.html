@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.migrate41to42</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        Module&nbsp;migrate41to42
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.migrate41to42-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.migrate41to42-module.html">Module Ganga.Utility.migrate41to42</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###############################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Utility for migrate jobs from v4.1 to v4.2</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># To use it call:</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># JobCheckForV41()</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment">###############################################################################</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-0', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-1', 'Utility', 'link-1');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Ganga.Utility.external.logging=Ganga.Utility.external.logging-module.html,Package Ganga.Utility.logging=Ganga.Utility.logging-module.html"><a title="Ganga.Utility.external.logging
+Ganga.Utility.logging" class="py-name" href="#" onclick="return doclink('link-2', 'logging', 'link-2');">logging</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable Ganga.Core.InternalServices.Coordinator.log=Ganga.Core.InternalServices.Coordinator-module.html#log,Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#log,Variable Ganga.Core.MonitoringComponent.Monitoring.log=Ganga.Core.MonitoringComponent.Monitoring-module.html#log,Method Ganga.Runtime.bootstrap.GangaProgram.log()=Ganga.Runtime.bootstrap.GangaProgram-class.html#log,Variable Ganga.Utility.Caching.log=Ganga.Utility.Caching-module.html#log,Method Ganga.Utility.external.logging.Logger.log()=Ganga.Utility.external.logging.Logger-class.html#log,Function Ganga.Utility.external.logging.log()=Ganga.Utility.external.logging-module.html#log,Variable Ganga.Utility.migrate41to42.log=Ganga.Utility.migrate41to42-module.html#log"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-3', 'log', 'link-3');">log</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-4', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-5', 'Utility', 'link-1');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Ganga.Utility.external.logging
+Ganga.Utility.logging" class="py-name" href="#" onclick="return doclink('link-6', 'logging', 'link-2');">logging</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Function Ganga.Utility.Config.Config.getLogger()=Ganga.Utility.Config.Config-module.html#getLogger,Method Ganga.Utility.external.logging.Manager.getLogger()=Ganga.Utility.external.logging.Manager-class.html#getLogger,Function Ganga.Utility.external.logging.getLogger()=Ganga.Utility.external.logging-module.html#getLogger"><a title="Ganga.Utility.Config.Config.getLogger
+Ganga.Utility.external.logging.Manager.getLogger
+Ganga.Utility.external.logging.getLogger" class="py-name" href="#" onclick="return doclink('link-7', 'getLogger', 'link-7');">getLogger</a></tt><tt class="py-op">(</tt><tt id="link-8" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.name=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.File.File'.File.name=Ganga.GPIDev.Lib.File.File%27.File-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job.name=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#name,Variable Ganga.GPIDev.Schema.Schema'.Schema.name=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-8', 'name', 'link-8');">name</a></tt><tt class="py-op">=</tt><tt class="py-string">'Ganga.Utility.migrate41to42'</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-9', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Package Ganga.GPI=Ganga.GPI-module.html"><a title="Ganga.GPI" class="py-name" href="#" onclick="return doclink('link-10', 'GPI', 'link-10');">GPI</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="JobCheckForV41"></a><div id="JobCheckForV41-def"><a name="L18"></a><tt class="py-lineno"> 18</tt> <a class="py-toggle" href="#" id="JobCheckForV41-toggle" onclick="return toggle('JobCheckForV41');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.migrate41to42-module.html#JobCheckForV41">JobCheckForV41</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobCheckForV41-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="JobCheckForV41-expanded"><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">   <tt class="py-name">jobsv41ready</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">   <tt class="py-name">jobsv41notready</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">   <tt class="py-keyword">for</tt> <tt id="link-11" class="py-name" targets="Variable Ganga.GPIDev.Streamers.SimpleTest.j=Ganga.GPIDev.Streamers.SimpleTest-module.html#j"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-11', 'j', 'link-11');">j</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">jobs</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">                   </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">      <tt class="py-name">v41</tt><tt class="py-op">,</tt><tt class="py-name">ready</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Function Ganga.Utility.migrate41to42._CheckForV41()=Ganga.Utility.migrate41to42-module.html#_CheckForV41"><a title="Ganga.Utility.migrate41to42._CheckForV41" class="py-name" href="#" onclick="return doclink('link-12', '_CheckForV41', 'link-12');">_CheckForV41</a></tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-13', 'j', 'link-11');">j</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">      <tt class="py-keyword">if</tt> <tt class="py-name">v41</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">         <tt class="py-keyword">if</tt> <tt class="py-name">ready</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">               <tt class="py-name">jobsv41ready</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#append,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.Block-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#append,Method Ganga.Utility.external.logging.PlaceHolder.append()=Ganga.Utility.external.logging.PlaceHolder-class.html#append"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append
+Ganga.Utility.external.logging.PlaceHolder.append" class="py-name" href="#" onclick="return doclink('link-14', 'append', 'link-14');">append</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-15', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.Job.id=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.id=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask-class.html#id,Variable Ganga.Lib.Batch.Batch'.Batch._proxyClass.id=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.Batch.id=Ganga.Lib.Batch.Batch%27.Batch-class.html#id,Variable Ganga.Lib.Batch.Batch'.LSF._proxyClass.id=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.LSF.id=Ganga.Lib.Batch.Batch%27.LSF-class.html#id,Variable Ganga.Lib.Batch.Batch'.PBS._proxyClass.id=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.PBS.id=Ganga.Lib.Batch.Batch%27.PBS-class.html#id,Variable Ganga.Lib.Batch.Batch'.SGE._proxyClass.id=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.SGE.id=Ganga.Lib.Batch.Batch%27.SGE-class.html#id,Variable Ganga.Lib.Condor.Condor'.Condor._proxyClass.id=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#id,Variable Ganga.Lib.Condor.Condor'.Condor.id=Ganga.Lib.Condor.Condor%27.Condor-class.html#id,Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#id,Variable Ganga.Lib.Interactive.Interactive'.Interactive.id=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#id,Variable Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#id,Variable Ganga.Lib.Localhost.Localhost'.Localhost.id=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#id"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-16', 'id', 'link-16');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">         <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">               <tt class="py-name">jobsv41notready</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append
+Ganga.Utility.external.logging.PlaceHolder.append" class="py-name" href="#" onclick="return doclink('link-17', 'append', 'link-14');">append</a></tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-18', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-19', 'id', 'link-16');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">          </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">   <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">jobsv41ready</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">      <tt id="link-20" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-20', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method Ganga.Core.GangaRepository.SessionLock.Logger.warning()=Ganga.Core.GangaRepository.SessionLock.Logger-class.html#warning,Method Ganga.Utility.external.logging.Logger.warning()=Ganga.Utility.external.logging.Logger-class.html#warning,Function Ganga.Utility.external.logging.warning()=Ganga.Utility.external.logging-module.html#warning"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-21', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"Job(s) %s were created in (uncompatible) version 4.1 "</tt><tt class="py-op">%</tt><tt class="py-name">jobsv41ready</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">      <tt id="link-22" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-22', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-23', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"To convert them to version 4.2:  JobConvertToV42(jobid)"</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">      <tt id="link-24" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-24', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-25', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"JobConvertToV42() convert all(v4.1) jobs"</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">   <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">jobsv41notready</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">      <tt id="link-26" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-26', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-27', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"Job(s) %s were created in (compatible) version 4.1, but not ready for conversion"</tt><tt class="py-op">%</tt><tt class="py-name">jobsv41notready</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">      <tt id="link-28" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-28', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-29', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"Wait for completion or stop them"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="_CheckForV41"></a><div id="_CheckForV41-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="_CheckForV41-toggle" onclick="return toggle('_CheckForV41');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.migrate41to42-module.html#_CheckForV41">_CheckForV41</a><tt class="py-op">(</tt><tt class="py-param">j</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_CheckForV41-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_CheckForV41-expanded"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">   <tt class="py-name">v41</tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">   <tt class="py-name">ready</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">   <tt class="py-keyword">for</tt> <tt id="link-30" class="py-name" targets="Variable Ganga.PACKAGE.i=Ganga.PACKAGE-module.html#i"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-30', 'i', 'link-30');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-31', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.subjobs=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#subjobs,Variable Ganga.GPIDev.Lib.Job.Job'.Job.subjobs=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#subjobs,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.subjobs=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#subjobs,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.subjobs=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#subjobs"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.Job.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.subjobs" class="py-name" href="#" onclick="return doclink('link-32', 'subjobs', 'link-32');">subjobs</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">      <tt class="py-name">sj</tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-33', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.Job.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.subjobs" class="py-name" href="#" onclick="return doclink('link-34', 'subjobs', 'link-32');">subjobs</a></tt><tt class="py-op">[</tt><tt id="link-35" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-35', 'i', 'link-30');">i</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">      <tt class="py-keyword">if</tt> <tt class="py-name">sj</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-36', 'id', 'link-16');">id</a></tt><tt class="py-op">==</tt><tt id="link-37" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-37', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-38', 'id', 'link-16');">id</a></tt><tt class="py-op">*</tt><tt class="py-number">100000</tt><tt class="py-op">+</tt><tt id="link-39" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-39', 'i', 'link-30');">i</a></tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">         <tt class="py-name">v41</tt><tt class="py-op">=</tt><tt class="py-name">True</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">         <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">sj</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.status=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Job.Job'.Job.status=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#status,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.status=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.status=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.status=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.status=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.status=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.status=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.status=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.status=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#status,Variable Ganga.Lib.Batch.Batch'.Batch.status=Ganga.Lib.Batch.Batch%27.Batch-class.html#status,Variable Ganga.Lib.Batch.Batch'.LSF.status=Ganga.Lib.Batch.Batch%27.LSF-class.html#status,Variable Ganga.Lib.Batch.Batch'.PBS.status=Ganga.Lib.Batch.Batch%27.PBS-class.html#status,Variable Ganga.Lib.Batch.Batch'.SGE.status=Ganga.Lib.Batch.Batch%27.SGE-class.html#status,Variable Ganga.Lib.Condor.Condor'.Condor._proxyClass.status=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#status,Variable Ganga.Lib.Condor.Condor'.Condor.status=Ganga.Lib.Condor.Condor%27.Condor-class.html#status,Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.status=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#status,Variable Ganga.Lib.Interactive.Interactive'.Interactive.status=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#status,Method Ganga.Lib.LCG.Grid.Grid.status()=Ganga.Lib.LCG.Grid.Grid-class.html#status,Method Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.status()=Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator-class.html#status,Variable Ganga.Lib.Localhost.Localhost'.Localhost.status=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#status"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.status
+Ganga.GPIDev.Lib.Job.Job'.Job.status
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.status
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.status
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.status
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.status
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.status
+Ganga.GPIDev.Lib.Tasks.Task'.Task.status
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.status
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.status
+Ganga.Lib.Batch.Batch'.Batch.status
+Ganga.Lib.Batch.Batch'.LSF.status
+Ganga.Lib.Batch.Batch'.PBS.status
+Ganga.Lib.Batch.Batch'.SGE.status
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.status
+Ganga.Lib.Condor.Condor'.Condor.status
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.status
+Ganga.Lib.Interactive.Interactive'.Interactive.status
+Ganga.Lib.LCG.Grid.Grid.status
+Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.status
+Ganga.Lib.Localhost.Localhost'.Localhost.status" class="py-name" href="#" onclick="return doclink('link-40', 'status', 'link-40');">status</a></tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">'completed'</tt><tt class="py-op">,</tt><tt class="py-string">'failed'</tt><tt class="py-op">,</tt><tt class="py-string">'killed'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-name">ready</tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">             </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">   <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">v41</tt><tt class="py-op">,</tt><tt class="py-name">ready</tt><tt class="py-op">)</tt>                 </tt>
+</div><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="JobConvertToV42"></a><div id="JobConvertToV42-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="JobConvertToV42-toggle" onclick="return toggle('JobConvertToV42');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.migrate41to42-module.html#JobConvertToV42">JobConvertToV42</a><tt class="py-op">(</tt><tt class="py-param">jobid</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JobConvertToV42-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="JobConvertToV42-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">   <tt class="py-docstring">'repository migration utility (4.1-&gt;4.2)'</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">   <tt class="py-keyword">if</tt> <tt class="py-name">jobid</tt><tt class="py-op">==</tt><tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">      <tt class="py-keyword">for</tt> <tt id="link-41" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-41', 'j', 'link-11');">j</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">jobs</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">         <tt id="link-42" class="py-name" targets="Function Ganga.Utility.migrate41to42.JobConvertToV42()=Ganga.Utility.migrate41to42-module.html#JobConvertToV42"><a title="Ganga.Utility.migrate41to42.JobConvertToV42" class="py-name" href="#" onclick="return doclink('link-42', 'JobConvertToV42', 'link-42');">JobConvertToV42</a></tt><tt class="py-op">(</tt><tt id="link-43" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-43', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-44', 'id', 'link-16');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">   <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">      <tt id="link-45" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-45', 'j', 'link-11');">j</a></tt> <tt class="py-op">=</tt> <tt class="py-name">jobs</tt><tt class="py-op">[</tt><tt class="py-name">jobid</tt><tt class="py-op">]</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">      <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">         <tt class="py-name">jid</tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-46', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-47', 'id', 'link-16');">id</a></tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">      <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">         <tt id="link-48" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-48', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-49', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"No such job: %d"</tt><tt class="py-op">%</tt><tt class="py-name">jobid</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">         <tt class="py-keyword">return</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">          </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">      <tt class="py-name">v41</tt><tt class="py-op">,</tt><tt class="py-name">ready</tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="Ganga.Utility.migrate41to42._CheckForV41" class="py-name" href="#" onclick="return doclink('link-50', '_CheckForV41', 'link-12');">_CheckForV41</a></tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-51', 'j', 'link-11');">j</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">      <tt class="py-keyword">if</tt> <tt class="py-name">v41</tt> <tt class="py-keyword">and</tt> <tt class="py-name">ready</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">         <tt id="link-52" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-52', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.info()=Ganga.Core.GangaRepository.Registry.Registry-class.html#info,Method Ganga.GPIDev.Credentials.GridProxy.GridProxy.info()=Ganga.GPIDev.Credentials.GridProxy.GridProxy-class.html#info,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.info=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#info,Variable Ganga.GPIDev.Lib.Job.Job'.Job.info=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#info,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.info=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#info,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.info=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#info,Method Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.info()=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#info,Method Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.info()=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#info,Method Ganga.GPIDev.Lib.Tasks.Task'.Task.info()=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#info,Method Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.info()=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#info,Method Ganga.GPIDev.Lib.Tasks.Transform'.Transform.info()=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#info,Method Ganga.Utility.external.logging.Logger.info()=Ganga.Utility.external.logging.Logger-class.html#info,Function Ganga.Utility.external.logging.info()=Ganga.Utility.external.logging-module.html#info"><a title="Ganga.Core.GangaRepository.Registry.Registry.info
+Ganga.GPIDev.Credentials.GridProxy.GridProxy.info
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.info
+Ganga.GPIDev.Lib.Job.Job'.Job.info
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.info
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.info
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.info
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.info
+Ganga.GPIDev.Lib.Tasks.Task'.Task.info
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.info
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.info
+Ganga.Utility.external.logging.Logger.info
+Ganga.Utility.external.logging.info" class="py-name" href="#" onclick="return doclink('link-53', 'info', 'link-53');">info</a></tt><tt class="py-op">(</tt><tt class="py-string">"Converting job %d from v4.1 to v4.2"</tt><tt class="py-op">%</tt><tt class="py-name">jobid</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">         <tt id="link-54" class="py-name" targets="Function Ganga.Utility.migrate41to42._ConvertToV42()=Ganga.Utility.migrate41to42-module.html#_ConvertToV42"><a title="Ganga.Utility.migrate41to42._ConvertToV42" class="py-name" href="#" onclick="return doclink('link-54', '_ConvertToV42', 'link-54');">_ConvertToV42</a></tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-55', 'j', 'link-11');">j</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">     </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="_ConvertToV42"></a><div id="_ConvertToV42-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="_ConvertToV42-toggle" onclick="return toggle('_ConvertToV42');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.migrate41to42-module.html#_ConvertToV42">_ConvertToV42</a><tt class="py-op">(</tt><tt class="py-param">j</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_ConvertToV42-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_ConvertToV42-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">   <tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">     </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">   <tt class="py-keyword">for</tt> <tt id="link-56" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-56', 'i', 'link-30');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-57" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-57', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.Job.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.subjobs" class="py-name" href="#" onclick="return doclink('link-58', 'subjobs', 'link-32');">subjobs</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">      <tt class="py-name">sj</tt> <tt class="py-op">=</tt> <tt id="link-59" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-59', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.Job.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.subjobs
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.subjobs" class="py-name" href="#" onclick="return doclink('link-60', 'subjobs', 'link-32');">subjobs</a></tt><tt class="py-op">[</tt><tt id="link-61" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-61', 'i', 'link-30');">i</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">      <tt class="py-name">path</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">normpath</tt><tt class="py-op">(</tt><tt class="py-name">sj</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.inputdir=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#inputdir,Variable Ganga.GPIDev.Lib.Job.Job'.Job.inputdir=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#inputdir,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.inputdir=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#inputdir,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.inputdir=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#inputdir"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.inputdir
+Ganga.GPIDev.Lib.Job.Job'.Job.inputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.inputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.inputdir" class="py-name" href="#" onclick="return doclink('link-62', 'inputdir', 'link-62');">inputdir</a></tt><tt class="py-op">)</tt>                </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">      <tt class="py-name">path</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">      <tt class="py-name">path</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">normpath</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">      <tt class="py-name">d</tt><tt class="py-op">,</tt><tt id="link-63" class="py-name" targets="Function Ganga.Utility.logging.message_caching_test.f()=Ganga.Utility.logging.message_caching_test-module.html#f"><a title="Ganga.Utility.logging.message_caching_test.f" class="py-name" href="#" onclick="return doclink('link-63', 'f', 'link-63');">f</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name" targets="Method Ganga.GPIDev.Adapters.ISplitter.ISplitter.split()=Ganga.GPIDev.Adapters.ISplitter.ISplitter-class.html#split,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split()=Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter-class.html#split,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter-class.html#split,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter-class.html#split,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#split"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-64', 'split', 'link-64');">split</a></tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">      <tt class="py-name">newpath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#join,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#join"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-65', 'join', 'link-65');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">,</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-66" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-66', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-67', 'id', 'link-16');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">      <tt class="py-name">newpath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-68', 'join', 'link-65');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">newpath</tt><tt class="py-op">,</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-69" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-69', 'i', 'link-30');">i</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">      <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">         <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">rename</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">newpath</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">         <tt id="link-70" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-70', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.info
+Ganga.GPIDev.Credentials.GridProxy.GridProxy.info
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.info
+Ganga.GPIDev.Lib.Job.Job'.Job.info
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.info
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.info
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.info
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.info
+Ganga.GPIDev.Lib.Tasks.Task'.Task.info
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.info
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.info
+Ganga.Utility.external.logging.Logger.info
+Ganga.Utility.external.logging.info" class="py-name" href="#" onclick="return doclink('link-71', 'info', 'link-53');">info</a></tt><tt class="py-op">(</tt><tt class="py-string">"%s --&gt; %s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">newpath</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">      <tt class="py-keyword">except</tt> <tt class="py-name">OSError</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         <tt id="link-72" class="py-name"><a title="Ganga.Core.InternalServices.Coordinator.log
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.log
+Ganga.Core.MonitoringComponent.Monitoring.log
+Ganga.Runtime.bootstrap.GangaProgram.log
+Ganga.Utility.Caching.log
+Ganga.Utility.external.logging.Logger.log
+Ganga.Utility.external.logging.log
+Ganga.Utility.migrate41to42.log" class="py-name" href="#" onclick="return doclink('link-72', 'log', 'link-3');">log</a></tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.Logger.warning
+Ganga.Utility.external.logging.Logger.warning
+Ganga.Utility.external.logging.warning" class="py-name" href="#" onclick="return doclink('link-73', 'warning', 'link-21');">warning</a></tt><tt class="py-op">(</tt><tt class="py-string">"Can't move %s to %s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">newpath</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">      <tt class="py-name">sj</tt><tt class="py-op">.</tt><tt class="py-name">_impl</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-74', 'id', 'link-16');">id</a></tt><tt class="py-op">=</tt><tt id="link-75" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-75', 'i', 'link-30');">i</a></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">      <tt class="py-name">sj</tt><tt class="py-op">.</tt><tt class="py-name">_impl</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.inputdir
+Ganga.GPIDev.Lib.Job.Job'.Job.inputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.inputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.inputdir" class="py-name" href="#" onclick="return doclink('link-76', 'inputdir', 'link-62');">inputdir</a></tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-77', 'join', 'link-65');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">newpath</tt><tt class="py-op">,</tt><tt class="py-string">"input"</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">      <tt class="py-name">sj</tt><tt class="py-op">.</tt><tt class="py-name">_impl</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.outputdir=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#outputdir,Variable Ganga.GPIDev.Lib.Job.Job'.Job.outputdir=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#outputdir,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.outputdir=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#outputdir,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.outputdir=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#outputdir"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.outputdir
+Ganga.GPIDev.Lib.Job.Job'.Job.outputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.outputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.outputdir" class="py-name" href="#" onclick="return doclink('link-78', 'outputdir', 'link-78');">outputdir</a></tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-79', 'join', 'link-65');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">newpath</tt><tt class="py-op">,</tt><tt class="py-string">"output"</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">   <tt id="link-80" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-80', 'j', 'link-11');">j</a></tt><tt class="py-op">.</tt><tt class="py-name">_impl</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name" targets="Method Ganga.GPIDev.Lib.Job.Job'.Job._commit()=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#_commit"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._commit" class="py-name" href="#" onclick="return doclink('link-81', '_commit', 'link-81');">_commit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:29 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

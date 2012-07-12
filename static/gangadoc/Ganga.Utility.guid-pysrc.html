@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.guid</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        Module&nbsp;guid
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.guid-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.guid-module.html">Module Ganga.Utility.guid</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""module to build GUIDs"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.Job.time=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#time"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-0', 'time', 'link-0');">time</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">random</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># provide uuid missing in python &lt; 2.5</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> <tt class="py-comment"># 2.5</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.uuid=Ganga.GPIDev.Lib.Job.Job%27.JobInfo._proxyClass-class.html#uuid,Variable Ganga.GPIDev.Lib.Job.Job'.JobInfo.uuid=Ganga.GPIDev.Lib.Job.Job%27.JobInfo-class.html#uuid,Function Ganga.Utility.guid.uuid()=Ganga.Utility.guid-module.html#uuid"><a title="Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.uuid
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.uuid
+Ganga.Utility.guid.uuid" class="py-name" href="#" onclick="return doclink('link-1', 'uuid', 'link-1');">uuid</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">uuid_module</tt> </tt>
+<a name="uuid"></a><div id="uuid-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="uuid-toggle" onclick="return toggle('uuid');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.guid-module.html#uuid">uuid</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="uuid-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="uuid-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">uuid_module</tt><tt class="py-op">.</tt><tt class="py-name">uuid4</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> <tt class="py-comment"># &lt;2.5</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-comment"># FIXME: poor's man uuid</tt> </tt>
+<a name="uuid"></a><div id="uuid-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="uuid-toggle" onclick="return toggle('uuid');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.guid-module.html#uuid">uuid</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="uuid-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="uuid-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-docstring">"""Poor's man uuid. This is a stub provided by Ganga to</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        complement missing functionality in python&lt;2.5"""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">uniform</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">100000000</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">'-'</tt><tt class="py-op">+</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-2', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-3', 'time', 'link-0');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">,</tt><tt class="py-string">'-'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-comment">#---------------------------------------------------------------------------</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment"># this function will become obsolete when ARDA job repository is phased out</tt> </tt>
+<a name="newGuid"></a><div id="newGuid-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="newGuid-toggle" onclick="return toggle('newGuid');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.guid-module.html#newGuid">newGuid</a><tt class="py-op">(</tt><tt class="py-param">value</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="newGuid-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="newGuid-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-docstring">"""newGUID(value = None) --&gt; guid</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    value - any python object"""</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-name">tt</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-4', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt class="py-name">gmtime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">:</tt><tt class="py-number">6</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">randint</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">9</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                               <tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">randint</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">9</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">                               <tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">randint</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">9</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                               <tt id="link-5" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.Job.id=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.id=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask-class.html#id,Variable Ganga.Lib.Batch.Batch'.Batch._proxyClass.id=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.Batch.id=Ganga.Lib.Batch.Batch%27.Batch-class.html#id,Variable Ganga.Lib.Batch.Batch'.LSF._proxyClass.id=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.LSF.id=Ganga.Lib.Batch.Batch%27.LSF-class.html#id,Variable Ganga.Lib.Batch.Batch'.PBS._proxyClass.id=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.PBS.id=Ganga.Lib.Batch.Batch%27.PBS-class.html#id,Variable Ganga.Lib.Batch.Batch'.SGE._proxyClass.id=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.SGE.id=Ganga.Lib.Batch.Batch%27.SGE-class.html#id,Variable Ganga.Lib.Condor.Condor'.Condor._proxyClass.id=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#id,Variable Ganga.Lib.Condor.Condor'.Condor.id=Ganga.Lib.Condor.Condor%27.Condor-class.html#id,Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#id,Variable Ganga.Lib.Interactive.Interactive'.Interactive.id=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#id,Variable Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#id,Variable Ganga.Lib.Localhost.Localhost'.Localhost.id=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#id"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-5', 'id', 'link-5');">id</a></tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'_'</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-string">''</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#join,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#join"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-6', 'join', 'link-6');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">,</tt> <tt class="py-name">tt</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'-'</tt><tt class="py-op">,</tt><tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:25 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

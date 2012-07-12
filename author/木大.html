@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>木大 - 木大</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href=".././theme/css/main.css" type="text/css" />
+        <link href="zsneoks.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="木大 Atom Feed" />
+        
+        <link href="zsneoks.github.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="木大 RSS Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie.css"/>
+                <script src=".././js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href=".././css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+        <header id="banner" class="body">
+                <h1><a href="../.">木大 </a></h1>
+                <nav><ul>
+                
+                
+                
+                
+                
+                    <li ><a href=".././category/Ganga.html">Ganga</a></li>
+                
+                    <li ><a href=".././category/linux.html">linux</a></li>
+                
+                    <li ><a href=".././category/关于.html">关于</a></li>
+                
+                    <li ><a href=".././category/测试.html">测试</a></li>
+                
+                    <li ><a href=".././category/物理.html">物理</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+                
+
+            
+
+        
+        
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href=".././ApplicationRuntimeHandler-IRuntimeHandler-htmlname.html">ApplicationRuntimeHandler及IRuntimeHandler文档解析</a></h1> 
+                    <footer class="post-info">
+        <abbr class="published" title="2012-06-28T00:00:00">
+                四 28 六月 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/Ganga.html">Ganga</a>. </p>
+<p>tags: <a href=".././tag/ganga.html">ganga</a><a href=".././tag/物理.html">物理</a></p>
+
+
+</footer><!-- /.post-info --><h2>ApplicationRuntimeHandlers</h2>
+<p>类图如下：</p>
+<p><img alt="ApplicationRuntimeHandlers类图" src="../static/images/applicationruntimehandlers.png" title="ApplicationRuntimeHandler类图" /></p>
+<p>文档解析：</p>
+<p>匹配app和backend的handlers机制。</p>
+<h3>1.add(self,application,backend,handler)</h3>
+<ul>
+<li></li>
+</ul>
+<h3>2.get(self,application,backend)</h3>
+<ul>
+<li></li>
+</ul>
+<h3>3.getAllBackends(self,application=None)</h3>
+<ul>
+<li></li>
+</ul>
+<h3>4.getAllApplication(self,backend=None)</h3>
+<ul>
+<li></li>
+</ul>
+<h2>IRuntimeHandler</h2>
+<p>类图如下：</p>
+<p><img alt="IRuntimeHandler类图" src="../static/images/iruntimehandler.png" /></p>
+<p>文档解析：</p>
+<p>RuntimeHandler是一个连接器，用来连接app和backend。app的configure方法产生appconfig对象。backend的submit方法使用jobconfig对象。RuntimeHandler将appconfig对象转换成jobconfig对象。该转换是作业提交的一部分。它在prepare方法中实现。</p>
+<h3>1.master_prepare(self,app,appmasterconfig)</h3>
+<ul>
+<li>为作业提交的共性（共享）部分做一些准备</li>
+<li>每个作业调用一次（包括要拆分作业或者不拆分的作业）</li>
+<li>返回值为backend可理解的jobmasterconfig对象</li>
+<li>参数
+  <ul>
+  <li>- app: 原始的app对象</li>
+  <li>- appmaster config:app.master_configure()的结果</li>
+  </ul></li>
+</ul>
+<h3>2.prepare(self,app,appsubconfig,appmasterconfig,jobmasterconfig)</h3>
+<ul>
+<li>为作业提交的特性(子作业）部分做一些准备工作</li>
+<li>在拆分情况下每个子作业调用一次。</li>
+<li>如果没有拆分成子作业，则只调用一次</li>
+<li>返回值是backend可理解的subjobconfig对象的列表</li>
+<li>参数
+  <ul>
+  <li>- app: 原始的app对象</li>
+  <li>- appmaster config: app.master_configure()的结果</li>
+  <li>- appsubconfig:    app.configure()为每个子作业运行的结果的列表（不拆分的情况下则是主作业）</li> 
+  <li>- jobmasterconfig: self.master_prepare()的返回结果</li>
+  <ul></li>
+</ul><p>There are <a href=".././ApplicationRuntimeHandler-IRuntimeHandler-htmlname.html#disqus_thread">comments</a>.</p>
+                </article>
+                
+            </aside><!-- /#featured -->
+            
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+            
+        
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././Geant4-1.html" rel="bookmark"
+                           title="Permalink to Geant4模拟总结(一)">Geant4模拟总结(一)</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2011-07-29T00:00:00">
+                五 29 七月 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/物理.html">物理</a>. </p>
+<p>tags: <a href=".././tag/geant4.html">geant4</a><a href=".././tag/模拟.html">模拟</a><a href=".././tag/学术.html">学术</a></p>
+
+
+</footer><!-- /.post-info -->
+                <p>笔者是Geant4的初学者，在Geant4学习过程中经历了一段只有例程为师的“痛苦”历程（据说学习Geant4的各位前辈都经历过相同的磨练，并毅然决定把这种心灵与肉体的双重磨砺传播发扬下去。于是在神功初成之后就果断归隐山林，从此不为世人所知。=.- :)）。</p>
+<p>在摸索学习Geant4三个月后，笔者对Geant4的使用建立了初步基本的认识。一方面想整理自己对Geant4基本使用方法的粗浅认识，更好的组织和精练自己的知识系统；另一方面也想总结分享下自己学习Geant4的过程和方法以及一些体会，但愿能为后来的Geant4初学者提供绵薄微助。于是有了写这个系列博文的想法。（其实你能看到这些东西还有一个更大的原因，那就是笔者最近迷上了用wordpress写博客=.=!)</p>
+<p>本文正如题目所说，是针对没有任何Geant4基础的初学者。不过笔者暂时还没有写如何安装Geant4的教程的想法。笔者也不打算普及计算机教育，默认读者有C++编程基础（如果你还不能阅读C++代码，那还是快先去学一学C++，不用对C++有多么深刻的体会和丰富的实践经验，你只要能读懂一个由数个或者十数个C++类写成的简单C++程序即可），因为Geant4是用C++编写的，你要在Geant4基础上开发模拟程序也要使用C++语言。(鉴于笔者的人生经验尚十分不丰富，如有出现不懂C++却依然能学好Geant4的，纯属奇迹，不管你信不信，反正笔者信；或者说，你丫就是天才！）</p>
+<p>好言归正传！</p>
+<p>先概括讲一下笔者对Geant4的整体印象。初识Geant4（就是半年前），是因为笔者的本科毕业设计是模拟宇宙线的一个小题目。还没怎么开始做，指导老师量才为用就中途给换了题目 ...</p>
+                <a class="readmore" href=".././Geant4-1.html">read more</a>
+                <p>There are <a href=".././Geant4-1.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././Geant4-sim-teach2.html" rel="bookmark"
+                           title="Permalink to Geant4模拟总结（二）">Geant4模拟总结（二）</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2011-08-02T00:00:00">
+                二 02 八月 2011
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/物理.html">物理</a>. </p>
+<p>tags: <a href=".././tag/geant4.html">geant4</a><a href=".././tag/模拟.html">模拟</a></p>
+
+
+</footer><!-- /.post-info -->
+                <p>今天要讲的主要是DetectorConstructor的编写。</p>
+<p>首先介绍下神马是DetectorConstructor。我们知道唱戏先得搭台子。创建编写DetectorConstructor类就是为模拟搭戏台舞台。比如你要模拟中子穿过晶体的过程。那么你首先得摆一块晶体。要摆一块晶体，除非你已经有一块形状尺寸材料都很理想的晶体了，然后你可以把它摆到某一个位置，放到位置后还可以再转一转方向什么的。否则，你就得自己去定义一块晶体出来，就像上边提到的，定义出晶体的材料、形状、尺寸。然后你就可以把这块晶体放到你想放置的位置了。</p>
+<p><strong>首先</strong>，定义材料。比如你想用的材料是纯CsI材料。你要先定义Cs原子和I原子。你可以像这样来定义：</p>
+<div class="codehilite"><pre><span class="n">G4Element</span><span class="o">*</span> <span class="n">elementCs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4Element</span><span class="p">(</span> <span class="s">&quot;Cesium&quot;</span><span class="p">,</span> <span class="s">&quot;Cs&quot;</span><span class="p">,</span> <span class="mi">55</span><span class="o">.</span> <span class="p">,</span> <span class="mf">132.90543</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">mole</span> <span class="p">);</span>
+<span class="n">G4Element</span><span class="o">*</span> <span class="n">elementI</span> <span class="o">=</span> <span class="k">new</span> <span class="n">G4Element</span><span class="p">(</span> <span class="s">&quot;Iodine&quot;</span><span class="p">,</span> <span class="s">&quot;I&quot;</span><span class="p">,</span> <span class="mi">53</span><span class="o">.</span> <span class="p">,</span> <span class="mf">126.90447</span><span class="o">*</span><span class="n">g</span><span class="o">/</span><span class="n">mole</span> <span class="p">);</span>
+</pre></div>
+
+
+<p>我们知道，上边的c++代码的语义是：第一行，创建一个指针elementCs，指向一个G4Element类的对象 ...</p>
+                <a class="readmore" href=".././Geant4-sim-teach2.html">read more</a>
+                <p>There are <a href=".././Geant4-sim-teach2.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././IApplication-htmlname.html" rel="bookmark"
+                           title="Permalink to IApplication文档解析">IApplication文档解析</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-06-25T00:00:00">
+                一 25 六月 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/Ganga.html">Ganga</a>. </p>
+<p>tags: <a href=".././tag/ganga.html">ganga</a><a href=".././tag/物理.html">物理</a></p>
+
+
+</footer><!-- /.post-info -->
+                <p>类图如下：</p>
+<p><img alt="Iapp类图" src="../static/images/Iapp.png" title="Iapp类图" /></p>
+<p>是所有app对象的基类。子类在GPI中给出程序逻辑并从功能上实现配置操作。app配置是作业提交的第一步。</p>
+<p>实现配置方法的基本规则：</p>
+<p>一般configure()和master_configure()方法会在作业提交的时候调用，所以原则上你</p>
+<p>方法文档：</p>
+<h3>1.master_configure(self)</h3>
+<ul>
+<li>配置app的共享（主要）方面。</li>
+<li>调用一次，splitting情况下也会调用</li>
+<li>返回元组(modified_flag, appconfig)
+  <ul>
+  <li> -appconfig(或appextra): 结构任意。由特定app运行时handler处理</li>
+  <li> -modified_flag: 如果configure()时对象self被改变了则为true</li>
+  </ul></li>
+<li>如果方法未实现则忽略掉</li>
+</ul>
+<h3>2.config(self,master_aapconfig)</h3>
+<ul>
+<li>配置app的特定方面。与方法1有类似语义并且返回元组(modified_flag,appconfig).</li>
+<li>具体子类必须实现，否则作业提交（submission)会失败。</li>
+<li>参数master_configure是方法1的返回</li>
+<li>splitting情况下每个子作业对象调用一次。即有多少子作业就会调用多少次。</li>
+<li>无spliting情况下则会调用一次.</li>
+<li>从Ganga4.0.x开始，方法1被忽略。</li>
+</ul>
+<h3>3 ...</h3>
+                <a class="readmore" href=".././IApplication-htmlname.html">read more</a>
+                <p>There are <a href=".././IApplication-htmlname.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././IMerger-ISplitter-htmlname.html" rel="bookmark"
+                           title="Permalink to IMerger及ISplitter文档解析">IMerger及ISplitter文档解析</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-06-28T00:00:00">
+                四 28 六月 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/Ganga.html">Ganga</a>. </p>
+<p>tags: <a href=".././tag/linux.html">linux</a><a href=".././tag/ganga.html">ganga</a><a href=".././tag/物理.html">物理</a></p>
+
+
+</footer><!-- /.post-info -->
+                <h2>IMerger</h2>
+<p>类图如下：</p>
+<p><img alt="IMerger类图" src="../static/images/imerger.png" title="IMerger类图" /></p>
+<p>文档解析：</p>
+<h3>1.merger(self,subjobs,sum_outputdir,**option)</h3>
+<ul>
+<li>合并子作业的输出到sum_outputdir.</li>
+<li>options（关键字参数）由具体的子类定义</li>
+</ul>
+<h3>2.validatedMerge(self.job)</h3>
+<h2>ISplitter</h2>
+<p>类图如下：</p>
+<p><img alt="ISplitter类图" src="../static/images/isplitter.png" title="ISplitter类图" /></p>
+<p>文档解析：</p>
+<h3>1.split(self,job)</h3>
+<ul>
+<li>根据主作业返回子作业列表</li>
+<li>主作业不会被更改</li>
+<li>具体子类必须实现本方法</li>
+<li>修改子作业的确定部分（如特定的属性）。子作业的其他部分都会相同。只有在schema中声明为"splitable"的属性才可修改。如果app handler不能处理被修改的参数，这个限定应用在app对象上就可以避免前后不一致。</li>
+<li>当前的实现中，backend的类型也不可更改。</li>
+</ul>
+<h3>2.validatedSplit(self,job)</h3>
+<ul>
+<li>调用split()方法执行作业拆分，并使mutability inveriants有效</li>
+<li>如果invariants损坏(或者split()中发生异常），则抛出SplittingError异常 ...</li></ul>
+                <a class="readmore" href=".././IMerger-ISplitter-htmlname.html">read more</a>
+                <p>There are <a href=".././IMerger-ISplitter-htmlname.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././aboutme-htmlname.html" rel="bookmark"
+                           title="Permalink to 关于">关于</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="1901-01-01T00:00:00">
+                二 01 一月 1901
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/关于.html">关于</a>. </p>
+
+
+
+</footer><!-- /.post-info -->
+                <p>我是一个粒子物理专业的研究生，目前在中国科学院的高能所学习，主要在一些实验中参加一些软件工作。</p>
+<p>我喜欢linux，热爱编程，对人工智能相关的兴趣堪比我对基础物理学的热情，纯理科男。</p>
+<p>欢迎在相关领域有兴趣的一起来交流。</p>
+<p>我的对外联系mail: <a href="mailto:zsneoks@gmail.com">zsneoks@gmail.com</a></p>
+                <a class="readmore" href=".././aboutme-htmlname.html">read more</a>
+                <p>There are <a href=".././aboutme-htmlname.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            
+
+        
+         
+            
+            <li><article class="hentry">    
+                <header>
+                    <h1><a href=".././gangadoc-html.html" rel="bookmark"
+                           title="Permalink to Ganga中文">Ganga中文</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2012-06-25T00:00:00">
+                一 25 六月 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href=".././author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href=".././category/Ganga.html">Ganga</a>. </p>
+<p>tags: <a href=".././tag/linux.html">linux</a><a href=".././tag/ganga.html">ganga</a><a href=".././tag/物理.html">物理</a><a href=".././tag/software.html">software</a></p>
+
+
+</footer><!-- /.post-info -->
+                <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../static/style.css">
+<title>GangaDoc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h3 id="toc_0.0.1" class="justcenter"><a href="../static/gangadoc/index.html">Ganga文档首页入口</a></h3>
+
+<h4 id="toc_0.0.1.1">3 实现</h4>
+
+<blockquote>
+这章提供了GANGA中一些重要部分的当前实现细节。
+</blockquote>
+
+<h6 id="toc_0.0.1.1.0.1">3.1 组件</h6>
+
+<blockquote>
+作业的各个组件以插件类的形式来实现，需用户在配置文件中设为enabled，则会由GANGA在启动时导入。这表示用户仅能看到与其特定工作环境相关的组件。
+</blockquote>
+
+<blockquote>
+插件维护十分简单，采用了一组内部接口和一个产生代理类的机制。组件类继承自接口类。每个插件类都定义了一个schema，用它描述插件的属性和指定类型（只读/读写/内部）、可见性以及相关的用户友好(user-convinence)的过滤器和语法快捷方式(shortcut)。
+</blockquote>
+
+<blockquote>
+与用户直接进行交互的不是插件类，而是一个自动产生的代理类，代理类在GPI中可见。代理类只包含插件类中的一些在schema中定义可见的属性以及选出用于导出的方法。插件和代理的层次（level)分离十分灵活。在GPI层插件的实现细节不可见；所有代理类都遵循相同的设计逻辑（例如按值拷贝copy-by-value)；持续性自动化，会话等级锁定透明。用这种方法，底层的内部的API就与用户层的GPI分离开。
+</blockquote>
+
+<blockquote>
+框架不强迫开发者支持app和backend的所有组合，只要支持有意义和有趣的组合即可。为便于管理这些组合，提出了submission handler的概念。sumission handler是app和backend组件的一个连接器。在提交时间，它将app的内部表示（representation)传送给特定backend可以接受的表示(representation ...</blockquote></body></html></!doctype>
+                <a class="readmore" href=".././gangadoc-html.html">read more</a>
+                <p>There are <a href=".././gangadoc-html.html#disqus_thread">comments</a>.</p>
+                </div><!-- /.entry-content -->
+            </article></li>
+        
+        
+            </ol><!-- /#posts-list -->
+            
+                
+<p class="paginator">
+    
+    Page 1 / 4
+    
+        <a href=".././author/木大2.html">&raquo;</a>
+    
+</p>
+
+            
+            </section><!-- /#content -->
+        
+    
+
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                        
+                            <li><a href="http://python.org">Python.org</a></li>
+                        
+                            <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="zsneoks.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+                            <li><a href="zsneoks.github.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/zsneoks">twitter</a></li>
+                        
+                            <li><a href="http://lastfm.com/user/zsneoks">lastfm</a></li>
+                        
+                            <li><a href="http://github.com/zsneoks">github</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32881388-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'zsneoks';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>

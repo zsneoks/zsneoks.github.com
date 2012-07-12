@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.GPIDev.Lib.File.FileBuffer'</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.GPIDev-module.html">Package&nbsp;GPIDev</a> ::
+        <a href="Ganga.GPIDev.Lib-module.html">Package&nbsp;Lib</a> ::
+        <a href="Ganga.GPIDev.Lib.File-module.html">Package&nbsp;File</a> ::
+        Module&nbsp;FileBuffer'
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.GPIDev.Lib.File.FileBuffer%27-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.GPIDev.Lib.File.FileBuffer%27-module.html">Module Ganga.GPIDev.Lib.File.FileBuffer'</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># $Id: FileBuffer.py,v 1.1 2008-07-17 16:40:53 moscicki Exp $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="FileBuffer"></a><div id="FileBuffer-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="FileBuffer-toggle" onclick="return toggle('FileBuffer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer-class.html">FileBuffer</a><tt class="py-op">:</tt> </tt>
+</div><div id="FileBuffer-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="FileBuffer-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt class="py-docstring">""" FileBuffer represents a file in memory which has not been yet created.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">        This is a handy way of creating small wrapper scripts to be generated on the fly.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">     </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">    <tt class="py-comment"># Added a subdir (see File.py for comments) - AM</tt> </tt>
+<a name="FileBuffer.__init__"></a><div id="FileBuffer.__init__-def"><a name="L14"></a><tt class="py-lineno">14</tt> <a class="py-toggle" href="#" id="FileBuffer.__init__-toggle" onclick="return toggle('FileBuffer.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">name</tt><tt class="py-op">,</tt><tt class="py-param">contents</tt><tt class="py-op">,</tt><tt class="py-param">subdir</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">curdir</tt><tt class="py-op">,</tt><tt class="py-param">executable</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileBuffer.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="FileBuffer.__init__-expanded"><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-docstring">""" name is the name of the file to be created</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">            contents is the text with file contents or a file-object which will be read()</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">            executable indicates if a file is create()'ed with executable permissions</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.name=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.File.File'.File.name=Ganga.GPIDev.Lib.File.File%27.File-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job.name=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#name,Variable Ganga.GPIDev.Schema.Schema'.Schema.name=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-0', 'name', 'link-0');">name</a></tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-1', 'name', 'link-0');">name</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_contents</tt> <tt class="py-op">=</tt> <tt class="py-name">contents</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.subdir=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#subdir,Variable Ganga.GPIDev.Lib.File.File'.File.subdir=Ganga.GPIDev.Lib.File.File%27.File-class.html#subdir"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.subdir
+Ganga.GPIDev.Lib.File.File'.File.subdir" class="py-name" href="#" onclick="return doclink('link-2', 'subdir', 'link-2');">subdir</a></tt><tt class="py-op">=</tt><tt id="link-3" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.subdir
+Ganga.GPIDev.Lib.File.File'.File.subdir" class="py-name" href="#" onclick="return doclink('link-3', 'subdir', 'link-2');">subdir</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File.executable=Ganga.GPIDev.Lib.File.File%27.File-class.html#executable"><a title="Ganga.GPIDev.Lib.File.File'.File.executable" class="py-name" href="#" onclick="return doclink('link-4', 'executable', 'link-4');">executable</a></tt><tt class="py-op">=</tt><tt id="link-5" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.executable" class="py-name" href="#" onclick="return doclink('link-5', 'executable', 'link-4');">executable</a></tt> </tt>
+</div><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="FileBuffer.getPathInSandbox"></a><div id="FileBuffer.getPathInSandbox-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="FileBuffer.getPathInSandbox-toggle" onclick="return toggle('FileBuffer.getPathInSandbox');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer-class.html#getPathInSandbox">getPathInSandbox</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileBuffer.getPathInSandbox-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="FileBuffer.getPathInSandbox-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-docstring">"""return a relative location of a file in a sandbox: subdir/name"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-6" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-6', 'Ganga', 'link-6');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-7', 'Utility', 'link-7');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.AbstractMerger.files=Ganga.Lib.Mergers.Merger.AbstractMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger.files=Ganga.Lib.Mergers.Merger.CustomMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.RootMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger.files=Ganga.Lib.Mergers.Merger.RootMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger.files=Ganga.Lib.Mergers.Merger.SmartMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.TextMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger.files=Ganga.Lib.Mergers.Merger.TextMerger-class.html#files,Module Ganga.Utility.files=Ganga.Utility.files-module.html"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-8', 'files', 'link-8');">files</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Function Ganga.Utility.files.real_basename()=Ganga.Utility.files-module.html#real_basename"><a title="Ganga.Utility.files.real_basename" class="py-name" href="#" onclick="return doclink('link-9', 'real_basename', 'link-9');">real_basename</a></tt>        </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.subdir
+Ganga.GPIDev.Lib.File.File'.File.subdir" class="py-name" href="#" onclick="return doclink('link-10', 'subdir', 'link-2');">subdir</a></tt><tt class="py-op">+</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt><tt class="py-op">+</tt><tt id="link-11" class="py-name"><a title="Ganga.Utility.files.real_basename" class="py-name" href="#" onclick="return doclink('link-11', 'real_basename', 'link-9');">real_basename</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-12', 'name', 'link-0');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">     </tt>
+<a name="FileBuffer.getContents"></a><div id="FileBuffer.getContents-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="FileBuffer.getContents-toggle" onclick="return toggle('FileBuffer.getContents');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer-class.html#getContents">getContents</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileBuffer.getContents-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="FileBuffer.getContents-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-docstring">"""return a string with the contents of the file buffer"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_contents</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_contents</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_contents</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#read,Method Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read()=Ganga.Utility.AMGAServerTools.PipeReader.PipeReader-class.html#read,Function Ganga.Utility.external.ARDAMDClient.diskutils.read()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#read"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-13', 'read', 'link-13');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="FileBuffer.create"></a><div id="FileBuffer.create-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="FileBuffer.create-toggle" onclick="return toggle('FileBuffer.create');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer-class.html#create">create</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">outname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileBuffer.create-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="FileBuffer.create-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-docstring">"""create a file in a local filesystem as 'outname' """</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">file</tt><tt class="py-op">(</tt><tt class="py-name">outname</tt><tt class="py-op">,</tt><tt class="py-string">'w'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Function Ganga.Utility.external.ARDAMDClient.diskutils.write()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#write"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.write" class="py-name" href="#" onclick="return doclink('link-14', 'write', 'link-14');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer.getContents()=Ganga.GPIDev.Lib.File.FileBuffer%27.FileBuffer-class.html#getContents"><a title="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer.getContents" class="py-name" href="#" onclick="return doclink('link-15', 'getContents', 'link-15');">getContents</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.executable" class="py-name" href="#" onclick="return doclink('link-16', 'executable', 'link-4');">executable</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-keyword">from</tt> <tt id="link-17" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-17', 'Ganga', 'link-6');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-18', 'Utility', 'link-7');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-19', 'files', 'link-8');">files</a></tt> <tt class="py-keyword">import</tt> <tt id="link-20" class="py-name" targets="Function Ganga.Utility.files.chmod_executable()=Ganga.Utility.files-module.html#chmod_executable"><a title="Ganga.Utility.files.chmod_executable" class="py-name" href="#" onclick="return doclink('link-20', 'chmod_executable', 'link-20');">chmod_executable</a></tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">            <tt id="link-21" class="py-name"><a title="Ganga.Utility.files.chmod_executable" class="py-name" href="#" onclick="return doclink('link-21', 'chmod_executable', 'link-20');">chmod_executable</a></tt><tt class="py-op">(</tt><tt class="py-name">outname</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="FileBuffer.isExecutable"></a><div id="FileBuffer.isExecutable-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="FileBuffer.isExecutable-toggle" onclick="return toggle('FileBuffer.isExecutable');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer-class.html#isExecutable">isExecutable</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FileBuffer.isExecutable-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="FileBuffer.isExecutable-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-docstring">""" return true if a file is create()'ed with executable permissions"""</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.executable" class="py-name" href="#" onclick="return doclink('link-22', 'executable', 'link-4');">executable</a></tt> </tt>
+</div></div><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-comment"># $Log: not supported by cvs2svn $</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-comment"># Revision 1.5  2007/08/28 08:26:35  moscicki</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"><tt class="py-comment"># fixed typo</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-comment"># Revision 1.4  2005/08/23 17:07:23  moscicki</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-comment"># Added executable flag for FileBuffer.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-comment"># Added create method for File and FileBuffer.</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"><tt class="py-comment"># Added getPathInSandbox() method.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-comment"># Revision 1.3  2005/08/10 09:45:36  andrew</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-comment"># Added a subdir to File and FileBuffer objects. Changed the writefile method</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-comment"># in FileWorspace to use the subdirectory</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:25 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.external.ARDAMDClient.mdinterface</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        <a href="Ganga.Utility.external-module.html">Package&nbsp;external</a> ::
+        <a href="Ganga.Utility.external.ARDAMDClient-module.html">Package&nbsp;ARDAMDClient</a> ::
+        Module&nbsp;mdinterface
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.external.ARDAMDClient.mdinterface-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.external.ARDAMDClient.mdinterface-module.html">Module Ganga.Utility.external.ARDAMDClient.mdinterface</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># $Id: mdinterface.py,v 1.1 2008-07-17 16:41:02 moscicki Exp $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="CommandException"></a><div id="CommandException-def"><a name="L7"></a><tt class="py-lineno">  7</tt> <a class="py-toggle" href="#" id="CommandException-toggle" onclick="return toggle('CommandException');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException-class.html">CommandException</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandException-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CommandException-expanded"><a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">    <tt class="py-docstring">""" Raised when the command failed to execute on the server.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">    This is not a fatal error, the connection is not necessarily</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">    broken after this exception is raised.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="CommandException.__init__"></a><div id="CommandException.__init__-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="CommandException.__init__-toggle" onclick="return toggle('CommandException.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">errorCode</tt><tt class="py-op">,</tt> <tt class="py-param">msg</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandException.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandException.__init__-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">errorCode</tt> <tt class="py-op">=</tt> <tt class="py-name">errorCode</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-name">msg</tt> </tt>
+</div><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">         </tt>
+<a name="CommandException.__str__"></a><div id="CommandException.__str__-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="CommandException.__str__-toggle" onclick="return toggle('CommandException.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandException.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandException.__str__-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">errorCode</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">' - '</tt> <tt class="py-op">+</tt> <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">     </tt>
+<a name="MDInterface"></a><div id="MDInterface-def"><a name="L21"></a><tt class="py-lineno"> 21</tt> <a class="py-toggle" href="#" id="MDInterface-toggle" onclick="return toggle('MDInterface');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html">MDInterface</a><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MDInterface-expanded"><a name="MDInterface.eot"></a><div id="MDInterface.eot-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="MDInterface.eot-toggle" onclick="return toggle('MDInterface.eot');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#eot">eot</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.eot-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.eot-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement eot"</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.getattr"></a><div id="MDInterface.getattr-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="MDInterface.getattr-toggle" onclick="return toggle('MDInterface.getattr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#getattr">getattr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.getattr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.getattr-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement getattr"</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.getEntry"></a><div id="MDInterface.getEntry-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="MDInterface.getEntry-toggle" onclick="return toggle('MDInterface.getEntry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#getEntry">getEntry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.getEntry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.getEntry-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement getEntry"</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.setAttr"></a><div id="MDInterface.setAttr-def"><a name="L34"></a><tt class="py-lineno"> 34</tt> <a class="py-toggle" href="#" id="MDInterface.setAttr-toggle" onclick="return toggle('MDInterface.setAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#setAttr">setAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">keys</tt><tt class="py-op">,</tt> <tt class="py-param">values</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.setAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.setAttr-expanded"><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement setAttr"</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.addEntry"></a><div id="MDInterface.addEntry-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="MDInterface.addEntry-toggle" onclick="return toggle('MDInterface.addEntry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#addEntry">addEntry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">keys</tt><tt class="py-op">,</tt> <tt class="py-param">values</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.addEntry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.addEntry-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement addEntry"</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.addEntries"></a><div id="MDInterface.addEntries-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="MDInterface.addEntries-toggle" onclick="return toggle('MDInterface.addEntries');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#addEntries">addEntries</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">entries</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.addEntries-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.addEntries-expanded"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement addEntries"</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.addAttr"></a><div id="MDInterface.addAttr-def"><a name="L46"></a><tt class="py-lineno"> 46</tt> <a class="py-toggle" href="#" id="MDInterface.addAttr-toggle" onclick="return toggle('MDInterface.addAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#addAttr">addAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">t</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.addAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.addAttr-expanded"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement addAttr"</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.removeAttr"></a><div id="MDInterface.removeAttr-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="MDInterface.removeAttr-toggle" onclick="return toggle('MDInterface.removeAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#removeAttr">removeAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.removeAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.removeAttr-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement removeAttr"</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.clearAttr"></a><div id="MDInterface.clearAttr-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="MDInterface.clearAttr-toggle" onclick="return toggle('MDInterface.clearAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#clearAttr">clearAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.clearAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.clearAttr-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement clearAttr"</tt> </tt>
+</div><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.listEntries"></a><div id="MDInterface.listEntries-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="MDInterface.listEntries-toggle" onclick="return toggle('MDInterface.listEntries');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#listEntries">listEntries</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">pattern</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.listEntries-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.listEntries-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement listEntries"</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.pwd"></a><div id="MDInterface.pwd-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="MDInterface.pwd-toggle" onclick="return toggle('MDInterface.pwd');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#pwd">pwd</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.pwd-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.pwd-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement pwd"</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.listAttr"></a><div id="MDInterface.listAttr-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="MDInterface.listAttr-toggle" onclick="return toggle('MDInterface.listAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#listAttr">listAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.listAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.listAttr-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement listAttr"</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.createDir"></a><div id="MDInterface.createDir-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="MDInterface.createDir-toggle" onclick="return toggle('MDInterface.createDir');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#createDir">createDir</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.createDir-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.createDir-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement createDir"</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.removeDir"></a><div id="MDInterface.removeDir-def"><a name="L74"></a><tt class="py-lineno"> 74</tt> <a class="py-toggle" href="#" id="MDInterface.removeDir-toggle" onclick="return toggle('MDInterface.removeDir');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#removeDir">removeDir</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.removeDir-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.removeDir-expanded"><a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement removeDir"</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.rm"></a><div id="MDInterface.rm-def"><a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="MDInterface.rm-toggle" onclick="return toggle('MDInterface.rm');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#rm">rm</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.rm-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.rm-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement rm"</tt> </tt>
+</div><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.selectAttr"></a><div id="MDInterface.selectAttr-def"><a name="L82"></a><tt class="py-lineno"> 82</tt> <a class="py-toggle" href="#" id="MDInterface.selectAttr-toggle" onclick="return toggle('MDInterface.selectAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#selectAttr">selectAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">attributes</tt><tt class="py-op">,</tt> <tt class="py-param">query</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.selectAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.selectAttr-expanded"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement selectAttr"</tt> </tt>
+</div><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.getSelectAttrEntry"></a><div id="MDInterface.getSelectAttrEntry-def"><a name="L86"></a><tt class="py-lineno"> 86</tt> <a class="py-toggle" href="#" id="MDInterface.getSelectAttrEntry-toggle" onclick="return toggle('MDInterface.getSelectAttrEntry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#getSelectAttrEntry">getSelectAttrEntry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.getSelectAttrEntry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.getSelectAttrEntry-expanded"><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement getSelectAttrEntry"</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.updateAttr"></a><div id="MDInterface.updateAttr-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="MDInterface.updateAttr-toggle" onclick="return toggle('MDInterface.updateAttr');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#updateAttr">updateAttr</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">pattern</tt><tt class="py-op">,</tt> <tt class="py-param">updateExpr</tt><tt class="py-op">,</tt> <tt class="py-param">condition</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.updateAttr-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.updateAttr-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement updateAttr"</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.upload"></a><div id="MDInterface.upload-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="MDInterface.upload-toggle" onclick="return toggle('MDInterface.upload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#upload">upload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">collection</tt><tt class="py-op">,</tt> <tt class="py-param">attributes</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.upload-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.upload-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement upload"</tt> </tt>
+</div><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.put"></a><div id="MDInterface.put-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="MDInterface.put-toggle" onclick="return toggle('MDInterface.put');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#put">put</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file</tt><tt class="py-op">,</tt> <tt class="py-param">values</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.put-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.put-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement put"</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.abort"></a><div id="MDInterface.abort-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="MDInterface.abort-toggle" onclick="return toggle('MDInterface.abort');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#abort">abort</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.abort-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.abort-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement abort"</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.commit"></a><div id="MDInterface.commit-def"><a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="MDInterface.commit-toggle" onclick="return toggle('MDInterface.commit');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#commit">commit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.commit-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.commit-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement commit"</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.sequenceCreate"></a><div id="MDInterface.sequenceCreate-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="MDInterface.sequenceCreate-toggle" onclick="return toggle('MDInterface.sequenceCreate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#sequenceCreate">sequenceCreate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">directory</tt><tt class="py-op">,</tt> <tt class="py-param">increment</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-param">start</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.sequenceCreate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.sequenceCreate-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement sequenceCreate"</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.sequenceNext"></a><div id="MDInterface.sequenceNext-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="MDInterface.sequenceNext-toggle" onclick="return toggle('MDInterface.sequenceNext');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#sequenceNext">sequenceNext</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.sequenceNext-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.sequenceNext-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement sequenceNext"</tt> </tt>
+</div><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.sequenceRemove"></a><div id="MDInterface.sequenceRemove-def"><a name="L118"></a><tt class="py-lineno">118</tt> <a class="py-toggle" href="#" id="MDInterface.sequenceRemove-toggle" onclick="return toggle('MDInterface.sequenceRemove');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#sequenceRemove">sequenceRemove</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.sequenceRemove-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.sequenceRemove-expanded"><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Please implement sequenceRemove"</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">         </tt>
+<a name="MDInterface.splitUpdateClause"></a><div id="MDInterface.splitUpdateClause-def"><a name="L122"></a><tt class="py-lineno">122</tt> <a class="py-toggle" href="#" id="MDInterface.splitUpdateClause-toggle" onclick="return toggle('MDInterface.splitUpdateClause');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#splitUpdateClause">splitUpdateClause</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">clause</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MDInterface.splitUpdateClause-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="MDInterface.splitUpdateClause-expanded"><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-comment">#skip leading white space</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt id="link-0" class="py-name" targets="Variable Ganga.PACKAGE.i=Ganga.PACKAGE-module.html#i"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-0', 'i', 'link-0');">i</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt id="link-1" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-1', 'i', 'link-0');">i</a></tt><tt class="py-op">&lt;</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">clause</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-2" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-2', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">' '</tt> <tt class="py-keyword">or</tt> <tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-3" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-3', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'\t'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt id="link-4" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-4', 'i', 'link-0');">i</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-5', 'i', 'link-0');">i</a></tt> <tt class="py-op">+</tt><tt class="py-number">1</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">clause</tt><tt class="py-op">=</tt><tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-6" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-6', 'i', 'link-0');">i</a></tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">escaped</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-name">quoted</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt id="link-7" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-7', 'i', 'link-0');">i</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt id="link-8" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-8', 'i', 'link-0');">i</a></tt> <tt class="py-op">&lt;</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">clause</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-9" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-9', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"'"</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">escaped</tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                <tt class="py-name">quoted</tt> <tt class="py-op">=</tt> <tt class="py-keyword">not</tt> <tt class="py-name">quoted</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-10" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-10', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'/'</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                <tt class="py-name">escaped</tt> <tt class="py-op">=</tt> <tt class="py-keyword">not</tt> <tt class="py-name">escaped</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-11" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-11', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">' '</tt> <tt class="py-keyword">or</tt> <tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-12" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-12', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'/t'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">quoted</tt><tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt id="link-13" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-13', 'i', 'link-0');">i</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-14', 'i', 'link-0');">i</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-15" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-15', 'i', 'link-0');">i</a></tt><tt class="py-op">==</tt><tt class="py-number">0</tt> <tt class="py-keyword">or</tt> <tt id="link-16" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-16', 'i', 'link-0');">i</a></tt><tt class="py-op">&gt;=</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">clause</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-17" class="py-name" targets="Class Ganga.Utility.AMGAServerTools.mdinterface.CommandException=Ganga.Utility.AMGAServerTools.mdinterface.CommandException-class.html,Class Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException=Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException-class.html"><a title="Ganga.Utility.AMGAServerTools.mdinterface.CommandException
+Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException" class="py-name" href="#" onclick="return doclink('link-17', 'CommandException', 'link-17');">CommandException</a></tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">,</tt> <tt class="py-string">"Invalid update statement"</tt><tt class="py-op">)</tt>  </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-name">var</tt> <tt class="py-op">=</tt> <tt class="py-name">clause</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">:</tt><tt id="link-18" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-18', 'i', 'link-0');">i</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">exp</tt> <tt class="py-op">=</tt> <tt class="py-name">clause</tt><tt class="py-op">[</tt><tt id="link-19" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-19', 'i', 'link-0');">i</a></tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">i1</tt> <tt class="py-op">=</tt> <tt class="py-name">exp</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.find()=Ganga.Core.GangaRepository.Registry.Registry-class.html#find,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#find,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#find,Method Ganga.Utility.AMGAServerTools.mdclient.MDClient.find()=Ganga.Utility.AMGAServerTools.mdclient.MDClient-class.html#find,Method Ganga.Utility.Plugin.GangaPlugin.PluginManager.find()=Ganga.Utility.Plugin.GangaPlugin.PluginManager-class.html#find,Method Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find()=Ganga.Utility.external.ARDAMDClient.mdclient.MDClient-class.html#find"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-20', 'find', 'link-20');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"'"</tt><tt class="py-op">)</tt>     </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-name">i2</tt> <tt class="py-op">=</tt> <tt class="py-name">exp</tt><tt class="py-op">.</tt><tt class="py-name">rfind</tt><tt class="py-op">(</tt><tt class="py-string">"'"</tt><tt class="py-op">)</tt>    </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">i1</tt><tt class="py-op">==</tt><tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt class="py-name">i2</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">exp</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-name">exp</tt> <tt class="py-op">=</tt> <tt class="py-name">exp</tt><tt class="py-op">[</tt><tt class="py-name">i1</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-name">i2</tt><tt class="py-op">]</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-name">i1</tt> <tt class="py-op">=</tt> <tt class="py-name">var</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-21', 'find', 'link-20');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"'"</tt><tt class="py-op">)</tt>     </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">i2</tt> <tt class="py-op">=</tt> <tt class="py-name">var</tt><tt class="py-op">.</tt><tt class="py-name">rfind</tt><tt class="py-op">(</tt><tt class="py-string">"'"</tt><tt class="py-op">)</tt>            </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">i1</tt><tt class="py-op">==</tt><tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt class="py-name">i2</tt> <tt class="py-op">==</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">var</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt>           </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-name">var</tt> <tt class="py-op">=</tt> <tt class="py-name">var</tt><tt class="py-op">[</tt><tt class="py-name">i1</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-name">i2</tt><tt class="py-op">]</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">var</tt><tt class="py-op">,</tt> <tt class="py-name">exp</tt> </tt>
+</div></div><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:31 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

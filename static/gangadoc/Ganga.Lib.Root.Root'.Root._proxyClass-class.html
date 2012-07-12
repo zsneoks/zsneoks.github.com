@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Lib.Root.Root'.Root._proxyClass</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Lib-module.html">Package&nbsp;Lib</a> ::
+        <a href="Ganga.Lib.Root-module.html">Package&nbsp;Root</a> ::
+        <a href="Ganga.Lib.Root.Root%27-module.html">Module&nbsp;Root'</a> ::
+        <a href="Ganga.Lib.Root.Root%27.Root-class.html">Class&nbsp;Root</a> ::
+        Class&nbsp;_proxyClass
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class _proxyClass</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+    object --+    
+             |    
+<a href="Ganga.GPIDev.Base.Proxy.GPIProxyObject-class.html">GPIProxyObject</a> --+
+                 |
+                <strong class="uidshort">Lib.Root.Root'.Root._proxyClass</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+
+    Root application -- running ROOT
+    
+    To run a job in ROOT you need to specify the CINT script to be
+    executed. Additional files required at run time (shared libraries,
+    source files, other scripts, Ntuples) should be placed in the
+    inputsandbox of the job. Arguments can be passed onto the script using
+    the 'args' field of the application.
+
+    Defining a Simple Job:
+
+    As an example the script analysis.C in the directory ~/abc might
+    contain:
+
+    void analysis(const char* type, int events) {
+      std::cout &lt;&lt; type &lt;&lt; &quot;  &quot; &lt;&lt; events &lt;&lt; std::endl;
+    }
+
+    To define an LCG job on the Ganga command line with this script, 
+    running in ROOT version 5.14.00b with the arguments 'MinBias' 
+    and 10, you would do the following:
+
+    r = Root()
+    r.version = '5.14.00b'
+    r.script = '~/abc/analysis.C'
+    r.args = ['Minbias', 10]
+
+    j = Job(application=r, backend=LCG())
+    
+    Using Shared Libraries:
+
+    If you have private shared libraries that should be loaded you need to
+    include them in the inputsandbox. Files you want back as a result of
+    running your job should be placed in your outputsandbox. 
+    
+    The shared library mechanism is particularly useful in order to create 
+    a thin wrapper around code that uses precompiled libraries, or
+    that has not been designed to work in the CINT environment.
+    
+    **For more detailed instructions, see the following Wiki page:**
+    
+    https://twiki.cern.ch/twiki/bin/view/ArdaGrid/HowToRootJobsSharedObject
+    
+    A summary of this page is given below:
+    
+    Consider the follow in CINT script, runMain.C, that makes use of a ROOT 
+    compatible shared library:
+    
+    void runMain(){
+      //set up main, eg command line opts
+      char* argv[] = {&quot;runMain.C&quot;,&quot;--muons&quot;,&quot;100&quot;};
+      int argc = 3;
+  
+      //load the shared library
+      gSystem-&gt;Load(&quot;libMain&quot;);
+
+      //run the code
+      Main m(argv,argc);
+      int returnCode = m.run();
+    }
+    
+    The class Main is as follows and has been compiled into a shared
+    library, libMain.so. 
+    
+    Main.h:
+    
+    #ifndef MAIN_H
+    #define MAIN_H
+    #include &quot;TObject.h&quot;
+
+    class Main : public TObject {
+
+        public:
+          Main(){}//needed by Root IO
+          Main(char* argv[], int argc);
+          int run();
+  
+          ClassDef(Main,1)//Needed for CINT
+    };
+    #endif
+    
+    Main.cpp:
+    
+    #include &lt;iostream&gt;
+    using std::cout;
+    using std::endl;
+    #include &quot;Main.h&quot;
+
+    ClassImp(Main)//needed for CINT
+    Main::Main(char* arvv[], int argc){
+      //do some setup, command line opts etc
+    }
+
+    int Main::run(){
+      cout &lt;&lt; &quot;Running Main...&quot; &lt;&lt; endl;
+      return 0;
+    }
+
+    To run this on LCG, a Job could be created as follows:
+    
+    r = Root()
+    r.version = '5.12.00' #version must be on LCG external site
+    r.script = 'runMain.C'
+    
+    j = Job(application=r,backend=LCG())
+    j.inputsandbox = ['libMain.so']
+
+    It is a requirement that your script contains a function with the same
+    name as the script itself and that the shared library file is built to
+    be binary compatible with the Grid environment (e.g. same architecture 
+    and version of gcc). As shown above, the wrapper class must be made CINT 
+    compatible. This restriction does not, however, apply to classes used by 
+    the wrapper class. When running remote (e.g. LCG) jobs, the architecture
+    used is 'slc3_ia32_gcc323' if the Root version is 5.16 or earlier and
+    'slc4_ia32_gcc34' otherwise. This reflects the availability of builds
+    on the SPI server:
+    
+    http://service-spi.web.cern.ch/service-spi/external/distribution/
+         
+     
+    For backends that use a local installation of ROOT the location should
+    be set correctly in the [Root] section of the configuration.
+    
+    Using Python and Root:
+    
+    The Root project provides bindings for Python, the language supported by 
+    the Ganga command line interface. These bindings are referred to as PyRoot.
+    A job is run using PyRoot if the script has the '.py' extension or the 
+    usepython flag is set to True.
+    
+    There are many example PyRoot scripts available in the Root tutorials. 
+    A short example is given below:
+    
+    gengaus.py:
+    
+    if __name__ == '__main__':
+        from ROOT import gRandom
+        
+        output = file('gaus.txt','w')
+        try:
+            for i in range(100):
+                print &gt;&gt;output, gRandom.Gaus()
+        finally:
+            output.close()
+            
+    The above script could be run in Ganga as follows:
+            
+    r = Root()
+    r.version = '5.14.00'
+    r.script = '~/gengaus.py'
+    r.usepython = True #set automatically for '.py' scripts
+    
+    j = Job(application=r,backend=Local())
+    j.outputsandbox = ['gaus.txt']
+    j.submit()
+
+    When running locally, the python interpreter used for running PyRoot jobs
+    will default to the one being used in the current Ganga session.
+    The Root binaries selected must be binary compatible with this version.
+
+    The pythonhome variable in the [Root] section of .gangarc controls which
+    interpreter will be used for PyRoot jobs.
+        
+    When using PyRoot on a remote backend, e.g. LCG, the python version that
+    is used will depend on that used to build the Root version requested.
+    
+    
+
+Properties:
+
+     args      List of arguments for the script. Accepted types are numerics and
+               strings. (simple property, list, default=[],comparable)
+
+     version   The version of Root to run. (simple property,
+               default='5.18.00',comparable)
+
+     usepython Execute 'script' using Python. The PyRoot libraries are added to
+               the PYTHONPATH.. (simple property, default=False,comparable)
+
+     script    A File object specifying the script to execute when Root starts.
+               ('files' object, default=File(name='',subdir='.'),comparable)
+
+</pre>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Lib.Root.Root%27.Root-class.html" class="summary-name" onclick="show_private();">_impl</a><br />
+      This is a Ganga.GPI.Root implementation class.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__eq__"></a><span class="summary-sig-name">__eq__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Equality operator (==), compare the Root properties which are 
+      declared as [comparable].</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwds</span>)</span><br />
+      GPI Root object constructor: Root() : create root with default 
+      settings; Root(r) : make a copy of r; Root(r,x=a,...): make a copy of
+      r and set property 'x' to a, etc..</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__ne__"></a><span class="summary-sig-name">__ne__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Non-equality operator (!=).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#__repr__" class="summary-sig-name">__repr__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return an short representation of Root object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#__setattr__" class="summary-sig-name">__setattr__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">v</span>)</span><br />
+      Set a property of Root with consistency and safety checks.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a printable string representing Root object as a tree of 
+      properties.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="copy"></a><span class="summary-sig-name">copy</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Make an identical copy of self.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#args" class="summary-name">args</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe2450&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#script" class="summary-name">script</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe25d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object a<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#usepython" class="summary-name">usepython</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe2550&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor objec<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#version" class="summary-name">version</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe24d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwds</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>GPI Root object constructor: Root() : create root with default 
+  settings; Root(r) : make a copy of r; Root(r,x=a,...): make a copy of r 
+  and set property 'x' to a, etc..</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__repr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__repr__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an short representation of Root object.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__repr__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__setattr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__setattr__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">v</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set a property of Root with consistency and safety checks. Setting a 
+  [protected] or a unexisting property raises AttributeError.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__setattr__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a printable string representing Root object as a tree of 
+  properties.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__str__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="args"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">args</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe2450&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="script"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">script</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe25d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="usepython"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">usepython</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe2550&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="version"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">version</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x2fe24d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:22 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

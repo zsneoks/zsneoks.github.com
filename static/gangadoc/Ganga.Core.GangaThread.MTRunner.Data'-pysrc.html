@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Core.GangaThread.MTRunner.Data'</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Core-module.html">Package&nbsp;Core</a> ::
+        <a href="Ganga.Core.GangaThread-module.html">Package&nbsp;GangaThread</a> ::
+        <a href="Ganga.Core.GangaThread.MTRunner-module.html">Package&nbsp;MTRunner</a> ::
+        Module&nbsp;Data'
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Core.GangaThread.MTRunner.Data%27-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Core.GangaThread.MTRunner.Data%27-module.html">Module Ganga.Core.GangaThread.MTRunner.Data'</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Queue</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Queue</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">threading</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="DuplicateDataItemError"></a><div id="DuplicateDataItemError-def"><a name="L5"></a><tt class="py-lineno"> 5</tt> <a class="py-toggle" href="#" id="DuplicateDataItemError-toggle" onclick="return toggle('DuplicateDataItemError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.DuplicateDataItemError-class.html">DuplicateDataItemError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DuplicateDataItemError-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="DuplicateDataItemError-expanded"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">    Class raised when adding the same item in the Data object.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="DuplicateDataItemError.__init__"></a><div id="DuplicateDataItemError.__init__-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="DuplicateDataItemError.__init__-toggle" onclick="return toggle('DuplicateDataItemError.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.DuplicateDataItemError-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">message</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DuplicateDataItemError.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="DuplicateDataItemError.__init__-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-name">message</tt>  </tt>
+</div></div><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="Data"></a><div id="Data-def"><a name="L14"></a><tt class="py-lineno">14</tt> <a class="py-toggle" href="#" id="Data-toggle" onclick="return toggle('Data');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.Data-class.html">Data</a><tt class="py-op">:</tt> </tt>
+</div><div id="Data-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Data-expanded"><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">    Class to define user dataset collection.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable Ganga.Core.GangaThread.GangaThreadPool'.GangaThreadPool._attributes=Ganga.Core.GangaThread.GangaThreadPool%27.GangaThreadPool-class.html#_attributes,Variable Ganga.Core.GangaThread.MTRunner.Algorithm'.Algorithm._attributes=Ganga.Core.GangaThread.MTRunner.Algorithm%27.Algorithm-class.html#_attributes,Variable Ganga.Core.GangaThread.MTRunner.Data'.Data._attributes=Ganga.Core.GangaThread.MTRunner.Data%27.Data-class.html#_attributes,Variable Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner._attributes=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#_attributes,Variable Ganga.Lib.LCG.Grid.Grid._attributes=Ganga.Lib.LCG.Grid.Grid-class.html#_attributes,Variable Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloadTask._attributes=Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloadTask-class.html#_attributes"><a title="Ganga.Core.GangaThread.GangaThreadPool'.GangaThreadPool._attributes
+Ganga.Core.GangaThread.MTRunner.Algorithm'.Algorithm._attributes
+Ganga.Core.GangaThread.MTRunner.Data'.Data._attributes
+Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner._attributes
+Ganga.Lib.LCG.Grid.Grid._attributes
+Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloadTask._attributes" class="py-name" href="#" onclick="return doclink('link-0', '_attributes', 'link-0');">_attributes</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'collection'</tt><tt class="py-op">,</tt><tt class="py-string">'queue'</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="Data.__init__"></a><div id="Data.__init__-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="Data.__init__-toggle" onclick="return toggle('Data.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.Data-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">collection</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Data.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Data.__init__-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">      </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">collection</tt> <tt class="py-op">=</tt> <tt class="py-name">collection</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable Ganga.Lib.Batch.Batch'.Batch._proxyClass.queue=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#queue,Variable Ganga.Lib.Batch.Batch'.Batch.queue=Ganga.Lib.Batch.Batch%27.Batch-class.html#queue,Variable Ganga.Lib.Batch.Batch'.LSF._proxyClass.queue=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#queue,Variable Ganga.Lib.Batch.Batch'.LSF.queue=Ganga.Lib.Batch.Batch%27.LSF-class.html#queue,Variable Ganga.Lib.Batch.Batch'.PBS._proxyClass.queue=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#queue,Variable Ganga.Lib.Batch.Batch'.PBS.queue=Ganga.Lib.Batch.Batch%27.PBS-class.html#queue,Variable Ganga.Lib.Batch.Batch'.SGE._proxyClass.queue=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#queue,Variable Ganga.Lib.Batch.Batch'.SGE.queue=Ganga.Lib.Batch.Batch%27.SGE-class.html#queue"><a title="Ganga.Lib.Batch.Batch'.Batch._proxyClass.queue
+Ganga.Lib.Batch.Batch'.Batch.queue
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.queue
+Ganga.Lib.Batch.Batch'.LSF.queue
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.queue
+Ganga.Lib.Batch.Batch'.PBS.queue
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.queue
+Ganga.Lib.Batch.Batch'.SGE.queue" class="py-name" href="#" onclick="return doclink('link-1', 'queue', 'link-1');">queue</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Queue</tt><tt class="py-op">(</tt><tt class="py-name">maxsize</tt><tt class="py-op">=</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method Ganga.Core.GangaRepository.GangaRepository.GangaRepository.lock()=Ganga.Core.GangaRepository.GangaRepository.GangaRepository-class.html#lock,Method Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.lock()=Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient-class.html#lock,Method Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.lock()=Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite-class.html#lock,Method Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.lock()=Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal-class.html#lock,Method Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.lock()=Ganga.Utility.external.ARDAMDClient.mdtable.MDTable-class.html#lock"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.lock
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.lock
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.lock
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.lock
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.lock" class="py-name" href="#" onclick="return doclink('link-2', 'lock', 'link-2');">lock</a></tt>  <tt class="py-op">=</tt> <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">Lock</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">collection</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="Ganga.Lib.Batch.Batch'.Batch._proxyClass.queue
+Ganga.Lib.Batch.Batch'.Batch.queue
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.queue
+Ganga.Lib.Batch.Batch'.LSF.queue
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.queue
+Ganga.Lib.Batch.Batch'.PBS.queue
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.queue
+Ganga.Lib.Batch.Batch'.SGE.queue" class="py-name" href="#" onclick="return doclink('link-3', 'queue', 'link-1');">queue</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method Ganga.Utility.AMGAServerTools.mdclient.MDClient.put()=Ganga.Utility.AMGAServerTools.mdclient.MDClient-class.html#put,Method Ganga.Utility.AMGAServerTools.mdinterface.MDInterface.put()=Ganga.Utility.AMGAServerTools.mdinterface.MDInterface-class.html#put,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.put()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache-class.html#put,Method Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.put()=Ganga.Utility.external.ARDAMDClient.mdclient.MDClient-class.html#put,Method Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface.put()=Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface-class.html#put,Method Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone.put()=Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone-class.html#put"><a title="Ganga.Utility.AMGAServerTools.mdclient.MDClient.put
+Ganga.Utility.AMGAServerTools.mdinterface.MDInterface.put
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.put
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.put
+Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface.put
+Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone.put" class="py-name" href="#" onclick="return doclink('link-4', 'put', 'link-4');">put</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="Data.getCollection"></a><div id="Data.getCollection-def"><a name="L30"></a><tt class="py-lineno">30</tt> <a class="py-toggle" href="#" id="Data.getCollection-toggle" onclick="return toggle('Data.getCollection');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.Data-class.html#getCollection">getCollection</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Data.getCollection-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Data.getCollection-expanded"><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">collection</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="Data.isEmpty"></a><div id="Data.isEmpty-def"><a name="L33"></a><tt class="py-lineno">33</tt> <a class="py-toggle" href="#" id="Data.isEmpty-toggle" onclick="return toggle('Data.isEmpty');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.Data-class.html#isEmpty">isEmpty</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Data.isEmpty-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Data.isEmpty-expanded"><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        checks if the bounded queue is empty.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Ganga.Lib.Batch.Batch'.Batch._proxyClass.queue
+Ganga.Lib.Batch.Batch'.Batch.queue
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.queue
+Ganga.Lib.Batch.Batch'.LSF.queue
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.queue
+Ganga.Lib.Batch.Batch'.PBS.queue
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.queue
+Ganga.Lib.Batch.Batch'.SGE.queue" class="py-name" href="#" onclick="return doclink('link-5', 'queue', 'link-1');">queue</a></tt><tt class="py-op">.</tt><tt class="py-name">empty</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="Data.addItem"></a><div id="Data.addItem-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="Data.addItem-toggle" onclick="return toggle('Data.addItem');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.Data-class.html#addItem">addItem</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Data.addItem-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Data.addItem-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        try to put a new item in the queue. As the queue is defined with infinity number</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">        of slots, it should never throw "Queue.Full" exception.</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.lock
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.lock
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.lock
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.lock
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.lock" class="py-name" href="#" onclick="return doclink('link-6', 'lock', 'link-2');">lock</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method Ganga.Utility.external.ARDAMDClient.diskutils.RLock.acquire()=Ganga.Utility.external.ARDAMDClient.diskutils.RLock-class.html#acquire,Method Ganga.Utility.external.logging.Handler.acquire()=Ganga.Utility.external.logging.Handler-class.html#acquire"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.RLock.acquire
+Ganga.Utility.external.logging.Handler.acquire" class="py-name" href="#" onclick="return doclink('link-7', 'acquire', 'link-7');">acquire</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">item</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">collection</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">collection</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#append,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.Block-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#append,Method Ganga.Utility.external.logging.PlaceHolder.append()=Ganga.Utility.external.logging.PlaceHolder-class.html#append"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append
+Ganga.Utility.external.logging.PlaceHolder.append" class="py-name" href="#" onclick="return doclink('link-8', 'append', 'link-8');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                <tt class="py-comment">#f = open('/tmp/hclee/mt_tasks.log', 'a')</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                <tt class="py-comment">#f.write( '%s \n' % str(item) )</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                <tt class="py-comment">#f.close()</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Ganga.Lib.Batch.Batch'.Batch._proxyClass.queue
+Ganga.Lib.Batch.Batch'.Batch.queue
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.queue
+Ganga.Lib.Batch.Batch'.LSF.queue
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.queue
+Ganga.Lib.Batch.Batch'.PBS.queue
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.queue
+Ganga.Lib.Batch.Batch'.SGE.queue" class="py-name" href="#" onclick="return doclink('link-9', 'queue', 'link-1');">queue</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Ganga.Utility.AMGAServerTools.mdclient.MDClient.put
+Ganga.Utility.AMGAServerTools.mdinterface.MDInterface.put
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.put
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.put
+Ganga.Utility.external.ARDAMDClient.mdinterface.MDInterface.put
+Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone.put" class="py-name" href="#" onclick="return doclink('link-10', 'put', 'link-4');">put</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-11" class="py-name" targets="Class Ganga.Core.GangaThread.MTRunner.Data'.DuplicateDataItemError=Ganga.Core.GangaThread.MTRunner.Data%27.DuplicateDataItemError-class.html"><a title="Ganga.Core.GangaThread.MTRunner.Data'.DuplicateDataItemError" class="py-name" href="#" onclick="return doclink('link-11', 'DuplicateDataItemError', 'link-11');">DuplicateDataItemError</a></tt><tt class="py-op">(</tt><tt class="py-string">'data item \'%s\' already in the task queue'</tt> <tt class="py-op">%</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.lock
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.lock
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.lock
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.lock
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.lock" class="py-name" href="#" onclick="return doclink('link-12', 'lock', 'link-2');">lock</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Ganga.Utility.external.ARDAMDClient.diskutils.RLock.release()=Ganga.Utility.external.ARDAMDClient.diskutils.RLock-class.html#release,Method Ganga.Utility.external.logging.Handler.release()=Ganga.Utility.external.logging.Handler-class.html#release"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.RLock.release
+Ganga.Utility.external.logging.Handler.release" class="py-name" href="#" onclick="return doclink('link-13', 'release', 'link-13');">release</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"> </tt>
+<a name="Data.getNextItem"></a><div id="Data.getNextItem-def"><a name="L60"></a><tt class="py-lineno">60</tt> <a class="py-toggle" href="#" id="Data.getNextItem-toggle" onclick="return toggle('Data.getNextItem');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaThread.MTRunner.Data'.Data-class.html#getNextItem">getNextItem</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Data.getNextItem-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Data.getNextItem-expanded"><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-docstring">        try to get the next item in the queue after waiting in max. 1 sec.</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"><tt class="py-docstring">        if nothing available, the exception "Queue.Empty" will be thrown. </tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-name">theItem</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.lock
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.lock
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.lock
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.lock
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.lock" class="py-name" href="#" onclick="return doclink('link-14', 'lock', 'link-2');">lock</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.RLock.acquire
+Ganga.Utility.external.logging.Handler.acquire" class="py-name" href="#" onclick="return doclink('link-15', 'acquire', 'link-7');">acquire</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">            <tt class="py-name">theItem</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Ganga.Lib.Batch.Batch'.Batch._proxyClass.queue
+Ganga.Lib.Batch.Batch'.Batch.queue
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.queue
+Ganga.Lib.Batch.Batch'.LSF.queue
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.queue
+Ganga.Lib.Batch.Batch'.PBS.queue
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.queue
+Ganga.Lib.Batch.Batch'.SGE.queue" class="py-name" href="#" onclick="return doclink('link-16', 'queue', 'link-1');">queue</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.get()=Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers-class.html#get,Method Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.TreeNode.get()=Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.TreeNode-class.html#get,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.get()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache-class.html#get,Method Ganga.Utility.external.ordereddict.oDict.get()=Ganga.Utility.external.ordereddict.oDict-class.html#get"><a title="Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.get
+Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.TreeNode.get
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.get
+Ganga.Utility.external.ordereddict.oDict.get" class="py-name" href="#" onclick="return doclink('link-17', 'get', 'link-17');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">block</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-name">timeout</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.lock
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.lock
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.lock
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.lock
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.lock" class="py-name" href="#" onclick="return doclink('link-18', 'lock', 'link-2');">lock</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.RLock.release
+Ganga.Utility.external.logging.Handler.release" class="py-name" href="#" onclick="return doclink('link-19', 'release', 'link-13');">release</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">theItem</tt> </tt>
+</div></div><a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:38 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

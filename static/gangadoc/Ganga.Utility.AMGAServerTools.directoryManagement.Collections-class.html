@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.AMGAServerTools.directoryManagement.Collections</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        <a href="Ganga.Utility.AMGAServerTools-module.html">Package&nbsp;AMGAServerTools</a> ::
+        <a href="Ganga.Utility.AMGAServerTools.directoryManagement-module.html">Module&nbsp;directoryManagement</a> ::
+        Class&nbsp;Collections
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Collections</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections">source&nbsp;code</a></span></p>
+<p>Represents interface for manipulating collections (directories)</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">host</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">gangamd.cern.ch</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">port</span>=<span class="summary-sig-default">8822</span>,
+        <span class="summary-sig-arg">login</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">root</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">password</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">keepalive</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">reqSSL</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">**kwds</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="createDir"></a><span class="summary-sig-name">createDir</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>)</span><br />
+      Creates the directory dir if it does not yet exist but parent dir 
+      already exist</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.createDir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="listDir"></a><span class="summary-sig-name">listDir</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>)</span><br />
+      Returns names of all subdirectories in the directory dir</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.listDir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="statDir"></a><span class="summary-sig-name">statDir</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>)</span><br />
+      Returns owner and owner-permissions for the directory dir</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.statDir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html#removeDir" class="summary-sig-name">removeDir</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>)</span><br />
+      Removes all directories matching path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.removeDir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="pwd"></a><span class="summary-sig-name">pwd</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the current directory</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.pwd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cd"></a><span class="summary-sig-name">cd</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>)</span><br />
+      Changes the current directory to the given directory</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.cd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="chown"></a><span class="summary-sig-name">chown</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>,
+        <span class="summary-sig-arg">new_owner</span>)</span><br />
+      Changes the owner of the directory</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.chown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html#chmod" class="summary-sig-name">chmod</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>,
+        <span class="summary-sig-arg">new_permissions</span>)</span><br />
+      Changes owner permidssions for the directory.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.chmod">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html#aclAdd" class="summary-sig-name">aclAdd</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>,
+        <span class="summary-sig-arg">group</span>,
+        <span class="summary-sig-arg">rights</span>)</span><br />
+      Adds group rights to the dir ACL.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.aclAdd">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html#aclRemove" class="summary-sig-name">aclRemove</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>,
+        <span class="summary-sig-arg">group</span>)</span><br />
+      Removes group from the dir ACL.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.aclRemove">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="aclShow"></a><span class="summary-sig-name">aclShow</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir</span>)</span><br />
+      Shows the dir ACL</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.aclShow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="removeDir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">removeDir</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dir</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.removeDir">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes all directories matching path. Directories are only deleted if
+  they are empty and they have no attributes defined</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="chmod"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">chmod</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dir</span>,
+        <span class="sig-arg">new_permissions</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.chmod">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Changes owner permidssions for the directory. The format of 
+  new_permissions is rwx, where &quot;-&quot; signs can be substituted for 
+  the letters if certain priviledges have to be ommitted</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="aclAdd"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">aclAdd</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dir</span>,
+        <span class="sig-arg">group</span>,
+        <span class="sig-arg">rights</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.aclAdd">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds group rights to the dir ACL. The format of the group 
+  user:groupname. The format of rights is rwx</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="aclRemove"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">aclRemove</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dir</span>,
+        <span class="sig-arg">group</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.AMGAServerTools.directoryManagement-pysrc.html#Collections.aclRemove">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes group from the dir ACL. The format of the group 
+  user:groupname</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:22 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Core.GangaRepository</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Core-module.html">Package&nbsp;Core</a> ::
+        Package&nbsp;GangaRepository
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Core.GangaRepository-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Core.GangaRepository-module.html">Package Ganga.Core.GangaRepository</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Provides Persistency and the base class for all Registries</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Also, a list of all Registries is kept here</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package Ganga.Core.GangaRepository=Ganga.Core.GangaRepository-module.html,Module Ganga.Core.GangaRepository.GangaRepository=Ganga.Core.GangaRepository.GangaRepository-module.html,Class Ganga.Core.GangaRepository.GangaRepository.GangaRepository=Ganga.Core.GangaRepository.GangaRepository.GangaRepository-class.html"><a title="Ganga.Core.GangaRepository
+Ganga.Core.GangaRepository.GangaRepository
+Ganga.Core.GangaRepository.GangaRepository.GangaRepository" class="py-name" href="#" onclick="return doclink('link-0', 'GangaRepository', 'link-0');">GangaRepository</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="Ganga.Core.GangaRepository
+Ganga.Core.GangaRepository.GangaRepository
+Ganga.Core.GangaRepository.GangaRepository.GangaRepository" class="py-name" href="#" onclick="return doclink('link-1', 'GangaRepository', 'link-0');">GangaRepository</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class Ganga.Core.GangaRepository.GangaRepository.RepositoryError=Ganga.Core.GangaRepository.GangaRepository.RepositoryError-class.html,Class Ganga.Core.exceptions.RepositoryError=Ganga.Core.exceptions.RepositoryError-class.html"><a title="Ganga.Core.GangaRepository.GangaRepository.RepositoryError
+Ganga.Core.exceptions.RepositoryError" class="py-name" href="#" onclick="return doclink('link-2', 'RepositoryError', 'link-2');">RepositoryError</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module Ganga.Core.GangaRepository.Registry=Ganga.Core.GangaRepository.Registry-module.html,Class Ganga.Core.GangaRepository.Registry.Registry=Ganga.Core.GangaRepository.Registry.Registry-class.html,Package Ganga.GPIDev.Lib.Registry=Ganga.GPIDev.Lib.Registry-module.html"><a title="Ganga.Core.GangaRepository.Registry
+Ganga.Core.GangaRepository.Registry.Registry
+Ganga.GPIDev.Lib.Registry" class="py-name" href="#" onclick="return doclink('link-3', 'Registry', 'link-3');">Registry</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class Ganga.Core.GangaRepository.Registry.RegistryError=Ganga.Core.GangaRepository.Registry.RegistryError-class.html"><a title="Ganga.Core.GangaRepository.Registry.RegistryError" class="py-name" href="#" onclick="return doclink('link-4', 'RegistryError', 'link-4');">RegistryError</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Class Ganga.Core.GangaRepository.Registry.RegistryAccessError=Ganga.Core.GangaRepository.Registry.RegistryAccessError-class.html"><a title="Ganga.Core.GangaRepository.Registry.RegistryAccessError" class="py-name" href="#" onclick="return doclink('link-5', 'RegistryAccessError', 'link-5');">RegistryAccessError</a></tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Class Ganga.Core.GangaRepository.Registry.RegistryKeyError=Ganga.Core.GangaRepository.Registry.RegistryKeyError-class.html"><a title="Ganga.Core.GangaRepository.Registry.RegistryKeyError" class="py-name" href="#" onclick="return doclink('link-6', 'RegistryKeyError', 'link-6');">RegistryKeyError</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Class Ganga.Core.GangaRepository.Registry.RegistryLockError=Ganga.Core.GangaRepository.Registry.RegistryLockError-class.html"><a title="Ganga.Core.GangaRepository.Registry.RegistryLockError" class="py-name" href="#" onclick="return doclink('link-7', 'RegistryLockError', 'link-7');">RegistryLockError</a></tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Class Ganga.Core.GangaRepository.Registry.ObjectNotInRegistryError=Ganga.Core.GangaRepository.Registry.ObjectNotInRegistryError-class.html"><a title="Ganga.Core.GangaRepository.Registry.ObjectNotInRegistryError" class="py-name" href="#" onclick="return doclink('link-8', 'ObjectNotInRegistryError', 'link-8');">ObjectNotInRegistryError</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable Ganga.Core.GangaRepository.allRegistries=Ganga.Core.GangaRepository-module.html#allRegistries"><a title="Ganga.Core.GangaRepository.allRegistries" class="py-name" href="#" onclick="return doclink('link-9', 'allRegistries', 'link-9');">allRegistries</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="addRegistry"></a><div id="addRegistry-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="addRegistry-toggle" onclick="return toggle('addRegistry');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaRepository-module.html#addRegistry">addRegistry</a><tt class="py-op">(</tt><tt class="py-param">registry</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="addRegistry-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="addRegistry-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">   <tt id="link-10" class="py-name"><a title="Ganga.Core.GangaRepository.allRegistries" class="py-name" href="#" onclick="return doclink('link-10', 'allRegistries', 'link-9');">allRegistries</a></tt><tt class="py-op">[</tt><tt class="py-name">registry</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.name=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.File.File'.File.name=Ganga.GPIDev.Lib.File.File%27.File-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job.name=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#name,Variable Ganga.GPIDev.Schema.Schema'.Schema.name=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-11', 'name', 'link-11');">name</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">registry</tt> </tt>
+</div><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="getRegistries"></a><div id="getRegistries-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="getRegistries-toggle" onclick="return toggle('getRegistries');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaRepository-module.html#getRegistries">getRegistries</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getRegistries-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getRegistries-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">   <tt class="py-keyword">return</tt> <tt id="link-12" class="py-name"><a title="Ganga.Core.GangaRepository.allRegistries" class="py-name" href="#" onclick="return doclink('link-12', 'allRegistries', 'link-9');">allRegistries</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.values()=Ganga.Core.GangaRepository.Registry.Registry-class.html#values,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.values=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter._proxyClass-class.html#values,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.values=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#values,Method Ganga.Utility.external.ordereddict.oDict.values()=Ganga.Utility.external.ordereddict.oDict-class.html#values"><a title="Ganga.Core.GangaRepository.Registry.Registry.values
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.values
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.values
+Ganga.Utility.external.ordereddict.oDict.values" class="py-name" href="#" onclick="return doclink('link-13', 'values', 'link-13');">values</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="getRegistry"></a><div id="getRegistry-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="getRegistry-toggle" onclick="return toggle('getRegistry');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Core.GangaRepository-module.html#getRegistry">getRegistry</a><tt class="py-op">(</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getRegistry-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getRegistry-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">   <tt class="py-keyword">return</tt> <tt id="link-14" class="py-name"><a title="Ganga.Core.GangaRepository.allRegistries" class="py-name" href="#" onclick="return doclink('link-14', 'allRegistries', 'link-9');">allRegistries</a></tt><tt class="py-op">[</tt><tt id="link-15" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-15', 'name', 'link-11');">name</a></tt><tt class="py-op">]</tt> </tt>
+</div><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:34 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

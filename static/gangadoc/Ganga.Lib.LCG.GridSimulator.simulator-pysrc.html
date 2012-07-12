@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Lib.LCG.GridSimulator.simulator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Lib-module.html">Package&nbsp;Lib</a> ::
+        <a href="Ganga.Lib.LCG-module.html">Package&nbsp;LCG</a> ::
+        <a href="Ganga.Lib.LCG.GridSimulator-module.html">Package&nbsp;GridSimulator</a> ::
+        Module&nbsp;simulator
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Lib.LCG.GridSimulator.simulator-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Lib.LCG.GridSimulator.simulator-module.html">Module Ganga.Lib.LCG.GridSimulator.simulator</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># this is a ganga grid simulator driver script</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># usage:</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># env GANGA_GRID_SIMULATOR=1 ganga -o[LCG]GLITE_ENABLE=True -oGLITE_SETUP=/dev/null -o[PollThread]autostart=True simulator.py</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># when the simulator is enabled it will produce data files in the current working directory</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># these files may be further processed with the simulator-analyze.py script to extract timing data</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># recommended way is to have the driver + simulation parameters + results all in one directory e.g.</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># mkdir simu</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"># cd simu</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># cp path/to/simulation.py .</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"># run simulation.py as described above</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#config,Variable Ganga.GPIDev.Base.Filters.config=Ganga.GPIDev.Base.Filters-module.html#config,Variable Ganga.GPIDev.Lib.Config.Config.config=Ganga.GPIDev.Lib.Config.Config-module.html#config,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.config=Ganga.GPIDev.Lib.Registry.BoxRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.JobRegistry'.config=Ganga.GPIDev.Lib.Registry.JobRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.RegistrySlice.config=Ganga.GPIDev.Lib.Registry.RegistrySlice-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.config=Ganga.GPIDev.Lib.Tasks.ArgTransform-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Task'.config=Ganga.GPIDev.Lib.Tasks.Task%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.config=Ganga.GPIDev.Lib.Tasks.TaskApplication-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Transform'.config=Ganga.GPIDev.Lib.Tasks.Transform%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.common.config=Ganga.GPIDev.Lib.Tasks.common-module.html#config,Variable Ganga.GPIDev.Streamers.MigrationControl.config=Ganga.GPIDev.Streamers.MigrationControl-module.html#config,Variable Ganga.Lib.Batch.Batch'.LSF.config=Ganga.Lib.Batch.Batch%27.LSF-class.html#config,Variable Ganga.Lib.Batch.Batch'.PBS.config=Ganga.Lib.Batch.Batch%27.PBS-class.html#config,Variable Ganga.Lib.Batch.Batch'.SGE.config=Ganga.Lib.Batch.Batch%27.SGE-class.html#config,Variable Ganga.Lib.Batch.Batch'.config=Ganga.Lib.Batch.Batch%27-module.html#config,Variable Ganga.Lib.Batch.config=Ganga.Lib.Batch-module.html#config,Variable Ganga.Lib.Condor.CondorRequirements'.config=Ganga.Lib.Condor.CondorRequirements%27-module.html#config,Variable Ganga.Lib.Executable.Executable'.config=Ganga.Lib.Executable.Executable%27-module.html#config,Variable Ganga.Lib.Executable.config=Ganga.Lib.Executable-module.html#config,Variable Ganga.Lib.LCG.CREAM.config=Ganga.Lib.LCG.CREAM-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.config=Ganga.Lib.LCG.GridSimulator.GridSimulator-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.simulator.config=Ganga.Lib.LCG.GridSimulator.simulator-module.html#config,Variable Ganga.Lib.LCG.LCG.config=Ganga.Lib.LCG.LCG-module.html#config,Variable Ganga.Lib.Localhost.Localhost'.config=Ganga.Lib.Localhost.Localhost%27-module.html#config,Variable Ganga.Lib.Localhost.config=Ganga.Lib.Localhost-module.html#config,Variable Ganga.Lib.Mergers.Merger.config=Ganga.Lib.Mergers.Merger-module.html#config,Variable Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#config,Variable Ganga.Lib.Root.Root'.config=Ganga.Lib.Root.Root%27-module.html#config,Variable Ganga.Lib.Root.config=Ganga.Lib.Root-module.html#config,Variable Ganga.Runtime.AMGA_repository_runtime.config=Ganga.Runtime.AMGA_repository_runtime-module.html#config,Variable Ganga.Runtime.Repository_runtime.config=Ganga.Runtime.Repository_runtime-module.html#config,Variable Ganga.Runtime.XML_repository_runtime.config=Ganga.Runtime.XML_repository_runtime-module.html#config,Variable Ganga.Runtime.associations.config=Ganga.Runtime.associations-module.html#config,Variable Ganga.Runtime.spyware.config=Ganga.Runtime.spyware-module.html#config,Variable Ganga.Utility.Caching.config=Ganga.Utility.Caching-module.html#config,Module Ganga.Utility.external.logging.config=Ganga.Utility.external.logging.config-module.html,Variable Ganga.Utility.logging.config=Ganga.Utility.logging-module.html#config"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-0', 'config', 'link-0');">config</a></tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-1', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'GridSimulator'</tt><tt class="py-op">]</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt id="link-2" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-2', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'submit_time'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-string">'0.2'</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt id="link-3" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-3', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'submit_failure_rate'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-number">0.0</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt id="link-4" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-4', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'cancel_time'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-string">'random.uniform(0,1)'</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt id="link-5" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-5', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'cancel_failure_rate'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-number">0.0</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt id="link-6" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-6', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'single_status_time'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-number">0.0</tt> <tt class="py-comment"># * number of subjobs</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt id="link-7" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-7', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'master_status_time'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'random.uniform(2,5)'</tt> <tt class="py-comment"># constant</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt id="link-8" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-8', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'get_output_time'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-string">'0.0'</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt id="link-9" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-9', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'job_id_resolved_time'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-string">'random.uniform(10,50)'</tt> <tt class="py-comment"># up to 800s</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt id="link-10" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-10', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'job_finish_time'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt> <tt class="py-string">'10+random.uniform(10,10)'</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt id="link-11" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-11', 'config', 'link-0');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">'job_failure_rate'</tt><tt class="py-op">]</tt><tt class="py-op">=</tt> <tt class="py-string">'random.uniform(0,0.05)'</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-comment"># submit K parallel master jobs with N subjobs each</tt> </tt>
+<a name="submit"></a><div id="submit-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="submit-toggle" onclick="return toggle('submit');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.LCG.GridSimulator.simulator-module.html#submit">submit</a><tt class="py-op">(</tt><tt class="py-param">N</tt><tt class="py-op">,</tt><tt class="py-param">K</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="submit-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="submit-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-name">jobs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-12" class="py-name" targets="Variable Ganga.PACKAGE.i=Ganga.PACKAGE-module.html#i"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-12', 'i', 'link-12');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">K</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt id="link-13" class="py-name" targets="Variable Ganga.GPIDev.Streamers.SimpleTest.j=Ganga.GPIDev.Streamers.SimpleTest-module.html#j"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-13', 'j', 'link-13');">j</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name" targets="Package Ganga.GPIDev.Lib.Job=Ganga.GPIDev.Lib.Job-module.html,Class Ganga.GPIDev.Lib.Job.Job'.Job=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html"><a title="Ganga.GPIDev.Lib.Job
+Ganga.GPIDev.Lib.Job.Job'.Job" class="py-name" href="#" onclick="return doclink('link-14', 'Job', 'link-14');">Job</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-15', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.backend=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Job.Job'.Job.backend=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#backend,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.backend=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.backend=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.backend=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.backend=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.backend=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.backend=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#backend"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.backend
+Ganga.GPIDev.Lib.Job.Job'.Job.backend
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.backend
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.backend
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.backend
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.backend
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.backend
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.backend" class="py-name" href="#" onclick="return doclink('link-16', 'backend', 'link-16');">backend</a></tt><tt class="py-op">=</tt><tt id="link-17" class="py-name" targets="Package Ganga.Lib.LCG=Ganga.Lib.LCG-module.html,Module Ganga.Lib.LCG.LCG=Ganga.Lib.LCG.LCG-module.html,Class Ganga.Lib.LCG.LCG.LCG=Ganga.Lib.LCG.LCG.LCG-class.html,Package Ganga.Lib.MonitoringServices.ARDADashboard.LCG=Ganga.Lib.MonitoringServices.ARDADashboard.LCG-module.html"><a title="Ganga.Lib.LCG
+Ganga.Lib.LCG.LCG
+Ganga.Lib.LCG.LCG.LCG
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG" class="py-name" href="#" onclick="return doclink('link-17', 'LCG', 'link-17');">LCG</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt id="link-18" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-18', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.backend
+Ganga.GPIDev.Lib.Job.Job'.Job.backend
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.backend
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.backend
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.backend
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.backend
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.backend
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.backend" class="py-name" href="#" onclick="return doclink('link-19', 'backend', 'link-16');">backend</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.middleware=Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator-class.html#middleware"><a title="Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.middleware" class="py-name" href="#" onclick="return doclink('link-20', 'middleware', 'link-20');">middleware</a></tt><tt class="py-op">=</tt><tt class="py-string">'GLITE'</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt id="link-21" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-21', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.splitter=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#splitter,Variable Ganga.GPIDev.Lib.Job.Job'.Job.splitter=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#splitter,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.splitter=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#splitter,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.splitter=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#splitter"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.splitter
+Ganga.GPIDev.Lib.Job.Job'.Job.splitter
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.splitter
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.splitter" class="py-name" href="#" onclick="return doclink('link-22', 'splitter', 'link-22');">splitter</a></tt><tt class="py-op">=</tt><tt id="link-23" class="py-name" targets="Class Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html"><a title="Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter" class="py-name" href="#" onclick="return doclink('link-23', 'GenericSplitter', 'link-23');">GenericSplitter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt id="link-24" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-24', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.splitter
+Ganga.GPIDev.Lib.Job.Job'.Job.splitter
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.splitter
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.splitter" class="py-name" href="#" onclick="return doclink('link-25', 'splitter', 'link-22');">splitter</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.attribute=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter._proxyClass-class.html#attribute,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.attribute=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#attribute"><a title="Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.attribute
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.attribute" class="py-name" href="#" onclick="return doclink('link-26', 'attribute', 'link-26');">attribute</a></tt><tt class="py-op">=</tt><tt class="py-string">'application.args'</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt id="link-27" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-27', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.splitter
+Ganga.GPIDev.Lib.Job.Job'.Job.splitter
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.splitter
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.splitter" class="py-name" href="#" onclick="return doclink('link-28', 'splitter', 'link-22');">splitter</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.values()=Ganga.Core.GangaRepository.Registry.Registry-class.html#values,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.values=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter._proxyClass-class.html#values,Variable Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.values=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#values,Method Ganga.Utility.external.ordereddict.oDict.values()=Ganga.Utility.external.ordereddict.oDict-class.html#values"><a title="Ganga.Core.GangaRepository.Registry.Registry.values
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.values
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.values
+Ganga.Utility.external.ordereddict.oDict.values" class="py-name" href="#" onclick="return doclink('link-29', 'values', 'link-29');">values</a></tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-op">[</tt><tt class="py-string">'x'</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">N</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt id="link-30" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-30', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method Ganga.GPIDev.Adapters.IBackend.IBackend.submit()=Ganga.GPIDev.Adapters.IBackend.IBackend-class.html#submit,Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.submit()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#submit,Method Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.submit()=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#submit,Method Ganga.GPIDev.Lib.Job.Job'.Job.submit()=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#submit,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.submit()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#submit,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate.submit()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#submit,Method Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.submit()=Ganga.GPIDev.Lib.Registry.JobRegistry%27.JobRegistrySlice-class.html#submit,Method Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.submit()=Ganga.GPIDev.Lib.Registry.JobRegistry%27.JobRegistrySliceProxy-class.html#submit,Method Ganga.Lib.Batch.Batch'.Batch.submit()=Ganga.Lib.Batch.Batch%27.Batch-class.html#submit,Method Ganga.Lib.Condor.Condor'.Condor.submit()=Ganga.Lib.Condor.Condor%27.Condor-class.html#submit,Method Ganga.Lib.Interactive.Interactive'.Interactive.submit()=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#submit,Method Ganga.Lib.LCG.CREAM.CREAM.submit()=Ganga.Lib.LCG.CREAM.CREAM-class.html#submit,Method Ganga.Lib.LCG.Grid.Grid.submit()=Ganga.Lib.LCG.Grid.Grid-class.html#submit,Method Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.submit()=Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator-class.html#submit,Function Ganga.Lib.LCG.GridSimulator.simulator.submit()=Ganga.Lib.LCG.GridSimulator.simulator-module.html#submit,Method Ganga.Lib.LCG.LCG.LCG.submit()=Ganga.Lib.LCG.LCG.LCG-class.html#submit,Method Ganga.Lib.Localhost.Localhost'.Localhost.submit()=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#submit,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.submit()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#submit,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.submit()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena-class.html#submit,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.submit()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable-class.html#submit,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.submit()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#submit,Method Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.submit()=Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS-class.html#submit,Method Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.submit()=Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS-class.html#submit,Method Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.submit()=Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS-class.html#submit,Method Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.submit()=Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS-class.html#submit,Method Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.submit()=Ganga.Lib.MonitoringServices.DummyMS.DummyMS%27.DummyMS-class.html#submit,Method Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.submit()=Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS%27.JobExecutionMonitorMS-class.html#submit,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.submit()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#submit,Method Ganga.Lib.Remote.Remote'.Remote.submit()=Ganga.Lib.Remote.Remote%27.Remote-class.html#submit,Method Ganga.Utility.AMGAServerTools.Commands.Command.submit()=Ganga.Utility.AMGAServerTools.Commands.Command-class.html#submit"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.submit
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.submit
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.submit
+Ganga.GPIDev.Lib.Job.Job'.Job.submit
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.submit
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.submit
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.submit
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.submit
+Ganga.Lib.Batch.Batch'.Batch.submit
+Ganga.Lib.Condor.Condor'.Condor.submit
+Ganga.Lib.Interactive.Interactive'.Interactive.submit
+Ganga.Lib.LCG.CREAM.CREAM.submit
+Ganga.Lib.LCG.Grid.Grid.submit
+Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.submit
+Ganga.Lib.LCG.GridSimulator.simulator.submit
+Ganga.Lib.LCG.LCG.LCG.submit
+Ganga.Lib.Localhost.Localhost'.Localhost.submit
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.submit
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.submit
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.submit
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.submit
+Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.submit
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.submit
+Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.submit
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.submit
+Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.submit
+Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.submit
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.submit
+Ganga.Lib.Remote.Remote'.Remote.submit
+Ganga.Utility.AMGAServerTools.Commands.Command.submit" class="py-name" href="#" onclick="return doclink('link-31', 'submit', 'link-31');">submit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">jobs</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#append,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.Block-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#append,Method Ganga.Utility.external.logging.PlaceHolder.append()=Ganga.Utility.external.logging.PlaceHolder-class.html#append"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append
+Ganga.Utility.external.logging.PlaceHolder.append" class="py-name" href="#" onclick="return doclink('link-32', 'append', 'link-32');">append</a></tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-33', 'j', 'link-13');">j</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt id="link-34" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.Job.time=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#time,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#time"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-34', 'time', 'link-34');">time</a></tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">finished</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-35" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-35', 'j', 'link-13');">j</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">jobs</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-36" class="py-name"><a title="Ganga.GPIDev.Streamers.SimpleTest.j" class="py-name" href="#" onclick="return doclink('link-36', 'j', 'link-13');">j</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.status=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Job.Job'.Job.status=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#status,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.status=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.status=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.status=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.status=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.status=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.status=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.status=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#status,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.status=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#status,Variable Ganga.Lib.Batch.Batch'.Batch.status=Ganga.Lib.Batch.Batch%27.Batch-class.html#status,Variable Ganga.Lib.Batch.Batch'.LSF.status=Ganga.Lib.Batch.Batch%27.LSF-class.html#status,Variable Ganga.Lib.Batch.Batch'.PBS.status=Ganga.Lib.Batch.Batch%27.PBS-class.html#status,Variable Ganga.Lib.Batch.Batch'.SGE.status=Ganga.Lib.Batch.Batch%27.SGE-class.html#status,Variable Ganga.Lib.Condor.Condor'.Condor._proxyClass.status=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#status,Variable Ganga.Lib.Condor.Condor'.Condor.status=Ganga.Lib.Condor.Condor%27.Condor-class.html#status,Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.status=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#status,Variable Ganga.Lib.Interactive.Interactive'.Interactive.status=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#status,Method Ganga.Lib.LCG.Grid.Grid.status()=Ganga.Lib.LCG.Grid.Grid-class.html#status,Method Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.status()=Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator-class.html#status,Variable Ganga.Lib.Localhost.Localhost'.Localhost.status=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#status"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.status
+Ganga.GPIDev.Lib.Job.Job'.Job.status
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.status
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.status
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.status
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.status
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.status
+Ganga.GPIDev.Lib.Tasks.Task'.Task.status
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.status
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.status
+Ganga.Lib.Batch.Batch'.Batch.status
+Ganga.Lib.Batch.Batch'.LSF.status
+Ganga.Lib.Batch.Batch'.PBS.status
+Ganga.Lib.Batch.Batch'.SGE.status
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.status
+Ganga.Lib.Condor.Condor'.Condor.status
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.status
+Ganga.Lib.Interactive.Interactive'.Interactive.status
+Ganga.Lib.LCG.Grid.Grid.status
+Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.status
+Ganga.Lib.Localhost.Localhost'.Localhost.status" class="py-name" href="#" onclick="return doclink('link-37', 'status', 'link-37');">status</a></tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'failed'</tt><tt class="py-op">,</tt><tt class="py-string">'completed'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">     </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-keyword">not</tt> <tt class="py-name">finished</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt id="link-38" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.Job.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.time
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.time" class="py-name" href="#" onclick="return doclink('link-38', 'time', 'link-34');">time</a></tt><tt class="py-op">.</tt><tt class="py-name">sleep</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">         </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">jobs</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-comment"># repeat M times for better statistics (and repository scalability)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt id="link-39" class="py-name" targets="Variable Ganga.Lib.LCG.GridSimulator.simulator.M=Ganga.Lib.LCG.GridSimulator.simulator-module.html#M"><a title="Ganga.Lib.LCG.GridSimulator.simulator.M" class="py-name" href="#" onclick="return doclink('link-39', 'M', 'link-39');">M</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"><tt class="py-keyword">for</tt> <tt id="link-40" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-40', 'i', 'link-12');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="Ganga.Lib.LCG.GridSimulator.simulator.M" class="py-name" href="#" onclick="return doclink('link-41', 'M', 'link-39');">M</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">'*'</tt><tt class="py-op">*</tt><tt class="py-number">80</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">'starting %d out of %d'</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-42', 'i', 'link-12');">i</a></tt><tt class="py-op">,</tt><tt id="link-43" class="py-name"><a title="Ganga.Lib.LCG.GridSimulator.simulator.M" class="py-name" href="#" onclick="return doclink('link-43', 'M', 'link-39');">M</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">'*'</tt><tt class="py-op">*</tt><tt class="py-number">80</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt id="link-44" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.submit
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.submit
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.submit
+Ganga.GPIDev.Lib.Job.Job'.Job.submit
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.submit
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.submit
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.submit
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.submit
+Ganga.Lib.Batch.Batch'.Batch.submit
+Ganga.Lib.Condor.Condor'.Condor.submit
+Ganga.Lib.Interactive.Interactive'.Interactive.submit
+Ganga.Lib.LCG.CREAM.CREAM.submit
+Ganga.Lib.LCG.Grid.Grid.submit
+Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.submit
+Ganga.Lib.LCG.GridSimulator.simulator.submit
+Ganga.Lib.LCG.LCG.LCG.submit
+Ganga.Lib.Localhost.Localhost'.Localhost.submit
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.submit
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.submit
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.submit
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.submit
+Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.submit
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.submit
+Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.submit
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.submit
+Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.submit
+Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.submit
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.submit
+Ganga.Lib.Remote.Remote'.Remote.submit
+Ganga.Utility.AMGAServerTools.Commands.Command.submit" class="py-name" href="#" onclick="return doclink('link-44', 'submit', 'link-31');">submit</a></tt><tt class="py-op">(</tt><tt class="py-number">50</tt><tt class="py-op">,</tt><tt class="py-number">10</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-keyword">print</tt> <tt class="py-string">'finished!'</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:35 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

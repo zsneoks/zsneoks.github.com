@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.PACKAGE</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        Module&nbsp;PACKAGE
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.PACKAGE-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.PACKAGE-module.html">Module Ganga.PACKAGE</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># $Id: PACKAGE.py,v 1.7 2009-07-27 15:15:56 moscicki Exp $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">""" PACKAGE modules describe the installation and setup of the Ganga runtime packages.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">Purpose: automatic initialization of Ganga environment setup and software distribution tools.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">Each PACKAGE module should provide:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring"> - setup object : an instance of Ganga.Utility.Setup.PackageSetup class</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"> - standardSetup() function</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">The setup object is used to describe the external dependencies of the package.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">The standardSetup() function is used to perform automatic initialization of the environment of the package.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"># Default minimum Python version number asked for by Ganga</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Ganga.PACKAGE._defaultMinVersion=Ganga.PACKAGE-module.html#_defaultMinVersion"><a title="Ganga.PACKAGE._defaultMinVersion" class="py-name" href="#" onclick="return doclink('link-0', '_defaultMinVersion', 'link-0');">_defaultMinVersion</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"2.2"</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable Ganga.PACKAGE._defaultMinHexVersion=Ganga.PACKAGE-module.html#_defaultMinHexVersion"><a title="Ganga.PACKAGE._defaultMinHexVersion" class="py-name" href="#" onclick="return doclink('link-1', '_defaultMinHexVersion', 'link-1');">_defaultMinHexVersion</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0x20200f0</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment"># The default values will be guessed but you may override them here</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable Ganga.PACKAGE._defaultPlatform=Ganga.PACKAGE-module.html#_defaultPlatform,Variable Ganga.Utility.AMGAServerTools.ganga_user_create._defaultPlatform=Ganga.Utility.AMGAServerTools.ganga_user_create-module.html#_defaultPlatform"><a title="Ganga.PACKAGE._defaultPlatform
+Ganga.Utility.AMGAServerTools.ganga_user_create._defaultPlatform" class="py-name" href="#" onclick="return doclink('link-2', '_defaultPlatform', 'link-2');">_defaultPlatform</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> <tt class="py-comment">#'slc3_gcc323'</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable Ganga.PACKAGE._defaultExternalHome=Ganga.PACKAGE-module.html#_defaultExternalHome,Variable Ganga.Utility.AMGAServerTools.ganga_user_create._defaultExternalHome=Ganga.Utility.AMGAServerTools.ganga_user_create-module.html#_defaultExternalHome"><a title="Ganga.PACKAGE._defaultExternalHome
+Ganga.Utility.AMGAServerTools.ganga_user_create._defaultExternalHome" class="py-name" href="#" onclick="return doclink('link-3', '_defaultExternalHome', 'link-3');">_defaultExternalHome</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">#_defaultExternalHome = "/afs/cern.ch/sw/ganga/external/"</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># The dictionary of external  packages is used by the release/download</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># system to handle the installation  tarballs. Make sure that all your</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"># dependencies go in here</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"># The layout of the external tree is fixed. The package top is:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment">#  externalHome/name/version/platf </tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"># This layout is similar to  LCG external software repository and thus</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># may be profitable in the long term.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># syspath specifies the relative path for PYTHONPATH setup (sys.path)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"># if noarch=1 then platf is ommited</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"># if a path-like variable (e.g. LD_LIBRARY_PATH) is set using setup.prependPath() method, the</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment"># value specified in the dictionary may be either string or a list of strings (they will be separated by colons ':').</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable Ganga.PACKAGE._externalPackages=Ganga.PACKAGE-module.html#_externalPackages"><a title="Ganga.PACKAGE._externalPackages" class="py-name" href="#" onclick="return doclink('link-4', '_externalPackages', 'link-4');">_externalPackages</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">   <tt class="py-string">'Optik'</tt> <tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'version'</tt>       <tt class="py-op">:</tt> <tt class="py-string">'1.4.1'</tt><tt class="py-op">,</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">              <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">              <tt class="py-string">'syspath'</tt>       <tt class="py-op">:</tt> <tt class="py-string">'lib/python2.2/site-packages'</tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">              <tt class="py-string">'maxHexVersion'</tt> <tt class="py-op">:</tt> <tt class="py-string">'0x20300f0'</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> <tt class="py-comment">#maximum Python version number for adding Optik to path</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">   <tt class="py-string">'ipython'</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'0.6.13_ganga_patch1'</tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">               <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">               <tt class="py-string">'PYTHONPATH'</tt> <tt class="py-op">:</tt> <tt class="py-string">'lib/python'</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">   <tt class="py-string">'ApMon'</tt> <tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'2.2.11'</tt><tt class="py-op">,</tt>  </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">              <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">              <tt class="py-string">'syspath'</tt> <tt class="py-op">:</tt> <tt class="py-string">'python'</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">   <tt class="py-string">'subprocess'</tt><tt class="py-op">:</tt><tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'2.4.2'</tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                 <tt class="py-string">'syspath'</tt> <tt class="py-op">:</tt> <tt class="py-string">'lib/python2.2/site-packages'</tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                 <tt class="py-string">'maxHexVersion'</tt> <tt class="py-op">:</tt> <tt class="py-string">'0x20501f0'</tt><tt class="py-op">,</tt> <tt class="py-comment"># in 2.5.0 subprocess is broken, bugfix: http://savannah.cern.ch/bugs/?36178</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                 <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt><tt class="py-name">True</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">   <tt class="py-string">'tarfile'</tt><tt class="py-op">:</tt><tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'2.4.2'</tt><tt class="py-op">,</tt>  </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">              <tt class="py-string">'syspath'</tt><tt class="py-op">:</tt> <tt class="py-string">'lib/python2.2/site-packages'</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">              <tt class="py-string">'maxHexVersion'</tt> <tt class="py-op">:</tt> <tt class="py-string">'0x20300f0'</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">              <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt><tt class="py-name">True</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">   <tt class="py-string">'paramiko'</tt> <tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'1.7.3'</tt><tt class="py-op">,</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                 <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                 <tt class="py-string">'syspath'</tt><tt class="py-op">:</tt><tt class="py-string">'lib/python2.3/site-packages'</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">   <tt class="py-string">'pycrypto'</tt> <tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'2.0.1'</tt><tt class="py-op">,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                 <tt class="py-string">'syspath'</tt><tt class="py-op">:</tt><tt class="py-string">'lib/python2.3/site-packages'</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">   <tt class="py-string">'stomputil'</tt> <tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'version'</tt> <tt class="py-op">:</tt> <tt class="py-string">'2.3'</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                  <tt class="py-string">'noarch'</tt><tt class="py-op">:</tt> <tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                  <tt class="py-string">'syspath'</tt> <tt class="py-op">:</tt> <tt class="py-string">'python'</tt><tt class="py-op">}</tt>  </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">   <tt class="py-op">}</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="detectPlatform"></a><div id="detectPlatform-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="detectPlatform-toggle" onclick="return toggle('detectPlatform');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.PACKAGE-module.html#detectPlatform">detectPlatform</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="detectPlatform-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="detectPlatform-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-docstring">""" Try to guess the platform string according to the operating system, current environment and python interpreter.</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    Ganga provides precompiled external packages on a limited set of _default platforms_ as explained in:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    https://twiki.cern.ch/twiki/bin/view/ArdaGrid/GangaSupportedPlatforms</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    This function is set only to detect the well-known platform strings as defined by the LCG SPI project and is not meant to be a</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">    generic platform detection utility. If the platform cannot be guessed a default one is returned. This may or may not work on </tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    other systems. In this case you should resolve the external binary dependencies yourself.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    Comments about current implementations:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">    SLC5 platform is detected using platform module.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    If it's not SLC5 then:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    We assume that 64 bit python implies the slc4, amd64 system.</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    We assume that 32 bit python implies the slc4, ia32 system.</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">    We ignore IA64 architecture (Opteron) as not frequently used.</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-comment"># assume INTEL processors (i386, i686,x64), ignore IA64 architecture</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">platf4</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> <tt class="py-number">32</tt><tt class="py-op">:</tt> <tt class="py-string">'slc4_ia32_gcc34'</tt><tt class="py-op">,</tt> <tt class="py-number">64</tt><tt class="py-op">:</tt> <tt class="py-string">'slc4_amd64_gcc34'</tt><tt class="py-op">}</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-name">platf5</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> <tt class="py-number">32</tt><tt class="py-op">:</tt> <tt class="py-string">'i686-slc5-gcc43-opt'</tt><tt class="py-op">,</tt> <tt class="py-number">64</tt><tt class="py-op">:</tt> <tt class="py-string">'x86_64-slc5-gcc43-opt'</tt><tt class="py-op">}</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-comment"># for older python versions use some tricks</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-name">bits</tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">maxint</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-number">32</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">bits</tt><tt class="py-op">:</tt> <tt id="link-5" class="py-name" targets="Variable Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.arch=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements._proxyClass-class.html#arch,Variable Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.arch=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements-class.html#arch"><a title="Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.arch
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.arch" class="py-name" href="#" onclick="return doclink('link-5', 'arch', 'link-5');">arch</a></tt> <tt class="py-op">=</tt> <tt class="py-number">64</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt id="link-6" class="py-name"><a title="Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.arch
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.arch" class="py-name" href="#" onclick="return doclink('link-6', 'arch', 'link-5');">arch</a></tt> <tt class="py-op">=</tt> <tt class="py-number">32</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-name">platfstring</tt> <tt class="py-op">=</tt> <tt class="py-name">platf4</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">     </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">platform</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt id="link-7" class="py-name" targets="Variable Ganga.GPIDev.MonitoringServices.c=Ganga.GPIDev.MonitoringServices-module.html#c,Variable Ganga.Lib.Batch.c=Ganga.Lib.Batch-module.html#c"><a title="Ganga.GPIDev.MonitoringServices.c
+Ganga.Lib.Batch.c" class="py-name" href="#" onclick="return doclink('link-7', 'c', 'link-7');">c</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt><tt class="py-string">'\S+-redhat-(?P&lt;ver&gt;\S+)-\S+'</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable Ganga.Runtime.bootstrap.r=Ganga.Runtime.bootstrap-module.html#r"><a title="Ganga.Runtime.bootstrap.r" class="py-name" href="#" onclick="return doclink('link-8', 'r', 'link-8');">r</a></tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="Ganga.GPIDev.MonitoringServices.c
+Ganga.Lib.Batch.c" class="py-name" href="#" onclick="return doclink('link-9', 'c', 'link-7');">c</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Ganga.Lib.LCG.LCG.LCG.match()=Ganga.Lib.LCG.LCG.LCG-class.html#match"><a title="Ganga.Lib.LCG.LCG.LCG.match" class="py-name" href="#" onclick="return doclink('link-10', 'match', 'link-10');">match</a></tt><tt class="py-op">(</tt><tt class="py-name">platform</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-11" class="py-name"><a title="Ganga.Runtime.bootstrap.r" class="py-name" href="#" onclick="return doclink('link-11', 'r', 'link-8');">r</a></tt> <tt class="py-keyword">and</tt> <tt id="link-12" class="py-name"><a title="Ganga.Runtime.bootstrap.r" class="py-name" href="#" onclick="return doclink('link-12', 'r', 'link-8');">r</a></tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-string">'ver'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Ganga.GPIDev.Adapters.ISplitter.ISplitter.split()=Ganga.GPIDev.Adapters.ISplitter.ISplitter-class.html#split,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split()=Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter-class.html#split,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter-class.html#split,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter-class.html#split,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#split"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-13', 'split', 'link-13');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'5'</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt class="py-name">platfstring</tt> <tt class="py-op">=</tt> <tt class="py-name">platf5</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">platfstring</tt><tt class="py-op">[</tt><tt id="link-14" class="py-name"><a title="Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.arch
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.arch" class="py-name" href="#" onclick="return doclink('link-14', 'arch', 'link-5');">arch</a></tt><tt class="py-op">]</tt> </tt>
+</div><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-comment"># guess defaults if not defined</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-15" class="py-name"><a title="Ganga.PACKAGE._defaultExternalHome
+Ganga.Utility.AMGAServerTools.ganga_user_create._defaultExternalHome" class="py-name" href="#" onclick="return doclink('link-15', '_defaultExternalHome', 'link-3');">_defaultExternalHome</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt id="link-16" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-16', 'Ganga', 'link-16');">Ganga</a></tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-17" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-17', 'Ganga', 'link-16');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-18', 'Utility', 'link-18');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.AbstractMerger.files=Ganga.Lib.Mergers.Merger.AbstractMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger.files=Ganga.Lib.Mergers.Merger.CustomMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.RootMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger.files=Ganga.Lib.Mergers.Merger.RootMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger.files=Ganga.Lib.Mergers.Merger.SmartMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.TextMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger.files=Ganga.Lib.Mergers.Merger.TextMerger-class.html#files,Module Ganga.Utility.files=Ganga.Utility.files-module.html"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-19', 'files', 'link-19');">files</a></tt> <tt class="py-keyword">import</tt> <tt id="link-20" class="py-name" targets="Function Ganga.GPIDev.Persistency.fullpath()=Ganga.GPIDev.Persistency-module.html#fullpath,Function Ganga.Utility.files.fullpath()=Ganga.Utility.files-module.html#fullpath"><a title="Ganga.GPIDev.Persistency.fullpath
+Ganga.Utility.files.fullpath" class="py-name" href="#" onclick="return doclink('link-20', 'fullpath', 'link-20');">fullpath</a></tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">    <tt id="link-21" class="py-name" targets="Function Ganga.Core.JobRepositoryXML.VStreamer.p()=Ganga.Core.JobRepositoryXML.VStreamer-module.html#p,Variable Ganga.Lib.MonitoringServices.Octopus.oreader.p=Ganga.Lib.MonitoringServices.Octopus.oreader-module.html#p,Variable Ganga.PACKAGE.p=Ganga.PACKAGE-module.html#p"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-21', 'p', 'link-21');">p</a></tt> <tt class="py-op">=</tt>  <tt id="link-22" class="py-name"><a title="Ganga.GPIDev.Persistency.fullpath
+Ganga.Utility.files.fullpath" class="py-name" href="#" onclick="return doclink('link-22', 'fullpath', 'link-20');">fullpath</a></tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-23', 'Ganga', 'link-16');">Ganga</a></tt><tt class="py-op">.</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-24" class="py-name" targets="Variable Ganga.PACKAGE.i=Ganga.PACKAGE-module.html#i"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-24', 'i', 'link-24');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">5</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt id="link-25" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-25', 'p', 'link-21');">p</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-26', 'p', 'link-21');">p</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt id="link-27" class="py-name"><a title="Ganga.PACKAGE._defaultExternalHome
+Ganga.Utility.AMGAServerTools.ganga_user_create._defaultExternalHome" class="py-name" href="#" onclick="return doclink('link-27', '_defaultExternalHome', 'link-3');">_defaultExternalHome</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#join,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#join"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-28', 'join', 'link-28');">join</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-29', 'p', 'link-21');">p</a></tt><tt class="py-op">,</tt><tt class="py-string">'external'</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-30" class="py-name"><a title="Ganga.PACKAGE._defaultPlatform
+Ganga.Utility.AMGAServerTools.ganga_user_create._defaultPlatform" class="py-name" href="#" onclick="return doclink('link-30', '_defaultPlatform', 'link-2');">_defaultPlatform</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt id="link-31" class="py-name"><a title="Ganga.PACKAGE._defaultPlatform
+Ganga.Utility.AMGAServerTools.ganga_user_create._defaultPlatform" class="py-name" href="#" onclick="return doclink('link-31', '_defaultPlatform', 'link-2');">_defaultPlatform</a></tt> <tt class="py-op">=</tt> <tt id="link-32" class="py-name" targets="Function Ganga.PACKAGE.detectPlatform()=Ganga.PACKAGE-module.html#detectPlatform"><a title="Ganga.PACKAGE.detectPlatform" class="py-name" href="#" onclick="return doclink('link-32', 'detectPlatform', 'link-32');">detectPlatform</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-33" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-33', 'Ganga', 'link-16');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-34', 'Utility', 'link-18');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Module Ganga.Utility.Setup=Ganga.Utility.Setup-module.html"><a title="Ganga.Utility.Setup" class="py-name" href="#" onclick="return doclink('link-35', 'Setup', 'link-35');">Setup</a></tt> <tt class="py-keyword">import</tt> <tt id="link-36" class="py-name" targets="Class Ganga.Utility.Setup.PackageSetup=Ganga.Utility.Setup.PackageSetup-class.html"><a title="Ganga.Utility.Setup.PackageSetup" class="py-name" href="#" onclick="return doclink('link-36', 'PackageSetup', 'link-36');">PackageSetup</a></tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-comment"># The setup object</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt id="link-37" class="py-name" targets="Method Ganga.GPIDev.Adapters.IBackend.IBackend.setup()=Ganga.GPIDev.Adapters.IBackend.IBackend-class.html#setup,Method Ganga.Lib.Remote.Remote'.Remote.setup()=Ganga.Lib.Remote.Remote%27.Remote-class.html#setup,Variable Ganga.PACKAGE.setup=Ganga.PACKAGE-module.html#setup"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-37', 'setup', 'link-37');">setup</a></tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="Ganga.Utility.Setup.PackageSetup" class="py-name" href="#" onclick="return doclink('link-38', 'PackageSetup', 'link-36');">PackageSetup</a></tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="Ganga.PACKAGE._externalPackages" class="py-name" href="#" onclick="return doclink('link-39', '_externalPackages', 'link-4');">_externalPackages</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="standardSetup"></a><div id="standardSetup-def"><a name="L138"></a><tt class="py-lineno">138</tt> <a class="py-toggle" href="#" id="standardSetup-toggle" onclick="return toggle('standardSetup');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.PACKAGE-module.html#standardSetup">standardSetup</a><tt class="py-op">(</tt><tt class="py-param">setup</tt><tt class="py-op">=</tt><tt id="link-40" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-40', 'setup', 'link-37');">setup</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="standardSetup-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="standardSetup-expanded"><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt class="py-docstring">""" Perform automatic initialization of the environment of the package.</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">    The gangaDir argument is only used by the core package, other packages should have no arguments.</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-41" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-41', 'Ganga', 'link-16');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-42', 'Utility', 'link-18');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="Ganga.Utility.Setup" class="py-name" href="#" onclick="return doclink('link-43', 'Setup', 'link-35');">Setup</a></tt> <tt class="py-keyword">import</tt> <tt id="link-44" class="py-name" targets="Function Ganga.Utility.Setup.checkPythonVersion()=Ganga.Utility.Setup-module.html#checkPythonVersion"><a title="Ganga.Utility.Setup.checkPythonVersion" class="py-name" href="#" onclick="return doclink('link-44', 'checkPythonVersion', 'link-44');">checkPythonVersion</a></tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">     </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">    <tt class="py-comment"># here we assume that the Ganga has been already prepended to sys.path by the caller</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-45" class="py-name"><a title="Ganga.Utility.Setup.checkPythonVersion" class="py-name" href="#" onclick="return doclink('link-45', 'checkPythonVersion', 'link-44');">checkPythonVersion</a></tt><tt class="py-op">(</tt><tt id="link-46" class="py-name"><a title="Ganga.PACKAGE._defaultMinVersion" class="py-name" href="#" onclick="return doclink('link-46', '_defaultMinVersion', 'link-0');">_defaultMinVersion</a></tt><tt class="py-op">,</tt><tt id="link-47" class="py-name"><a title="Ganga.PACKAGE._defaultMinHexVersion" class="py-name" href="#" onclick="return doclink('link-47', '_defaultMinHexVersion', 'link-1');">_defaultMinHexVersion</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-48" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.name=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.File.File'.File.name=Ganga.GPIDev.Lib.File.File%27.File-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job.name=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#name,Variable Ganga.GPIDev.Schema.Schema'.Schema.name=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-48', 'name', 'link-48');">name</a></tt> <tt class="py-keyword">in</tt> <tt id="link-49" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-49', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt class="py-name">packages</tt><tt class="py-op">:</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-50" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-50', 'name', 'link-48');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'pycrypto'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">hexversion</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0x2050000</tt><tt class="py-op">:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                <tt class="py-comment"># hack the pycrypto path for 2.5</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                <tt id="link-51" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-51', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt class="py-name">packages</tt><tt class="py-op">[</tt><tt class="py-string">'pycrypto'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'syspath'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-52" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-52', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt class="py-name">packages</tt><tt class="py-op">[</tt><tt class="py-string">'pycrypto'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'syspath'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'2.3'</tt><tt class="py-op">,</tt> <tt class="py-string">'2.5'</tt><tt class="py-op">)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                 </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-53" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-53', 'name', 'link-48');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'paramiko'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">hexversion</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0x2050000</tt><tt class="py-op">:</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">                <tt class="py-comment"># hack the paramiko path for 2.5</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">                <tt id="link-54" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-54', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt class="py-name">packages</tt><tt class="py-op">[</tt><tt class="py-string">'paramiko'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'syspath'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-55', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt class="py-name">packages</tt><tt class="py-op">[</tt><tt class="py-string">'paramiko'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'syspath'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'2.3'</tt><tt class="py-op">,</tt> <tt class="py-string">'2.5'</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">            <tt id="link-56" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-56', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name" targets="Method Ganga.Utility.Setup.PackageSetup.setSysPath()=Ganga.Utility.Setup.PackageSetup-class.html#setSysPath"><a title="Ganga.Utility.Setup.PackageSetup.setSysPath" class="py-name" href="#" onclick="return doclink('link-57', 'setSysPath', 'link-57');">setSysPath</a></tt><tt class="py-op">(</tt><tt id="link-58" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-58', 'name', 'link-48');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">            <tt id="link-59" class="py-name"><a title="Ganga.GPIDev.Adapters.IBackend.IBackend.setup
+Ganga.Lib.Remote.Remote'.Remote.setup
+Ganga.PACKAGE.setup" class="py-name" href="#" onclick="return doclink('link-59', 'setup', 'link-37');">setup</a></tt><tt class="py-op">.</tt><tt id="link-60" class="py-name" targets="Method Ganga.Utility.Setup.PackageSetup.prependPath()=Ganga.Utility.Setup.PackageSetup-class.html#prependPath"><a title="Ganga.Utility.Setup.PackageSetup.prependPath" class="py-name" href="#" onclick="return doclink('link-60', 'prependPath', 'link-60');">prependPath</a></tt><tt class="py-op">(</tt><tt id="link-61" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-61', 'name', 'link-48');">name</a></tt><tt class="py-op">,</tt><tt class="py-string">'PYTHONPATH'</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">             </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">            <tt class="py-comment"># if other PATH variable must be defined, e.g. LD_LIBRARY_PATH, then</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">            <tt class="py-comment"># you should do it this way:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">            <tt class="py-comment">#setup.prependPath(name,'LD_LIBRARY_PATH')</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Method Ganga.Runtime.bootstrap.GangaProgram.exit()=Ganga.Runtime.bootstrap.GangaProgram-class.html#exit"><a title="Ganga.Runtime.bootstrap.GangaProgram.exit" class="py-name" href="#" onclick="return doclink('link-62', 'exit', 'link-62');">exit</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:39 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

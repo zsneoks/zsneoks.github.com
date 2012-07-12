@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.feedback_report</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        Module&nbsp;feedback_report
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.feedback_report-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.feedback_report-module.html">Module Ganga.Utility.feedback_report</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"> </tt>
+<a name="report"></a><div id="report-def"><a name="L2"></a><tt class="py-lineno">  2</tt> <a class="py-toggle" href="#" id="report-toggle" onclick="return toggle('report');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.feedback_report-module.html#report">report</a><tt class="py-op">(</tt><tt class="py-param">job</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="report-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="report-expanded"><a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line">        <tt class="py-docstring">""" Upload error reports (snapshot of configuration,job parameters, input/output files, command history etc.). Job argument is optional. """</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">mimetypes</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">urllib2</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">httplib</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">string</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">random</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">platform</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-0', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package Ganga.GPI=Ganga.GPI-module.html"><a title="Ganga.GPI" class="py-name" href="#" onclick="return doclink('link-1', 'GPI', 'link-1');">GPI</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#config,Variable Ganga.GPIDev.Base.Filters.config=Ganga.GPIDev.Base.Filters-module.html#config,Variable Ganga.GPIDev.Lib.Config.Config.config=Ganga.GPIDev.Lib.Config.Config-module.html#config,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.config=Ganga.GPIDev.Lib.Registry.BoxRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.JobRegistry'.config=Ganga.GPIDev.Lib.Registry.JobRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.RegistrySlice.config=Ganga.GPIDev.Lib.Registry.RegistrySlice-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.config=Ganga.GPIDev.Lib.Tasks.ArgTransform-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Task'.config=Ganga.GPIDev.Lib.Tasks.Task%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.config=Ganga.GPIDev.Lib.Tasks.TaskApplication-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Transform'.config=Ganga.GPIDev.Lib.Tasks.Transform%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.common.config=Ganga.GPIDev.Lib.Tasks.common-module.html#config,Variable Ganga.GPIDev.Streamers.MigrationControl.config=Ganga.GPIDev.Streamers.MigrationControl-module.html#config,Variable Ganga.Lib.Batch.Batch'.LSF.config=Ganga.Lib.Batch.Batch%27.LSF-class.html#config,Variable Ganga.Lib.Batch.Batch'.PBS.config=Ganga.Lib.Batch.Batch%27.PBS-class.html#config,Variable Ganga.Lib.Batch.Batch'.SGE.config=Ganga.Lib.Batch.Batch%27.SGE-class.html#config,Variable Ganga.Lib.Batch.Batch'.config=Ganga.Lib.Batch.Batch%27-module.html#config,Variable Ganga.Lib.Batch.config=Ganga.Lib.Batch-module.html#config,Variable Ganga.Lib.Condor.CondorRequirements'.config=Ganga.Lib.Condor.CondorRequirements%27-module.html#config,Variable Ganga.Lib.Executable.Executable'.config=Ganga.Lib.Executable.Executable%27-module.html#config,Variable Ganga.Lib.Executable.config=Ganga.Lib.Executable-module.html#config,Variable Ganga.Lib.LCG.CREAM.config=Ganga.Lib.LCG.CREAM-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.config=Ganga.Lib.LCG.GridSimulator.GridSimulator-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.simulator.config=Ganga.Lib.LCG.GridSimulator.simulator-module.html#config,Variable Ganga.Lib.LCG.LCG.config=Ganga.Lib.LCG.LCG-module.html#config,Variable Ganga.Lib.Localhost.Localhost'.config=Ganga.Lib.Localhost.Localhost%27-module.html#config,Variable Ganga.Lib.Localhost.config=Ganga.Lib.Localhost-module.html#config,Variable Ganga.Lib.Mergers.Merger.config=Ganga.Lib.Mergers.Merger-module.html#config,Variable Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#config,Variable Ganga.Lib.Root.Root'.config=Ganga.Lib.Root.Root%27-module.html#config,Variable Ganga.Lib.Root.config=Ganga.Lib.Root-module.html#config,Variable Ganga.Runtime.AMGA_repository_runtime.config=Ganga.Runtime.AMGA_repository_runtime-module.html#config,Variable Ganga.Runtime.Repository_runtime.config=Ganga.Runtime.Repository_runtime-module.html#config,Variable Ganga.Runtime.XML_repository_runtime.config=Ganga.Runtime.XML_repository_runtime-module.html#config,Variable Ganga.Runtime.associations.config=Ganga.Runtime.associations-module.html#config,Variable Ganga.Runtime.spyware.config=Ganga.Runtime.spyware-module.html#config,Variable Ganga.Utility.Caching.config=Ganga.Utility.Caching-module.html#config,Module Ganga.Utility.external.logging.config=Ganga.Utility.external.logging.config-module.html,Variable Ganga.Utility.logging.config=Ganga.Utility.logging-module.html#config"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-2', 'config', 'link-2');">config</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-3', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Ganga.GPI" class="py-name" href="#" onclick="return doclink('link-4', 'GPI', 'link-1');">GPI</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Function Ganga.GPIDev.Base.VPrinter.full_print()=Ganga.GPIDev.Base.VPrinter-module.html#full_print"><a title="Ganga.GPIDev.Base.VPrinter.full_print" class="py-name" href="#" onclick="return doclink('link-5', 'full_print', 'link-5');">full_print</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-6', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Ganga.GPI" class="py-name" href="#" onclick="return doclink('link-7', 'GPI', 'link-1');">GPI</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Package Ganga.GPIDev.Lib.Job=Ganga.GPIDev.Lib.Job-module.html,Class Ganga.GPIDev.Lib.Job.Job'.Job=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html"><a title="Ganga.GPIDev.Lib.Job
+Ganga.GPIDev.Lib.Job.Job'.Job" class="py-name" href="#" onclick="return doclink('link-8', 'Job', 'link-8');">Job</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">         </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-9', 'Ganga', 'link-0');">Ganga</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">        <tt class="py-comment">#global variables that will print sumamry report to the user along with the download link</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">        <tt class="py-keyword">global</tt> <tt class="py-name">JOB_REPORT</tt><tt class="py-op">,</tt> <tt class="py-name">GANGA_VERSION</tt><tt class="py-op">,</tt> <tt class="py-name">BACKEND_NAME</tt><tt class="py-op">,</tt> <tt class="py-name">APPLICATION_NAME</tt><tt class="py-op">,</tt> <tt class="py-name">PYTHON_PATH</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-name">JOB_REPORT</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-name">GANGA_VERSION</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-name">BACKEND_NAME</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-name">APPLICATION_NAME</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-name">PYTHON_PATH</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">random_string</tt> <tt class="py-op">(</tt><tt class="py-param">length</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-string">''</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#join,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#join"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-10', 'join', 'link-10');">join</a></tt> <tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">choice</tt> <tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">.</tt><tt class="py-name">letters</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">ii</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt> <tt class="py-op">(</tt><tt class="py-name">length</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">encode_multipart_data</tt> <tt class="py-op">(</tt><tt class="py-param">files</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                <tt class="py-name">boundary</tt> <tt class="py-op">=</tt> <tt class="py-name">random_string</tt> <tt class="py-op">(</tt><tt class="py-number">30</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">get_content_type</tt> <tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-name">mimetypes</tt><tt class="py-op">.</tt><tt class="py-name">guess_type</tt> <tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-keyword">or</tt> <tt class="py-string">'application/octet-stream'</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">encode_file</tt> <tt class="py-op">(</tt><tt class="py-param">field_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                        <tt class="py-name">filename</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name" targets="Variable Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.AbstractMerger.files=Ganga.Lib.Mergers.Merger.AbstractMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger.files=Ganga.Lib.Mergers.Merger.CustomMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.RootMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger.files=Ganga.Lib.Mergers.Merger.RootMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger.files=Ganga.Lib.Mergers.Merger.SmartMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.TextMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger.files=Ganga.Lib.Mergers.Merger.TextMerger-class.html#files,Module Ganga.Utility.files=Ganga.Utility.files-module.html"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-11', 'files', 'link-11');">files</a></tt> <tt class="py-op">[</tt><tt class="py-name">field_name</tt><tt class="py-op">]</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-string">'--'</tt> <tt class="py-op">+</tt> <tt class="py-name">boundary</tt><tt class="py-op">,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                                <tt class="py-string">'Content-Disposition: form-data; name="%s"; filename="%s"'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">field_name</tt><tt class="py-op">,</tt> <tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                                <tt class="py-string">'Content-Type: %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">get_content_type</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                                <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt id="link-12" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#open"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-12', 'open', 'link-12');">open</a></tt> <tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">'rb'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#read,Method Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read()=Ganga.Utility.AMGAServerTools.PipeReader.PipeReader-class.html#read,Function Ganga.Utility.external.ARDAMDClient.diskutils.read()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#read"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-13', 'read', 'link-13');">read</a></tt> <tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">         </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                <tt class="py-name">lines</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt id="link-14" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.name=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.File.File'.File.name=Ganga.GPIDev.Lib.File.File%27.File-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job.name=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#name,Variable Ganga.GPIDev.Schema.Schema'.Schema.name=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-14', 'name', 'link-14');">name</a></tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-15', 'files', 'link-11');">files</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                        <tt class="py-name">lines</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.extend()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#extend,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.extend()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#extend,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.extend()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#extend"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.extend
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.extend
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.extend" class="py-name" href="#" onclick="return doclink('link-16', 'extend', 'link-16');">extend</a></tt> <tt class="py-op">(</tt><tt class="py-name">encode_file</tt> <tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-17', 'name', 'link-14');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                <tt class="py-name">lines</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.extend
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.extend
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.extend" class="py-name" href="#" onclick="return doclink('link-18', 'extend', 'link-16');">extend</a></tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-string">'--%s--'</tt> <tt class="py-op">%</tt> <tt class="py-name">boundary</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                <tt class="py-name">body</tt> <tt class="py-op">=</tt> <tt class="py-string">'\r\n'</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-19', 'join', 'link-10');">join</a></tt> <tt class="py-op">(</tt><tt class="py-name">lines</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                <tt class="py-name">headers</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'content-type'</tt><tt class="py-op">:</tt> <tt class="py-string">'multipart/form-data; boundary='</tt> <tt class="py-op">+</tt> <tt class="py-name">boundary</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                        <tt class="py-string">'content-length'</tt><tt class="py-op">:</tt> <tt class="py-name">str</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt> <tt class="py-op">(</tt><tt class="py-name">body</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">}</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">body</tt><tt class="py-op">,</tt> <tt class="py-name">headers</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">make_upload_file</tt> <tt class="py-op">(</tt><tt class="py-param">server</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">upload_file</tt> <tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                        <tt class="py-comment">#print 'Uploading %r to %r' % (path, server)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                        <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'MAX_FILE_SIZE'</tt><tt class="py-op">:</tt> <tt class="py-string">'3145728'</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                        <tt class="py-string">'sub'</tt><tt class="py-op">:</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                        <tt class="py-string">'mode'</tt><tt class="py-op">:</tt> <tt class="py-string">'regist'</tt><tt class="py-op">}</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                        <tt id="link-20" class="py-name"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-20', 'files', 'link-11');">files</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'file'</tt><tt class="py-op">:</tt> <tt class="py-name">path</tt><tt class="py-op">}</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                        <tt class="py-name">send_post</tt> <tt class="py-op">(</tt><tt class="py-name">server</tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-21', 'files', 'link-11');">files</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">upload_file</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">send_post</tt> <tt class="py-op">(</tt><tt class="py-param">url</tt><tt class="py-op">,</tt> <tt class="py-param">files</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-name">req</tt> <tt class="py-op">=</tt> <tt class="py-name">urllib2</tt><tt class="py-op">.</tt><tt class="py-name">Request</tt> <tt class="py-op">(</tt><tt class="py-name">url</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                <tt class="py-name">connection</tt> <tt class="py-op">=</tt> <tt class="py-name">httplib</tt><tt class="py-op">.</tt><tt class="py-name">HTTPConnection</tt> <tt class="py-op">(</tt><tt class="py-name">req</tt><tt class="py-op">.</tt><tt class="py-name">get_host</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-name">connection</tt><tt class="py-op">.</tt><tt class="py-name">request</tt> <tt class="py-op">(</tt><tt class="py-string">'POST'</tt><tt class="py-op">,</tt> <tt class="py-name">req</tt><tt class="py-op">.</tt><tt class="py-name">get_selector</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                        <tt class="py-op">*</tt><tt class="py-name">encode_multipart_data</tt> <tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-22', 'files', 'link-11');">files</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">connection</tt><tt class="py-op">.</tt><tt class="py-name">getresponse</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-name">responseResult</tt> <tt class="py-op">=</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-23', 'read', 'link-13');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">responseResult</tt> <tt class="py-op">=</tt> <tt class="py-name">responseResult</tt><tt class="py-op">[</tt><tt class="py-name">responseResult</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.find()=Ganga.Core.GangaRepository.Registry.Registry-class.html#find,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#find,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#find,Method Ganga.Utility.AMGAServerTools.mdclient.MDClient.find()=Ganga.Utility.AMGAServerTools.mdclient.MDClient-class.html#find,Method Ganga.Utility.Plugin.GangaPlugin.PluginManager.find()=Ganga.Utility.Plugin.GangaPlugin.PluginManager-class.html#find,Method Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find()=Ganga.Utility.external.ARDAMDClient.mdclient.MDClient-class.html#find"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-24', 'find', 'link-24');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"&lt;span id=\"download_path\""</tt><tt class="py-op">)</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-name">startIndex</tt> <tt class="py-op">=</tt> <tt class="py-name">responseResult</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-25', 'find', 'link-24');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"path:"</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">5</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">endIndex</tt> <tt class="py-op">=</tt> <tt class="py-name">responseResult</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-26', 'find', 'link-24');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">"&lt;/span&gt;"</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'Your error report was uploaded to ganga developers with the following URL. '</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'You may include this URL and the following summary information in your bug report or in the support email to the developers.'</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'***'</tt><tt class="py-op">,</tt><tt class="py-name">responseResult</tt><tt class="py-op">[</tt><tt class="py-name">startIndex</tt><tt class="py-op">:</tt><tt class="py-name">endIndex</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-string">'***'</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-keyword">global</tt> <tt class="py-name">GANGA_VERSION</tt><tt class="py-op">,</tt> <tt class="py-name">JOB_REPORT</tt><tt class="py-op">,</tt> <tt class="py-name">APPLICATION_NAME</tt><tt class="py-op">,</tt> <tt class="py-name">BACKEND_NAME</tt><tt class="py-op">,</tt> <tt class="py-name">PYTHON_PATH</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'Ganga Version : '</tt> <tt class="py-op">+</tt> <tt class="py-name">GANGA_VERSION</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'Python Version : '</tt> <tt class="py-op">+</tt> <tt class="py-string">"%s.%s.%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">version_info</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">version_info</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">version_info</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'Operation System Version : '</tt> <tt class="py-op">+</tt> <tt class="py-name">platform</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>  </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">JOB_REPORT</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt> <tt class="py-string">'Application Name : '</tt> <tt class="py-op">+</tt> <tt class="py-name">APPLICATION_NAME</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt> <tt class="py-string">'Backend Name : '</tt> <tt class="py-op">+</tt> <tt class="py-name">BACKEND_NAME</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">'Python Path : '</tt> <tt class="py-op">+</tt> <tt class="py-name">PYTHON_PATH</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-name">JOB_REPORT</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt class="py-name">GANGA_VERSION</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-name">BACKEND_NAME</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt class="py-name">APPLICATION_NAME</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-name">PYTHON_PATH</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">run_upload</tt> <tt class="py-op">(</tt><tt class="py-param">server</tt><tt class="py-op">,</tt> <tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                <tt class="py-name">upload_file</tt> <tt class="py-op">=</tt> <tt class="py-name">make_upload_file</tt> <tt class="py-op">(</tt><tt class="py-name">server</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-name">upload_file</tt> <tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">         </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">report_inner</tt><tt class="py-op">(</tt><tt class="py-param">job</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">         </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                <tt class="py-name">userInfoDirName</tt> <tt class="py-op">=</tt> <tt class="py-string">"userreport"</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-name">tempDirName</tt> <tt class="py-op">=</tt> <tt class="py-string">"reportsRepository"</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-comment">#job relevant info</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                <tt class="py-name">inputDirName</tt> <tt class="py-op">=</tt> <tt class="py-string">"inputdir"</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-name">outputDirName</tt> <tt class="py-op">=</tt> <tt class="py-string">"outputdir"</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-name">jobSummaryFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"jobsummary.txt"</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                <tt class="py-name">jobFullPrintFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"jobfullprint.txt"</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                <tt class="py-comment">#non job relevant info - user's info</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                <tt class="py-name">environFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"environ.txt"</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                <tt class="py-name">userConfigFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"userconfig.txt"</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                <tt class="py-name">defaultConfigFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"gangarc.txt"</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                <tt class="py-name">ipythonHistoryFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"ipythonhistory.txt"</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                <tt class="py-name">gangaLogFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"gangalog.txt"</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                <tt class="py-name">jobsListFileName</tt> <tt class="py-op">=</tt> <tt class="py-string">"jobslist.txt"</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                <tt class="py-name">repositoryPath</tt> <tt class="py-op">=</tt> <tt class="py-string">"repository/$usr/LocalXML/6.0/jobs/$thousandsNumxxx"</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                <tt class="py-name">uploadFileServer</tt><tt class="py-op">=</tt> <tt class="py-string">"http://gangamon.cern.ch/django/errorreports/"</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                <tt class="py-comment">#uploadFileServer= "http://127.0.0.1:8000/errorreports"</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">printDictionary</tt><tt class="py-op">(</tt><tt class="py-param">dictionary</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">dictionary</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.iteritems()=Ganga.Core.GangaRepository.Registry.Registry-class.html#iteritems,Method Ganga.Utility.external.ordereddict.oDict.iteritems()=Ganga.Utility.external.ordereddict.oDict-class.html#iteritems"><a title="Ganga.Core.GangaRepository.Registry.Registry.iteritems
+Ganga.Utility.external.ordereddict.oDict.iteritems" class="py-name" href="#" onclick="return doclink('link-27', 'iteritems', 'link-27');">iteritems</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">'%s: %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">v</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                                 </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt> <tt class="py-name">k</tt> <tt class="py-op">==</tt> <tt class="py-string">'PYTHONPATH'</tt><tt class="py-op">:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                                        <tt class="py-keyword">global</tt> <tt class="py-name">PYTHON_PATH</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                                        <tt class="py-name">PYTHON_PATH</tt> <tt class="py-op">=</tt> <tt class="py-name">v</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">extractFileObjects</tt><tt class="py-op">(</tt><tt class="py-param">fileName</tt><tt class="py-op">,</tt> <tt class="py-param">targetDirectoryName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">                                <tt class="py-name">fileToRead</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-28', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">fileName</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">                                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                                        <tt class="py-name">fileText</tt> <tt class="py-op">=</tt> <tt class="py-name">fileToRead</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-29', 'read', 'link-13');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">                                        <tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                                        <tt class="py-name">pattern</tt> <tt class="py-op">=</tt> <tt class="py-string">"File\(name=\'(.+?)\'"</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                                        <tt class="py-name">matches</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-name">pattern</tt><tt class="py-op">,</tt> <tt class="py-name">fileText</tt><tt class="py-op">)</tt>  </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">                                         </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                                        <tt class="py-keyword">for</tt> <tt class="py-name">fileName</tt> <tt class="py-keyword">in</tt> <tt class="py-name">matches</tt><tt class="py-op">:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                                                <tt class="py-name">fileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-name">fileName</tt><tt class="py-op">)</tt>  </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                                                <tt class="py-name">targetFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-30', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">targetDirectoryName</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">(</tt><tt class="py-name">fileName</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>                                   </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                                                <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">copyfile</tt><tt class="py-op">(</tt><tt class="py-name">fileName</tt><tt class="py-op">,</tt> <tt class="py-name">targetFileName</tt><tt class="py-op">)</tt>                </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">                                <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">                                        <tt class="py-name">fileToRead</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#close,Method Ganga.Utility.external.logging.FileHandler.close()=Ganga.Utility.external.logging.FileHandler-class.html#close,Method Ganga.Utility.external.logging.Handler.close()=Ganga.Utility.external.logging.Handler-class.html#close,Method Ganga.Utility.external.logging.handlers.BufferingHandler.close()=Ganga.Utility.external.logging.handlers.BufferingHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.MemoryHandler.close()=Ganga.Utility.external.logging.handlers.MemoryHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.NTEventLogHandler.close()=Ganga.Utility.external.logging.handlers.NTEventLogHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.SocketHandler.close()=Ganga.Utility.external.logging.handlers.SocketHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.SysLogHandler.close()=Ganga.Utility.external.logging.handlers.SysLogHandler-class.html#close"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-31', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">                        <tt class="py-comment">#except IOError, OSError:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">                                <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">         </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-param">errorMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">                                <tt class="py-name">fileToWrite</tt> <tt class="py-op">=</tt> <tt id="link-32" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-32', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">,</tt> <tt class="py-string">'a'</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">                                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">                                        <tt class="py-name">fileToWrite</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Function Ganga.Utility.external.ARDAMDClient.diskutils.write()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#write"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.write" class="py-name" href="#" onclick="return doclink('link-33', 'write', 'link-33');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">errorMessage</tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">                                        <tt class="py-name">fileToWrite</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.write" class="py-name" href="#" onclick="return doclink('link-34', 'write', 'link-33');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">                                <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">                                        <tt class="py-name">fileToWrite</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-35', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                                 </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">writeStringToFile</tt><tt class="py-op">(</tt><tt class="py-param">fileName</tt><tt class="py-op">,</tt> <tt class="py-param">stringToWrite</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                                <tt class="py-comment">#uncomment this to try the error logger</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">                                <tt class="py-comment">#fileName = '~/' + fileName</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">                                <tt class="py-name">fileToWrite</tt> <tt class="py-op">=</tt> <tt id="link-36" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-36', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">fileName</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">                                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">                                        <tt class="py-name">fileToWrite</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.diskutils.write" class="py-name" href="#" onclick="return doclink('link-37', 'write', 'link-33');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">stringToWrite</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">                                <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                                        <tt class="py-name">fileToWrite</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-38', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                        <tt class="py-comment">#except IOError:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                                <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                <tt class="py-keyword">def</tt> <tt class="py-def-name">renameDataFiles</tt><tt class="py-op">(</tt><tt class="py-param">directory</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line"> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">                        <tt class="py-keyword">for</tt> <tt class="py-name">fileName</tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">directory</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">                                <tt class="py-name">fullFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-39', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">directory</tt><tt class="py-op">,</tt> <tt class="py-name">fileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">fullFileName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">                                        <tt class="py-keyword">if</tt> <tt class="py-name">fileName</tt> <tt class="py-op">==</tt> <tt class="py-string">'data'</tt><tt class="py-op">:</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">                                                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">rename</tt><tt class="py-op">(</tt><tt class="py-name">fullFileName</tt><tt class="py-op">,</tt> <tt class="py-name">fullFileName</tt> <tt class="py-op">+</tt> <tt class="py-string">'.txt'</tt><tt class="py-op">)</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">                                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">                                        <tt class="py-name">renameDataFiles</tt><tt class="py-op">(</tt><tt class="py-name">fullFileName</tt><tt class="py-op">)</tt>    </tt>
+</div><a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt class="py-name">shutil</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt class="py-name">tarfile</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt class="py-name">tempfile</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">                <tt class="py-name">userHomeDir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Variable Ganga.Lib.Condor.Condor'.Condor._proxyClass.getenv=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#getenv,Variable Ganga.Lib.Condor.Condor'.Condor.getenv=Ganga.Lib.Condor.Condor%27.Condor-class.html#getenv"><a title="Ganga.Lib.Condor.Condor'.Condor._proxyClass.getenv
+Ganga.Lib.Condor.Condor'.Condor.getenv" class="py-name" href="#" onclick="return doclink('link-40', 'getenv', 'link-40');">getenv</a></tt><tt class="py-op">(</tt><tt class="py-string">"HOME"</tt><tt class="py-op">)</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">                <tt class="py-name">tempDir</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkdtemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">                <tt class="py-name">errorLogPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-41', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">tempDir</tt><tt class="py-op">,</tt> <tt class="py-string">'reportErrorLog.txt'</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">                <tt class="py-name">fullPathTempDir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-42', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">tempDir</tt><tt class="py-op">,</tt> <tt class="py-name">tempDirName</tt><tt class="py-op">)</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">                <tt class="py-name">fullLogDirName</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">                <tt class="py-comment">#create temp dir and specific dir for the job/user</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method Ganga.GPIDev.Lib.File.File'.File.exists()=Ganga.GPIDev.Lib.File.File%27.File-class.html#exists,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#exists,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#exists"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-43', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">fullPathTempDir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">                                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Method Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir()=Ganga.Core.GangaRepository.SessionLock.SessionLockManager-class.html#mkdir,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#mkdir,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#mkdir"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-44', 'mkdir', 'link-44');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-name">fullPathTempDir</tt><tt class="py-op">)</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">                        <tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">                        <tt class="py-name">now</tt> <tt class="py-op">=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">now</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">                        <tt class="py-name">userInfoDirName</tt> <tt class="py-op">=</tt> <tt class="py-name">userInfoDirName</tt> <tt class="py-op">+</tt> <tt class="py-name">now</tt><tt class="py-op">.</tt><tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%Y-%m-%d-%H:%M:%S"</tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">                        <tt class="py-name">fullLogDirName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-45', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullPathTempDir</tt><tt class="py-op">,</tt> <tt class="py-name">userInfoDirName</tt><tt class="py-op">)</tt>  </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">         </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">                        <tt class="py-comment">#if report directory exists -&gt; delete it's content(we would like last version of the report)</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-46', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">                                <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">rmtree</tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">)</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">         </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">                        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-47', 'mkdir', 'link-44');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">                <tt class="py-comment">#except OSError:</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">                <tt class="py-comment">#import os.environ in a file</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">                <tt class="py-name">fullEnvironFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-48', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">environFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">                        <tt class="py-name">inputFile</tt> <tt class="py-op">=</tt> <tt id="link-49" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-49', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">fullEnvironFileName</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">                                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Function Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout()=Ganga.Lib.MonitoringServices.Dashboard.CommonUtil-module.html#stdout"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout" class="py-name" href="#" onclick="return doclink('link-50', 'stdout', 'link-50');">stdout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">inputFile</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">                                <tt class="py-name">printDictionary</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">environ</tt><tt class="py-op">)</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">'OS VERSION : '</tt> <tt class="py-op">+</tt> <tt class="py-name">platform</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">                                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout" class="py-name" href="#" onclick="return doclink('link-51', 'stdout', 'link-50');">stdout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">__stdout__</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">                                <tt class="py-name">inputFile</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-52', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>        </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">                <tt class="py-comment">#except IOError         </tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">                <tt class="py-comment">#import user config in a file   </tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">                <tt class="py-name">userConfigFullFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-53', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">userConfigFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">                 </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">                        <tt class="py-name">inputFile</tt> <tt class="py-op">=</tt> <tt id="link-54" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-54', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">userConfigFullFileName</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">                         </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">                                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout" class="py-name" href="#" onclick="return doclink('link-55', 'stdout', 'link-50');">stdout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">inputFile</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">"#GANGA_VERSION = %s"</tt> <tt class="py-op">%</tt> <tt id="link-56" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-56', 'config', 'link-2');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">System</tt><tt class="py-op">.</tt><tt class="py-name">GANGA_VERSION</tt>  </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">                                <tt class="py-keyword">global</tt> <tt class="py-name">GANGA_VERSION</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">                                <tt class="py-name">GANGA_VERSION</tt> <tt class="py-op">=</tt> <tt id="link-57" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-57', 'config', 'link-2');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">System</tt><tt class="py-op">.</tt><tt class="py-name">GANGA_VERSION</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">                                <tt class="py-comment">#this gets the default values</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">                                <tt class="py-comment">#Ganga.GPIDev.Lib.Config.Config.print_config_file()</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">                                 </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line">                                <tt class="py-comment">#this should get the changed values</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line">                                <tt class="py-keyword">for</tt> <tt id="link-58" class="py-name" targets="Variable Ganga.GPIDev.MonitoringServices.c=Ganga.GPIDev.MonitoringServices-module.html#c,Variable Ganga.Lib.Batch.c=Ganga.Lib.Batch-module.html#c"><a title="Ganga.GPIDev.MonitoringServices.c
+Ganga.Lib.Batch.c" class="py-name" href="#" onclick="return doclink('link-58', 'c', 'link-58');">c</a></tt> <tt class="py-keyword">in</tt> <tt id="link-59" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-59', 'config', 'link-2');">config</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">                                        <tt class="py-keyword">print</tt> <tt id="link-60" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-60', 'config', 'link-2');">config</a></tt><tt class="py-op">[</tt><tt id="link-61" class="py-name"><a title="Ganga.GPIDev.MonitoringServices.c
+Ganga.Lib.Batch.c" class="py-name" href="#" onclick="return doclink('link-61', 'c', 'link-58');">c</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">                                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout" class="py-name" href="#" onclick="return doclink('link-62', 'stdout', 'link-50');">stdout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">__stdout__</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">                                <tt class="py-name">inputFile</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-63', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">                <tt class="py-comment">#except IOError does not catch the exception ???</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line"> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">                <tt class="py-comment">#write gangarc - default configuration</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">                <tt class="py-name">defaultConfigFullFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-64', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">defaultConfigFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line"> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">                        <tt class="py-name">outputFile</tt> <tt class="py-op">=</tt> <tt id="link-65" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-65', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-66', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">userHomeDir</tt><tt class="py-op">,</tt> <tt class="py-string">'.gangarc'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">         </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">                                <tt class="py-name">writeStringToFile</tt><tt class="py-op">(</tt><tt class="py-name">defaultConfigFullFileName</tt><tt class="py-op">,</tt> <tt class="py-name">outputFile</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-67', 'read', 'link-13');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>   </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">                                <tt class="py-name">outputFile</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-68', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">                                         </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">                <tt class="py-comment">#except IOError does not catch the exception ???                </tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line"> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">                <tt class="py-comment">#import ipython history in a file</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line">                        <tt class="py-name">ipythonFile</tt> <tt class="py-op">=</tt> <tt id="link-69" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-69', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-70', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'IPYTHONDIR'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">'history'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">                         </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt>                     </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line">                                <tt class="py-name">lastIPythonCommands</tt> <tt class="py-op">=</tt> <tt class="py-name">ipythonFile</tt><tt class="py-op">.</tt><tt class="py-name">readlines</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">20</tt><tt class="py-op">:</tt><tt class="py-op">]</tt>              </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line">                                <tt class="py-name">writeStringToFile</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-71', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">ipythonHistoryFileName</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-72', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">lastIPythonCommands</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line">                                <tt class="py-comment">#writeStringToFile(os.path.join(fullLogDirName, ipythonHistoryFileName), ipythonFile.read())</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">                                <tt class="py-name">ipythonFile</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-73', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">                <tt class="py-comment">#except IOError does not catch the exception ???                </tt> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line">         </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line">                <tt class="py-comment">#import gangalog in a file      </tt> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line">                <tt class="py-name">userLogFileLocation</tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-74', 'config', 'link-2');">config</a></tt><tt class="py-op">[</tt><tt class="py-string">"Logging"</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">_logfile</tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">                <tt class="py-name">userLogFileLocation</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-name">userLogFileLocation</tt><tt class="py-op">)</tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line">                        <tt class="py-name">gangaLogFile</tt> <tt class="py-op">=</tt> <tt id="link-75" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-75', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">userLogFileLocation</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt>             </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line">                                <tt class="py-name">writeStringToFile</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-76', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">gangaLogFileName</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">gangaLogFile</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-77', 'read', 'link-13');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>   </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line">                                <tt class="py-name">gangaLogFile</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-78', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line">                <tt class="py-comment">#except IOError:</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line"> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">                <tt class="py-comment">#import the result of jobs command in the report</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">                <tt class="py-name">jobsListFullFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-79', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">jobsListFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line">                 </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">                        <tt class="py-name">outputFile</tt> <tt class="py-op">=</tt> <tt id="link-80" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-80', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">jobsListFullFileName</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line">                         </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line">                                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout" class="py-name" href="#" onclick="return doclink('link-81', 'stdout', 'link-50');">stdout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">outputFile</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line">                                 </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line">                                <tt class="py-keyword">from</tt> <tt id="link-82" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-82', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="Ganga.GPI" class="py-name" href="#" onclick="return doclink('link-83', 'GPI', 'link-1');">GPI</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">jobs</tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-name">jobs</tt>       </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line">                                         </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line">                                <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.stdout" class="py-name" href="#" onclick="return doclink('link-84', 'stdout', 'link-50');">stdout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">__stdout__</tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line">                                <tt class="py-name">outputFile</tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-85', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line">                                         </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line">                <tt class="py-comment">#except IOError does not catch the exception ???                </tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line">                        <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line">         </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">                <tt class="py-comment">#save it here because we will change fullLogDirName, but we want this to be the archive and to be deleted </tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line">                <tt class="py-name">folderToArchive</tt> <tt class="py-op">=</tt> <tt class="py-name">fullLogDirName</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line"> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line">                <tt class="py-comment">#import job relevant info</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">job</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line"> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line">                        <tt class="py-keyword">global</tt> <tt class="py-name">JOB_REPORT</tt><tt class="py-op">,</tt> <tt class="py-name">APPLICATION_NAME</tt><tt class="py-op">,</tt> <tt class="py-name">BACKEND_NAME</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line">                        <tt class="py-name">JOB_REPORT</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">                        <tt class="py-name">APPLICATION_NAME</tt> <tt class="py-op">=</tt> <tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.application=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#application,Variable Ganga.GPIDev.Lib.Job.Job'.Job.application=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#application,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.application=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#application,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.application=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#application,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.application=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#application,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.application=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#application,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.application=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#application,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.application=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#application,Variable Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.application=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena-class.html#application,Variable Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.application=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable-class.html#application"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.application
+Ganga.GPIDev.Lib.Job.Job'.Job.application
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.application
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.application
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.application
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.application
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.application
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.application
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.application
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.application" class="py-name" href="#" onclick="return doclink('link-86', 'application', 'link-86');">application</a></tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line">                        <tt class="py-name">BACKEND_NAME</tt> <tt class="py-op">=</tt> <tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-87" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.backend=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Job.Job'.Job.backend=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#backend,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.backend=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.backend=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.backend=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.backend=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.backend=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#backend,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.backend=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#backend"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.backend
+Ganga.GPIDev.Lib.Job.Job'.Job.backend
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.backend
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.backend
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.backend
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.backend
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.backend
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.backend" class="py-name" href="#" onclick="return doclink('link-87', 'backend', 'link-87');">backend</a></tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line"> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line"> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line">                        <tt class="py-comment">#create job folder                      </tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line">                        <tt class="py-name">jobFolder</tt> <tt class="py-op">=</tt> <tt class="py-string">'job_%s'</tt> <tt class="py-op">%</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.fqid=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#fqid,Variable Ganga.GPIDev.Lib.Job.Job'.Job.fqid=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#fqid,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.fqid=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#fqid,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.fqid=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#fqid"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.Job.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.fqid" class="py-name" href="#" onclick="return doclink('link-88', 'fqid', 'link-88');">fqid</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line">                        <tt class="py-name">fullLogDirName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-89" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-89', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">jobFolder</tt><tt class="py-op">)</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">                        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-90" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-90', 'mkdir', 'link-44');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">)</tt>                         </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line"> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line">                        <tt class="py-comment">#import job summary in a file   </tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line">                        <tt class="py-name">fullJobSummaryFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-91" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-91', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">jobSummaryFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line">                        <tt class="py-name">writeStringToFile</tt><tt class="py-op">(</tt><tt class="py-name">fullJobSummaryFileName</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line"> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line">                        <tt class="py-comment">#import job full print in a file</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line">                        <tt class="py-name">fullJobPrintFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-92" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-92', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-name">jobFullPrintFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line">                         </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line">                                <tt class="py-name">inputFile</tt> <tt class="py-op">=</tt> <tt id="link-93" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-93', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">fullJobPrintFileName</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line">                                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line">                                        <tt id="link-94" class="py-name"><a title="Ganga.GPIDev.Base.VPrinter.full_print" class="py-name" href="#" onclick="return doclink('link-94', 'full_print', 'link-5');">full_print</a></tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">,</tt> <tt class="py-name">inputFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line">                                <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line">                                        <tt class="py-name">inputFile</tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-95', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line">                        <tt class="py-comment">#except IOError, OSError:</tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line">                                <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line"> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line">                        <tt class="py-comment">#extract file objects</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt>                     </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line">                                <tt class="py-name">fileObjectsPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-96" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-96', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-string">'fileobjects'</tt><tt class="py-op">)</tt> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line">                                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-97', 'mkdir', 'link-44');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-name">fileObjectsPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line">                                <tt class="py-name">extractFileObjects</tt><tt class="py-op">(</tt><tt class="py-name">fullJobSummaryFileName</tt><tt class="py-op">,</tt> <tt class="py-name">fileObjectsPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line">                        <tt class="py-comment">#except OSError:</tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line">                                <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line"> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line">                        <tt class="py-comment">#copy dir of the job -&gt;input/output and subjobs</tt> </tt>
+<a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line">                                <tt class="py-name">parentDir</tt><tt class="py-op">,</tt> <tt class="py-name">currentDir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-98" class="py-name" targets="Method Ganga.GPIDev.Adapters.ISplitter.ISplitter.split()=Ganga.GPIDev.Adapters.ISplitter.ISplitter-class.html#split,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split()=Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter-class.html#split,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter-class.html#split,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter-class.html#split,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#split"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-98', 'split', 'link-98');">split</a></tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-99" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.inputdir=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#inputdir,Variable Ganga.GPIDev.Lib.Job.Job'.Job.inputdir=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#inputdir,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.inputdir=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#inputdir,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.inputdir=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#inputdir"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.inputdir
+Ganga.GPIDev.Lib.Job.Job'.Job.inputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.inputdir
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.inputdir" class="py-name" href="#" onclick="return doclink('link-99', 'inputdir', 'link-99');">inputdir</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line">                                <tt class="py-name">workspaceDir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-100" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-100', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-string">'workspace'</tt><tt class="py-op">)</tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">                                <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">copytree</tt><tt class="py-op">(</tt><tt class="py-name">parentDir</tt><tt class="py-op">,</tt> <tt class="py-name">workspaceDir</tt><tt class="py-op">)</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">                        <tt class="py-comment">#except IOError, OSError</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">                                <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line"> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line">                        <tt class="py-comment">#copy repository job file</tt> </tt>
+<a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line">                                <tt class="py-name">indexFileName</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-101" class="py-name" targets="Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.Job.id=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.id=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass-class.html#id,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask-class.html#id,Variable Ganga.Lib.Batch.Batch'.Batch._proxyClass.id=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.Batch.id=Ganga.Lib.Batch.Batch%27.Batch-class.html#id,Variable Ganga.Lib.Batch.Batch'.LSF._proxyClass.id=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.LSF.id=Ganga.Lib.Batch.Batch%27.LSF-class.html#id,Variable Ganga.Lib.Batch.Batch'.PBS._proxyClass.id=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.PBS.id=Ganga.Lib.Batch.Batch%27.PBS-class.html#id,Variable Ganga.Lib.Batch.Batch'.SGE._proxyClass.id=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#id,Variable Ganga.Lib.Batch.Batch'.SGE.id=Ganga.Lib.Batch.Batch%27.SGE-class.html#id,Variable Ganga.Lib.Condor.Condor'.Condor._proxyClass.id=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#id,Variable Ganga.Lib.Condor.Condor'.Condor.id=Ganga.Lib.Condor.Condor%27.Condor-class.html#id,Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#id,Variable Ganga.Lib.Interactive.Interactive'.Interactive.id=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#id,Variable Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#id,Variable Ganga.Lib.Localhost.Localhost'.Localhost.id=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#id"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-101', 'id', 'link-101');">id</a></tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'.index'</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line"> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line">                                <tt class="py-name">repositoryPath</tt> <tt class="py-op">=</tt> <tt class="py-name">repositoryPath</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'$usr'</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-102" class="py-name"><a title="Ganga.Lib.Condor.Condor'.Condor._proxyClass.getenv
+Ganga.Lib.Condor.Condor'.Condor.getenv" class="py-name" href="#" onclick="return doclink('link-102', 'getenv', 'link-40');">getenv</a></tt><tt class="py-op">(</tt><tt class="py-string">"USER"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line">                                 </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line">                                <tt class="py-comment">#check if the job is subjob -&gt; different way of forming the path to the repository</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line">                                <tt class="py-name">is_subjob</tt> <tt class="py-op">=</tt> <tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-103" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.Job.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.fqid" class="py-name" href="#" onclick="return doclink('link-103', 'fqid', 'link-88');">fqid</a></tt><tt class="py-op">.</tt><tt id="link-104" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-104', 'find', 'link-24');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line"> </tt>
+<a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt> <tt class="py-name">is_subjob</tt><tt class="py-op">:</tt> </tt>
+<a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line"> </tt>
+<a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line">                                        <tt class="py-name">jobid</tt><tt class="py-op">,</tt> <tt class="py-name">subjobid</tt> <tt class="py-op">=</tt> <tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-105" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.Job.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.fqid" class="py-name" href="#" onclick="return doclink('link-105', 'fqid', 'link-88');">fqid</a></tt><tt class="py-op">.</tt><tt id="link-106" class="py-name"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-106', 'split', 'link-98');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-107" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.Job.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.fqid
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.fqid" class="py-name" href="#" onclick="return doclink('link-107', 'fqid', 'link-88');">fqid</a></tt><tt class="py-op">.</tt><tt id="link-108" class="py-name"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-108', 'split', 'link-98');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line">                                        <tt class="py-name">repositoryPath</tt> <tt class="py-op">=</tt> <tt class="py-name">repositoryPath</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'$thousandsNum'</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">jobid</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">1000</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line">                                        <tt class="py-name">repositoryPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-109" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-109', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">repositoryPath</tt><tt class="py-op">,</tt> <tt class="py-name">jobid</tt><tt class="py-op">)</tt> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line"> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line">                                <tt class="py-keyword">else</tt><tt class="py-op">:</tt>    </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line">                                        <tt class="py-name">repositoryPath</tt> <tt class="py-op">=</tt> <tt class="py-name">repositoryPath</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'$thousandsNum'</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-110" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-110', 'id', 'link-101');">id</a></tt><tt class="py-op">/</tt><tt class="py-number">1000</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line"> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line">                                <tt class="py-name">repositoryFullPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-111" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-111', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt id="link-112" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-112', 'config', 'link-2');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">Configuration</tt><tt class="py-op">.</tt><tt class="py-name">gangadir</tt><tt class="py-op">,</tt> <tt class="py-name">repositoryPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line">                                <tt class="py-name">indexFileSourcePath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-113" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-113', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">repositoryFullPath</tt><tt class="py-op">,</tt> <tt class="py-name">indexFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line">                                <tt class="py-name">repositoryFullPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-114" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-114', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">repositoryFullPath</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-115" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-115', 'id', 'link-101');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line"> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line">                                <tt class="py-name">repositoryTargetPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-116" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-116', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-string">'repository'</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">.</tt><tt id="link-117" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.Job.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.id
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.Task'.Task.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.id
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask.id
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.id
+Ganga.Lib.Batch.Batch'.Batch.id
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.id
+Ganga.Lib.Batch.Batch'.LSF.id
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.id
+Ganga.Lib.Batch.Batch'.PBS.id
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.id
+Ganga.Lib.Batch.Batch'.SGE.id
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.id
+Ganga.Lib.Condor.Condor'.Condor.id
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.id
+Ganga.Lib.Interactive.Interactive'.Interactive.id
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.id
+Ganga.Lib.Localhost.Localhost'.Localhost.id" class="py-name" href="#" onclick="return doclink('link-117', 'id', 'link-101');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line">                                 </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line">                                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-118" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-118', 'mkdir', 'link-44');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-119" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-119', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-string">'repository'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line"> </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line">                                <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">copytree</tt><tt class="py-op">(</tt><tt class="py-name">repositoryFullPath</tt><tt class="py-op">,</tt> <tt class="py-name">repositoryTargetPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line">                                <tt class="py-comment">#data files are copied but can not be opened -&gt; add .txt to their file names</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line">                                <tt class="py-name">renameDataFiles</tt><tt class="py-op">(</tt><tt class="py-name">repositoryTargetPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L421"></a><tt class="py-lineno">421</tt>  <tt class="py-line"> </tt>
+<a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">is_subjob</tt><tt class="py-op">:</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line">                                        <tt class="py-comment">#copy .index file</tt> </tt>
+<a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line">                                        <tt class="py-name">indexFileTargetPath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-120" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-120', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">fullLogDirName</tt><tt class="py-op">,</tt> <tt class="py-string">'repository'</tt><tt class="py-op">,</tt> <tt class="py-name">indexFileName</tt><tt class="py-op">)</tt> </tt>
+<a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line">                                        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">copyfile</tt><tt class="py-op">(</tt><tt class="py-name">indexFileSourcePath</tt><tt class="py-op">,</tt> <tt class="py-name">indexFileTargetPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line">                                 </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line">                        <tt class="py-comment">#except OSError, IOError:</tt> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line">                        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line">                                <tt class="py-name">writeErrorLog</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_value</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line"> </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line">                <tt class="py-name">resultArchive</tt> <tt class="py-op">=</tt> <tt class="py-string">'%s.tar.gz'</tt> <tt class="py-op">%</tt> <tt class="py-name">folderToArchive</tt> </tt>
+<a name="L432"></a><tt class="py-lineno">432</tt>  <tt class="py-line"> </tt>
+<a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line">                        <tt class="py-name">resultFile</tt> <tt class="py-op">=</tt> <tt class="py-name">tarfile</tt><tt class="py-op">.</tt><tt class="py-name">TarFile</tt><tt class="py-op">.</tt><tt id="link-121" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-121', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">resultArchive</tt><tt class="py-op">,</tt> <tt class="py-string">'w:gz'</tt><tt class="py-op">)</tt> </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line">                        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">                                <tt class="py-name">resultFile</tt><tt class="py-op">.</tt><tt id="link-122" class="py-name" targets="Method Ganga.Core.GangaRepository.GangaRepository.GangaRepository.add()=Ganga.Core.GangaRepository.GangaRepository.GangaRepository-class.html#add,Method Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.add()=Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient-class.html#add,Method Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.add()=Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite-class.html#add,Method Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.add()=Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal-class.html#add,Method Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.add()=Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers-class.html#add,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.add()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#add,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.add()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#add,Method Ganga.Utility.Plugin.GangaPlugin.PluginManager.add()=Ganga.Utility.Plugin.GangaPlugin.PluginManager-class.html#add,Method Ganga.Utility.external.sets.Set.add()=Ganga.Utility.external.sets.Set-class.html#add"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.add
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.add
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.add
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.add
+Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.add
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.add
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.add
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.add
+Ganga.Utility.external.sets.Set.add" class="py-name" href="#" onclick="return doclink('link-122', 'add', 'link-122');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">folderToArchive</tt><tt class="py-op">,</tt> <tt class="py-name">arcname</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">(</tt><tt class="py-name">folderToArchive</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line">                                <tt class="py-comment">#put the error log in the archive</tt> </tt>
+<a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-123" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-123', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">                                        <tt class="py-name">resultFile</tt><tt class="py-op">.</tt><tt id="link-124" class="py-name"><a title="Ganga.Core.GangaRepository.GangaRepository.GangaRepository.add
+Ganga.Core.GangaRepository.GangaRepository.GangaRepositoryTransient.add
+Ganga.Core.GangaRepository.GangaRepositorySQLite.GangaRepositorySQLite.add
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.add
+Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.add
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.add
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.add
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.add
+Ganga.Utility.external.sets.Set.add" class="py-name" href="#" onclick="return doclink('link-124', 'add', 'link-122');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">,</tt> <tt class="py-name">arcname</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>     </tt>
+<a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line">                 </tt>
+<a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line">                        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt>         </tt>
+<a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line">                                <tt class="py-name">resultFile</tt><tt class="py-op">.</tt><tt id="link-125" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-125', 'close', 'link-31');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L444"></a><tt class="py-lineno">444</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt class="py-comment">#pass</tt> </tt>
+<a name="L445"></a><tt class="py-lineno">445</tt>  <tt class="py-line">                 </tt>
+<a name="L446"></a><tt class="py-lineno">446</tt>  <tt class="py-line">                <tt class="py-comment">#remove temp dir</tt> </tt>
+<a name="L447"></a><tt class="py-lineno">447</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-126" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-126', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">folderToArchive</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L448"></a><tt class="py-lineno">448</tt>  <tt class="py-line">                        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">rmtree</tt><tt class="py-op">(</tt><tt class="py-name">folderToArchive</tt><tt class="py-op">)</tt> </tt>
+<a name="L449"></a><tt class="py-lineno">449</tt>  <tt class="py-line"> </tt>
+<a name="L450"></a><tt class="py-lineno">450</tt>  <tt class="py-line">                <tt class="py-comment">#print the error if there is something</tt> </tt>
+<a name="L451"></a><tt class="py-lineno">451</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-127" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-127', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L452"></a><tt class="py-lineno">452</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt> </tt>
+<a name="L453"></a><tt class="py-lineno">453</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt> <tt class="py-string">'An error occured while collecting report information : '</tt> <tt class="py-op">+</tt>  <tt id="link-128" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-128', 'open', 'link-12');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-129" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-129', 'read', 'link-13');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L454"></a><tt class="py-lineno">454</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt>   </tt>
+<a name="L455"></a><tt class="py-lineno">455</tt>  <tt class="py-line"> </tt>
+<a name="L456"></a><tt class="py-lineno">456</tt>  <tt class="py-line">                <tt class="py-comment">#delete the errorfile from user's pc</tt> </tt>
+<a name="L457"></a><tt class="py-lineno">457</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-130" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-130', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L458"></a><tt class="py-lineno">458</tt>  <tt class="py-line">                        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-131" class="py-name" targets="Method Ganga.Core.FileWorkspace.FileWorkspace.remove()=Ganga.Core.FileWorkspace.FileWorkspace-class.html#remove,Method Ganga.Core.GangaRepository.Registry.IncompleteObject.remove()=Ganga.Core.GangaRepository.Registry.IncompleteObject-class.html#remove,Method Ganga.GPIDev.Adapters.IBackend.IBackend.remove()=Ganga.GPIDev.Adapters.IBackend.IBackend-class.html#remove,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.remove()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#remove,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.remove()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#remove,Method Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.remove()=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#remove,Method Ganga.GPIDev.Lib.Job.Job'.Job.remove()=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#remove,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.remove()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#remove,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate.remove()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#remove,Method Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.remove()=Ganga.GPIDev.Lib.Registry.JobRegistry%27.JobRegistrySlice-class.html#remove,Method Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.remove()=Ganga.GPIDev.Lib.Registry.JobRegistry%27.JobRegistrySliceProxy-class.html#remove,Method Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.remove()=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#remove,Method Ganga.GPIDev.Lib.Tasks.Task'.Task.remove()=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#remove,Method Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySlice.remove()=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27.TaskRegistrySlice-class.html#remove,Method Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySliceProxy.remove()=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27.TaskRegistrySliceProxy-class.html#remove,Method Ganga.Lib.Remote.Remote'.Remote.remove()=Ganga.Lib.Remote.Remote%27.Remote-class.html#remove,Method Ganga.Utility.external.ARDAMDClient.diskutils.RLock.remove()=Ganga.Utility.external.ARDAMDClient.diskutils.RLock-class.html#remove,Function Ganga.Utility.external.ARDAMDClient.diskutils.remove()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#remove,Method Ganga.Utility.external.sets.Set.remove()=Ganga.Utility.external.sets.Set-class.html#remove"><a title="Ganga.Core.FileWorkspace.FileWorkspace.remove
+Ganga.Core.GangaRepository.Registry.IncompleteObject.remove
+Ganga.GPIDev.Adapters.IBackend.IBackend.remove
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.remove
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.remove
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.remove
+Ganga.GPIDev.Lib.Job.Job'.Job.remove
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.remove
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.remove
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.remove
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.remove
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.remove
+Ganga.GPIDev.Lib.Tasks.Task'.Task.remove
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySlice.remove
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySliceProxy.remove
+Ganga.Lib.Remote.Remote'.Remote.remove
+Ganga.Utility.external.ARDAMDClient.diskutils.RLock.remove
+Ganga.Utility.external.ARDAMDClient.diskutils.remove
+Ganga.Utility.external.sets.Set.remove" class="py-name" href="#" onclick="return doclink('link-131', 'remove', 'link-131');">remove</a></tt><tt class="py-op">(</tt><tt class="py-name">errorLogPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L459"></a><tt class="py-lineno">459</tt>  <tt class="py-line"> </tt>
+<a name="L460"></a><tt class="py-lineno">460</tt>  <tt class="py-line">                <tt class="py-comment">#return the path to the archive and the path to the upload server</tt> </tt>
+<a name="L461"></a><tt class="py-lineno">461</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">resultArchive</tt><tt class="py-op">,</tt> <tt class="py-name">uploadFileServer</tt><tt class="py-op">,</tt> <tt class="py-name">tempDir</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line"> </tt>
+<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">removeTempFiles</tt><tt class="py-op">(</tt><tt class="py-param">tempDir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt class="py-name">shutil</tt> </tt>
+<a name="L465"></a><tt class="py-lineno">465</tt>  <tt class="py-line">                 </tt>
+<a name="L466"></a><tt class="py-lineno">466</tt>  <tt class="py-line">                <tt class="py-comment">#remove temp dir</tt> </tt>
+<a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-132" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.exists
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.exists" class="py-name" href="#" onclick="return doclink('link-132', 'exists', 'link-43');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">tempDir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L468"></a><tt class="py-lineno">468</tt>  <tt class="py-line">                        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">rmtree</tt><tt class="py-op">(</tt><tt class="py-name">tempDir</tt><tt class="py-op">)</tt>   </tt>
+<a name="L469"></a><tt class="py-lineno">469</tt>  <tt class="py-line"> </tt>
+<a name="L470"></a><tt class="py-lineno">470</tt>  <tt class="py-line">                <tt class="py-comment">#remove temp files from django upload-&gt; if the file is bigger than 2.5 mb django internally stores it in tmp file during the upload</tt> </tt>
+<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line">                <tt class="py-name">userTempDir</tt> <tt class="py-op">=</tt> <tt class="py-string">'/tmp/'</tt> </tt>
+<a name="L472"></a><tt class="py-lineno">472</tt>  <tt class="py-line">                 </tt>
+<a name="L473"></a><tt class="py-lineno">473</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">fileName</tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">userTempDir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L474"></a><tt class="py-lineno">474</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">fileName</tt><tt class="py-op">.</tt><tt id="link-133" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-133', 'find', 'link-24');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'.upload'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L475"></a><tt class="py-lineno">475</tt>  <tt class="py-line">                                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-134" class="py-name"><a title="Ganga.Core.FileWorkspace.FileWorkspace.remove
+Ganga.Core.GangaRepository.Registry.IncompleteObject.remove
+Ganga.GPIDev.Adapters.IBackend.IBackend.remove
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.remove
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.remove
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.remove
+Ganga.GPIDev.Lib.Job.Job'.Job.remove
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.remove
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.remove
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.remove
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.remove
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.remove
+Ganga.GPIDev.Lib.Tasks.Task'.Task.remove
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySlice.remove
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySliceProxy.remove
+Ganga.Lib.Remote.Remote'.Remote.remove
+Ganga.Utility.external.ARDAMDClient.diskutils.RLock.remove
+Ganga.Utility.external.ARDAMDClient.diskutils.remove
+Ganga.Utility.external.sets.Set.remove" class="py-name" href="#" onclick="return doclink('link-134', 'remove', 'link-131');">remove</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-135" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-135', 'join', 'link-10');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">userTempDir</tt><tt class="py-op">,</tt> <tt class="py-name">fileName</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
+</div><a name="L476"></a><tt class="py-lineno">476</tt>  <tt class="py-line"> </tt>
+<a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line"> </tt>
+<a name="L478"></a><tt class="py-lineno">478</tt>  <tt class="py-line">        <tt class="py-name">tempDir</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line"> </tt>
+<a name="L480"></a><tt class="py-lineno">480</tt>  <tt class="py-line">        <tt class="py-comment">#call the report function</tt> </tt>
+<a name="L481"></a><tt class="py-lineno">481</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L482"></a><tt class="py-lineno">482</tt>  <tt class="py-line"> </tt>
+<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line">                <tt class="py-comment">#make typecheck of the param passed</tt> </tt>
+<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">job</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L485"></a><tt class="py-lineno">485</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">,</tt><tt id="link-136" class="py-name"><a title="Ganga.GPIDev.Lib.Job
+Ganga.GPIDev.Lib.Job.Job'.Job" class="py-name" href="#" onclick="return doclink('link-136', 'Job', 'link-8');">Job</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L486"></a><tt class="py-lineno">486</tt>  <tt class="py-line">                                <tt class="py-keyword">print</tt> <tt class="py-string">"report() function argument should be reference to a job object"</tt> </tt>
+<a name="L487"></a><tt class="py-lineno">487</tt>  <tt class="py-line">                                <tt class="py-keyword">return</tt> </tt>
+<a name="L488"></a><tt class="py-lineno">488</tt>  <tt class="py-line"> </tt>
+<a name="L489"></a><tt class="py-lineno">489</tt>  <tt class="py-line">                <tt class="py-name">resultArchive</tt><tt class="py-op">,</tt> <tt class="py-name">uploadFileServer</tt><tt class="py-op">,</tt> <tt class="py-name">tempDir</tt> <tt class="py-op">=</tt> <tt class="py-name">report_inner</tt><tt class="py-op">(</tt><tt class="py-name">job</tt><tt class="py-op">)</tt> </tt>
+<a name="L490"></a><tt class="py-lineno">490</tt>  <tt class="py-line"> </tt>
+<a name="L491"></a><tt class="py-lineno">491</tt>  <tt class="py-line">                <tt class="py-name">report_bytes</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-name">resultArchive</tt><tt class="py-op">)</tt> </tt>
+<a name="L492"></a><tt class="py-lineno">492</tt>  <tt class="py-line">                 </tt>
+<a name="L493"></a><tt class="py-lineno">493</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">report_bytes</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1024</tt><tt class="py-op">*</tt><tt class="py-number">1024</tt><tt class="py-op">*</tt><tt class="py-number">100</tt><tt class="py-op">:</tt> <tt class="py-comment">#if bigger than 100MB</tt> </tt>
+<a name="L494"></a><tt class="py-lineno">494</tt>  <tt class="py-line">                        <tt class="py-keyword">print</tt> <tt class="py-string">'The report is bigger than 100MB and can not be uploaded'</tt> </tt>
+<a name="L495"></a><tt class="py-lineno">495</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L496"></a><tt class="py-lineno">496</tt>  <tt class="py-line">                        <tt class="py-name">run_upload</tt><tt class="py-op">(</tt><tt class="py-name">server</tt><tt class="py-op">=</tt><tt class="py-name">uploadFileServer</tt><tt class="py-op">,</tt> <tt class="py-name">path</tt><tt class="py-op">=</tt><tt class="py-name">resultArchive</tt><tt class="py-op">)</tt> </tt>
+<a name="L497"></a><tt class="py-lineno">497</tt>  <tt class="py-line"> </tt>
+<a name="L498"></a><tt class="py-lineno">498</tt>  <tt class="py-line">                 </tt>
+<a name="L499"></a><tt class="py-lineno">499</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L500"></a><tt class="py-lineno">500</tt>  <tt class="py-line">                <tt class="py-name">removeTempFiles</tt><tt class="py-op">(</tt><tt class="py-name">tempDir</tt><tt class="py-op">)</tt> </tt>
+<a name="L501"></a><tt class="py-lineno">501</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-comment">#pass</tt> </tt>
+<a name="L502"></a><tt class="py-lineno">502</tt>  <tt class="py-line">                <tt class="py-comment">#raise  </tt> </tt>
+<a name="L503"></a><tt class="py-lineno">503</tt>  <tt class="py-line"> </tt>
+<a name="L504"></a><tt class="py-lineno">504</tt>  <tt class="py-line">        <tt class="py-name">removeTempFiles</tt><tt class="py-op">(</tt><tt class="py-name">tempDir</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L505"></a><tt class="py-lineno">505</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:38 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

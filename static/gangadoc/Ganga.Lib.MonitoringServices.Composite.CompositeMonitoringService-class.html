@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Lib-module.html">Package&nbsp;Lib</a> ::
+        <a href="Ganga.Lib.MonitoringServices-module.html">Package&nbsp;MonitoringServices</a> ::
+        <a href="Ganga.Lib.MonitoringServices.Composite-module.html">Module&nbsp;Composite</a> ::
+        Class&nbsp;CompositeMonitoringService
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CompositeMonitoringService</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+<a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html">GPIDev.Adapters.IMonitoringService.IMonitoringService</a> --+
+                                                        |
+                                                       <strong class="uidshort">CompositeMonitoringService</strong>
+</pre>
+
+<hr />
+<p>IMonitoringService container: Wrapper object containing a list of 
+  IMonitoringService(s) inside and delegating the interface methods to each
+  of them. (composite design pattern) This object is used automatically to 
+  transparently wrap the list of monitoring services set in the 
+  configuration</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">monClasses</span>,
+        <span class="summary-sig-arg">jobInfos</span>,
+        <span class="summary-sig-arg">configInfos</span>)</span><br />
+      Create a new composite monitoring service based on the lists of 
+      monitoring classes, jobs and configs (all the same length).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#start" class="summary-sig-name">start</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Application is about to start on the worker node.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.start">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#progress" class="summary-sig-name">progress</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Application execution is in progress (called periodically, several 
+      times a second).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.progress">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#stop" class="summary-sig-name">stop</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">exitcode</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Application execution finished.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.stop">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#prepare" class="summary-sig-name">prepare</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Preparation of a job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.prepare">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#submitting" class="summary-sig-name">submitting</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Submission of a job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.submitting">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#submit" class="summary-sig-name">submit</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Submission of a job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.submit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#complete" class="summary-sig-name">complete</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Completion of a job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.complete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#fail" class="summary-sig-name">fail</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Failure of a job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.fail">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#kill" class="summary-sig-name">kill</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Killing of a job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.kill">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#rollback" class="summary-sig-name">rollback</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**opts</span>)</span><br />
+      Rollback of a job to new state (caused by error during submission).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.rollback">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#getSandboxModules" class="summary-sig-name">getSandboxModules</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get the list of module dependencies of this monitoring module.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.getSandboxModules">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#getJobInfo" class="summary-sig-name">getJobInfo</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a static info object which static information about the job
+at submission time.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.getJobInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#getWrapperScriptConstructorText" class="summary-sig-name">getWrapperScriptConstructorText</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a line of python source code which creates the instance of the
+      monitoring service object to be used in the job wrapper script.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.getWrapperScriptConstructorText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_log"></a><span class="summary-sig-name">_log</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">info</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">msg</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService._log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html">GPIDev.Adapters.IMonitoringService.IMonitoringService</a></code></b>:
+      <code><a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#event">event</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html">GPIDev.Adapters.IMonitoringService.IMonitoringService</a></code></b>:
+      <code><a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getConfig">getConfig</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">monClasses</span>,
+        <span class="sig-arg">jobInfos</span>,
+        <span class="sig-arg">configInfos</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a new composite monitoring service based on the lists of 
+  monitoring classes, jobs and configs (all the same length).</p>
+  <p>If this is called in the Ganga client, i.e. from 
+  Ganga/GPIDev/MonitoringServices, then jobInfos is a list of Job (all the 
+  same), configInfos is a list of Config (specific to each monitoring 
+  class).</p>
+  <p>If this is called on the worker node, i.e. from the text generated by 
+  getWrapperScriptConstructorText(), the jobInfos are dictionaries 
+  (specific to each monitoring class) and configInfos are dictionaries of 
+  effective config options (specific to each monitoring class).</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#__init__">GPIDev.Adapters.IMonitoringService.IMonitoringService.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="start"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">start</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.start">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Application is about to start on the worker node. Called by: job 
+  wrapper.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#start">GPIDev.Adapters.IMonitoringService.IMonitoringService.start</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="progress"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">progress</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.progress">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Application execution is in progress (called periodically, several 
+  times a second). Called by: job wrapper.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#progress">GPIDev.Adapters.IMonitoringService.IMonitoringService.progress</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="stop"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">stop</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">exitcode</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.stop">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Application execution finished. Called by: job wrapper.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#stop">GPIDev.Adapters.IMonitoringService.IMonitoringService.stop</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="prepare"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">prepare</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.prepare">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Preparation of a job. Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#prepare">GPIDev.Adapters.IMonitoringService.IMonitoringService.prepare</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="submitting"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">submitting</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.submitting">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Submission of a job. Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#submitting">GPIDev.Adapters.IMonitoringService.IMonitoringService.submitting</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="submit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">submit</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.submit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Submission of a job. Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#submit">GPIDev.Adapters.IMonitoringService.IMonitoringService.submit</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="complete"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">complete</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.complete">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Completion of a job. Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#complete">GPIDev.Adapters.IMonitoringService.IMonitoringService.complete</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="fail"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fail</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.fail">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Failure of a job. Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#fail">GPIDev.Adapters.IMonitoringService.IMonitoringService.fail</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="kill"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">kill</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.kill">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Killing of a job. Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#kill">GPIDev.Adapters.IMonitoringService.IMonitoringService.kill</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="rollback"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">rollback</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**opts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.rollback">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Rollback of a job to new state (caused by error during submission). 
+  Called by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#rollback">GPIDev.Adapters.IMonitoringService.IMonitoringService.rollback</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getSandboxModules"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getSandboxModules</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.getSandboxModules">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the list of module dependencies of this monitoring module. Called 
+  by: ganga client.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getSandboxModules">GPIDev.Adapters.IMonitoringService.IMonitoringService.getSandboxModules</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getJobInfo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getJobInfo</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.getJobInfo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return a static info object which static information about the job
+at submission time. Called by: ganga client.
+
+The info object is passed to the contructor. Info
+object may only contain the standard python types (such as lists,
+dictionaries, int, strings). 
+Implementation details:
+ return the job info objects as a map for each compound Monitoring Service
+ @see getWrapperScriptConstructorText() method
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getJobInfo">GPIDev.Adapters.IMonitoringService.IMonitoringService.getJobInfo</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getWrapperScriptConstructorText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getWrapperScriptConstructorText</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Lib.MonitoringServices.Composite-pysrc.html#CompositeMonitoringService.getWrapperScriptConstructorText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a line of python source code which creates the instance of the 
+  monitoring service object to be used in the job wrapper script. This 
+  method should not be overriden.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getWrapperScriptConstructorText">GPIDev.Adapters.IMonitoringService.IMonitoringService.getWrapperScriptConstructorText</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:22 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

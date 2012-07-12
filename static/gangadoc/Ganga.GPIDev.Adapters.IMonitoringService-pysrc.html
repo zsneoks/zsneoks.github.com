@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.GPIDev.Adapters.IMonitoringService</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.GPIDev-module.html">Package&nbsp;GPIDev</a> ::
+        <a href="Ganga.GPIDev.Adapters-module.html">Package&nbsp;Adapters</a> ::
+        Module&nbsp;IMonitoringService
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.GPIDev.Adapters.IMonitoringService-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.GPIDev.Adapters.IMonitoringService-module.html">Module Ganga.GPIDev.Adapters.IMonitoringService</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService"></a><div id="IMonitoringService-def"><a name="L2"></a><tt class="py-lineno">  2</tt> <a class="py-toggle" href="#" id="IMonitoringService-toggle" onclick="return toggle('IMonitoringService');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html">IMonitoringService</a><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="IMonitoringService-expanded"><a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line">    <tt class="py-docstring">""" Interface of the monitoring service.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">    Each method correponds to particular events which occur at ganga client or job wrapper (worker node).</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">    The event() method is retained for backwards compatibility and other methods by default use it.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">    However it will be removed in the future.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.__init__"></a><div id="IMonitoringService.__init__-def"><a name="L9"></a><tt class="py-lineno">  9</tt> <a class="py-toggle" href="#" id="IMonitoringService.__init__-toggle" onclick="return toggle('IMonitoringService.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">job_info</tt><tt class="py-op">,</tt> <tt class="py-param">config_info</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.__init__-expanded"><a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">        <tt class="py-docstring">"""Initialize the monitoring service.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">        If the monitoring service is created in the Ganga client then job_info</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">        is the original job object, and config_info is the original config\</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">        object returned by getConfig().</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">        If the monitoring service is created on the worker node then job_info is</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">        the return value of getJobInfo(), and config_info is the return value of</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">        getConfig().getEffectiveOptions(), i.e. a dictionary.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">        In order to support existing monitoring classes, which do not use</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">        config_info, if getConfig() returns None, the constructor is called with</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">        only the job_info argument.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt> <tt class="py-op">=</tt> <tt class="py-name">job_info</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">config_info</tt> <tt class="py-op">=</tt> <tt class="py-name">config_info</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">     </tt>
+<a name="IMonitoringService.start"></a><div id="IMonitoringService.start-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="IMonitoringService.start-toggle" onclick="return toggle('IMonitoringService.start');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#start">start</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.start-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.start-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-docstring">"""Application is about to start on the worker node.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: job wrapper.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#event"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-0', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'start'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">     </tt>
+<a name="IMonitoringService.progress"></a><div id="IMonitoringService.progress-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="IMonitoringService.progress-toggle" onclick="return toggle('IMonitoringService.progress');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#progress">progress</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.progress-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.progress-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-docstring">"""Application execution is in progress (called periodically, several times a second).</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: job wrapper. """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-1', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'progress'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.stop"></a><div id="IMonitoringService.stop-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="IMonitoringService.stop-toggle" onclick="return toggle('IMonitoringService.stop');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#stop">stop</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">exitcode</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.stop-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.stop-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-docstring">"""Application execution finished.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: job wrapper. """</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-2', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'end'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'exitcode'</tt><tt class="py-op">:</tt><tt id="link-3" class="py-name" targets="Variable Ganga.Lib.Batch.Batch'.Batch._proxyClass.exitcode=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.Batch.exitcode=Ganga.Lib.Batch.Batch%27.Batch-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.LSF._proxyClass.exitcode=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.LSF.exitcode=Ganga.Lib.Batch.Batch%27.LSF-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.PBS._proxyClass.exitcode=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.PBS.exitcode=Ganga.Lib.Batch.Batch%27.PBS-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.SGE._proxyClass.exitcode=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#exitcode,Variable Ganga.Lib.Batch.Batch'.SGE.exitcode=Ganga.Lib.Batch.Batch%27.SGE-class.html#exitcode,Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.exitcode=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#exitcode,Variable Ganga.Lib.Interactive.Interactive'.Interactive.exitcode=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#exitcode,Variable Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.exitcode=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#exitcode,Variable Ganga.Lib.Localhost.Localhost'.Localhost.exitcode=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#exitcode,Variable Ganga.Lib.Remote.Remote'.Remote._proxyClass.exitcode=Ganga.Lib.Remote.Remote%27.Remote._proxyClass-class.html#exitcode,Variable Ganga.Lib.Remote.Remote'.Remote.exitcode=Ganga.Lib.Remote.Remote%27.Remote-class.html#exitcode"><a title="Ganga.Lib.Batch.Batch'.Batch._proxyClass.exitcode
+Ganga.Lib.Batch.Batch'.Batch.exitcode
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.exitcode
+Ganga.Lib.Batch.Batch'.LSF.exitcode
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.exitcode
+Ganga.Lib.Batch.Batch'.PBS.exitcode
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.exitcode
+Ganga.Lib.Batch.Batch'.SGE.exitcode
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.exitcode
+Ganga.Lib.Interactive.Interactive'.Interactive.exitcode
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.exitcode
+Ganga.Lib.Localhost.Localhost'.Localhost.exitcode
+Ganga.Lib.Remote.Remote'.Remote._proxyClass.exitcode
+Ganga.Lib.Remote.Remote'.Remote.exitcode" class="py-name" href="#" onclick="return doclink('link-3', 'exitcode', 'link-3');">exitcode</a></tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.prepare"></a><div id="IMonitoringService.prepare-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="IMonitoringService.prepare-toggle" onclick="return toggle('IMonitoringService.prepare');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#prepare">prepare</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.prepare-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.prepare-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-docstring">"""Preparation of a job.</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-4', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'prepare'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.submitting"></a><div id="IMonitoringService.submitting-def"><a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="IMonitoringService.submitting-toggle" onclick="return toggle('IMonitoringService.submitting');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#submitting">submitting</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.submitting-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.submitting-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-docstring">"""Just before the submission of a job.</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-5', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'submitting'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">         </tt>
+<a name="IMonitoringService.submit"></a><div id="IMonitoringService.submit-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="IMonitoringService.submit-toggle" onclick="return toggle('IMonitoringService.submit');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#submit">submit</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.submit-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.submit-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-docstring">"""Submission of a job.</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-6', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'submit'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.complete"></a><div id="IMonitoringService.complete-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="IMonitoringService.complete-toggle" onclick="return toggle('IMonitoringService.complete');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#complete">complete</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.complete-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.complete-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-docstring">"""Completion of a job.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-7', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'complete'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.fail"></a><div id="IMonitoringService.fail-def"><a name="L63"></a><tt class="py-lineno"> 63</tt> <a class="py-toggle" href="#" id="IMonitoringService.fail-toggle" onclick="return toggle('IMonitoringService.fail');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#fail">fail</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.fail-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.fail-expanded"><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-docstring">"""Failure of a job.</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-8', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'fail'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.kill"></a><div id="IMonitoringService.kill-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="IMonitoringService.kill-toggle" onclick="return toggle('IMonitoringService.kill');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#kill">kill</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.kill-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.kill-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-docstring">"""Killing of a job.</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-9', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'kill'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.rollback"></a><div id="IMonitoringService.rollback-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="IMonitoringService.rollback-toggle" onclick="return toggle('IMonitoringService.rollback');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#rollback">rollback</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">opts</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.rollback-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.rollback-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-docstring">"""Rollback of a job to new state (caused by error during submission).</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client. """</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.event" class="py-name" href="#" onclick="return doclink('link-10', 'event', 'link-0');">event</a></tt><tt class="py-op">(</tt><tt class="py-string">'rollback'</tt><tt class="py-op">,</tt><tt class="py-op">{</tt><tt class="py-string">'job'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.getSandboxModules"></a><div id="IMonitoringService.getSandboxModules-def"><a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="IMonitoringService.getSandboxModules-toggle" onclick="return toggle('IMonitoringService.getSandboxModules');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getSandboxModules">getSandboxModules</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.getSandboxModules-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.getSandboxModules-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-docstring">""" Get the list of module dependencies of this monitoring module.</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">        Called by: ganga client.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        Returns a list of modules which are imported by this module and</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">        therefore must be shipped automatically to the worker node. The list</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">        should include the module where this class is defined plus all modules</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        which represent the parent packages. The module containing the</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">        IMonitoringService class is added automatically by the call to the</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        base class sandBoxModule() method. An example for a class defined in</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">        the module Ganga/Lib/MonitoringServices/DummyMS/DummyMS.py which does</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">        not have any further dependencies:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        import Ganga.Lib.MonitoringServices.DummyMS</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">        return IMonitoringService.getSandboxModules(self) + [</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">                 Ganga,</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">                 Ganga.Lib,</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">                 Ganga.Lib.MonitoringServices,</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">                 Ganga.Lib.MonitoringServices.DummyMS,</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">                 Ganga.Lib.MonitoringServices.DummyMS.DummyMS</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">                ]</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">        Note, that it should be possible to import all parent modules without side effects (so without importing automatically their other children).</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-11', 'Ganga', 'link-11');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Package Ganga.GPIDev=Ganga.GPIDev-module.html"><a title="Ganga.GPIDev" class="py-name" href="#" onclick="return doclink('link-12', 'GPIDev', 'link-12');">GPIDev</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Package Ganga.GPIDev.Adapters=Ganga.GPIDev.Adapters-module.html"><a title="Ganga.GPIDev.Adapters" class="py-name" href="#" onclick="return doclink('link-13', 'Adapters', 'link-13');">Adapters</a></tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt> <tt id="link-14" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-14', 'Ganga', 'link-11');">Ganga</a></tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-15', 'Ganga', 'link-11');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Ganga.GPIDev" class="py-name" href="#" onclick="return doclink('link-16', 'GPIDev', 'link-12');">GPIDev</a></tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-17', 'Ganga', 'link-11');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Ganga.GPIDev" class="py-name" href="#" onclick="return doclink('link-18', 'GPIDev', 'link-12');">GPIDev</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.GPIDev.Adapters" class="py-name" href="#" onclick="return doclink('link-19', 'Adapters', 'link-13');">Adapters</a></tt><tt class="py-op">,</tt> <tt id="link-20" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-20', 'Ganga', 'link-11');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Ganga.GPIDev" class="py-name" href="#" onclick="return doclink('link-21', 'GPIDev', 'link-12');">GPIDev</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Ganga.GPIDev.Adapters" class="py-name" href="#" onclick="return doclink('link-22', 'Adapters', 'link-13');">Adapters</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Module Ganga.GPIDev.Adapters.IMonitoringService=Ganga.GPIDev.Adapters.IMonitoringService-module.html,Class Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html"><a title="Ganga.GPIDev.Adapters.IMonitoringService
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService" class="py-name" href="#" onclick="return doclink('link-23', 'IMonitoringService', 'link-23');">IMonitoringService</a></tt> <tt class="py-op">]</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.getJobInfo"></a><div id="IMonitoringService.getJobInfo-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="IMonitoringService.getJobInfo-toggle" onclick="return toggle('IMonitoringService.getJobInfo');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getJobInfo">getJobInfo</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.getJobInfo-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.getJobInfo-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-docstring">""" Return a static info object which static information about the job</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        at submission time. Called by: ganga client.</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">        The info object is passed to the contructor. Info</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">        object may only contain the standard python types (such as lists,</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        dictionaries, int, strings).  """</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.getConfig"></a><div id="IMonitoringService.getConfig-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="IMonitoringService.getConfig-toggle" onclick="return toggle('IMonitoringService.getConfig');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getConfig">getConfig</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.getConfig-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.getConfig-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return the config object for this class.</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">        By default this method returns None. If it is overridden to</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">        return a Config object then the configuration is made available</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">        consistently in the Ganga client and on the worker node via the instance</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">        variable config_info. See __init__().</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">        For example, in your IMonitoringService implementation you could add::</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">            def getConfig():</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">                from Ganga.Utility import Config</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">                return Config.getConfig("MyMS")</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">            getConfig = staticmethod(getConfig)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">        N.B. this is a static method.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt id="link-24" class="py-name" targets="Static Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getConfig,Static Method Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig()=Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS-class.html#getConfig,Static Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#getConfig,Function Ganga.Utility.Config.Config.getConfig()=Ganga.Utility.Config.Config-module.html#getConfig"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-24', 'getConfig', 'link-24');">getConfig</a></tt> <tt class="py-op">=</tt> <tt class="py-name">staticmethod</tt><tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-25', 'getConfig', 'link-24');">getConfig</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
+<a name="IMonitoringService.getWrapperScriptConstructorText"></a><div id="IMonitoringService.getWrapperScriptConstructorText-def"><a name="L133"></a><tt class="py-lineno">133</tt> <a class="py-toggle" href="#" id="IMonitoringService.getWrapperScriptConstructorText-toggle" onclick="return toggle('IMonitoringService.getWrapperScriptConstructorText');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getWrapperScriptConstructorText">getWrapperScriptConstructorText</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.getWrapperScriptConstructorText-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.getWrapperScriptConstructorText-expanded"><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-docstring">""" Return a line of python source code which creates the instance of the monitoring service object to be used in the job wrapper script. This method should not be overriden.</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt id="link-26" class="py-name" targets="Variable Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config=Ganga.Core.MonitoringComponent.Local_GangaMC_Service-module.html#config,Variable Ganga.GPIDev.Base.Filters.config=Ganga.GPIDev.Base.Filters-module.html#config,Variable Ganga.GPIDev.Lib.Config.Config.config=Ganga.GPIDev.Lib.Config.Config-module.html#config,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.config=Ganga.GPIDev.Lib.Registry.BoxRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.JobRegistry'.config=Ganga.GPIDev.Lib.Registry.JobRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Registry.RegistrySlice.config=Ganga.GPIDev.Lib.Registry.RegistrySlice-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.config=Ganga.GPIDev.Lib.Tasks.ArgTransform-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Task'.config=Ganga.GPIDev.Lib.Tasks.Task%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskApplication.config=Ganga.GPIDev.Lib.Tasks.TaskApplication-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.Transform'.config=Ganga.GPIDev.Lib.Tasks.Transform%27-module.html#config,Variable Ganga.GPIDev.Lib.Tasks.common.config=Ganga.GPIDev.Lib.Tasks.common-module.html#config,Variable Ganga.GPIDev.Streamers.MigrationControl.config=Ganga.GPIDev.Streamers.MigrationControl-module.html#config,Variable Ganga.Lib.Batch.Batch'.LSF.config=Ganga.Lib.Batch.Batch%27.LSF-class.html#config,Variable Ganga.Lib.Batch.Batch'.PBS.config=Ganga.Lib.Batch.Batch%27.PBS-class.html#config,Variable Ganga.Lib.Batch.Batch'.SGE.config=Ganga.Lib.Batch.Batch%27.SGE-class.html#config,Variable Ganga.Lib.Batch.Batch'.config=Ganga.Lib.Batch.Batch%27-module.html#config,Variable Ganga.Lib.Batch.config=Ganga.Lib.Batch-module.html#config,Variable Ganga.Lib.Condor.CondorRequirements'.config=Ganga.Lib.Condor.CondorRequirements%27-module.html#config,Variable Ganga.Lib.Executable.Executable'.config=Ganga.Lib.Executable.Executable%27-module.html#config,Variable Ganga.Lib.Executable.config=Ganga.Lib.Executable-module.html#config,Variable Ganga.Lib.LCG.CREAM.config=Ganga.Lib.LCG.CREAM-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.GridSimulator.config=Ganga.Lib.LCG.GridSimulator.GridSimulator-module.html#config,Variable Ganga.Lib.LCG.GridSimulator.simulator.config=Ganga.Lib.LCG.GridSimulator.simulator-module.html#config,Variable Ganga.Lib.LCG.LCG.config=Ganga.Lib.LCG.LCG-module.html#config,Variable Ganga.Lib.Localhost.Localhost'.config=Ganga.Lib.Localhost.Localhost%27-module.html#config,Variable Ganga.Lib.Localhost.config=Ganga.Lib.Localhost-module.html#config,Variable Ganga.Lib.Mergers.Merger.config=Ganga.Lib.Mergers.Merger-module.html#config,Variable Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#config,Variable Ganga.Lib.Root.Root'.config=Ganga.Lib.Root.Root%27-module.html#config,Variable Ganga.Lib.Root.config=Ganga.Lib.Root-module.html#config,Variable Ganga.Runtime.AMGA_repository_runtime.config=Ganga.Runtime.AMGA_repository_runtime-module.html#config,Variable Ganga.Runtime.Repository_runtime.config=Ganga.Runtime.Repository_runtime-module.html#config,Variable Ganga.Runtime.XML_repository_runtime.config=Ganga.Runtime.XML_repository_runtime-module.html#config,Variable Ganga.Runtime.associations.config=Ganga.Runtime.associations-module.html#config,Variable Ganga.Runtime.spyware.config=Ganga.Runtime.spyware-module.html#config,Variable Ganga.Utility.Caching.config=Ganga.Utility.Caching-module.html#config,Module Ganga.Utility.external.logging.config=Ganga.Utility.external.logging.config-module.html,Variable Ganga.Utility.logging.config=Ganga.Utility.logging-module.html#config"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-26', 'config', 'link-26');">config</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getConfig
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getConfig
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getConfig
+Ganga.Utility.Config.Config.getConfig" class="py-name" href="#" onclick="return doclink('link-27', 'getConfig', 'link-24');">getConfig</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-28" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-28', 'config', 'link-26');">config</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"def createMonitoringObject(): from %s import %s; return %s(%s)\n"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_mod_name</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getJobInfo()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.getJobInfo()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.getJobInfo()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.getJobInfo()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.getJobInfo()=Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.getJobInfo()=Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getJobInfo()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.getJobInfo()=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html#getJobInfo,Method Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.getJobInfo()=Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS%27.OutputServerMS-class.html#getJobInfo"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getJobInfo
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.getJobInfo
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.getJobInfo
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.getJobInfo
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.getJobInfo
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.getJobInfo
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getJobInfo
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.getJobInfo
+Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.getJobInfo" class="py-name" href="#" onclick="return doclink('link-29', 'getJobInfo', 'link-29');">getJobInfo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt class="py-name">text</tt> <tt class="py-op">=</tt> <tt class="py-string">"def createMonitoringObject(): from %s import %s; return %s(%s, %s)\n"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_mod_name</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getJobInfo
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.getJobInfo
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.getJobInfo
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.getJobInfo
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.getJobInfo
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.getJobInfo
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getJobInfo
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.getJobInfo
+Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.getJobInfo" class="py-name" href="#" onclick="return doclink('link-30', 'getJobInfo', 'link-29');">getJobInfo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt id="link-31" class="py-name"><a title="Ganga.Core.MonitoringComponent.Local_GangaMC_Service.config
+Ganga.GPIDev.Base.Filters.config
+Ganga.GPIDev.Lib.Config.Config.config
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.config
+Ganga.GPIDev.Lib.Registry.JobRegistry'.config
+Ganga.GPIDev.Lib.Registry.RegistrySlice.config
+Ganga.GPIDev.Lib.Tasks.ArgTransform.config
+Ganga.GPIDev.Lib.Tasks.Task'.config
+Ganga.GPIDev.Lib.Tasks.TaskApplication.config
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.config
+Ganga.GPIDev.Lib.Tasks.Transform'.config
+Ganga.GPIDev.Lib.Tasks.common.config
+Ganga.GPIDev.Streamers.MigrationControl.config
+Ganga.Lib.Batch.Batch'.LSF.config
+Ganga.Lib.Batch.Batch'.PBS.config
+Ganga.Lib.Batch.Batch'.SGE.config
+Ganga.Lib.Batch.Batch'.config
+Ganga.Lib.Batch.config
+Ganga.Lib.Condor.CondorRequirements'.config
+Ganga.Lib.Executable.Executable'.config
+Ganga.Lib.Executable.config
+Ganga.Lib.LCG.CREAM.config
+Ganga.Lib.LCG.GridSimulator.GridSimulator.config
+Ganga.Lib.LCG.GridSimulator.simulator.config
+Ganga.Lib.LCG.LCG.config
+Ganga.Lib.Localhost.Localhost'.config
+Ganga.Lib.Localhost.config
+Ganga.Lib.Mergers.Merger.config
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.config
+Ganga.Lib.Root.Root'.config
+Ganga.Lib.Root.config
+Ganga.Runtime.AMGA_repository_runtime.config
+Ganga.Runtime.Repository_runtime.config
+Ganga.Runtime.XML_repository_runtime.config
+Ganga.Runtime.associations.config
+Ganga.Runtime.spyware.config
+Ganga.Utility.Caching.config
+Ganga.Utility.external.logging.config
+Ganga.Utility.logging.config" class="py-name" href="#" onclick="return doclink('link-31', 'config', 'link-26');">config</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method Ganga.Utility.Config.Config.PackageConfig.getEffectiveOptions()=Ganga.Utility.Config.Config.PackageConfig-class.html#getEffectiveOptions"><a title="Ganga.Utility.Config.Config.PackageConfig.getEffectiveOptions" class="py-name" href="#" onclick="return doclink('link-32', 'getEffectiveOptions', 'link-32');">getEffectiveOptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">text</tt> </tt>
+</div><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-comment">### COMPATIBILITY INTERFACE - INTERNAL AND OBSOLETE</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">         </tt>
+<a name="IMonitoringService.event"></a><div id="IMonitoringService.event-def"><a name="L147"></a><tt class="py-lineno">147</tt> <a class="py-toggle" href="#" id="IMonitoringService.event-toggle" onclick="return toggle('IMonitoringService.event');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#event">event</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">what</tt><tt class="py-op">=</tt><tt class="py-string">''</tt><tt class="py-op">,</tt><tt class="py-param">values</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMonitoringService.event-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IMonitoringService.event-expanded"><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-docstring">"""Obsolete method. """</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:41 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

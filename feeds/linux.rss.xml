@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>木大</title><link>zsneoks.github.com/</link><description></description><atom:link href="zsneoks.github.com/feeds/linux.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 10 Sep 2011 00:00:00 +0800</lastBuildDate><item><title>vim插件备份</title><link>zsneoks.github.com/vim-backup.html</link><description>&lt;p&gt;vimrepress&lt;/p&gt;
+&lt;p&gt;a.vim&lt;/p&gt;
+&lt;p&gt;tagbar&lt;/p&gt;
+&lt;p&gt;neocomplcache&lt;/p&gt;
+&lt;p&gt;matchit&lt;/p&gt;
+&lt;p&gt;xml.vim&lt;/p&gt;
+&lt;p&gt;omnicppcomplete&lt;/p&gt;
+&lt;p&gt;auto.vim&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Sat, 10 Sep 2011 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2011-09-10:vim-backup.html</guid><category>vim</category></item><item><title>MarkDown常用语法</title><link>zsneoks.github.com/markdown-syntax.html</link><description>&lt;p&gt;纯为自己记录留用。主要选择自己现在初学者迫切需要的语法。日后熟悉了继续发展。&lt;/p&gt;
+&lt;p&gt;1、空一行（两个回车）分段&lt;/p&gt;
+&lt;p&gt;2、行末加两个或多个空格才是真正的换行，否则正常的一个回车就像在HTML代码中一样，被当作空
+格处理 (很明显，我机器上并非如此，一个回车也被当回车入理了） &lt;br /&gt;
+3、插入链接：&lt;a href="url"&gt;链接文字&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4、图片跟链接很像，在前面加个叹号：！[alt 文字］(图片URL)&lt;/p&gt;
+&lt;h2&gt;标题&lt;/h2&gt;
+&lt;p&gt;用1-6个井号（＃）开始一行表示这一行是标题，倒如：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#一级标题&lt;/span&gt;
+&lt;span class="c"&gt;##二级标题&lt;/span&gt;
+&lt;span class="c"&gt;######六级标题&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;h1&gt;一级标题&lt;/h1&gt;
+&lt;h2&gt;二级标题&lt;/h2&gt;
+&lt;h6&gt;六级标题&lt;/h6&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;blockquote&lt;/h2&gt;
+&lt;p&gt;用右尖括号（&amp;gt;）表示blockquote，你一定见过邮件中这样表示引用别人的内容。可以嵌套，可以包含其它的Markdown元素，例如：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="c1"&gt;## This is a header.&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;   &lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;   &lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Here&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt; &lt;span class="n"&gt;code:&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;shell_exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;echo $input | $markdown_script&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;h2&gt;This is a header.&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;This is the first list item.&lt;/li&gt;
+&lt;li&gt;This is the second list item.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here's some example code:&lt;/p&gt;
+&lt;p&gt;return shell_exec("echo $input | $markdown_script");&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Thu, 28 Jul 2011 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2011-07-28:markdown-syntax.html</guid><category>linux</category><category>markdown</category></item></channel></rss>

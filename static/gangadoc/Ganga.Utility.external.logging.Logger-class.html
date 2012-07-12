@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.external.logging.Logger</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        <a href="Ganga.Utility.external-module.html">Package&nbsp;external</a> ::
+        <a href="Ganga.Utility.external.logging-module.html">Package&nbsp;logging</a> ::
+        Class&nbsp;Logger
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.external.logging.Logger-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Logger</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+<a href="Ganga.Utility.external.logging.Filterer-class.html">Filterer</a> --+
+           |
+          <strong class="uidshort">Logger</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="Ganga.Utility.external.logging.RootLogger-class.html">RootLogger</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<p>Instances of the Logger class represent a single logging channel. A 
+  &quot;logging channel&quot; indicates an area of an application. Exactly 
+  how an &quot;area&quot; is defined is up to the application developer. 
+  Since an application can have any number of areas, logging channels are 
+  identified by a unique string. Application areas can be nested (e.g. an 
+  area of &quot;input processing&quot; might include sub-areas &quot;read 
+  CSV files&quot;, &quot;read XLS files&quot; and &quot;read Gnumeric 
+  files&quot;). To cater for this natural nesting, channel names are 
+  organized into a namespace hierarchy where levels are separated by 
+  periods, much like the Java or Python package namespace. So in the 
+  instance given above, channel names might be &quot;input&quot; for the 
+  upper level, and &quot;input.csv&quot;, &quot;input.xls&quot; and 
+  &quot;input.gnu&quot; for the sub-levels. There is no arbitrary limit to 
+  the depth of nesting.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">level</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Initialize the logger with a name and an optional level.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setLevel"></a><span class="summary-sig-name">setLevel</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>)</span><br />
+      Set the logging level of this logger.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.setLevel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#debug" class="summary-sig-name">debug</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'DEBUG'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.debug">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#info" class="summary-sig-name">info</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'INFO'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.info">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#warning" class="summary-sig-name">warning</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'WARNING'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.warning">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#warn" class="summary-sig-name">warn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'WARNING'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.warning">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#error" class="summary-sig-name">error</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'ERROR'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.error">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="exception"></a><span class="summary-sig-name">exception</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      Convenience method for logging an ERROR with exception information.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.exception">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#critical" class="summary-sig-name">critical</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'CRITICAL'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.critical">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#fatal" class="summary-sig-name">fatal</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with severity 'CRITICAL'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.critical">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#log" class="summary-sig-name">log</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Log 'msg % args' with the integer severity 'level'.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="findCaller"></a><span class="summary-sig-name">findCaller</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Find the stack frame of the caller so that we can note the source 
+      file name and line number.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.findCaller">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="makeRecord"></a><span class="summary-sig-name">makeRecord</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">level</span>,
+        <span class="summary-sig-arg">fn</span>,
+        <span class="summary-sig-arg">lno</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">args</span>,
+        <span class="summary-sig-arg">exc_info</span>)</span><br />
+      A factory method which can be overridden in subclasses to create 
+      specialized LogRecords.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.makeRecord">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_log"></a><span class="summary-sig-name">_log</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">args</span>,
+        <span class="summary-sig-arg">exc_info</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Low-level logging routine which creates a LogRecord and then calls 
+      all the handlers of this logger to handle the record.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger._log">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#handle" class="summary-sig-name">handle</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">record</span>)</span><br />
+      Call the handlers for the specified record.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.handle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="addHandler"></a><span class="summary-sig-name">addHandler</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">hdlr</span>)</span><br />
+      Add the specified handler to this logger.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.addHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="removeHandler"></a><span class="summary-sig-name">removeHandler</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">hdlr</span>)</span><br />
+      Remove the specified handler from this logger.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.removeHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#callHandlers" class="summary-sig-name">callHandlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">record</span>)</span><br />
+      Pass a record to all relevant handlers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.callHandlers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.Utility.external.logging.Logger-class.html#getEffectiveLevel" class="summary-sig-name">getEffectiveLevel</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get the effective level for this logger.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.getEffectiveLevel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="isEnabledFor"></a><span class="summary-sig-name">isEnabledFor</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">level</span>)</span><br />
+      Is this logger enabled for level 'level'?</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.isEnabledFor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Ganga.Utility.external.logging.Filterer-class.html">Filterer</a></code></b>:
+      <code><a href="Ganga.Utility.external.logging.Filterer-class.html#addFilter">addFilter</a></code>,
+      <code><a href="Ganga.Utility.external.logging.Filterer-class.html#filter">filter</a></code>,
+      <code><a href="Ganga.Utility.external.logging.Filterer-class.html#removeFilter">removeFilter</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="root"></a><span class="summary-name">root</span> = <code title="RootLogger(WARNING)">RootLogger(WARNING)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="manager"></a><span class="summary-name">manager</span> = <code title="Manager(Logger.root)">Manager(Logger.root)</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">level</span>=<span class="sig-default">0</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initialize the logger with a name and an optional level.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Ganga.Utility.external.logging.Filterer-class.html#__init__">Filterer.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="debug"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">debug</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.debug">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'DEBUG'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.debug(&quot;Houston, we have a %s&quot;, &quot;thorny 
+  problem&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="info"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">info</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.info">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'INFO'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.info(&quot;Houston, we have a %s&quot;, &quot;interesting 
+  problem&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="warning"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">warning</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.warning">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'WARNING'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.warning(&quot;Houston, we have a %s&quot;, &quot;bit of a 
+  problem&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="warn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">warn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.warning">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'WARNING'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.warning(&quot;Houston, we have a %s&quot;, &quot;bit of a 
+  problem&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="error"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">error</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.error">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'ERROR'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.error(&quot;Houston, we have a %s&quot;, &quot;major 
+  problem&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="critical"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">critical</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.critical">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'CRITICAL'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.critical(&quot;Houston, we have a %s&quot;, &quot;major 
+  disaster&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="fatal"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fatal</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.critical">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with severity 'CRITICAL'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.critical(&quot;Houston, we have a %s&quot;, &quot;major 
+  disaster&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="log"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">log</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">level</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.log">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Log 'msg % args' with the integer severity 'level'.</p>
+  <p>To pass exception information, use the keyword argument exc_info with 
+  a true value, e.g.</p>
+  <p>logger.log(level, &quot;We have a %s&quot;, &quot;mysterious 
+  problem&quot;, exc_info=1)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="handle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">handle</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">record</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.handle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Call the handlers for the specified record.</p>
+  <p>This method is used for unpickled records received from a socket, as 
+  well as those created locally. Logger-level filtering is applied.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="callHandlers"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">callHandlers</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">record</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.callHandlers">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Pass a record to all relevant handlers.</p>
+  <p>Loop through all handlers for this logger and its parents in the 
+  logger hierarchy. If no handler was found, output a one-off error message
+  to sys.stderr. Stop searching up the hierarchy whenever a logger with the
+  &quot;propagate&quot; attribute set to zero is found - that will be the 
+  last logger whose handlers are called.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getEffectiveLevel"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getEffectiveLevel</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.Utility.external.logging-pysrc.html#Logger.getEffectiveLevel">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the effective level for this logger.</p>
+  <p>Loop through this logger and its parents in the logger hierarchy, 
+  looking for a non-zero logging level. Return the first one found.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:23 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

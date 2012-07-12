@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.files</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        Module&nbsp;files
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.files-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.files-module.html">Module Ganga.Utility.files</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># Ganga Project. http://cern.ch/ganga</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># $Id: files.py,v 1.1 2008-07-17 16:41:00 moscicki Exp $</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">################################################################################</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">Helper functions for operations on files.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">,</tt> <tt class="py-name">stat</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="expandfilename"></a><div id="expandfilename-def"><a name="L13"></a><tt class="py-lineno"> 13</tt> <a class="py-toggle" href="#" id="expandfilename-toggle" onclick="return toggle('expandfilename');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#expandfilename">expandfilename</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="expandfilename-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="expandfilename-expanded"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">    <tt class="py-docstring">"expand a path or filename in a standard way so that it may contain ~ and ${VAR} strings"</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expandvars</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="fullpath"></a><div id="fullpath-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="fullpath-toggle" onclick="return toggle('fullpath');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#fullpath">fullpath</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="fullpath-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="fullpath-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-docstring">"expandfilename() and additionally: strip leading and trailing whitespaces and expand symbolic links"</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Function Ganga.Utility.ospath_fix.realpath()=Ganga.Utility.ospath_fix-module.html#realpath"><a title="Ganga.Utility.ospath_fix.realpath" class="py-name" href="#" onclick="return doclink('link-0', 'realpath', 'link-0');">realpath</a></tt><tt class="py-op">(</tt><tt id="link-1" class="py-name" targets="Function Ganga.Utility.files.expandfilename()=Ganga.Utility.files-module.html#expandfilename"><a title="Ganga.Utility.files.expandfilename" class="py-name" href="#" onclick="return doclink('link-1', 'expandfilename', 'link-1');">expandfilename</a></tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="previous_dir"></a><div id="previous_dir-def"><a name="L21"></a><tt class="py-lineno"> 21</tt> <a class="py-toggle" href="#" id="previous_dir-toggle" onclick="return toggle('previous_dir');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#previous_dir">previous_dir</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">,</tt><tt class="py-param">cnt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="previous_dir-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="previous_dir-expanded"><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">     <tt class="py-docstring">"returns the previous cnt-th directory"</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">     <tt class="py-keyword">for</tt> <tt id="link-2" class="py-name" targets="Variable Ganga.PACKAGE.i=Ganga.PACKAGE-module.html#i"><a title="Ganga.PACKAGE.i" class="py-name" href="#" onclick="return doclink('link-2', 'i', 'link-2');">i</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">cnt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">       <tt class="py-name">path</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">     <tt class="py-keyword">return</tt> <tt class="py-name">path</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">     </tt>
+<a name="chmod_executable"></a><div id="chmod_executable-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="chmod_executable-toggle" onclick="return toggle('chmod_executable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#chmod_executable">chmod_executable</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="chmod_executable-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="chmod_executable-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-docstring">"make a file executable by the current user (u+x)"</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">stat</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method Ganga.Utility.AMGAServerTools.directoryManagement.Collections.chmod()=Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html#chmod"><a title="Ganga.Utility.AMGAServerTools.directoryManagement.Collections.chmod" class="py-name" href="#" onclick="return doclink('link-3', 'chmod', 'link-3');">chmod</a></tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">stat</tt><tt class="py-op">.</tt><tt class="py-name">S_IXUSR</tt><tt class="py-op">|</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">stat</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">st_mode</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="is_executable"></a><div id="is_executable-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="is_executable-toggle" onclick="return toggle('is_executable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#is_executable">is_executable</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="is_executable-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="is_executable-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-docstring">"check if the file is executable by the current user (u+x)"</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">stat</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">stat</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">&amp;</tt> <tt class="py-name">stat</tt><tt class="py-op">.</tt><tt class="py-name">S_IXUSR</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="real_basename"></a><div id="real_basename-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="real_basename-toggle" onclick="return toggle('real_basename');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#real_basename">real_basename</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="real_basename-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="real_basename-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-docstring">""" a 'better' basename (removes the trailing / like on Unix) """</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">,</tt><tt class="py-name">os</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable Ganga.Utility.external.textwrap.TextWrapper.x=Ganga.Utility.external.textwrap.TextWrapper-class.html#x"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-4', 'x', 'link-4');">x</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-5', 'x', 'link-4');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-6', 'x', 'link-4');">x</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">     </tt>
+<a name="multi_glob"></a><div id="multi_glob-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="multi_glob-toggle" onclick="return toggle('multi_glob');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#multi_glob">multi_glob</a><tt class="py-op">(</tt><tt class="py-param">pats</tt><tt class="py-op">,</tt><tt class="py-param">exclude</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="multi_glob-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="multi_glob-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-docstring">""" glob using a list of patterns and removing duplicate files, exclude name in the list for which the callback exclude(name) return true</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    example: advanced_glob(['*.jpg','*.gif'],exclude=lambda n:len(n)&gt;20) return a list of all JPG and GIF files which have names shorter then 20 characters</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">glob</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Function Ganga.Utility.util.unique()=Ganga.Utility.util-module.html#unique"><a title="Ganga.Utility.util.unique" class="py-name" href="#" onclick="return doclink('link-7', 'unique', 'link-7');">unique</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">exclude</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">exclude</tt><tt class="py-op">(</tt><tt class="py-param">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-number">0</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">         </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-8" class="py-name" targets="Function Ganga.Core.JobRepositoryXML.VStreamer.p()=Ganga.Core.JobRepositoryXML.VStreamer-module.html#p,Variable Ganga.Lib.MonitoringServices.Octopus.oreader.p=Ganga.Lib.MonitoringServices.Octopus.oreader-module.html#p,Variable Ganga.PACKAGE.p=Ganga.PACKAGE-module.html#p"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-8', 'p', 'link-8');">p</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">pats</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-9" class="py-name" targets="Function Ganga.Utility.logging.message_caching_test.f()=Ganga.Utility.logging.message_caching_test-module.html#f"><a title="Ganga.Utility.logging.message_caching_test.f" class="py-name" href="#" onclick="return doclink('link-9', 'f', 'link-9');">f</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">glob</tt><tt class="py-op">.</tt><tt class="py-name">glob</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-10', 'p', 'link-8');">p</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt id="link-11" class="py-name"><a title="Ganga.Utility.util.unique" class="py-name" href="#" onclick="return doclink('link-11', 'unique', 'link-7');">unique</a></tt><tt class="py-op">[</tt><tt id="link-12" class="py-name"><a title="Ganga.Utility.logging.message_caching_test.f" class="py-name" href="#" onclick="return doclink('link-12', 'f', 'link-9');">f</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-13" class="py-name" targets="Variable Ganga.GPIDev.Lib.File.File'.File._proxyClass.name=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.File.File'.File.name=Ganga.GPIDev.Lib.File.File%27.File-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.Job.name=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Task'.Task.name=Ganga.GPIDev.Lib.Tasks.Task%27.Task-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#name,Variable Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#name,Variable Ganga.GPIDev.Schema.Schema'.Schema.name=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-13', 'name', 'link-13');">name</a></tt> <tt class="py-keyword">for</tt> <tt id="link-14" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-14', 'name', 'link-13');">name</a></tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name"><a title="Ganga.Utility.util.unique" class="py-name" href="#" onclick="return doclink('link-15', 'unique', 'link-7');">unique</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.keys()=Ganga.Core.GangaRepository.Registry.Registry-class.html#keys,Method Ganga.Utility.external.ordereddict.oDict.keys()=Ganga.Utility.external.ordereddict.oDict-class.html#keys"><a title="Ganga.Core.GangaRepository.Registry.Registry.keys
+Ganga.Utility.external.ordereddict.oDict.keys" class="py-name" href="#" onclick="return doclink('link-16', 'keys', 'link-16');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">exclude</tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="Ganga.GPIDev.Lib.File.File'.File._proxyClass.name
+Ganga.GPIDev.Lib.File.File'.File.name
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.Job.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.name
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.name
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.name
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Task'.Task.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.name
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.name
+Ganga.GPIDev.Schema.Schema'.Schema.name" class="py-name" href="#" onclick="return doclink('link-17', 'name', 'link-13');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">     </tt>
+<a name="recursive_copy"></a><div id="recursive_copy-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="recursive_copy-toggle" onclick="return toggle('recursive_copy');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#recursive_copy">recursive_copy</a><tt class="py-op">(</tt><tt class="py-param">src</tt><tt class="py-op">,</tt><tt class="py-param">dest</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="recursive_copy-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="recursive_copy-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-docstring">""" copy src file (or a directory tree if src specifies a directory) to dest directory. dest must be a directory and must exist.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    if src is a relative path, then the src directory structure is preserved in dest.</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">shutil</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.isdir()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#isdir,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.isdir()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#isdir"><a title="Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.isdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.isdir" class="py-name" href="#" onclick="return doclink('link-18', 'isdir', 'link-18');">isdir</a></tt><tt class="py-op">(</tt><tt class="py-name">dest</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'resursive_copy: destination %s must specify a directory (which exists)'</tt><tt class="py-op">%</tt><tt class="py-name">dest</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">     </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.isdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.isdir" class="py-name" href="#" onclick="return doclink('link-19', 'isdir', 'link-18');">isdir</a></tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">destdir</tt> <tt class="py-op">=</tt> <tt class="py-name">dest</tt>  </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">srcdir</tt><tt class="py-op">,</tt><tt class="py-name">srcbase</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Ganga.GPIDev.Adapters.ISplitter.ISplitter.split()=Ganga.GPIDev.Adapters.ISplitter.ISplitter-class.html#split,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split()=Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter-class.html#split,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter-class.html#split,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter-class.html#split,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter-class.html#split"><a title="Ganga.GPIDev.Adapters.ISplitter.ISplitter.split
+Ganga.GPIDev.Lib.Tasks.TaskApplication.TaskSplitter.split
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter.split
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter.split
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter.split" class="py-name" href="#" onclick="return doclink('link-20', 'split', 'link-20');">split</a></tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">srcdir</tt><tt class="py-op">==</tt><tt class="py-string">''</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isabs</tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">            <tt class="py-name">destdir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#join,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#join"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-21', 'join', 'link-21');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">,</tt><tt class="py-name">srcdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.isdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.isdir" class="py-name" href="#" onclick="return doclink('link-22', 'isdir', 'link-18');">isdir</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Function Ganga.Core.JobRepositoryXML.Repository'.makedirs()=Ganga.Core.JobRepositoryXML.Repository%27-module.html#makedirs"><a title="Ganga.Core.JobRepositoryXML.Repository'.makedirs" class="py-name" href="#" onclick="return doclink('link-23', 'makedirs', 'link-23');">makedirs</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">copytree</tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">,</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-24', 'join', 'link-21');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">,</tt><tt class="py-name">srcbase</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">srcdir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">srcdir</tt><tt class="py-op">==</tt><tt class="py-string">''</tt> <tt class="py-keyword">or</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isabs</tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass.copy()=Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass-class.html#copy,Method Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass.copy()=Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass-class.html#copy,Method Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass.copy()=Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass-class.html#copy,Method Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass.copy()=Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass-class.html#copy,Method Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass.copy()=Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass-class.html#copy,Method Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass.copy()=Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset._proxyClass.copy()=Ganga.GPIDev.Lib.Dataset.Dataset%27.Dataset._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.File.File'.File._proxyClass.copy()=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.copy()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.copy()=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.copy()=Ganga.GPIDev.Lib.Job.Job%27.JobInfo._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.copy()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Job.JobTime'.JobTime._proxyClass.copy()=Ganga.GPIDev.Lib.Job.JobTime%27.JobTime._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.copy()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.copy()=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.copy()=Ganga.GPIDev.Lib.Registry.JobRegistry%27.JobRegistrySliceProxy-class.html#copy,Method Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice.copy()=Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice-class.html#copy,Method Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.copy()=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.copy()=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass.copy()=Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.copy()=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass-class.html#copy,Method Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySliceProxy.copy()=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27.TaskRegistrySliceProxy-class.html#copy,Method Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.copy()=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#copy,Method Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass.copy()=Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass-class.html#copy,Method Ganga.Lib.Batch.Batch'.Batch._proxyClass.copy()=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#copy,Method Ganga.Lib.Batch.Batch'.LSF._proxyClass.copy()=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#copy,Method Ganga.Lib.Batch.Batch'.PBS._proxyClass.copy()=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#copy,Method Ganga.Lib.Batch.Batch'.SGE._proxyClass.copy()=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#copy,Method Ganga.Lib.Condor.Condor'.Condor._proxyClass.copy()=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#copy,Method Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.copy()=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements._proxyClass-class.html#copy,Method Ganga.Lib.Executable.Executable'.Executable._proxyClass.copy()=Ganga.Lib.Executable.Executable%27.Executable._proxyClass-class.html#copy,Method Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.copy()=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#copy,Method Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.copy()=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.copy()=Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.copy()=Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass.copy()=Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass.copy()=Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.copy()=Ganga.Lib.Mergers.Merger.RootMerger._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.copy()=Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.copy()=Ganga.Lib.Mergers.Merger.TextMerger._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass.copy()=Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass.copy()=Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass-class.html#copy,Method Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass.copy()=Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass-class.html#copy,Method Ganga.Lib.Remote.Remote'.Remote._proxyClass.copy()=Ganga.Lib.Remote.Remote%27.Remote._proxyClass-class.html#copy,Method Ganga.Lib.Root.Root'.Root._proxyClass.copy()=Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#copy,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter._proxyClass.copy()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter._proxyClass-class.html#copy,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass.copy()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass-class.html#copy,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.copy()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter._proxyClass-class.html#copy,Method Ganga.Utility.external.ordereddict.oDict.copy()=Ganga.Utility.external.ordereddict.oDict-class.html#copy,Method Ganga.Utility.external.sets.BaseSet.copy()=Ganga.Utility.external.sets.BaseSet-class.html#copy"><a title="Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass.copy
+Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass.copy
+Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass.copy
+Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass.copy
+Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass.copy
+Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass.copy
+Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset._proxyClass.copy
+Ganga.GPIDev.Lib.File.File'.File._proxyClass.copy
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.copy
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.copy
+Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.copy
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.copy
+Ganga.GPIDev.Lib.Job.JobTime'.JobTime._proxyClass.copy
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.copy
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.copy
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.copy
+Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice.copy
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySliceProxy.copy
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.copy
+Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass.copy
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.copy
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.copy
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.copy
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.copy
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.copy
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.copy
+Ganga.Lib.Executable.Executable'.Executable._proxyClass.copy
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.copy
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.copy
+Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass.copy
+Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass.copy
+Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass.copy
+Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass.copy
+Ganga.Lib.Remote.Remote'.Remote._proxyClass.copy
+Ganga.Lib.Root.Root'.Root._proxyClass.copy
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter._proxyClass.copy
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass.copy
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.copy
+Ganga.Utility.external.ordereddict.oDict.copy
+Ganga.Utility.external.sets.BaseSet.copy" class="py-name" href="#" onclick="return doclink('link-25', 'copy', 'link-25');">copy</a></tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">,</tt><tt class="py-name">dest</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">destdir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.join
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.join" class="py-name" href="#" onclick="return doclink('link-26', 'join', 'link-21');">join</a></tt><tt class="py-op">(</tt><tt class="py-name">dest</tt><tt class="py-op">,</tt><tt class="py-name">srcdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.isdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.isdir" class="py-name" href="#" onclick="return doclink('link-27', 'isdir', 'link-18');">isdir</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Ganga.Core.JobRepositoryXML.Repository'.makedirs" class="py-name" href="#" onclick="return doclink('link-28', 'makedirs', 'link-23');">makedirs</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass.copy
+Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass.copy
+Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass.copy
+Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass.copy
+Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass.copy
+Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass.copy
+Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset._proxyClass.copy
+Ganga.GPIDev.Lib.File.File'.File._proxyClass.copy
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.copy
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.copy
+Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.copy
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.copy
+Ganga.GPIDev.Lib.Job.JobTime'.JobTime._proxyClass.copy
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.copy
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.copy
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySliceProxy.copy
+Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice.copy
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.copy
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySliceProxy.copy
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.copy
+Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass.copy
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.copy
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.copy
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.copy
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.copy
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.copy
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.copy
+Ganga.Lib.Executable.Executable'.Executable._proxyClass.copy
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.copy
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.copy
+Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass.copy
+Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.copy
+Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass.copy
+Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass.copy
+Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass.copy
+Ganga.Lib.Remote.Remote'.Remote._proxyClass.copy
+Ganga.Lib.Root.Root'.Root._proxyClass.copy
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter._proxyClass.copy
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass.copy
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.copy
+Ganga.Utility.external.ordereddict.oDict.copy
+Ganga.Utility.external.sets.BaseSet.copy" class="py-name" href="#" onclick="return doclink('link-29', 'copy', 'link-25');">copy</a></tt><tt class="py-op">(</tt><tt class="py-name">src</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                </tt>
+<a name="remove_prefix"></a><div id="remove_prefix-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="remove_prefix-toggle" onclick="return toggle('remove_prefix');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.files-module.html#remove_prefix">remove_prefix</a><tt class="py-op">(</tt><tt class="py-param">fn</tt><tt class="py-op">,</tt><tt class="py-param">path_list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="remove_prefix-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="remove_prefix-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-docstring">"""Remove the common prefix of fn and the first matching element in the path_list.</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">    Example: for fn='/a/b/c' and path=['d','/a','/a/b'] return 'b/c'</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">    If no matching path is found, then fn is returned unchanged.</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    This function converts each element of the path_list using realpath.abspath.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-30" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-30', 'p', 'link-8');">p</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">path_list</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-comment"># normalize path</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-31" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-31', 'p', 'link-8');">p</a></tt> <tt class="py-keyword">or</tt> <tt id="link-32" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-32', 'p', 'link-8');">p</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'.'</tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt id="link-33" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-33', 'p', 'link-8');">p</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Ganga.Utility.ospath_fix.realpath" class="py-name" href="#" onclick="return doclink('link-34', 'realpath', 'link-0');">realpath</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">abspath</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-35', 'p', 'link-8');">p</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-comment">#print 'searching path component: %s'%p</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-name">idx</tt> <tt class="py-op">=</tt> <tt class="py-name">fn</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.find()=Ganga.Core.GangaRepository.Registry.Registry-class.html#find,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#find,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#find,Method Ganga.Utility.AMGAServerTools.mdclient.MDClient.find()=Ganga.Utility.AMGAServerTools.mdclient.MDClient-class.html#find,Method Ganga.Utility.Plugin.GangaPlugin.PluginManager.find()=Ganga.Utility.Plugin.GangaPlugin.PluginManager-class.html#find,Method Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find()=Ganga.Utility.external.ARDAMDClient.mdclient.MDClient-class.html#find"><a title="Ganga.Core.GangaRepository.Registry.Registry.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.find
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.find
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.find
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.find
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.find" class="py-name" href="#" onclick="return doclink('link-36', 'find', 'link-36');">find</a></tt><tt class="py-op">(</tt><tt id="link-37" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-37', 'p', 'link-8');">p</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">idx</tt> <tt class="py-op">!=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-comment">#print 'found "%s" atr index %d in "%s"'%(p,idx,fn)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">fn</tt><tt class="py-op">[</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-38', 'p', 'link-8');">p</a></tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt><tt class="py-op">)</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">fn</tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">         </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">"Testing resursive copy..."</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">,</tt><tt class="py-name">shutil</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-39" class="py-name" targets="Variable Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.AbstractMerger.files=Ganga.Lib.Mergers.Merger.AbstractMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.CustomMerger.files=Ganga.Lib.Mergers.Merger.CustomMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.RootMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.RootMerger.files=Ganga.Lib.Mergers.Merger.RootMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.SmartMerger.files=Ganga.Lib.Mergers.Merger.SmartMerger-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files=Ganga.Lib.Mergers.Merger.TextMerger._proxyClass-class.html#files,Variable Ganga.Lib.Mergers.Merger.TextMerger.files=Ganga.Lib.Mergers.Merger.TextMerger-class.html#files,Module Ganga.Utility.files=Ganga.Utility.files-module.html"><a title="Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.AbstractMerger.files
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.CustomMerger.files
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.RootMerger.files
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.SmartMerger.files
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.files
+Ganga.Lib.Mergers.Merger.TextMerger.files
+Ganga.Utility.files" class="py-name" href="#" onclick="return doclink('link-39', 'files', 'link-39');">files</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt id="link-40" class="py-name" targets="Variable Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.workdir=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#workdir,Variable Ganga.Lib.Interactive.Interactive'.Interactive.workdir=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#workdir,Variable Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.workdir=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#workdir,Variable Ganga.Lib.Localhost.Localhost'.Localhost.workdir=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#workdir"><a title="Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.workdir
+Ganga.Lib.Interactive.Interactive'.Interactive.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost.workdir" class="py-name" href="#" onclick="return doclink('link-40', 'workdir', 'link-40');">workdir</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'test_recursive_copy'</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">    <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">rmtree</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.workdir
+Ganga.Lib.Interactive.Interactive'.Interactive.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost.workdir" class="py-name" href="#" onclick="return doclink('link-41', 'workdir', 'link-40');">workdir</a></tt><tt class="py-op">,</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Method Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir()=Ganga.Core.GangaRepository.SessionLock.SessionLockManager-class.html#mkdir,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#mkdir,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#mkdir"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-42', 'mkdir', 'link-42');">mkdir</a></tt><tt class="py-op">(</tt><tt id="link-43" class="py-name"><a title="Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.workdir
+Ganga.Lib.Interactive.Interactive'.Interactive.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost.workdir" class="py-name" href="#" onclick="return doclink('link-43', 'workdir', 'link-40');">workdir</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">chdir</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.workdir
+Ganga.Lib.Interactive.Interactive'.Interactive.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.workdir
+Ganga.Lib.Localhost.Localhost'.Localhost.workdir" class="py-name" href="#" onclick="return doclink('link-44', 'workdir', 'link-40');">workdir</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-name">destdir</tt> <tt class="py-op">=</tt> <tt class="py-string">'dest'</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-45', 'mkdir', 'link-42');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy file</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'file1'</tt><tt class="py-op">)</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">    <tt id="link-46" class="py-name" targets="Function Ganga.Utility.files.recursive_copy()=Ganga.Utility.files-module.html#recursive_copy"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-46', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-string">'file1'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/file1'</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy file in dir</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-47', 'mkdir', 'link-42');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-string">'src'</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'src/file2'</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt id="link-48" class="py-name"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-48', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/file2'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/src/file2'</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy file in dir</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-comment">#       Check possibility to copy to existing dir</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'src/file3'</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt id="link-49" class="py-name"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-49', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/file3'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/src/file3'</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy file with abs path</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'file4'</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt id="link-50" class="py-name"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-50', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">getcwd</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">'/file4'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/file4'</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy subdir </tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-51', 'mkdir', 'link-42');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir'</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir/file5'</tt><tt class="py-op">)</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt id="link-52" class="py-name"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-52', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/src/subdir/file5'</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy subdir </tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-comment">#       Check "/" at the end</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-53', 'mkdir', 'link-42');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir2'</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir2/file6'</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt id="link-54" class="py-name"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-54', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir2/'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/src/subdir2/file6'</tt><tt class="py-op">)</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">    <tt class="py-comment">#   Copy subdir with abs path</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="Ganga.Core.GangaRepository.SessionLock.SessionLockManager.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.mkdir
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.mkdir" class="py-name" href="#" onclick="return doclink('link-55', 'mkdir', 'link-42');">mkdir</a></tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir3'</tt><tt class="py-op">)</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mknod</tt><tt class="py-op">(</tt><tt class="py-string">'src/subdir3/file7'</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt id="link-56" class="py-name"><a title="Ganga.Utility.files.recursive_copy" class="py-name" href="#" onclick="return doclink('link-56', 'recursive_copy', 'link-46');">recursive_copy</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">getcwd</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">'/src/subdir3'</tt><tt class="py-op">,</tt><tt class="py-name">destdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">isfile</tt><tt class="py-op">(</tt><tt class="py-name">destdir</tt><tt class="py-op">+</tt><tt class="py-string">'/subdir3/file7'</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">"Test OK"</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:37 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

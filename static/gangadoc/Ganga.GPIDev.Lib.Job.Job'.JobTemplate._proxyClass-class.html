@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.GPIDev-module.html">Package&nbsp;GPIDev</a> ::
+        <a href="Ganga.GPIDev.Lib-module.html">Package&nbsp;Lib</a> ::
+        <a href="Ganga.GPIDev.Lib.Job-module.html">Package&nbsp;Job</a> ::
+        <a href="Ganga.GPIDev.Lib.Job.Job%27-module.html">Module&nbsp;Job'</a> ::
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html">Class&nbsp;JobTemplate</a> ::
+        Class&nbsp;_proxyClass
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class _proxyClass</h1><p class="nomargin-top"><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+    object --+    
+             |    
+<a href="Ganga.GPIDev.Base.Proxy.GPIProxyObject-class.html">GPIProxyObject</a> --+
+                 |
+                <strong class="uidshort">Lib.Job.Job'.JobTemplate._proxyClass</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+A placeholder for Job configuration parameters.
+
+    JobTemplates are normal Job objects but they are never submitted. They have their own JobRegistry, so they do not get mixed up with
+    normal jobs. They have always a &quot;template&quot; status.
+
+    Create a job with an existing job template t:
+    
+         j = Job(t)
+
+    Save a job j as a template t:
+
+         t = JobTemplate(j)
+
+    You may save commonly used job parameters in a template and create new jobs easier and faster.
+    
+
+Properties:
+
+     info             JobInfo . ('jobinfos' object, default=None,comparable)
+
+     status           current state of the job, one of &quot;new&quot;, &quot;submitted&quot;,
+                      &quot;running&quot;, &quot;completed&quot;, &quot;killed&quot;, &quot;unknown&quot;, &quot;incomplete&quot;.
+                      (simple property, default='template',protected,comparable)
+
+     name             optional label which may be any combination of ASCII
+                      characters. (simple property, default='',comparable)
+
+     application      specification of the application to be executed.
+                      ('applications' object, default=None,comparable)
+
+     merger           optional output merger. ('mergers' object,
+                      default=None,comparable,optional)
+
+     do_auto_resubmit Automatically resubmit failed subjobs. (simple property,
+                      default=False,comparable)
+
+     id               unique Ganga job identifier generated automatically.
+                      (simple property, default='',protected)
+
+     inputsandbox     list of File objects shipped to the worker node . ('files'
+                      object, list, default=[],comparable)
+
+     outputdir        location of output directory (file workspace). (simple
+                      property, default=None,transient,protected,optional)
+
+     fqid             fully qualified job identifier. (simple property,
+                      default=None,transient,protected,optional)
+
+     inputdir         location of input directory (file workspace). (simple
+                      property, default=None,transient,protected,optional)
+
+     master           master job. ('jobs' object,
+                      default=None,transient,protected,optional)
+
+     outputdata       dataset definition (typically this is specific either to
+                      an application, a site or the virtual organization.
+                      ('datasets' object, default=None,comparable,optional)
+
+     time             provides timestamps for status transitions. ('jobtime'
+                      object, default=None,protected)
+
+     splitter         optional splitter. ('splitters' object,
+                      default=None,comparable,optional)
+
+     outputsandbox    list of filenames or patterns shipped from the worker
+                      node. (simple property, list, default=[],comparable)
+
+     subjobs          list of subjobs (if splitting). ('jobs' object, list,
+                      default=[],protected,comparable,optional)
+
+     inputdata        dataset definition (typically this is specific either to
+                      an application, a site or the virtual organization.
+                      ('datasets' object, default=None,comparable,optional)
+
+     backend          specification of the resources to be used (e.g. batch
+                      system). ('backends' object, default=None,comparable)
+
+</pre>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html" class="summary-name" onclick="show_private();">_impl</a><br />
+      This is a Ganga.GPI.JobTemplate implementation class.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__eq__"></a><span class="summary-sig-name">__eq__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Equality operator (==), compare the JobTemplate properties which are 
+      declared as [comparable].</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwds</span>)</span><br />
+      GPI JobTemplate object constructor: JobTemplate() : create 
+      jobtemplate with default settings; JobTemplate(j) : make a copy of j;
+      JobTemplate(j,x=a,...): make a copy of j and set property 'x' to a, 
+      etc..</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__ne__"></a><span class="summary-sig-name">__ne__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span><br />
+      Non-equality operator (!=).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#__repr__" class="summary-sig-name">__repr__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return an short representation of JobTemplate object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#__setattr__" class="summary-sig-name">__setattr__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">v</span>)</span><br />
+      Set a property of JobTemplate with consistency and safety checks.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a printable string representing JobTemplate object as a tree 
+      of properties.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="copy"></a><span class="summary-sig-name">copy</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Make an identical copy of self.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#fail" class="summary-sig-name">fail</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Deprecated.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#force_status" class="summary-sig-name">force_status</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Force job to enter the &quot;failed&quot; or &quot;completed&quot; 
+      state.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="kill"></a><span class="summary-sig-name">kill</span>(<span class="summary-sig-arg">...</span>)</span><br />
+      Templates may not be killed, return false.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#merge" class="summary-sig-name">merge</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Merge the output of subjobs.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#peek" class="summary-sig-name">peek</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Allow viewing of job output (and input) files</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#remove" class="summary-sig-name">remove</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      See Job for documentation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#resubmit" class="summary-sig-name">resubmit</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Resubmit a failed or completed job.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="submit"></a><span class="summary-sig-name">submit</span>(<span class="summary-sig-arg">...</span>)</span><br />
+      Templates may not be submitted, return false.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#application" class="summary-name">application</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9d10&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor obj<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#backend" class="summary-name">backend</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab4d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#do_auto_resubmit" class="summary-name">do_auto_resubmit</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9e10&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescripto<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#fqid" class="summary-name">fqid</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab050&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#id" class="summary-name">id</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9e90&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#info" class="summary-name">info</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9b90&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#inputdata" class="summary-name">inputdata</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab450&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor objec<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#inputdir" class="summary-name">inputdir</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab0d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#inputsandbox" class="summary-name">inputsandbox</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9f10&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor ob<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#master" class="summary-name">master</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab150&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object a<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#merger" class="summary-name">merger</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9d90&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object a<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#name" class="summary-name">name</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9c90&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#outputdata" class="summary-name">outputdata</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab1d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor obje<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#outputdir" class="summary-name">outputdir</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9f90&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor objec<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#outputsandbox" class="summary-name">outputsandbox</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab350&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor o<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#splitter" class="summary-name">splitter</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab2d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#status" class="summary-name">status</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9c10&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object a<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#subjobs" class="summary-name">subjobs</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab3d0&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#time" class="summary-name">time</a> = <code title="&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab250&gt;">&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at <code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwds</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>GPI JobTemplate object constructor: JobTemplate() : create jobtemplate
+  with default settings; JobTemplate(j) : make a copy of j; 
+  JobTemplate(j,x=a,...): make a copy of j and set property 'x' to a, 
+  etc..</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__repr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__repr__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return an short representation of JobTemplate object.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__repr__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__setattr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__setattr__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">v</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set a property of JobTemplate with consistency and safety checks. 
+  Setting a [protected] or a unexisting property raises AttributeError.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__setattr__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__str__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__str__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Informal representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a printable string representing JobTemplate object as a tree of
+  properties.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__str__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="fail"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fail</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Deprecated. Use force_status('failed') instead.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="force_status"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">force_status</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Force job to enter the &quot;failed&quot; or &quot;completed&quot; 
+  state. This may be used for marking jobs &quot;bad&quot; jobs or jobs 
+  which are stuck in one of the internal ganga states (e.g. 
+  completing).</p>
+  <p>To see the list of allowed states do: job.force_status(None)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="merge"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">merge</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Merge the output of subjobs.</p>
+  <p>By default merge all subjobs into the master outputdir. The output 
+  location and the list of subjobs may be overriden. The options (keyword 
+  arguments) are passed onto the specific merger implementation. Refer to 
+  the specific merger documentation for more information about available 
+  options.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="peek"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">peek</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Allow viewing of job output (and input) files
+
+Arguments other than self:
+filename : name of file to be viewed
+           =&gt; For backends where this is enabled, the filename
+              for a job in the &quot;running&quot; state is relative to
+              the job's work directory unless the filename begins
+              with &quot;../&quot;.  In all other cases, the filename is
+              relative to the job's output directory
+command  : command to be used for viewing the file
+           =&gt; If no command is given, then the command defined in
+              the [File_Associations] section of the Ganga
+              configuration file(s) is used
+
+Example usage:
+
+   # examine contents of output/work directory
+   peek()
+
+   # examine contents of output directory,
+   # even in case of job in &quot;running&quot; state
+   peek( &quot;../output&quot; )
+
+   # examine contents of input directory
+   peek( &quot;../input&quot; )
+
+   # View ROOT histograms, running root.exe in a new terminal window
+   peek( &quot;histograms.root&quot;, &quot;root.exe &amp;&amp;&quot; )
+
+   # View contents of file in output/work directory, using
+   # command defined in configuration file
+   peek( &quot;output.txt&quot; )
+
+   # View ROOT histograms in ouput/work directory,
+   # running root.exe in a new terminal window
+   peek( &quot;histograms.root&quot;, &quot;root.exe &amp;&amp;&quot; )
+              
+Return value: None
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="remove"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>See Job for documentation. The force optional argument has no effect 
+  (it is provided for the compatibility with Job interface)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="resubmit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">resubmit</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Ganga.GPIDev.Base.Proxy-pysrc.html">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Resubmit a failed or completed job.  A backend object may
+be specified to change some submission parameters (which
+parameters may be effectively changed depends on a
+particular backend implementation).
+
+Example:
+ b = j.backend.copy()
+ b.CE = 'some CE'
+ j.resubmit(backend=b)
+
+Note: it is not possible to change the type of the backend in this way.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="application"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">application</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9d10&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="backend"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">backend</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab4d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="do_auto_resubmit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">do_auto_resubmit</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9e10&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="fqid"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">fqid</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab050&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="id"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">id</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9e90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="info"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">info</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9b90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="inputdata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">inputdata</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab450&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="inputdir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">inputdir</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab0d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="inputsandbox"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">inputsandbox</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9f10&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="master"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">master</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab150&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="merger"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">merger</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9d90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">name</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9c90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="outputdata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">outputdata</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab1d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="outputdir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">outputdir</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9f90&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="outputsandbox"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">outputsandbox</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab350&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="splitter"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">splitter</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab2d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="status"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">status</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18a9c10&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="subjobs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">subjobs</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab3d0&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="time"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">time</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+&lt;Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor object at 0x18ab250&gt;
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:19 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

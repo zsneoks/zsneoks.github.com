@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Utility.strings</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Utility-module.html">Package&nbsp;Utility</a> ::
+        Module&nbsp;strings
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Utility.strings-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Utility.strings-module.html">Module Ganga.Utility.strings</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'Utilities for string manipulation'</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Ganga.Utility.strings._ident_expr=Ganga.Utility.strings-module.html#_ident_expr"><a title="Ganga.Utility.strings._ident_expr" class="py-name" href="#" onclick="return doclink('link-0', '_ident_expr', 'link-0');">_ident_expr</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt><tt class="py-string">'^[a-zA-Z_][a-zA-Z0-9_]*$'</tt><tt class="py-op">)</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="is_identifier"></a><div id="is_identifier-def"><a name="L6"></a><tt class="py-lineno"> 6</tt> <a class="py-toggle" href="#" id="is_identifier-toggle" onclick="return toggle('is_identifier');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.strings-module.html#is_identifier">is_identifier</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="is_identifier-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="is_identifier-expanded"><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">    <tt class="py-docstring">'return true if a string is valid python identifier'</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">bool</tt><tt class="py-op">(</tt><tt id="link-1" class="py-name"><a title="Ganga.Utility.strings._ident_expr" class="py-name" href="#" onclick="return doclink('link-1', '_ident_expr', 'link-0');">_ident_expr</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method Ganga.Lib.LCG.LCG.LCG.match()=Ganga.Lib.LCG.LCG.LCG-class.html#match"><a title="Ganga.Lib.LCG.LCG.LCG.match" class="py-name" href="#" onclick="return doclink('link-2', 'match', 'link-2');">match</a></tt><tt class="py-op">(</tt><tt id="link-3" class="py-name" targets="Variable Ganga.Utility.external.textwrap.TextWrapper.x=Ganga.Utility.external.textwrap.TextWrapper-class.html#x"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-3', 'x', 'link-3');">x</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="drop_spaces"></a><div id="drop_spaces-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="drop_spaces-toggle" onclick="return toggle('drop_spaces');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.strings-module.html#drop_spaces">drop_spaces</a><tt class="py-op">(</tt><tt class="py-param">x</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="drop_spaces-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="drop_spaces-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-docstring">'drop all spaces from a string, so that "this is an example " becomes "thisisanexample"'</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-4" class="py-name"><a title="Ganga.Utility.external.textwrap.TextWrapper.x" class="py-name" href="#" onclick="return doclink('link-4', 'x', 'link-3');">x</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">' '</tt><tt class="py-op">,</tt><tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="ItemizedTextParagraph"></a><div id="ItemizedTextParagraph-def"><a name="L14"></a><tt class="py-lineno">14</tt> <a class="py-toggle" href="#" id="ItemizedTextParagraph-toggle" onclick="return toggle('ItemizedTextParagraph');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Utility.strings.ItemizedTextParagraph-class.html">ItemizedTextParagraph</a><tt class="py-op">:</tt> </tt>
+</div><div id="ItemizedTextParagraph-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ItemizedTextParagraph-expanded"><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt class="py-docstring">"""Format a paragraph with itemized text.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;------------------ width -------------&gt;</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    Example: (*)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">      (#)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">      item1  (**)  description1</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">      (#)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">      item2  (**)  description2 which is</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">                   very long but breaks OK</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">      (#)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">      item3  (**)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    (*) is a head of the paragraph</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    (**) is a separator</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">    (#) is a line separator</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="ItemizedTextParagraph.__init__"></a><div id="ItemizedTextParagraph.__init__-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="ItemizedTextParagraph.__init__-toggle" onclick="return toggle('ItemizedTextParagraph.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.strings.ItemizedTextParagraph-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">head</tt><tt class="py-op">,</tt><tt class="py-param">width</tt><tt class="py-op">=</tt><tt class="py-number">80</tt><tt class="py-op">,</tt><tt class="py-param">separator</tt><tt class="py-op">=</tt><tt class="py-string">' '</tt><tt class="py-op">,</tt><tt class="py-param">linesep</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ItemizedTextParagraph.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ItemizedTextParagraph.__init__-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">head</tt> <tt class="py-op">=</tt> <tt class="py-name">head</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method Ganga.Core.GangaRepository.Registry.Registry.items()=Ganga.Core.GangaRepository.Registry.Registry-class.html#items,Method Ganga.Utility.external.ordereddict.oDict.items()=Ganga.Utility.external.ordereddict.oDict-class.html#items"><a title="Ganga.Core.GangaRepository.Registry.Registry.items
+Ganga.Utility.external.ordereddict.oDict.items" class="py-name" href="#" onclick="return doclink('link-5', 'items', 'link-5');">items</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">desc</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">width</tt> <tt class="py-op">=</tt> <tt class="py-name">width</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt> <tt class="py-op">=</tt> <tt class="py-name">separator</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">linesep</tt> <tt class="py-op">=</tt> <tt class="py-name">linesep</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="ItemizedTextParagraph.addLine"></a><div id="ItemizedTextParagraph.addLine-def"><a name="L40"></a><tt class="py-lineno">40</tt> <a class="py-toggle" href="#" id="ItemizedTextParagraph.addLine-toggle" onclick="return toggle('ItemizedTextParagraph.addLine');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.strings.ItemizedTextParagraph-class.html#addLine">addLine</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">item</tt><tt class="py-op">,</tt><tt class="py-param">description</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ItemizedTextParagraph.addLine-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ItemizedTextParagraph.addLine-expanded"><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.items
+Ganga.Utility.external.ordereddict.oDict.items" class="py-name" href="#" onclick="return doclink('link-6', 'items', 'link-5');">items</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#append,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.Block-class.html#append,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#append,Method Ganga.Utility.external.logging.PlaceHolder.append()=Ganga.Utility.external.logging.PlaceHolder-class.html#append"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append
+Ganga.Utility.external.logging.PlaceHolder.append" class="py-name" href="#" onclick="return doclink('link-7', 'append', 'link-7');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">desc</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.append
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.append
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.append
+Ganga.Utility.external.logging.PlaceHolder.append" class="py-name" href="#" onclick="return doclink('link-8', 'append', 'link-7');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">description</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="ItemizedTextParagraph.getString"></a><div id="ItemizedTextParagraph.getString-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="ItemizedTextParagraph.getString-toggle" onclick="return toggle('ItemizedTextParagraph.getString');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Utility.strings.ItemizedTextParagraph-class.html#getString">getString</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ItemizedTextParagraph.getString-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ItemizedTextParagraph.getString-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">maxitem</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">it</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.items
+Ganga.Utility.external.ordereddict.oDict.items" class="py-name" href="#" onclick="return doclink('link-9', 'items', 'link-5');">items</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">it</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">maxitem</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                <tt class="py-name">maxitem</tt> <tt class="py-op">=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">it</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt id="link-10" class="py-name" targets="Method Ganga.Core.GangaRepository.VStreamer.VStreamer.indent()=Ganga.Core.GangaRepository.VStreamer.VStreamer-class.html#indent,Method Ganga.Core.JobRepositoryXML.VStreamer.VStreamer.indent()=Ganga.Core.JobRepositoryXML.VStreamer.VStreamer-class.html#indent,Method Ganga.GPIDev.Base.VPrinter.VPrinter.indent()=Ganga.GPIDev.Base.VPrinter.VPrinter-class.html#indent,Function Ganga.GPIDev.Base.VPrinter.indent()=Ganga.GPIDev.Base.VPrinter-module.html#indent"><a title="Ganga.Core.GangaRepository.VStreamer.VStreamer.indent
+Ganga.Core.JobRepositoryXML.VStreamer.VStreamer.indent
+Ganga.GPIDev.Base.VPrinter.VPrinter.indent
+Ganga.GPIDev.Base.VPrinter.indent" class="py-name" href="#" onclick="return doclink('link-10', 'indent', 'link-10');">indent</a></tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">head</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-name">buf</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">head</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-11', 'Ganga', 'link-11');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-12', 'Utility', 'link-12');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Package Ganga.Utility.external=Ganga.Utility.external-module.html"><a title="Ganga.Utility.external" class="py-name" href="#" onclick="return doclink('link-13', 'external', 'link-13');">external</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Module Ganga.Utility.external.textwrap=Ganga.Utility.external.textwrap-module.html"><a title="Ganga.Utility.external.textwrap" class="py-name" href="#" onclick="return doclink('link-14', 'textwrap', 'link-14');">textwrap</a></tt> <tt class="py-keyword">as</tt> <tt id="link-15" class="py-name"><a title="Ganga.Utility.external.textwrap" class="py-name" href="#" onclick="return doclink('link-15', 'textwrap', 'link-14');">textwrap</a></tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">         </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">it</tt><tt class="py-op">,</tt><tt class="py-name">d</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Ganga.Core.GangaRepository.Registry.Registry.items
+Ganga.Utility.external.ordereddict.oDict.items" class="py-name" href="#" onclick="return doclink('link-16', 'items', 'link-5');">items</a></tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">desc</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">linesep</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                <tt class="py-name">buf</tt> <tt class="py-op">+=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">linesep</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-name">buf2</tt> <tt class="py-op">=</tt> <tt class="py-string">'%-*s%s%s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">maxitem</tt><tt class="py-op">,</tt><tt class="py-name">it</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt><tt class="py-op">,</tt><tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">            <tt class="py-name">buf</tt> <tt class="py-op">+=</tt> <tt id="link-17" class="py-name"><a title="Ganga.Utility.external.textwrap" class="py-name" href="#" onclick="return doclink('link-17', 'textwrap', 'link-14');">textwrap</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method Ganga.Utility.external.textwrap.TextWrapper.fill()=Ganga.Utility.external.textwrap.TextWrapper-class.html#fill,Function Ganga.Utility.external.textwrap.fill()=Ganga.Utility.external.textwrap-module.html#fill"><a title="Ganga.Utility.external.textwrap.TextWrapper.fill
+Ganga.Utility.external.textwrap.fill" class="py-name" href="#" onclick="return doclink('link-18', 'fill', 'link-18');">fill</a></tt><tt class="py-op">(</tt><tt class="py-name">buf2</tt><tt class="py-op">,</tt><tt class="py-name">width</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">width</tt><tt class="py-op">,</tt><tt class="py-name">initial_indent</tt><tt class="py-op">=</tt><tt id="link-19" class="py-name"><a title="Ganga.Core.GangaRepository.VStreamer.VStreamer.indent
+Ganga.Core.JobRepositoryXML.VStreamer.VStreamer.indent
+Ganga.GPIDev.Base.VPrinter.VPrinter.indent
+Ganga.GPIDev.Base.VPrinter.indent" class="py-name" href="#" onclick="return doclink('link-19', 'indent', 'link-10');">indent</a></tt><tt class="py-op">,</tt><tt class="py-name">subsequent_indent</tt><tt class="py-op">=</tt><tt class="py-string">' '</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-name">maxitem</tt><tt class="py-op">+</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sep</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt id="link-20" class="py-name"><a title="Ganga.Core.GangaRepository.VStreamer.VStreamer.indent
+Ganga.Core.JobRepositoryXML.VStreamer.VStreamer.indent
+Ganga.GPIDev.Base.VPrinter.VPrinter.indent
+Ganga.GPIDev.Base.VPrinter.indent" class="py-name" href="#" onclick="return doclink('link-20', 'indent', 'link-10');">indent</a></tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">buf</tt> </tt>
+</div></div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">         </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">     </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt id="link-21" class="py-name" targets="Function Ganga.Utility.strings.is_identifier()=Ganga.Utility.strings-module.html#is_identifier"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-21', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">'a'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt id="link-22" class="py-name"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-22', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">'1'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-23', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">'a1'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt id="link-24" class="py-name"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-24', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">'a1 '</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt id="link-25" class="py-name"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-25', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">' a'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt id="link-26" class="py-name"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-26', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">'a b'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="Ganga.Utility.strings.is_identifier" class="py-name" href="#" onclick="return doclink('link-27', 'is_identifier', 'link-21');">is_identifier</a></tt><tt class="py-op">(</tt><tt class="py-string">'_'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name" targets="Function Ganga.Utility.strings.drop_spaces()=Ganga.Utility.strings-module.html#drop_spaces"><a title="Ganga.Utility.strings.drop_spaces" class="py-name" href="#" onclick="return doclink('link-28', 'drop_spaces', 'link-28');">drop_spaces</a></tt><tt class="py-op">(</tt><tt class="py-string">' a b c '</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'abc'</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">    <tt class="py-keyword">assert</tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="Ganga.Utility.strings.drop_spaces" class="py-name" href="#" onclick="return doclink('link-29', 'drop_spaces', 'link-28');">drop_spaces</a></tt><tt class="py-op">(</tt><tt class="py-string">'abc'</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'abc'</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line"> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">    <tt class="py-name">it</tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name" targets="Class Ganga.Utility.strings.ItemizedTextParagraph=Ganga.Utility.strings.ItemizedTextParagraph-class.html"><a title="Ganga.Utility.strings.ItemizedTextParagraph" class="py-name" href="#" onclick="return doclink('link-30', 'ItemizedTextParagraph', 'link-30');">ItemizedTextParagraph</a></tt><tt class="py-op">(</tt><tt class="py-string">'Functions:'</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">    <tt class="py-name">it</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method Ganga.Utility.strings.ItemizedTextParagraph.addLine()=Ganga.Utility.strings.ItemizedTextParagraph-class.html#addLine"><a title="Ganga.Utility.strings.ItemizedTextParagraph.addLine" class="py-name" href="#" onclick="return doclink('link-31', 'addLine', 'link-31');">addLine</a></tt><tt class="py-op">(</tt><tt class="py-string">'dupa'</tt><tt class="py-op">,</tt><tt class="py-string">'jerza;fdlkdfs;lkdfkl;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt class="py-name">it</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Ganga.Utility.strings.ItemizedTextParagraph.addLine" class="py-name" href="#" onclick="return doclink('link-32', 'addLine', 'link-31');">addLine</a></tt><tt class="py-op">(</tt><tt class="py-string">'dupaduuza'</tt><tt class="py-op">,</tt><tt class="py-string">'jerza;fdlkdfs;lkdfkl;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">    <tt class="py-name">it</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="Ganga.Utility.strings.ItemizedTextParagraph.addLine" class="py-name" href="#" onclick="return doclink('link-33', 'addLine', 'link-31');">addLine</a></tt><tt class="py-op">(</tt><tt class="py-string">'d'</tt><tt class="py-op">,</tt><tt class="py-string">'jerza;fdlkdfs;lkdfkl;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">it</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Method Ganga.Utility.strings.ItemizedTextParagraph.getString()=Ganga.Utility.strings.ItemizedTextParagraph-class.html#getString"><a title="Ganga.Utility.strings.ItemizedTextParagraph.getString" class="py-name" href="#" onclick="return doclink('link-34', 'getString', 'link-34');">getString</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line"> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">'strings: Test Passed OK'</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:31 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

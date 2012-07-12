@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Ganga.Lib.MonitoringServices.Octopus.OctopusMS'</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Ganga-module.html">Package&nbsp;Ganga</a> ::
+        <a href="Ganga.Lib-module.html">Package&nbsp;Lib</a> ::
+        <a href="Ganga.Lib.MonitoringServices-module.html">Package&nbsp;MonitoringServices</a> ::
+        <a href="Ganga.Lib.MonitoringServices.Octopus-module.html">Package&nbsp;Octopus</a> ::
+        Module&nbsp;OctopusMS'
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27-module.html">Module Ganga.Lib.MonitoringServices.Octopus.OctopusMS'</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Ganga=Ganga-module.html"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-0', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package Ganga.GPIDev=Ganga.GPIDev-module.html"><a title="Ganga.GPIDev" class="py-name" href="#" onclick="return doclink('link-1', 'GPIDev', 'link-1');">GPIDev</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Ganga.GPIDev.Adapters=Ganga.GPIDev.Adapters-module.html"><a title="Ganga.GPIDev.Adapters" class="py-name" href="#" onclick="return doclink('link-2', 'Adapters', 'link-2');">Adapters</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module Ganga.GPIDev.Adapters.IMonitoringService=Ganga.GPIDev.Adapters.IMonitoringService-module.html,Class Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html"><a title="Ganga.GPIDev.Adapters.IMonitoringService
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService" class="py-name" href="#" onclick="return doclink('link-3', 'IMonitoringService', 'link-3');">IMonitoringService</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService" class="py-name" href="#" onclick="return doclink('link-4', 'IMonitoringService', 'link-3');">IMonitoringService</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-5', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Package Ganga.GPIDev.Lib=Ganga.GPIDev.Lib-module.html,Package Ganga.Lib=Ganga.Lib-module.html"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-6', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Package Ganga.GPIDev.MonitoringServices=Ganga.GPIDev.MonitoringServices-module.html,Package Ganga.Lib.MonitoringServices=Ganga.Lib.MonitoringServices-module.html"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-7', 'MonitoringServices', 'link-7');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Package Ganga.Lib.MonitoringServices.Octopus=Ganga.Lib.MonitoringServices.Octopus-module.html,Class Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-8', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-9', 'Octopus', 'link-8');">Octopus</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">urlparse</tt> <tt class="py-keyword">import</tt> <tt class="py-name">urlparse</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">traceback</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="OctopusMS"></a><div id="OctopusMS-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="OctopusMS-toggle" onclick="return toggle('OctopusMS');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html">OctopusMS</a><tt class="py-op">(</tt><tt class="py-base-class">IMonitoringService</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="OctopusMS-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-docstring">""" A simple tool to send the stdout of a job continuusly to an Octopus server so</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    that the user can immediately look at it."""</tt> </tt>
+<a name="OctopusMS.__init__"></a><div id="OctopusMS.__init__-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="OctopusMS.__init__-toggle" onclick="return toggle('OctopusMS.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">job_info</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="OctopusMS.__init__-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt id="link-10" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService" class="py-name" href="#" onclick="return doclink('link-10', 'IMonitoringService', 'link-3');">IMonitoringService</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method Ganga.Core.FileWorkspace.DebugWorkspace.__init__()=Ganga.Core.FileWorkspace.DebugWorkspace-class.html#__init__,Method Ganga.Core.FileWorkspace.FileWorkspace.__init__()=Ganga.Core.FileWorkspace.FileWorkspace-class.html#__init__,Method Ganga.Core.FileWorkspace.InputWorkspace.__init__()=Ganga.Core.FileWorkspace.InputWorkspace-class.html#__init__,Method Ganga.Core.FileWorkspace.OutputWorkspace.__init__()=Ganga.Core.FileWorkspace.OutputWorkspace-class.html#__init__,Method Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass.__init__()=Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass-class.html#__init__,Method Ganga.Core.GangaRepository.GangaRepository.GangaRepository.__init__()=Ganga.Core.GangaRepository.GangaRepository.GangaRepository-class.html#__init__,Method Ganga.Core.GangaRepository.GangaRepository.InaccessibleObjectError.__init__()=Ganga.Core.GangaRepository.GangaRepository.InaccessibleObjectError-class.html#__init__,Method Ganga.Core.GangaRepository.GangaRepository.RepositoryError.__init__()=Ganga.Core.GangaRepository.GangaRepository.RepositoryError-class.html#__init__,Method Ganga.Core.GangaRepository.GangaRepository.SchemaVersionError.__init__()=Ganga.Core.GangaRepository.GangaRepository.SchemaVersionError-class.html#__init__,Method Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.__init__()=Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal-class.html#__init__,Method Ganga.Core.GangaRepository.Registry.IncompleteObject.__init__()=Ganga.Core.GangaRepository.Registry.IncompleteObject-class.html#__init__,Method Ganga.Core.GangaRepository.Registry.Registry.__init__()=Ganga.Core.GangaRepository.Registry.Registry-class.html#__init__,Method Ganga.Core.GangaRepository.Registry.RegistryError.__init__()=Ganga.Core.GangaRepository.Registry.RegistryError-class.html#__init__,Method Ganga.Core.GangaRepository.SessionLock.GangaThread.__init__()=Ganga.Core.GangaRepository.SessionLock.GangaThread-class.html#__init__,Method Ganga.Core.GangaRepository.SessionLock.SessionLockManager.__init__()=Ganga.Core.GangaRepository.SessionLock.SessionLockManager-class.html#__init__,Method Ganga.Core.GangaRepository.SessionLock.SessionLockRefresher.__init__()=Ganga.Core.GangaRepository.SessionLock.SessionLockRefresher-class.html#__init__,Method Ganga.Core.GangaRepository.VStreamer.Loader.__init__()=Ganga.Core.GangaRepository.VStreamer.Loader-class.html#__init__,Method Ganga.Core.GangaRepository.VStreamer.VStreamer.__init__()=Ganga.Core.GangaRepository.VStreamer.VStreamer-class.html#__init__,Method Ganga.Core.GangaThread.GangaThreadPool'.GangaThreadPool.__init__()=Ganga.Core.GangaThread.GangaThreadPool%27.GangaThreadPool-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.Algorithm'.Algorithm.__init__()=Ganga.Core.GangaThread.MTRunner.Algorithm%27.Algorithm-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.Algorithm'.AlgorithmError.__init__()=Ganga.Core.GangaThread.MTRunner.Algorithm%27.AlgorithmError-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.Data'.Data.__init__()=Ganga.Core.GangaThread.MTRunner.Data%27.Data-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.Data'.DuplicateDataItemError.__init__()=Ganga.Core.GangaThread.MTRunner.Data%27.DuplicateDataItemError-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.MTRunner'.GangaWorkAgent.__init__()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.GangaWorkAgent-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.__init__()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunner-class.html#__init__,Method Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunnerError.__init__()=Ganga.Core.GangaThread.MTRunner.MTRunner%27.MTRunnerError-class.html#__init__,Method Ganga.Core.JobRepository.ARDA.ARDARepositoryMixIn.__init__()=Ganga.Core.JobRepository.ARDA.ARDARepositoryMixIn-class.html#__init__,Method Ganga.Core.JobRepository.ARDA.LocalARDAJobRepository.__init__()=Ganga.Core.JobRepository.ARDA.LocalARDAJobRepository-class.html#__init__,Method Ganga.Core.JobRepository.ARDA.RemoteARDAJobRepository.__init__()=Ganga.Core.JobRepository.ARDA.RemoteARDAJobRepository-class.html#__init__,Method Ganga.Core.JobRepository.ARDA.RemoteOracleARDAJobRepository.__init__()=Ganga.Core.JobRepository.ARDA.RemoteOracleARDAJobRepository-class.html#__init__,Method Ganga.Core.JobRepository.Base.JobRepository.__init__()=Ganga.Core.JobRepository.Base.JobRepository-class.html#__init__,Method Ganga.Core.JobRepository.TestRepository.JobInfo.__init__()=Ganga.Core.JobRepository.TestRepository.JobInfo-class.html#__init__,Method Ganga.Core.JobRepository.TestRepository.TestRepository.__init__()=Ganga.Core.JobRepository.TestRepository.TestRepository-class.html#__init__,Method Ganga.Core.JobRepositoryXML.Counter.Counter.__init__()=Ganga.Core.JobRepositoryXML.Counter.Counter-class.html#__init__,Method Ganga.Core.JobRepositoryXML.Repository'.Repository.__init__()=Ganga.Core.JobRepositoryXML.Repository%27.Repository-class.html#__init__,Method Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass.__init__()=Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass-class.html#__init__,Method Ganga.Core.JobRepositoryXML.VStreamer.Loader.__init__()=Ganga.Core.JobRepositoryXML.VStreamer.Loader-class.html#__init__,Method Ganga.Core.JobRepositoryXML.VStreamer.VStreamer.__init__()=Ganga.Core.JobRepositoryXML.VStreamer.VStreamer-class.html#__init__,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service.CallbackHookEntry.__init__()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service.CallbackHookEntry-class.html#__init__,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobAction.__init__()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobAction-class.html#__init__,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor.__init__()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor-class.html#__init__,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service.MonitoringWorkerThread.__init__()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service.MonitoringWorkerThread-class.html#__init__,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service.UpdateDict.__init__()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service.UpdateDict-class.html#__init__,Method Ganga.Core.MonitoringComponent.Local_GangaMC_Service._DictEntry.__init__()=Ganga.Core.MonitoringComponent.Local_GangaMC_Service._DictEntry-class.html#__init__,Method Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.__init__()=Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient-class.html#__init__,Method Ganga.Core.Sandbox.Sandbox.SandboxError.__init__()=Ganga.Core.Sandbox.Sandbox.SandboxError-class.html#__init__,Method Ganga.Core.exceptions.ApplicationConfigurationError.__init__()=Ganga.Core.exceptions.ApplicationConfigurationError-class.html#__init__,Method Ganga.Core.exceptions.BackendError.__init__()=Ganga.Core.exceptions.BackendError-class.html#__init__,Method Ganga.Core.exceptions.BulkOperationRepositoryError.__init__()=Ganga.Core.exceptions.BulkOperationRepositoryError-class.html#__init__,Method Ganga.Core.exceptions.GangaAttributeError.__init__()=Ganga.Core.exceptions.GangaAttributeError-class.html#__init__,Method Ganga.Core.exceptions.GangaException.__init__()=Ganga.Core.exceptions.GangaException-class.html#__init__,Method Ganga.Core.exceptions.GangaValueError.__init__()=Ganga.Core.exceptions.GangaValueError-class.html#__init__,Method Ganga.Core.exceptions.IncompleteJobSubmissionError.__init__()=Ganga.Core.exceptions.IncompleteJobSubmissionError-class.html#__init__,Method Ganga.Core.exceptions.IncompleteKillError.__init__()=Ganga.Core.exceptions.IncompleteKillError-class.html#__init__,Method Ganga.Core.exceptions.JobManagerError.__init__()=Ganga.Core.exceptions.JobManagerError-class.html#__init__,Method Ganga.Core.exceptions.ProtectedAttributeError.__init__()=Ganga.Core.exceptions.ProtectedAttributeError-class.html#__init__,Method Ganga.Core.exceptions.ReadOnlyObjectError.__init__()=Ganga.Core.exceptions.ReadOnlyObjectError-class.html#__init__,Method Ganga.Core.exceptions.RepositoryError.__init__()=Ganga.Core.exceptions.RepositoryError-class.html#__init__,Method Ganga.Core.exceptions.SchemaError.__init__()=Ganga.Core.exceptions.SchemaError-class.html#__init__,Method Ganga.Core.exceptions.TypeMismatchError.__init__()=Ganga.Core.exceptions.TypeMismatchError-class.html#__init__,Method Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.__init__()=Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers-class.html#__init__,Method Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass.__init__()=Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass-class.html#__init__,Method Ganga.GPIDev.Adapters.IApplication.PostprocessStatusUpdate.__init__()=Ganga.GPIDev.Adapters.IApplication.PostprocessStatusUpdate-class.html#__init__,Method Ganga.GPIDev.Adapters.IBackend.IBackend.__init__()=Ganga.GPIDev.Adapters.IBackend.IBackend-class.html#__init__,Method Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass.__init__()=Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass-class.html#__init__,Method Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass.__init__()=Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass-class.html#__init__,Method Ganga.GPIDev.Adapters.IMerger.MergerError.__init__()=Ganga.GPIDev.Adapters.IMerger.MergerError-class.html#__init__,Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.__init__()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#__init__,Method Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass.__init__()=Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass-class.html#__init__,Method Ganga.GPIDev.Adapters.StandardJobConfig.StandardJobConfig.__init__()=Ganga.GPIDev.Adapters.StandardJobConfig.StandardJobConfig-class.html#__init__,Method Ganga.GPIDev.Base.Filters._ComponentFilterManager.__init__()=Ganga.GPIDev.Base.Filters._ComponentFilterManager-class.html#__init__,Method Ganga.GPIDev.Base.Objects.Descriptor.__init__()=Ganga.GPIDev.Base.Objects.Descriptor-class.html#__init__,Method Ganga.GPIDev.Base.Objects.GangaObject.__init__()=Ganga.GPIDev.Base.Objects.GangaObject-class.html#__init__,Method Ganga.GPIDev.Base.Objects.Node.__init__()=Ganga.GPIDev.Base.Objects.Node-class.html#__init__,Method Ganga.GPIDev.Base.Objects.ObjectMetaclass.__init__()=Ganga.GPIDev.Base.Objects.ObjectMetaclass-class.html#__init__,Method Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor.__init__()=Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor-class.html#__init__,Method Ganga.GPIDev.Base.Proxy.ProxyMethodDescriptor.__init__()=Ganga.GPIDev.Base.Proxy.ProxyMethodDescriptor-class.html#__init__,Method Ganga.GPIDev.Base.VPrinter.VPrinter.__init__()=Ganga.GPIDev.Base.VPrinter.VPrinter-class.html#__init__,Method Ganga.GPIDev.Base.VPrinter.VSummaryPrinter.__init__()=Ganga.GPIDev.Base.VPrinter.VSummaryPrinter-class.html#__init__,Method Ganga.GPIDev.Credentials.AfsToken.AfsCommand.__init__()=Ganga.GPIDev.Credentials.AfsToken.AfsCommand-class.html#__init__,Method Ganga.GPIDev.Credentials.AfsToken.AfsToken.__init__()=Ganga.GPIDev.Credentials.AfsToken.AfsToken-class.html#__init__,Method Ganga.GPIDev.Credentials.GridProxy.GridCommand.__init__()=Ganga.GPIDev.Credentials.GridProxy.GridCommand-class.html#__init__,Method Ganga.GPIDev.Credentials.GridProxy.GridProxy.__init__()=Ganga.GPIDev.Credentials.GridProxy.GridProxy-class.html#__init__,Method Ganga.GPIDev.Credentials.GridProxy.VomsCommand.__init__()=Ganga.GPIDev.Credentials.GridProxy.VomsCommand-class.html#__init__,Method Ganga.GPIDev.Credentials.ICredential.ICommandSet.__init__()=Ganga.GPIDev.Credentials.ICredential.ICommandSet-class.html#__init__,Method Ganga.GPIDev.Credentials.ICredential.ICredential.__init__()=Ganga.GPIDev.Credentials.ICredential.ICredential-class.html#__init__,Method Ganga.GPIDev.Lib.Config.Config.ConfigDescriptor.__init__()=Ganga.GPIDev.Lib.Config.Config.ConfigDescriptor-class.html#__init__,Method Ganga.GPIDev.Lib.Config.Config.ConfigProxy.__init__()=Ganga.GPIDev.Lib.Config.Config.ConfigProxy-class.html#__init__,Method Ganga.GPIDev.Lib.Config.Config.MainConfigProxy.__init__()=Ganga.GPIDev.Lib.Config.Config.MainConfigProxy-class.html#__init__,Method Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset.__init__()=Ganga.GPIDev.Lib.Dataset.Dataset%27.Dataset-class.html#__init__,Method Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset._proxyClass.__init__()=Ganga.GPIDev.Lib.Dataset.Dataset%27.Dataset._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.File.File'.File.__init__()=Ganga.GPIDev.Lib.File.File%27.File-class.html#__init__,Method Ganga.GPIDev.Lib.File.File'.File._proxyClass.__init__()=Ganga.GPIDev.Lib.File.File%27.File._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer.__init__()=Ganga.GPIDev.Lib.File.FileBuffer%27.FileBuffer-class.html#__init__,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.__init__()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList-class.html#__init__,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.__init__()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaList._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.GangaList.GangaList'.GangaListIter.__init__()=Ganga.GPIDev.Lib.GangaList.GangaList%27.GangaListIter-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job.State.__init__()=Ganga.GPIDev.Lib.Job.Job.State-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job.Transitions.__init__()=Ganga.GPIDev.Lib.Job.Job.Transitions-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.Job.__init__()=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.__init__()=Ganga.GPIDev.Lib.Job.Job%27.Job._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.JobError.__init__()=Ganga.GPIDev.Lib.Job.Job%27.JobError-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.JobInfo.__init__()=Ganga.GPIDev.Lib.Job.Job%27.JobInfo-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.__init__()=Ganga.GPIDev.Lib.Job.Job%27.JobInfo._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.JobStatusError.__init__()=Ganga.GPIDev.Lib.Job.Job%27.JobStatusError-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate.__init__()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate-class.html#__init__,Method Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.__init__()=Ganga.GPIDev.Lib.Job.Job%27.JobTemplate._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Job.JobTime'.JobTime.__init__()=Ganga.GPIDev.Lib.Job.JobTime%27.JobTime-class.html#__init__,Method Ganga.GPIDev.Lib.Job.JobTime'.JobTime._proxyClass.__init__()=Ganga.GPIDev.Lib.Job.JobTime%27.JobTime._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.__init__()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree-class.html#__init__,Method Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.__init__()=Ganga.GPIDev.Lib.JobTree.JobTree%27.JobTree._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.JobTree.JobTree'.TreeError.__init__()=Ganga.GPIDev.Lib.JobTree.JobTree%27.TreeError-class.html#__init__,Method Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.__init__()=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxMetadataObject._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxRegistrySlice.__init__()=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxRegistrySlice-class.html#__init__,Method Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxTypeError.__init__()=Ganga.GPIDev.Lib.Registry.BoxRegistry%27.BoxTypeError-class.html#__init__,Method Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.__init__()=Ganga.GPIDev.Lib.Registry.JobRegistry%27.JobRegistrySlice-class.html#__init__,Method Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice.__init__()=Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice-class.html#__init__,Method Ganga.GPIDev.Lib.Registry.RegistrySliceProxy.RegistrySliceProxy.__init__()=Ganga.GPIDev.Lib.Registry.RegistrySliceProxy.RegistrySliceProxy-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.__init__()=Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.__init__()=Ganga.GPIDev.Lib.Tasks.Task%27.Task._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass.__init__()=Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.__init__()=Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySlice.__init__()=Ganga.GPIDev.Lib.Tasks.TaskRegistry%27.TaskRegistrySlice-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.Transform'.Transform.__init__()=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform-class.html#__init__,Method Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.__init__()=Ganga.GPIDev.Lib.Tasks.Transform%27.Transform._proxyClass-class.html#__init__,Method Ganga.GPIDev.Schema.Schema'.ComponentItem.__init__()=Ganga.GPIDev.Schema.Schema%27.ComponentItem-class.html#__init__,Method Ganga.GPIDev.Schema.Schema'.FileItem.__init__()=Ganga.GPIDev.Schema.Schema%27.FileItem-class.html#__init__,Method Ganga.GPIDev.Schema.Schema'.Item.__init__()=Ganga.GPIDev.Schema.Schema%27.Item-class.html#__init__,Method Ganga.GPIDev.Schema.Schema'.Schema.__init__()=Ganga.GPIDev.Schema.Schema%27.Schema-class.html#__init__,Method Ganga.GPIDev.Schema.Schema'.SimpleItem.__init__()=Ganga.GPIDev.Schema.Schema%27.SimpleItem-class.html#__init__,Method Ganga.GPIDev.Schema.Schema'.Version.__init__()=Ganga.GPIDev.Schema.Schema%27.Version-class.html#__init__,Method Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.TreeNode.__init__()=Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.TreeNode-class.html#__init__,Method Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.__init__()=Ganga.GPIDev.Streamers.MigrationControl.MigrationControl-class.html#__init__,Method Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass.__init__()=Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass-class.html#__init__,Method Ganga.GPIDev.Streamers.utilities.GangaObjectFactoryError.__init__()=Ganga.GPIDev.Streamers.utilities.GangaObjectFactoryError-class.html#__init__,Method Ganga.Lib.Batch.Batch'.Batch.__init__()=Ganga.Lib.Batch.Batch%27.Batch-class.html#__init__,Method Ganga.Lib.Batch.Batch'.Batch._proxyClass.__init__()=Ganga.Lib.Batch.Batch%27.Batch._proxyClass-class.html#__init__,Method Ganga.Lib.Batch.Batch'.LSF.__init__()=Ganga.Lib.Batch.Batch%27.LSF-class.html#__init__,Method Ganga.Lib.Batch.Batch'.LSF._proxyClass.__init__()=Ganga.Lib.Batch.Batch%27.LSF._proxyClass-class.html#__init__,Method Ganga.Lib.Batch.Batch'.PBS.__init__()=Ganga.Lib.Batch.Batch%27.PBS-class.html#__init__,Method Ganga.Lib.Batch.Batch'.PBS._proxyClass.__init__()=Ganga.Lib.Batch.Batch%27.PBS._proxyClass-class.html#__init__,Method Ganga.Lib.Batch.Batch'.SGE.__init__()=Ganga.Lib.Batch.Batch%27.SGE-class.html#__init__,Method Ganga.Lib.Batch.Batch'.SGE._proxyClass.__init__()=Ganga.Lib.Batch.Batch%27.SGE._proxyClass-class.html#__init__,Method Ganga.Lib.Condor.Condor'.Condor.__init__()=Ganga.Lib.Condor.Condor%27.Condor-class.html#__init__,Method Ganga.Lib.Condor.Condor'.Condor._proxyClass.__init__()=Ganga.Lib.Condor.Condor%27.Condor._proxyClass-class.html#__init__,Method Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.__init__()=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements-class.html#__init__,Method Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.__init__()=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements._proxyClass-class.html#__init__,Method Ganga.Lib.Executable.Executable'.Executable.__init__()=Ganga.Lib.Executable.Executable%27.Executable-class.html#__init__,Method Ganga.Lib.Executable.Executable'.Executable._proxyClass.__init__()=Ganga.Lib.Executable.Executable%27.Executable._proxyClass-class.html#__init__,Method Ganga.Lib.Interactive.Interactive'.Interactive.__init__()=Ganga.Lib.Interactive.Interactive%27.Interactive-class.html#__init__,Method Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.__init__()=Ganga.Lib.Interactive.Interactive%27.Interactive._proxyClass-class.html#__init__,Method Ganga.Lib.LCG.CREAM.CREAM.__init__()=Ganga.Lib.LCG.CREAM.CREAM-class.html#__init__,Method Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.__init__()=Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler-class.html#__init__,Method Ganga.Lib.LCG.Grid.Grid.__init__()=Ganga.Lib.LCG.Grid.Grid-class.html#__init__,Method Ganga.Lib.LCG.GridSandboxCache.GridFileIndex.__init__()=Ganga.Lib.LCG.GridSandboxCache.GridFileIndex-class.html#__init__,Method Ganga.Lib.LCG.GridSandboxCache.GridSandboxCache.__init__()=Ganga.Lib.LCG.GridSandboxCache.GridSandboxCache-class.html#__init__,Method Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.__init__()=Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator-class.html#__init__,Method Ganga.Lib.LCG.GridftpSandboxCache.GridftpFileIndex.__init__()=Ganga.Lib.LCG.GridftpSandboxCache.GridftpFileIndex-class.html#__init__,Method Ganga.Lib.LCG.GridftpSandboxCache.GridftpSandboxCache.__init__()=Ganga.Lib.LCG.GridftpSandboxCache.GridftpSandboxCache-class.html#__init__,Method Ganga.Lib.LCG.LCG.LCG.__init__()=Ganga.Lib.LCG.LCG.LCG-class.html#__init__,Method Ganga.Lib.LCG.LCG.LCGJobConfig.__init__()=Ganga.Lib.LCG.LCG.LCGJobConfig-class.html#__init__,Method Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloadTask.__init__()=Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloadTask-class.html#__init__,Method Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloader.__init__()=Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloader-class.html#__init__,Method Ganga.Lib.LCG.LCGRequirements.LCGRequirements.__init__()=Ganga.Lib.LCG.LCGRequirements.LCGRequirements-class.html#__init__,Method Ganga.Lib.LCG.LCGSandboxCache.LCGFileIndex.__init__()=Ganga.Lib.LCG.LCGSandboxCache.LCGFileIndex-class.html#__init__,Method Ganga.Lib.LCG.LCGSandboxCache.LCGSandboxCache.__init__()=Ganga.Lib.LCG.LCGSandboxCache.LCGSandboxCache-class.html#__init__,Method Ganga.Lib.Localhost.Localhost'.Localhost.__init__()=Ganga.Lib.Localhost.Localhost%27.Localhost-class.html#__init__,Method Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.__init__()=Ganga.Lib.Localhost.Localhost%27.Localhost._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.AbstractMerger.__init__()=Ganga.Lib.Mergers.Merger.AbstractMerger-class.html#__init__,Method Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.CustomMerger.__init__()=Ganga.Lib.Mergers.Merger.CustomMerger-class.html#__init__,Method Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.RootMerger.__init__()=Ganga.Lib.Mergers.Merger.RootMerger-class.html#__init__,Method Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.RootMerger._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger.TextMerger.__init__()=Ganga.Lib.Mergers.Merger.TextMerger-class.html#__init__,Method Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.__init__()=Ganga.Lib.Mergers.Merger.TextMerger._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass.__init__()=Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass.__init__()=Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass-class.html#__init__,Method Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass.__init__()=Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass-class.html#__init__,Method Ganga.Lib.MonitoringServices.ARDADashboard.DashboardAPI.DashboardAPI.__init__()=Ganga.Lib.MonitoringServices.ARDADashboard.DashboardAPI.DashboardAPI-class.html#__init__,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.__init__()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#__init__,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.__init__()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena-class.html#__init__,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.__init__()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable-class.html#__init__,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.__init__()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#__init__,Method Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.__init__()=Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.__init__()=Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.__init__()=Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.__init__()=Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.__init__()=Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.__init__()=Ganga.Lib.MonitoringServices.DummyMS.DummyMS%27.DummyMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.__init__()=Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS%27.JobExecutionMonitorMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.__init__()=Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.__init__()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.__init__()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#__init__,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.ProtocolException.__init__()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.ProtocolException-class.html#__init__,Method Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.__init__()=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html#__init__,Method Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.__init__()=Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS%27.OutputServerMS-class.html#__init__,Method Ganga.Lib.Remote.Remote'.Remote.__init__()=Ganga.Lib.Remote.Remote%27.Remote-class.html#__init__,Method Ganga.Lib.Remote.Remote'.Remote._proxyClass.__init__()=Ganga.Lib.Remote.Remote%27.Remote._proxyClass-class.html#__init__,Method Ganga.Lib.Root.Root'.Root.__init__()=Ganga.Lib.Root.Root%27.Root-class.html#__init__,Method Ganga.Lib.Root.Root'.Root._proxyClass.__init__()=Ganga.Lib.Root.Root%27.Root._proxyClass-class.html#__init__,Method Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter._proxyClass.__init__()=Ganga.Lib.Splitters.ArgSplitter%27.ArgSplitter._proxyClass-class.html#__init__,Method Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass.__init__()=Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass-class.html#__init__,Method Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.__init__()=Ganga.Lib.Splitters.GenericSplitter%27.GenericSplitter._proxyClass-class.html#__init__,Method Ganga.Runtime.bootstrap.GangaProgram.__init__()=Ganga.Runtime.bootstrap.GangaProgram-class.html#__init__,Method Ganga.Runtime.eliza.eliza.__init__()=Ganga.Runtime.eliza.eliza-class.html#__init__,Method Ganga.Runtime.gangadoc.Helper2.__init__()=Ganga.Runtime.gangadoc.Helper2-class.html#__init__,Method Ganga.Runtime.http_server.HTTPServerThread.__init__()=Ganga.Runtime.http_server.HTTPServerThread-class.html#__init__,Method Ganga.Runtime.http_server.JobRelatedInfo.__init__()=Ganga.Runtime.http_server.JobRelatedInfo-class.html#__init__,Method Ganga.Utility.AMGAServerTools.Commands.Command.__init__()=Ganga.Utility.AMGAServerTools.Commands.Command-class.html#__init__,Method Ganga.Utility.AMGAServerTools.Commands.winPopen.__init__()=Ganga.Utility.AMGAServerTools.Commands.winPopen-class.html#__init__,Method Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.__init__()=Ganga.Utility.AMGAServerTools.PipeReader.PipeReader-class.html#__init__,Method Ganga.Utility.AMGAServerTools.backupManagement.BackUp.__init__()=Ganga.Utility.AMGAServerTools.backupManagement.BackUp-class.html#__init__,Method Ganga.Utility.AMGAServerTools.directoryManagement.Collections.__init__()=Ganga.Utility.AMGAServerTools.directoryManagement.Collections-class.html#__init__,Method Ganga.Utility.AMGAServerTools.groupManagement.Groups.__init__()=Ganga.Utility.AMGAServerTools.groupManagement.Groups-class.html#__init__,Method Ganga.Utility.AMGAServerTools.mdclient.MDClient.__init__()=Ganga.Utility.AMGAServerTools.mdclient.MDClient-class.html#__init__,Method Ganga.Utility.AMGAServerTools.mdinterface.CommandException.__init__()=Ganga.Utility.AMGAServerTools.mdinterface.CommandException-class.html#__init__,Method Ganga.Utility.AMGAServerTools.userManagement.UserDB.__init__()=Ganga.Utility.AMGAServerTools.userManagement.UserDB-class.html#__init__,Method Ganga.Utility.AMGAServerTools.winprocess.Process.__init__()=Ganga.Utility.AMGAServerTools.winprocess.Process-class.html#__init__,Method Ganga.Utility.Caching.Cache.__init__()=Ganga.Utility.Caching.Cache-class.html#__init__,Method Ganga.Utility.Caching.Entry.__init__()=Ganga.Utility.Caching.Entry-class.html#__init__,Method Ganga.Utility.Caching.FunctionCache.__init__()=Ganga.Utility.Caching.FunctionCache-class.html#__init__,Method Ganga.Utility.ColourText.ANSIMarkup.__init__()=Ganga.Utility.ColourText.ANSIMarkup-class.html#__init__,Method Ganga.Utility.ColourText.Background.__init__()=Ganga.Utility.ColourText.Background-class.html#__init__,Method Ganga.Utility.ColourText.Effects.__init__()=Ganga.Utility.ColourText.Effects-class.html#__init__,Method Ganga.Utility.ColourText.Foreground.__init__()=Ganga.Utility.ColourText.Foreground-class.html#__init__,Method Ganga.Utility.ColourText.NoMarkup.__init__()=Ganga.Utility.ColourText.NoMarkup-class.html#__init__,Method Ganga.Utility.Config.Config.ConfigError.__init__()=Ganga.Utility.Config.Config.ConfigError-class.html#__init__,Method Ganga.Utility.Config.Config.ConfigOption.__init__()=Ganga.Utility.Config.Config.ConfigOption-class.html#__init__,Method Ganga.Utility.Config.Config.PackageConfig.__init__()=Ganga.Utility.Config.Config.PackageConfig-class.html#__init__,Method Ganga.Utility.Plugin.GangaPlugin.PluginManager.__init__()=Ganga.Utility.Plugin.GangaPlugin.PluginManager-class.html#__init__,Method Ganga.Utility.Plugin.GangaPlugin.PluginManagerError.__init__()=Ganga.Utility.Plugin.GangaPlugin.PluginManagerError-class.html#__init__,Method Ganga.Utility.Runtime.RuntimePackage.__init__()=Ganga.Utility.Runtime.RuntimePackage-class.html#__init__,Method Ganga.Utility.Setup.PackageSetup.__init__()=Ganga.Utility.Setup.PackageSetup-class.html#__init__,Method Ganga.Utility.Shell.Shell.__init__()=Ganga.Utility.Shell.Shell-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.diskutils.Filterer.__init__()=Ganga.Utility.external.ARDAMDClient.diskutils.Filterer-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.diskutils.RLock.__init__()=Ganga.Utility.external.ARDAMDClient.diskutils.RLock-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Attributes.__init__()=Ganga.Utility.external.ARDAMDClient.extendedLists.Attributes-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Block.__init__()=Ganga.Utility.external.ARDAMDClient.extendedLists.Block-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.__init__()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.__init__()=Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Entries.__init__()=Ganga.Utility.external.ARDAMDClient.extendedLists.Entries-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.extendedLists.Storage.__init__()=Ganga.Utility.external.ARDAMDClient.extendedLists.Storage-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.__init__()=Ganga.Utility.external.ARDAMDClient.mdclient.MDClient-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException.__init__()=Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.mdparser.MDParser.__init__()=Ganga.Utility.external.ARDAMDClient.mdparser.MDParser-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone.__init__()=Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.mdtable.EmptyTableException.__init__()=Ganga.Utility.external.ARDAMDClient.mdtable.EmptyTableException-class.html#__init__,Method Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.__init__()=Ganga.Utility.external.ARDAMDClient.mdtable.MDTable-class.html#__init__,Method Ganga.Utility.external.logging.BufferingFormatter.__init__()=Ganga.Utility.external.logging.BufferingFormatter-class.html#__init__,Method Ganga.Utility.external.logging.FileHandler.__init__()=Ganga.Utility.external.logging.FileHandler-class.html#__init__,Method Ganga.Utility.external.logging.Filter.__init__()=Ganga.Utility.external.logging.Filter-class.html#__init__,Method Ganga.Utility.external.logging.Filterer.__init__()=Ganga.Utility.external.logging.Filterer-class.html#__init__,Method Ganga.Utility.external.logging.Formatter.__init__()=Ganga.Utility.external.logging.Formatter-class.html#__init__,Method Ganga.Utility.external.logging.Handler.__init__()=Ganga.Utility.external.logging.Handler-class.html#__init__,Method Ganga.Utility.external.logging.LogRecord.__init__()=Ganga.Utility.external.logging.LogRecord-class.html#__init__,Method Ganga.Utility.external.logging.Logger.__init__()=Ganga.Utility.external.logging.Logger-class.html#__init__,Method Ganga.Utility.external.logging.Manager.__init__()=Ganga.Utility.external.logging.Manager-class.html#__init__,Method Ganga.Utility.external.logging.PlaceHolder.__init__()=Ganga.Utility.external.logging.PlaceHolder-class.html#__init__,Method Ganga.Utility.external.logging.RootLogger.__init__()=Ganga.Utility.external.logging.RootLogger-class.html#__init__,Method Ganga.Utility.external.logging.StreamHandler.__init__()=Ganga.Utility.external.logging.StreamHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.BaseRotatingHandler.__init__()=Ganga.Utility.external.logging.handlers.BaseRotatingHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.BufferingHandler.__init__()=Ganga.Utility.external.logging.handlers.BufferingHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.DatagramHandler.__init__()=Ganga.Utility.external.logging.handlers.DatagramHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.HTTPHandler.__init__()=Ganga.Utility.external.logging.handlers.HTTPHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.MemoryHandler.__init__()=Ganga.Utility.external.logging.handlers.MemoryHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.NTEventLogHandler.__init__()=Ganga.Utility.external.logging.handlers.NTEventLogHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.RotatingFileHandler.__init__()=Ganga.Utility.external.logging.handlers.RotatingFileHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.SMTPHandler.__init__()=Ganga.Utility.external.logging.handlers.SMTPHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.SocketHandler.__init__()=Ganga.Utility.external.logging.handlers.SocketHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.SysLogHandler.__init__()=Ganga.Utility.external.logging.handlers.SysLogHandler-class.html#__init__,Method Ganga.Utility.external.logging.handlers.TimedRotatingFileHandler.__init__()=Ganga.Utility.external.logging.handlers.TimedRotatingFileHandler-class.html#__init__,Method Ganga.Utility.external.ordereddict.dIter.__init__()=Ganga.Utility.external.ordereddict.dIter-class.html#__init__,Method Ganga.Utility.external.ordereddict.oDict.__init__()=Ganga.Utility.external.ordereddict.oDict-class.html#__init__,Method Ganga.Utility.external.sets.BaseSet.__init__()=Ganga.Utility.external.sets.BaseSet-class.html#__init__,Method Ganga.Utility.external.sets.ImmutableSet.__init__()=Ganga.Utility.external.sets.ImmutableSet-class.html#__init__,Method Ganga.Utility.external.sets.Set.__init__()=Ganga.Utility.external.sets.Set-class.html#__init__,Method Ganga.Utility.external.sets._TemporarilyImmutableSet.__init__()=Ganga.Utility.external.sets._TemporarilyImmutableSet-class.html#__init__,Method Ganga.Utility.external.textwrap.TextWrapper.__init__()=Ganga.Utility.external.textwrap.TextWrapper-class.html#__init__,Method Ganga.Utility.logging.ColourFormatter.__init__()=Ganga.Utility.logging.ColourFormatter-class.html#__init__,Method Ganga.Utility.logging.FlushedMemoryHandler.__init__()=Ganga.Utility.logging.FlushedMemoryHandler-class.html#__init__,Method Ganga.Utility.strings.ItemizedTextParagraph.__init__()=Ganga.Utility.strings.ItemizedTextParagraph-class.html#__init__,Method Ganga.Utility.threads.SynchronisedObject.__init__()=Ganga.Utility.threads.SynchronisedObject-class.html#__init__,Method Ganga.Utility.util.GenericWrapper.__init__()=Ganga.Utility.util.GenericWrapper-class.html#__init__,Method Ganga.Utility.util.IList.__init__()=Ganga.Utility.util.IList-class.html#__init__,Method Ganga.Utility.util.Proxy.__init__()=Ganga.Utility.util.Proxy-class.html#__init__"><a title="Ganga.Core.FileWorkspace.DebugWorkspace.__init__
+Ganga.Core.FileWorkspace.FileWorkspace.__init__
+Ganga.Core.FileWorkspace.InputWorkspace.__init__
+Ganga.Core.FileWorkspace.OutputWorkspace.__init__
+Ganga.Core.GangaRepository.GangaRepository.EmptyGangaObject._proxyClass.__init__
+Ganga.Core.GangaRepository.GangaRepository.GangaRepository.__init__
+Ganga.Core.GangaRepository.GangaRepository.InaccessibleObjectError.__init__
+Ganga.Core.GangaRepository.GangaRepository.RepositoryError.__init__
+Ganga.Core.GangaRepository.GangaRepository.SchemaVersionError.__init__
+Ganga.Core.GangaRepository.GangaRepositoryXML.GangaRepositoryLocal.__init__
+Ganga.Core.GangaRepository.Registry.IncompleteObject.__init__
+Ganga.Core.GangaRepository.Registry.Registry.__init__
+Ganga.Core.GangaRepository.Registry.RegistryError.__init__
+Ganga.Core.GangaRepository.SessionLock.GangaThread.__init__
+Ganga.Core.GangaRepository.SessionLock.SessionLockManager.__init__
+Ganga.Core.GangaRepository.SessionLock.SessionLockRefresher.__init__
+Ganga.Core.GangaRepository.VStreamer.Loader.__init__
+Ganga.Core.GangaRepository.VStreamer.VStreamer.__init__
+Ganga.Core.GangaThread.GangaThreadPool'.GangaThreadPool.__init__
+Ganga.Core.GangaThread.MTRunner.Algorithm'.Algorithm.__init__
+Ganga.Core.GangaThread.MTRunner.Algorithm'.AlgorithmError.__init__
+Ganga.Core.GangaThread.MTRunner.Data'.Data.__init__
+Ganga.Core.GangaThread.MTRunner.Data'.DuplicateDataItemError.__init__
+Ganga.Core.GangaThread.MTRunner.MTRunner'.GangaWorkAgent.__init__
+Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunner.__init__
+Ganga.Core.GangaThread.MTRunner.MTRunner'.MTRunnerError.__init__
+Ganga.Core.JobRepository.ARDA.ARDARepositoryMixIn.__init__
+Ganga.Core.JobRepository.ARDA.LocalARDAJobRepository.__init__
+Ganga.Core.JobRepository.ARDA.RemoteARDAJobRepository.__init__
+Ganga.Core.JobRepository.ARDA.RemoteOracleARDAJobRepository.__init__
+Ganga.Core.JobRepository.Base.JobRepository.__init__
+Ganga.Core.JobRepository.TestRepository.JobInfo.__init__
+Ganga.Core.JobRepository.TestRepository.TestRepository.__init__
+Ganga.Core.JobRepositoryXML.Counter.Counter.__init__
+Ganga.Core.JobRepositoryXML.Repository'.Repository.__init__
+Ganga.Core.JobRepositoryXML.VStreamer.EmptyGangaObject._proxyClass.__init__
+Ganga.Core.JobRepositoryXML.VStreamer.Loader.__init__
+Ganga.Core.JobRepositoryXML.VStreamer.VStreamer.__init__
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.CallbackHookEntry.__init__
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobAction.__init__
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.JobRegistry_Monitor.__init__
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.MonitoringWorkerThread.__init__
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service.UpdateDict.__init__
+Ganga.Core.MonitoringComponent.Local_GangaMC_Service._DictEntry.__init__
+Ganga.Core.MonitoringComponent.Monitoring.MonitoringClient.__init__
+Ganga.Core.Sandbox.Sandbox.SandboxError.__init__
+Ganga.Core.exceptions.ApplicationConfigurationError.__init__
+Ganga.Core.exceptions.BackendError.__init__
+Ganga.Core.exceptions.BulkOperationRepositoryError.__init__
+Ganga.Core.exceptions.GangaAttributeError.__init__
+Ganga.Core.exceptions.GangaException.__init__
+Ganga.Core.exceptions.GangaValueError.__init__
+Ganga.Core.exceptions.IncompleteJobSubmissionError.__init__
+Ganga.Core.exceptions.IncompleteKillError.__init__
+Ganga.Core.exceptions.JobManagerError.__init__
+Ganga.Core.exceptions.ProtectedAttributeError.__init__
+Ganga.Core.exceptions.ReadOnlyObjectError.__init__
+Ganga.Core.exceptions.RepositoryError.__init__
+Ganga.Core.exceptions.SchemaError.__init__
+Ganga.Core.exceptions.TypeMismatchError.__init__
+Ganga.GPIDev.Adapters.ApplicationRuntimeHandlers._ApplicationRuntimeHandlers.__init__
+Ganga.GPIDev.Adapters.IApplication.IApplication._proxyClass.__init__
+Ganga.GPIDev.Adapters.IApplication.PostprocessStatusUpdate.__init__
+Ganga.GPIDev.Adapters.IBackend.IBackend.__init__
+Ganga.GPIDev.Adapters.IBackend.IBackend._proxyClass.__init__
+Ganga.GPIDev.Adapters.IMerger.IMerger._proxyClass.__init__
+Ganga.GPIDev.Adapters.IMerger.MergerError.__init__
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.__init__
+Ganga.GPIDev.Adapters.ISplitter.ISplitter._proxyClass.__init__
+Ganga.GPIDev.Adapters.StandardJobConfig.StandardJobConfig.__init__
+Ganga.GPIDev.Base.Filters._ComponentFilterManager.__init__
+Ganga.GPIDev.Base.Objects.Descriptor.__init__
+Ganga.GPIDev.Base.Objects.GangaObject.__init__
+Ganga.GPIDev.Base.Objects.Node.__init__
+Ganga.GPIDev.Base.Objects.ObjectMetaclass.__init__
+Ganga.GPIDev.Base.Proxy.ProxyDataDescriptor.__init__
+Ganga.GPIDev.Base.Proxy.ProxyMethodDescriptor.__init__
+Ganga.GPIDev.Base.VPrinter.VPrinter.__init__
+Ganga.GPIDev.Base.VPrinter.VSummaryPrinter.__init__
+Ganga.GPIDev.Credentials.AfsToken.AfsCommand.__init__
+Ganga.GPIDev.Credentials.AfsToken.AfsToken.__init__
+Ganga.GPIDev.Credentials.GridProxy.GridCommand.__init__
+Ganga.GPIDev.Credentials.GridProxy.GridProxy.__init__
+Ganga.GPIDev.Credentials.GridProxy.VomsCommand.__init__
+Ganga.GPIDev.Credentials.ICredential.ICommandSet.__init__
+Ganga.GPIDev.Credentials.ICredential.ICredential.__init__
+Ganga.GPIDev.Lib.Config.Config.ConfigDescriptor.__init__
+Ganga.GPIDev.Lib.Config.Config.ConfigProxy.__init__
+Ganga.GPIDev.Lib.Config.Config.MainConfigProxy.__init__
+Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset.__init__
+Ganga.GPIDev.Lib.Dataset.Dataset'.Dataset._proxyClass.__init__
+Ganga.GPIDev.Lib.File.File'.File.__init__
+Ganga.GPIDev.Lib.File.File'.File._proxyClass.__init__
+Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer.__init__
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList.__init__
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaList._proxyClass.__init__
+Ganga.GPIDev.Lib.GangaList.GangaList'.GangaListIter.__init__
+Ganga.GPIDev.Lib.Job.Job.State.__init__
+Ganga.GPIDev.Lib.Job.Job.Transitions.__init__
+Ganga.GPIDev.Lib.Job.Job'.Job.__init__
+Ganga.GPIDev.Lib.Job.Job'.Job._proxyClass.__init__
+Ganga.GPIDev.Lib.Job.Job'.JobError.__init__
+Ganga.GPIDev.Lib.Job.Job'.JobInfo.__init__
+Ganga.GPIDev.Lib.Job.Job'.JobInfo._proxyClass.__init__
+Ganga.GPIDev.Lib.Job.Job'.JobStatusError.__init__
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate.__init__
+Ganga.GPIDev.Lib.Job.Job'.JobTemplate._proxyClass.__init__
+Ganga.GPIDev.Lib.Job.JobTime'.JobTime.__init__
+Ganga.GPIDev.Lib.Job.JobTime'.JobTime._proxyClass.__init__
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree.__init__
+Ganga.GPIDev.Lib.JobTree.JobTree'.JobTree._proxyClass.__init__
+Ganga.GPIDev.Lib.JobTree.JobTree'.TreeError.__init__
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxMetadataObject._proxyClass.__init__
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxRegistrySlice.__init__
+Ganga.GPIDev.Lib.Registry.BoxRegistry'.BoxTypeError.__init__
+Ganga.GPIDev.Lib.Registry.JobRegistry'.JobRegistrySlice.__init__
+Ganga.GPIDev.Lib.Registry.RegistrySlice.RegistrySlice.__init__
+Ganga.GPIDev.Lib.Registry.RegistrySliceProxy.RegistrySliceProxy.__init__
+Ganga.GPIDev.Lib.Tasks.ArgTransform.ArgTransform._proxyClass.__init__
+Ganga.GPIDev.Lib.Tasks.Task'.Task._proxyClass.__init__
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ArgSplitterTask._proxyClass.__init__
+Ganga.GPIDev.Lib.Tasks.TaskApplication.ExecutableTask._proxyClass.__init__
+Ganga.GPIDev.Lib.Tasks.TaskRegistry'.TaskRegistrySlice.__init__
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform.__init__
+Ganga.GPIDev.Lib.Tasks.Transform'.Transform._proxyClass.__init__
+Ganga.GPIDev.Schema.Schema'.ComponentItem.__init__
+Ganga.GPIDev.Schema.Schema'.FileItem.__init__
+Ganga.GPIDev.Schema.Schema'.Item.__init__
+Ganga.GPIDev.Schema.Schema'.Schema.__init__
+Ganga.GPIDev.Schema.Schema'.SimpleItem.__init__
+Ganga.GPIDev.Schema.Schema'.Version.__init__
+Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.TreeNode.__init__
+Ganga.GPIDev.Streamers.MigrationControl.MigrationControl.__init__
+Ganga.GPIDev.Streamers.utilities.EmptyGangaObject._proxyClass.__init__
+Ganga.GPIDev.Streamers.utilities.GangaObjectFactoryError.__init__
+Ganga.Lib.Batch.Batch'.Batch.__init__
+Ganga.Lib.Batch.Batch'.Batch._proxyClass.__init__
+Ganga.Lib.Batch.Batch'.LSF.__init__
+Ganga.Lib.Batch.Batch'.LSF._proxyClass.__init__
+Ganga.Lib.Batch.Batch'.PBS.__init__
+Ganga.Lib.Batch.Batch'.PBS._proxyClass.__init__
+Ganga.Lib.Batch.Batch'.SGE.__init__
+Ganga.Lib.Batch.Batch'.SGE._proxyClass.__init__
+Ganga.Lib.Condor.Condor'.Condor.__init__
+Ganga.Lib.Condor.Condor'.Condor._proxyClass.__init__
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.__init__
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.__init__
+Ganga.Lib.Executable.Executable'.Executable.__init__
+Ganga.Lib.Executable.Executable'.Executable._proxyClass.__init__
+Ganga.Lib.Interactive.Interactive'.Interactive.__init__
+Ganga.Lib.Interactive.Interactive'.Interactive._proxyClass.__init__
+Ganga.Lib.LCG.CREAM.CREAM.__init__
+Ganga.Lib.LCG.ElapsedTimeProfiler.ElapsedTimeProfiler.__init__
+Ganga.Lib.LCG.Grid.Grid.__init__
+Ganga.Lib.LCG.GridSandboxCache.GridFileIndex.__init__
+Ganga.Lib.LCG.GridSandboxCache.GridSandboxCache.__init__
+Ganga.Lib.LCG.GridSimulator.GridSimulator.GridSimulator.__init__
+Ganga.Lib.LCG.GridftpSandboxCache.GridftpFileIndex.__init__
+Ganga.Lib.LCG.GridftpSandboxCache.GridftpSandboxCache.__init__
+Ganga.Lib.LCG.LCG.LCG.__init__
+Ganga.Lib.LCG.LCG.LCGJobConfig.__init__
+Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloadTask.__init__
+Ganga.Lib.LCG.LCGOutputDownloader.LCGOutputDownloader.__init__
+Ganga.Lib.LCG.LCGRequirements.LCGRequirements.__init__
+Ganga.Lib.LCG.LCGSandboxCache.LCGFileIndex.__init__
+Ganga.Lib.LCG.LCGSandboxCache.LCGSandboxCache.__init__
+Ganga.Lib.Localhost.Localhost'.Localhost.__init__
+Ganga.Lib.Localhost.Localhost'.Localhost._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.AbstractMerger.__init__
+Ganga.Lib.Mergers.Merger.AbstractMerger._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.CustomMerger.__init__
+Ganga.Lib.Mergers.Merger.CustomMerger._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.IMergeTool._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.MultipleMerger._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.RootMerger.__init__
+Ganga.Lib.Mergers.Merger.RootMerger._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.SmartMerger._proxyClass.__init__
+Ganga.Lib.Mergers.Merger.TextMerger.__init__
+Ganga.Lib.Mergers.Merger.TextMerger._proxyClass.__init__
+Ganga.Lib.Mergers.Merger._CustomMergeTool._proxyClass.__init__
+Ganga.Lib.Mergers.Merger._RootMergeTool._proxyClass.__init__
+Ganga.Lib.Mergers.Merger._TextMergeTool._proxyClass.__init__
+Ganga.Lib.MonitoringServices.ARDADashboard.DashboardAPI.DashboardAPI.__init__
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.__init__
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.__init__
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.__init__
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.__init__
+Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.__init__
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.__init__
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.__init__
+Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.__init__
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.__init__
+Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.__init__
+Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.__init__
+Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.__init__
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.__init__
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.__init__
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.ProtocolException.__init__
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.__init__
+Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.__init__
+Ganga.Lib.Remote.Remote'.Remote.__init__
+Ganga.Lib.Remote.Remote'.Remote._proxyClass.__init__
+Ganga.Lib.Root.Root'.Root.__init__
+Ganga.Lib.Root.Root'.Root._proxyClass.__init__
+Ganga.Lib.Splitters.ArgSplitter'.ArgSplitter._proxyClass.__init__
+Ganga.Lib.Splitters.ExeSplitter.ExeSplitter._proxyClass.__init__
+Ganga.Lib.Splitters.GenericSplitter'.GenericSplitter._proxyClass.__init__
+Ganga.Runtime.bootstrap.GangaProgram.__init__
+Ganga.Runtime.eliza.eliza.__init__
+Ganga.Runtime.gangadoc.Helper2.__init__
+Ganga.Runtime.http_server.HTTPServerThread.__init__
+Ganga.Runtime.http_server.JobRelatedInfo.__init__
+Ganga.Utility.AMGAServerTools.Commands.Command.__init__
+Ganga.Utility.AMGAServerTools.Commands.winPopen.__init__
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.__init__
+Ganga.Utility.AMGAServerTools.backupManagement.BackUp.__init__
+Ganga.Utility.AMGAServerTools.directoryManagement.Collections.__init__
+Ganga.Utility.AMGAServerTools.groupManagement.Groups.__init__
+Ganga.Utility.AMGAServerTools.mdclient.MDClient.__init__
+Ganga.Utility.AMGAServerTools.mdinterface.CommandException.__init__
+Ganga.Utility.AMGAServerTools.userManagement.UserDB.__init__
+Ganga.Utility.AMGAServerTools.winprocess.Process.__init__
+Ganga.Utility.Caching.Cache.__init__
+Ganga.Utility.Caching.Entry.__init__
+Ganga.Utility.Caching.FunctionCache.__init__
+Ganga.Utility.ColourText.ANSIMarkup.__init__
+Ganga.Utility.ColourText.Background.__init__
+Ganga.Utility.ColourText.Effects.__init__
+Ganga.Utility.ColourText.Foreground.__init__
+Ganga.Utility.ColourText.NoMarkup.__init__
+Ganga.Utility.Config.Config.ConfigError.__init__
+Ganga.Utility.Config.Config.ConfigOption.__init__
+Ganga.Utility.Config.Config.PackageConfig.__init__
+Ganga.Utility.Plugin.GangaPlugin.PluginManager.__init__
+Ganga.Utility.Plugin.GangaPlugin.PluginManagerError.__init__
+Ganga.Utility.Runtime.RuntimePackage.__init__
+Ganga.Utility.Setup.PackageSetup.__init__
+Ganga.Utility.Shell.Shell.__init__
+Ganga.Utility.external.ARDAMDClient.diskutils.Filterer.__init__
+Ganga.Utility.external.ARDAMDClient.diskutils.RLock.__init__
+Ganga.Utility.external.ARDAMDClient.extendedLists.Attributes.__init__
+Ganga.Utility.external.ARDAMDClient.extendedLists.Block.__init__
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockCache.__init__
+Ganga.Utility.external.ARDAMDClient.extendedLists.BlockedList.__init__
+Ganga.Utility.external.ARDAMDClient.extendedLists.Entries.__init__
+Ganga.Utility.external.ARDAMDClient.extendedLists.Storage.__init__
+Ganga.Utility.external.ARDAMDClient.mdclient.MDClient.__init__
+Ganga.Utility.external.ARDAMDClient.mdinterface.CommandException.__init__
+Ganga.Utility.external.ARDAMDClient.mdparser.MDParser.__init__
+Ganga.Utility.external.ARDAMDClient.mdstandalone.MDStandalone.__init__
+Ganga.Utility.external.ARDAMDClient.mdtable.EmptyTableException.__init__
+Ganga.Utility.external.ARDAMDClient.mdtable.MDTable.__init__
+Ganga.Utility.external.logging.BufferingFormatter.__init__
+Ganga.Utility.external.logging.FileHandler.__init__
+Ganga.Utility.external.logging.Filter.__init__
+Ganga.Utility.external.logging.Filterer.__init__
+Ganga.Utility.external.logging.Formatter.__init__
+Ganga.Utility.external.logging.Handler.__init__
+Ganga.Utility.external.logging.LogRecord.__init__
+Ganga.Utility.external.logging.Logger.__init__
+Ganga.Utility.external.logging.Manager.__init__
+Ganga.Utility.external.logging.PlaceHolder.__init__
+Ganga.Utility.external.logging.RootLogger.__init__
+Ganga.Utility.external.logging.StreamHandler.__init__
+Ganga.Utility.external.logging.handlers.BaseRotatingHandler.__init__
+Ganga.Utility.external.logging.handlers.BufferingHandler.__init__
+Ganga.Utility.external.logging.handlers.DatagramHandler.__init__
+Ganga.Utility.external.logging.handlers.HTTPHandler.__init__
+Ganga.Utility.external.logging.handlers.MemoryHandler.__init__
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.__init__
+Ganga.Utility.external.logging.handlers.RotatingFileHandler.__init__
+Ganga.Utility.external.logging.handlers.SMTPHandler.__init__
+Ganga.Utility.external.logging.handlers.SocketHandler.__init__
+Ganga.Utility.external.logging.handlers.SysLogHandler.__init__
+Ganga.Utility.external.logging.handlers.TimedRotatingFileHandler.__init__
+Ganga.Utility.external.ordereddict.dIter.__init__
+Ganga.Utility.external.ordereddict.oDict.__init__
+Ganga.Utility.external.sets.BaseSet.__init__
+Ganga.Utility.external.sets.ImmutableSet.__init__
+Ganga.Utility.external.sets.Set.__init__
+Ganga.Utility.external.sets._TemporarilyImmutableSet.__init__
+Ganga.Utility.external.textwrap.TextWrapper.__init__
+Ganga.Utility.logging.ColourFormatter.__init__
+Ganga.Utility.logging.FlushedMemoryHandler.__init__
+Ganga.Utility.strings.ItemizedTextParagraph.__init__
+Ganga.Utility.threads.SynchronisedObject.__init__
+Ganga.Utility.util.GenericWrapper.__init__
+Ganga.Utility.util.IList.__init__
+Ganga.Utility.util.Proxy.__init__" class="py-name" href="#" onclick="return doclink('link-11', '__init__', 'link-11');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt class="py-name">job_info</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-name">job_info</tt><tt class="py-op">)</tt> <tt class="py-keyword">is</tt> <tt class="py-name">type</tt><tt class="py-op">(</tt><tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-name">job_info</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">[</tt><tt class="py-string">'octopus_server'</tt><tt class="py-op">]</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">port</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">[</tt><tt class="py-string">'octopus_port'</tt><tt class="py-op">]</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Variable Ganga.Utility.external.ARDAMDClient.testClient.client=Ganga.Utility.external.ARDAMDClient.testClient-module.html#client"><a title="Ganga.Utility.external.ARDAMDClient.testClient.client" class="py-name" href="#" onclick="return doclink('link-12', 'client', 'link-12');">client</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-13', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">port</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable Ganga.Lib.MonitoringServices.Octopus.oreader.channel=Ganga.Lib.MonitoringServices.Octopus.oreader-module.html#channel"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.channel" class="py-name" href="#" onclick="return doclink('link-14', 'channel', 'link-14');">channel</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">[</tt><tt class="py-string">'channel'</tt><tt class="py-op">]</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutpos</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stderrpos</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable Ganga.Core.JobRepository.ARDATest.DEBUG=Ganga.Core.JobRepository.ARDATest-module.html#DEBUG,Variable Ganga.Core.JobRepository.PerformanceTest.DEBUG=Ganga.Core.JobRepository.PerformanceTest-module.html#DEBUG,Variable Ganga.Core.JobRepository.TimeTest.DEBUG=Ganga.Core.JobRepository.TimeTest-module.html#DEBUG,Variable Ganga.Lib.MonitoringServices.Octopus.DEBUG=Ganga.Lib.MonitoringServices.Octopus-module.html#DEBUG,Variable Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG=Ganga.Lib.MonitoringServices.Octopus.Octopus%27-module.html#DEBUG,Variable Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.backupManagement.DEBUG=Ganga.Utility.AMGAServerTools.backupManagement-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.certificate.DEBUG=Ganga.Utility.AMGAServerTools.certificate-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG=Ganga.Utility.AMGAServerTools.directoryManagement-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG=Ganga.Utility.AMGAServerTools.ganga_user_create-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.groupManagement.DEBUG=Ganga.Utility.AMGAServerTools.groupManagement-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.mdclient.DEBUG=Ganga.Utility.AMGAServerTools.mdclient-module.html#DEBUG,Variable Ganga.Utility.AMGAServerTools.userManagement.DEBUG=Ganga.Utility.AMGAServerTools.userManagement-module.html#DEBUG,Variable Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG=Ganga.Utility.external.ARDAMDClient.diskutilsTest-module.html#DEBUG,Variable Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG=Ganga.Utility.external.ARDAMDClient.extendedListsTest-module.html#DEBUG,Variable Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG=Ganga.Utility.external.ARDAMDClient.mdclient-module.html#DEBUG,Variable Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG=Ganga.Utility.external.ARDAMDClient.mdparser-module.html#DEBUG,Variable Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG=Ganga.Utility.external.ARDAMDClient.mdstandalone-module.html#DEBUG,Variable Ganga.Utility.external.logging.DEBUG=Ganga.Utility.external.logging-module.html#DEBUG"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-15', 'DEBUG', 'link-15');">DEBUG</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="OctopusMS.start"></a><div id="OctopusMS.start-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="OctopusMS.start-toggle" onclick="return toggle('OctopusMS.start');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html#start">start</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">*</tt><tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS.start-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="OctopusMS.start-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-16', 'DEBUG', 'link-15');">DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">print</tt> <tt class="py-string">'Start called'</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">'Octopus channel:'</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.channel" class="py-name" href="#" onclick="return doclink('link-17', 'channel', 'link-14');">channel</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.progress()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#progress,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.progress()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#progress,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.progress()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#progress,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.progress()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#progress,Method Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.progress()=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html#progress"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.progress
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.progress
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.progress
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.progress
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.progress" class="py-name" href="#" onclick="return doclink('link-18', 'progress', 'link-18');">progress</a></tt><tt class="py-op">(</tt><tt id="link-19" class="py-name" targets="Variable Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.other=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements._proxyClass-class.html#other,Variable Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.other=Ganga.Lib.Condor.CondorRequirements%27.CondorRequirements-class.html#other"><a title="Ganga.Lib.Condor.CondorRequirements'.CondorRequirements._proxyClass.other
+Ganga.Lib.Condor.CondorRequirements'.CondorRequirements.other" class="py-name" href="#" onclick="return doclink('link-19', 'other', 'link-19');">other</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">             </tt>
+<a name="OctopusMS.progress"></a><div id="OctopusMS.progress-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="OctopusMS.progress-toggle" onclick="return toggle('OctopusMS.progress');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html#progress">progress</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-op">*</tt><tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS.progress-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="OctopusMS.progress-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-20', 'DEBUG', 'link-15');">DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">print</tt> <tt class="py-string">'Progress called'</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.testClient.client" class="py-name" href="#" onclick="return doclink('link-21', 'client', 'link-12');">client</a></tt><tt class="py-op">.</tt><tt class="py-name">connected</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.testClient.client" class="py-name" href="#" onclick="return doclink('link-22', 'client', 'link-12');">client</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method Ganga.Core.FileWorkspace.FileWorkspace.create()=Ganga.Core.FileWorkspace.FileWorkspace-class.html#create,Method Ganga.GPIDev.Credentials.AfsToken.AfsToken.create()=Ganga.GPIDev.Credentials.AfsToken.AfsToken-class.html#create,Method Ganga.GPIDev.Credentials.GridProxy.GridProxy.create()=Ganga.GPIDev.Credentials.GridProxy.GridProxy-class.html#create,Method Ganga.GPIDev.Credentials.ICredential.ICredential.create()=Ganga.GPIDev.Credentials.ICredential.ICredential-class.html#create,Method Ganga.GPIDev.Lib.File.File'.File.create()=Ganga.GPIDev.Lib.File.File%27.File-class.html#create,Method Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer.create()=Ganga.GPIDev.Lib.File.FileBuffer%27.FileBuffer-class.html#create,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.create()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#create,Function Ganga.Utility.AMGAServerTools.ganga_user_create.create()=Ganga.Utility.AMGAServerTools.ganga_user_create-module.html#create"><a title="Ganga.Core.FileWorkspace.FileWorkspace.create
+Ganga.GPIDev.Credentials.AfsToken.AfsToken.create
+Ganga.GPIDev.Credentials.GridProxy.GridProxy.create
+Ganga.GPIDev.Credentials.ICredential.ICredential.create
+Ganga.GPIDev.Lib.File.File'.File.create
+Ganga.GPIDev.Lib.File.FileBuffer'.FileBuffer.create
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.create
+Ganga.Utility.AMGAServerTools.ganga_user_create.create" class="py-name" href="#" onclick="return doclink('link-23', 'create', 'link-23');">create</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.channel" class="py-name" href="#" onclick="return doclink('link-24', 'channel', 'link-14');">channel</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt id="link-25" class="py-name" targets="Class Ganga.Lib.MonitoringServices.Octopus.Octopus'.ProtocolException=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.ProtocolException-class.html"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.ProtocolException" class="py-name" href="#" onclick="return doclink('link-25', 'ProtocolException', 'link-25');">ProtocolException</a></tt><tt class="py-op">,</tt> <tt id="link-26" class="py-name" targets="Variable Ganga.Utility.AMGAServerTools.mdclient.e=Ganga.Utility.AMGAServerTools.mdclient-module.html#e,Variable Ganga.Utility.external.ARDAMDClient.mdclient.e=Ganga.Utility.external.ARDAMDClient.mdclient-module.html#e"><a title="Ganga.Utility.AMGAServerTools.mdclient.e
+Ganga.Utility.external.ARDAMDClient.mdclient.e" class="py-name" href="#" onclick="return doclink('link-26', 'e', 'link-26');">e</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">'Error connecting to octopus server: '</tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name"><a title="Ganga.Utility.AMGAServerTools.mdclient.e
+Ganga.Utility.external.ARDAMDClient.mdclient.e" class="py-name" href="#" onclick="return doclink('link-27', 'e', 'link-26');">e</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutFile</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#open"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.open" class="py-name" href="#" onclick="return doclink('link-28', 'open', 'link-28');">open</a></tt><tt class="py-op">(</tt><tt class="py-string">'stdout'</tt><tt class="py-op">,</tt> <tt class="py-string">'r'</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutFile</tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-name">cLen</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutFile</tt><tt class="py-op">.</tt><tt class="py-name">tell</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutFile</tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutpos</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-29', 'DEBUG', 'link-15');">DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">print</tt> <tt class="py-string">'File length:'</tt><tt class="py-op">,</tt> <tt class="py-name">cLen</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-keyword">while</tt> <tt class="py-name">cLen</tt> <tt class="py-op">&gt;</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutpos</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt class="py-name">b</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutFile</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#read,Method Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read()=Ganga.Utility.AMGAServerTools.PipeReader.PipeReader-class.html#read,Function Ganga.Utility.external.ARDAMDClient.diskutils.read()=Ganga.Utility.external.ARDAMDClient.diskutils-module.html#read"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.read
+Ganga.Utility.AMGAServerTools.PipeReader.PipeReader.read
+Ganga.Utility.external.ARDAMDClient.diskutils.read" class="py-name" href="#" onclick="return doclink('link-30', 'read', 'link-30');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-31', 'DEBUG', 'link-15');">DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">print</tt> <tt class="py-string">'Sending &gt;'</tt><tt class="py-op">,</tt> <tt class="py-name">b</tt><tt class="py-op">,</tt> <tt class="py-string">'&lt;'</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.testClient.client" class="py-name" href="#" onclick="return doclink('link-32', 'client', 'link-12');">client</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.send()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#send,Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.send()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#send,Method Ganga.Utility.external.logging.handlers.DatagramHandler.send()=Ganga.Utility.external.logging.handlers.DatagramHandler-class.html#send,Method Ganga.Utility.external.logging.handlers.SocketHandler.send()=Ganga.Utility.external.logging.handlers.SocketHandler-class.html#send"><a title="Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.send
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.send
+Ganga.Utility.external.logging.handlers.DatagramHandler.send
+Ganga.Utility.external.logging.handlers.SocketHandler.send" class="py-name" href="#" onclick="return doclink('link-33', 'send', 'link-33');">send</a></tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutpos</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">stdoutpos</tt> <tt class="py-op">+</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">b</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-34', 'DEBUG', 'link-15');">DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">print</tt> <tt class="py-string">'Leaving progress'</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-35" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.ProtocolException" class="py-name" href="#" onclick="return doclink('link-35', 'ProtocolException', 'link-25');">ProtocolException</a></tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="Ganga.Utility.AMGAServerTools.mdclient.e
+Ganga.Utility.external.ARDAMDClient.mdclient.e" class="py-name" href="#" onclick="return doclink('link-36', 'e', 'link-26');">e</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">'Error sending to octopus server: '</tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="Ganga.Utility.AMGAServerTools.mdclient.e
+Ganga.Utility.external.ARDAMDClient.mdclient.e" class="py-name" href="#" onclick="return doclink('link-37', 'e', 'link-26');">e</a></tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">         </tt>
+<a name="OctopusMS.stop"></a><div id="OctopusMS.stop-def"><a name="L50"></a><tt class="py-lineno">50</tt> <a class="py-toggle" href="#" id="OctopusMS.stop-toggle" onclick="return toggle('OctopusMS.stop');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html#stop">stop</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">exitcode</tt><tt class="py-op">,</tt><tt class="py-op">*</tt><tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS.stop-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="OctopusMS.stop-expanded"><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="Ganga.Core.JobRepository.ARDATest.DEBUG
+Ganga.Core.JobRepository.PerformanceTest.DEBUG
+Ganga.Core.JobRepository.TimeTest.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.DEBUG
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.DEBUG
+Ganga.Utility.AMGAServerTools.backupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.certificate.DEBUG
+Ganga.Utility.AMGAServerTools.directoryManagement.DEBUG
+Ganga.Utility.AMGAServerTools.ganga_user_create.DEBUG
+Ganga.Utility.AMGAServerTools.groupManagement.DEBUG
+Ganga.Utility.AMGAServerTools.mdclient.DEBUG
+Ganga.Utility.AMGAServerTools.userManagement.DEBUG
+Ganga.Utility.external.ARDAMDClient.diskutilsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.extendedListsTest.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdclient.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdparser.DEBUG
+Ganga.Utility.external.ARDAMDClient.mdstandalone.DEBUG
+Ganga.Utility.external.logging.DEBUG" class="py-name" href="#" onclick="return doclink('link-38', 'DEBUG', 'link-15');">DEBUG</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">print</tt> <tt class="py-string">'Octopus done!'</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="Ganga.Utility.external.ARDAMDClient.testClient.client" class="py-name" href="#" onclick="return doclink('link-39', 'client', 'link-12');">client</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close()=Ganga.Lib.MonitoringServices.Octopus.Octopus%27.Octopus-class.html#close,Method Ganga.Utility.external.logging.FileHandler.close()=Ganga.Utility.external.logging.FileHandler-class.html#close,Method Ganga.Utility.external.logging.Handler.close()=Ganga.Utility.external.logging.Handler-class.html#close,Method Ganga.Utility.external.logging.handlers.BufferingHandler.close()=Ganga.Utility.external.logging.handlers.BufferingHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.MemoryHandler.close()=Ganga.Utility.external.logging.handlers.MemoryHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.NTEventLogHandler.close()=Ganga.Utility.external.logging.handlers.NTEventLogHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.SocketHandler.close()=Ganga.Utility.external.logging.handlers.SocketHandler-class.html#close,Method Ganga.Utility.external.logging.handlers.SysLogHandler.close()=Ganga.Utility.external.logging.handlers.SysLogHandler-class.html#close"><a title="Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus.close
+Ganga.Utility.external.logging.FileHandler.close
+Ganga.Utility.external.logging.Handler.close
+Ganga.Utility.external.logging.handlers.BufferingHandler.close
+Ganga.Utility.external.logging.handlers.MemoryHandler.close
+Ganga.Utility.external.logging.handlers.NTEventLogHandler.close
+Ganga.Utility.external.logging.handlers.SocketHandler.close
+Ganga.Utility.external.logging.handlers.SysLogHandler.close" class="py-name" href="#" onclick="return doclink('link-40', 'close', 'link-40');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="OctopusMS.getJobInfo"></a><div id="OctopusMS.getJobInfo-def"><a name="L54"></a><tt class="py-lineno">54</tt> <a class="py-toggle" href="#" id="OctopusMS.getJobInfo-toggle" onclick="return toggle('OctopusMS.getJobInfo');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html#getJobInfo">getJobInfo</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS.getJobInfo-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="OctopusMS.getJobInfo-expanded"><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt id="link-41" class="py-name" targets="Variable Ganga.Lib.MonitoringServices.Octopus.oreader.s=Ganga.Lib.MonitoringServices.Octopus.oreader-module.html#s"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.s" class="py-name" href="#" onclick="return doclink('link-41', 's', 'link-41');">s</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'GANGA_OCTOPUS_SERVER'</tt><tt class="py-op">]</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">            <tt class="py-keyword">from</tt> <tt id="link-42" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-42', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Module Ganga.Lib.LCG.Utility=Ganga.Lib.LCG.Utility-module.html,Package Ganga.Utility=Ganga.Utility-module.html"><a title="Ganga.Lib.LCG.Utility
+Ganga.Utility" class="py-name" href="#" onclick="return doclink('link-43', 'Utility', 'link-43');">Utility</a></tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Module Ganga.Utility.util=Ganga.Utility.util-module.html"><a title="Ganga.Utility.util" class="py-name" href="#" onclick="return doclink('link-44', 'util', 'link-44');">util</a></tt> <tt class="py-keyword">import</tt> <tt id="link-45" class="py-name" targets="Function Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.hostname()=Ganga.Lib.MonitoringServices.Dashboard.CommonUtil-module.html#hostname,Function Ganga.Lib.MonitoringServices.MSGMS.MSGMS.hostname()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS-module.html#hostname,Function Ganga.Lib.MonitoringServices.OutputServerMS.ganga_output_server.hostname()=Ganga.Lib.MonitoringServices.OutputServerMS.ganga_output_server-module.html#hostname,Function Ganga.Utility.util.hostname()=Ganga.Utility.util-module.html#hostname"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.hostname
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.hostname
+Ganga.Lib.MonitoringServices.OutputServerMS.ganga_output_server.hostname
+Ganga.Utility.util.hostname" class="py-name" href="#" onclick="return doclink('link-45', 'hostname', 'link-45');">hostname</a></tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt id="link-46" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.s" class="py-name" href="#" onclick="return doclink('link-46', 's', 'link-41');">s</a></tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name"><a title="Ganga.Lib.MonitoringServices.Dashboard.CommonUtil.hostname
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.hostname
+Ganga.Lib.MonitoringServices.OutputServerMS.ganga_output_server.hostname
+Ganga.Utility.util.hostname" class="py-name" href="#" onclick="return doclink('link-47', 'hostname', 'link-45');">hostname</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">         </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">            <tt id="link-48" class="py-name" targets="Function Ganga.Core.JobRepositoryXML.VStreamer.p()=Ganga.Core.JobRepositoryXML.VStreamer-module.html#p,Variable Ganga.Lib.MonitoringServices.Octopus.oreader.p=Ganga.Lib.MonitoringServices.Octopus.oreader-module.html#p,Variable Ganga.PACKAGE.p=Ganga.PACKAGE-module.html#p"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-48', 'p', 'link-48');">p</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">environ</tt><tt class="py-op">[</tt><tt class="py-string">'GANGA_OCTOPUS_PORT'</tt><tt class="py-op">]</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">            <tt id="link-49" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-49', 'p', 'link-48');">p</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8882</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-name">h</tt> <tt class="py-op">=</tt> <tt class="py-name">long</tt><tt class="py-op">(</tt><tt class="py-name">hash</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method Ganga.GPIDev.Lib.Job.Job'.Job.getFQID()=Ganga.GPIDev.Lib.Job.Job%27.Job-class.html#getFQID"><a title="Ganga.GPIDev.Lib.Job.Job'.Job.getFQID" class="py-name" href="#" onclick="return doclink('link-50', 'getFQID', 'link-50');">getFQID</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-name">h</tt> <tt class="py-op">=</tt> <tt class="py-name">h</tt> <tt class="py-op">+</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">maxint</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-name">long</tt><tt class="py-op">(</tt><tt class="py-name">hash</tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.s" class="py-name" href="#" onclick="return doclink('link-51', 's', 'link-41');">s</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">maxint</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">         </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">{</tt><tt class="py-string">'jobid'</tt><tt class="py-op">:</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">job_info</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="Ganga.GPIDev.Lib.Job.Job'.Job.getFQID" class="py-name" href="#" onclick="return doclink('link-52', 'getFQID', 'link-50');">getFQID</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'channel'</tt><tt class="py-op">:</tt><tt class="py-name">h</tt><tt class="py-op">,</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">                <tt class="py-string">'octopus_server'</tt><tt class="py-op">:</tt> <tt id="link-53" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.oreader.s" class="py-name" href="#" onclick="return doclink('link-53', 's', 'link-41');">s</a></tt><tt class="py-op">,</tt> <tt class="py-string">'octopus_port'</tt><tt class="py-op">:</tt> <tt id="link-54" class="py-name"><a title="Ganga.Core.JobRepositoryXML.VStreamer.p
+Ganga.Lib.MonitoringServices.Octopus.oreader.p
+Ganga.PACKAGE.p" class="py-name" href="#" onclick="return doclink('link-54', 'p', 'link-48');">p</a></tt><tt class="py-op">}</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">     </tt>
+<a name="OctopusMS.getSandboxModules"></a><div id="OctopusMS.getSandboxModules-def"><a name="L73"></a><tt class="py-lineno">73</tt> <a class="py-toggle" href="#" id="OctopusMS.getSandboxModules-toggle" onclick="return toggle('OctopusMS.getSandboxModules');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS-class.html#getSandboxModules">getSandboxModules</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="OctopusMS.getSandboxModules-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="OctopusMS.getSandboxModules-expanded"><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Sending sandbox modules"</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt id="link-55" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-55', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-56', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-57', 'MonitoringServices', 'link-7');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-58', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Class Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html"><a title="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS" class="py-name" href="#" onclick="return doclink('link-59', 'OctopusMS', 'link-59');">OctopusMS</a></tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-60" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-60', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">,</tt> <tt id="link-61" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-61', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-62', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">,</tt> <tt id="link-63" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-63', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-64', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-65', 'MonitoringServices', 'link-7');">MonitoringServices</a></tt><tt class="py-op">,</tt> <tt id="link-66" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-66', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-67', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-68', 'MonitoringServices', 'link-7');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-69', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">,</tt> <tt id="link-70" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-70', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-71', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-72', 'MonitoringServices', 'link-7');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-73', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS" class="py-name" href="#" onclick="return doclink('link-74', 'OctopusMS', 'link-59');">OctopusMS</a></tt><tt class="py-op">,</tt> <tt id="link-75" class="py-name"><a title="Ganga" class="py-name" href="#" onclick="return doclink('link-75', 'Ganga', 'link-0');">Ganga</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="Ganga.GPIDev.Lib
+Ganga.Lib" class="py-name" href="#" onclick="return doclink('link-76', 'Lib', 'link-6');">Lib</a></tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="Ganga.GPIDev.MonitoringServices
+Ganga.Lib.MonitoringServices" class="py-name" href="#" onclick="return doclink('link-77', 'MonitoringServices', 'link-7');">MonitoringServices</a></tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-78', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="Ganga.Lib.MonitoringServices.Octopus
+Ganga.Lib.MonitoringServices.Octopus.Octopus'.Octopus" class="py-name" href="#" onclick="return doclink('link-79', 'Octopus', 'link-8');">Octopus</a></tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt id="link-80" class="py-name"><a title="Ganga.GPIDev.Adapters.IMonitoringService
+Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService" class="py-name" href="#" onclick="return doclink('link-80', 'IMonitoringService', 'link-3');">IMonitoringService</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name" targets="Method Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getSandboxModules()=Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.getSandboxModules()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.getSandboxModules()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.getSandboxModules()=Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.getSandboxModules()=Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.getSandboxModules()=Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.getSandboxModules()=Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getSandboxModules()=Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.getSandboxModules()=Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.getSandboxModules()=Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.getSandboxModules()=Ganga.Lib.MonitoringServices.DummyMS.DummyMS%27.DummyMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.getSandboxModules()=Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS%27.JobExecutionMonitorMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.getSandboxModules()=Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getSandboxModules()=Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS-class.html#getSandboxModules,Function Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.getSandboxModules()=Ganga.Lib.MonitoringServices.MSGMS.MSGUtil-module.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.getSandboxModules()=Ganga.Lib.MonitoringServices.Octopus.OctopusMS%27.OctopusMS-class.html#getSandboxModules,Method Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.getSandboxModules()=Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS%27.OutputServerMS-class.html#getSandboxModules"><a title="Ganga.GPIDev.Adapters.IMonitoringService.IMonitoringService.getSandboxModules
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCG.ARDADashboardLCG.getSandboxModules
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGAthena.ARDADashboardLCGAthena.getSandboxModules
+Ganga.Lib.MonitoringServices.ARDADashboard.LCG.ARDADashboardLCGExecutable.ARDADashboardLCGExecutable.getSandboxModules
+Ganga.Lib.MonitoringServices.Composite.CompositeMonitoringService.getSandboxModules
+Ganga.Lib.MonitoringServices.Dashboard.AthenaMS.AthenaMS.getSandboxModules
+Ganga.Lib.MonitoringServices.Dashboard.BackendMS.BackendMS.getSandboxModules
+Ganga.Lib.MonitoringServices.Dashboard.DashboardMS.DashboardMS.getSandboxModules
+Ganga.Lib.MonitoringServices.Dashboard.LCGAthenaMS.LCGAthenaMS.getSandboxModules
+Ganga.Lib.MonitoringServices.Dashboard.LCGMS.LCGMS.getSandboxModules
+Ganga.Lib.MonitoringServices.DummyMS.DummyMS'.DummyMS.getSandboxModules
+Ganga.Lib.MonitoringServices.JobExecutionMonitorMS.JobExecutionMonitorMS'.JobExecutionMonitorMS.getSandboxModules
+Ganga.Lib.MonitoringServices.MSGMS.AthenaMSGMS.AthenaMSGMS.getSandboxModules
+Ganga.Lib.MonitoringServices.MSGMS.MSGMS.MSGMS.getSandboxModules
+Ganga.Lib.MonitoringServices.MSGMS.MSGUtil.getSandboxModules
+Ganga.Lib.MonitoringServices.Octopus.OctopusMS'.OctopusMS.getSandboxModules
+Ganga.Lib.MonitoringServices.OutputServerMS.OutputServerMS'.OutputServerMS.getSandboxModules" class="py-name" href="#" onclick="return doclink('link-81', 'getSandboxModules', 'link-81');">getSandboxModules</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="Ganga-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Jun 25 10:35:29 2012
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

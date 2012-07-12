@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>木大</title><link>zsneoks.github.com/</link><description></description><atom:link href="zsneoks.github.com/feeds/Ganga.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 28 Jun 2012 00:00:00 +0800</lastBuildDate><item><title>ApplicationRuntimeHandler及IRuntimeHandler文档解析</title><link>zsneoks.github.com/ApplicationRuntimeHandler-IRuntimeHandler-htmlname.html</link><description>&lt;h2&gt;ApplicationRuntimeHandlers&lt;/h2&gt;
+&lt;p&gt;类图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ApplicationRuntimeHandlers类图" src="images/applicationruntimehandlers.png" title="ApplicationRuntimeHandler类图" /&gt;&lt;/p&gt;
+&lt;p&gt;文档解析：&lt;/p&gt;
+&lt;p&gt;匹配app和backend的handlers机制。&lt;/p&gt;
+&lt;h3&gt;1.add(self,application,backend,handler)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.get(self,application,backend)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.getAllBackends(self,application=None)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.getAllApplication(self,backend=None)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;IRuntimeHandler&lt;/h2&gt;
+&lt;p&gt;类图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="IRuntimeHandler类图" src="images/iruntimehandler.png" /&gt;&lt;/p&gt;
+&lt;p&gt;文档解析：&lt;/p&gt;
+&lt;p&gt;RuntimeHandler是一个连接器，用来连接app和backend。app的configure方法产生appconfig对象。backend的submit方法使用jobconfig对象。RuntimeHandler将appconfig对象转换成jobconfig对象。该转换是作业提交的一部分。它在prepare方法中实现。&lt;/p&gt;
+&lt;h3&gt;1.master_prepare(self,app,appmasterconfig)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为作业提交的共性（共享）部分做一些准备&lt;/li&gt;
+&lt;li&gt;每个作业调用一次（包括要拆分作业或者不拆分的作业）&lt;/li&gt;
+&lt;li&gt;返回值为backend可理解的jobmasterconfig对象&lt;/li&gt;
+&lt;li&gt;参数
+  &lt;ul&gt;
+  &lt;li&gt;- app: 原始的app对象&lt;/li&gt;
+  &lt;li&gt;- appmaster config:app.master_configure()的结果&lt;/li&gt;
+  &lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.prepare(self,app,appsubconfig,appmasterconfig,jobmasterconfig)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为作业提交的特性(子作业）部分做一些准备工作&lt;/li&gt;
+&lt;li&gt;在拆分情况下每个子作业调用一次。&lt;/li&gt;
+&lt;li&gt;如果没有拆分成子作业，则只调用一次&lt;/li&gt;
+&lt;li&gt;返回值是backend可理解的subjobconfig对象的列表&lt;/li&gt;
+&lt;li&gt;参数
+  &lt;ul&gt;
+  &lt;li&gt;- app: 原始的app对象&lt;/li&gt;
+  &lt;li&gt;- appmaster config: app.master_configure()的结果&lt;/li&gt;
+  &lt;li&gt;- appsubconfig:    app.configure()为每个子作业运行的结果的列表（不拆分的情况下则是主作业）&lt;/li&gt; 
+  &lt;li&gt;- jobmasterconfig: self.master_prepare()的返回结果&lt;/li&gt;
+  &lt;ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Thu, 28 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-28:ApplicationRuntimeHandler-IRuntimeHandler-htmlname.html</guid><category>ganga</category><category>物理</category></item><item><title>IMerger及ISplitter文档解析</title><link>zsneoks.github.com/IMerger-ISplitter-htmlname.html</link><description>&lt;h2&gt;IMerger&lt;/h2&gt;
+&lt;p&gt;类图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="IMerger类图" src="images/imerger.png" title="IMerger类图" /&gt;&lt;/p&gt;
+&lt;p&gt;文档解析：&lt;/p&gt;
+&lt;h3&gt;1.merger(self,subjobs,sum_outputdir,**option)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;合并子作业的输出到sum_outputdir.&lt;/li&gt;
+&lt;li&gt;options（关键字参数）由具体的子类定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.validatedMerge(self.job)&lt;/h3&gt;
+&lt;h2&gt;ISplitter&lt;/h2&gt;
+&lt;p&gt;类图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ISplitter类图" src="images/isplitter.png" title="ISplitter类图" /&gt;&lt;/p&gt;
+&lt;p&gt;文档解析：&lt;/p&gt;
+&lt;h3&gt;1.split(self,job)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;根据主作业返回子作业列表&lt;/li&gt;
+&lt;li&gt;主作业不会被更改&lt;/li&gt;
+&lt;li&gt;具体子类必须实现本方法&lt;/li&gt;
+&lt;li&gt;修改子作业的确定部分（如特定的属性）。子作业的其他部分都会相同。只有在schema中声明为"splitable"的属性才可修改。如果app handler不能处理被修改的参数，这个限定应用在app对象上就可以避免前后不一致。&lt;/li&gt;
+&lt;li&gt;当前的实现中，backend的类型也不可更改。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.validatedSplit(self,job)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;调用split()方法执行作业拆分，并使mutability inveriants有效&lt;/li&gt;
+&lt;li&gt;如果invariants损坏(或者split()中发生异常），则抛出SplittingError异常&lt;/li&gt;
+&lt;li&gt;由框架直接调用且不应该在子类中更改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3._checksetNestedLists(self,value)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;检查嵌套列表，规则是如果有嵌套列表，则它不能包含GangaObjects，因为这会与repository冲突。不符合规则会抛出异常。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.createSubjob(self,job)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;通过拷贝主作业来产生一个新的子作业，并正确设置其所有的域。&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Thu, 28 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-28:IMerger-ISplitter-htmlname.html</guid><category>linux</category><category>ganga</category><category>物理</category></item><item><title>IApplication文档解析</title><link>zsneoks.github.com/IApplication-htmlname.html</link><description>&lt;p&gt;类图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Iapp类图" src="./images/Iapp.png" title="Iapp类图" /&gt;&lt;/p&gt;
+&lt;p&gt;是所有app对象的基类。子类在GPI中给出程序逻辑并从功能上实现配置操作。app配置是作业提交的第一步。&lt;/p&gt;
+&lt;p&gt;实现配置方法的基本规则：&lt;/p&gt;
+&lt;p&gt;一般configure()和master_configure()方法会在作业提交的时候调用，所以原则上你&lt;/p&gt;
+&lt;p&gt;方法文档：&lt;/p&gt;
+&lt;h3&gt;1.master_configure(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;配置app的共享（主要）方面。&lt;/li&gt;
+&lt;li&gt;调用一次，splitting情况下也会调用&lt;/li&gt;
+&lt;li&gt;返回元组(modified_flag, appconfig)
+  &lt;ul&gt;
+  &lt;li&gt; -appconfig(或appextra): 结构任意。由特定app运行时handler处理&lt;/li&gt;
+  &lt;li&gt; -modified_flag: 如果configure()时对象self被改变了则为true&lt;/li&gt;
+  &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;如果方法未实现则忽略掉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.config(self,master_aapconfig)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;配置app的特定方面。与方法1有类似语义并且返回元组(modified_flag,appconfig).&lt;/li&gt;
+&lt;li&gt;具体子类必须实现，否则作业提交（submission)会失败。&lt;/li&gt;
+&lt;li&gt;参数master_configure是方法1的返回&lt;/li&gt;
+&lt;li&gt;splitting情况下每个子作业对象调用一次。即有多少子作业就会调用多少次。&lt;/li&gt;
+&lt;li&gt;无spliting情况下则会调用一次.&lt;/li&gt;
+&lt;li&gt;从Ganga4.0.x开始，方法1被忽略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.postprocess(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;作业运行完后执行（即在报告作业状态为completed时）&lt;/li&gt;
+&lt;li&gt;默认未做任何事&lt;/li&gt;
+&lt;li&gt;可能抛出一个异常PostprocessStatusUpdate('faild').这种情况下作业状态是'failed'.但postprocess_failed()钩子不被调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.postprocess_failed(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;如字义作业报告为失败时调用。默认未做事&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;5.transion_update(self,new_status)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在parent作业改变状态之前调用&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Mon, 25 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-25:IApplication-htmlname.html</guid><category>ganga</category><category>物理</category></item><item><title>Ganga中文</title><link>zsneoks.github.com/gangadoc-html.html</link><description>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;link rel="Stylesheet" type="text/css" href="style.css"&gt;
+&lt;title&gt;GangaDoc&lt;/title&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h3 id="toc_0.0.1" class="justcenter"&gt;&lt;a href="gangadoc/index.html"&gt;Ganga文档首页入口&lt;/a&gt;&lt;/h3&gt;
+
+&lt;h4 id="toc_0.0.1.1"&gt;3 实现&lt;/h4&gt;
+
+&lt;blockquote&gt;
+这章提供了GANGA中一些重要部分的当前实现细节。
+&lt;/blockquote&gt;
+
+&lt;h6 id="toc_0.0.1.1.0.1"&gt;3.1 组件&lt;/h6&gt;
+
+&lt;blockquote&gt;
+作业的各个组件以插件类的形式来实现，需用户在配置文件中设为enabled，则会由GANGA在启动时导入。这表示用户仅能看到与其特定工作环境相关的组件。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+插件维护十分简单，采用了一组内部接口和一个产生代理类的机制。组件类继承自接口类。每个插件类都定义了一个schema，用它描述插件的属性和指定类型（只读/读写/内部）、可见性以及相关的用户友好(user-convinence)的过滤器和语法快捷方式(shortcut)。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+与用户直接进行交互的不是插件类，而是一个自动产生的代理类，代理类在GPI中可见。代理类只包含插件类中的一些在schema中定义可见的属性以及选出用于导出的方法。插件和代理的层次（level)分离十分灵活。在GPI层插件的实现细节不可见；所有代理类都遵循相同的设计逻辑（例如按值拷贝copy-by-value)；持续性自动化，会话等级锁定透明。用这种方法，底层的内部的API就与用户层的GPI分离开。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+框架不强迫开发者支持app和backend的所有组合，只要支持有意义和有趣的组合即可。为便于管理这些组合，提出了submission handler的概念。sumission handler是app和backend组件的一个连接器。在提交时间，它将app的内部表示（representation)传送给特定backend可以接受的表示(representation)。这种策略允许完全(inherently)不同的backend和app的结合，而不需要强制一个lowest-common-denominator接口。
+&lt;/blockquote&gt;
+
+&lt;h6 id="toc_0.0.1.1.0.2"&gt;3.2 作业保持（persistence）&lt;/h6&gt;
+
+&lt;blockquote&gt;
+作业仓库在一个简单数据库中提供作业保持，以便任何之后的Ganga会话都可以访问所有之前定义的作业。每当在Ganga会话中定义一个作业，它就会被自动地存入这个数据库中。作业仓库还提供了一个bookkeeping系统用来根据metadata挑选特殊的作业。metadata包括以下一些参数如作业名称、app类型、要提交的backend类型、以及作业状态等。它可以根据需要轻松地进行扩展。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+GANGA同时支持本地和远程的作业仓库。在本地仓库的情况下，数据库存储在本地的文件系统中，它提供一个孤立的解决方案。在远程情况下，客户端访问AMGA metadata服务器。远程服务器基于网格证书提供与可信和授权用户的加密连接。表现测试中,两种仓库在每个用户高达10000个作业,每个下都仍旧表现出了良好的scalability，单个作业的平均生成时间大约是0.2秒。。。（各种好。。。）
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+作业仓库考虑到插件组件中的schema的升级维护，还包含了一个提供schema迁移的机制。
+&lt;/blockquote&gt;
+
+&lt;h6 id="toc_0.0.1.1.0.3"&gt;3.3 输入输出文件&lt;/h6&gt;
+
+&lt;blockquote&gt;
+Ganga在作业工作区存储作业的输入输出文件。在当前的实现中使用了本地文件系统，并且有一个简单的接口允许在Ganga构架下透明地访问作业文件。这些文件在为每个作业分别指定的目录中存储，该目录有一些子目录来存储输入输出文件或者用于子作业。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+用户可以在文件系统中直接访问作业文件或者使用Ganga命令访问（如job.peek()).从内部来看，考虑到额外的工作区实现的琐碎的集成，Ganga通过一个简单的抽象层持有输入输出文件。测试表明。。。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+远程工作区和远程作业仓库的结合有效地生成了一个漫游的profile，相同的Ganga会话可以在多个位置访问，这有点类似于在一个IMAP服务器上访问e-mail信息的情况。
+&lt;/blockquote&gt;
+
+&lt;h4 id="toc_0.0.1.2"&gt;4 监测&lt;/h4&gt;
+
+&lt;blockquote&gt;
+Ganga提供了两种类型的监测：内部监测用作业进程信息来更新用户，外部监测处理来自第三方服务的信息。
+&lt;/blockquote&gt;
+
+&lt;h6 id="toc_0.0.1.2.0.1"&gt;4.1 内部监测&lt;/h6&gt;
+
+&lt;blockquote&gt;
+Ganga使用监测程序自动保存作业状态的变更历程，这个监测程序设计用来处理变化的backend响应次数和加载功能。每个backend被poll进一个不同的从pool中取出的thread中，同时有一个有效的机制来避免响应较慢的backend造成的死锁。poll rate可以对每个backend都有单独的设定。
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+监测子系统也会保存权限证书的remaining有效性的历程，比如网格代理和Kerberos tokens.用户需要注意更新，而如果没有动作那么Ganga就会被置入状态，在该状态下操作需要有效证书会不可用。
+&lt;/blockquote&gt;
+
+&lt;h6 id="toc_0.0.1.2.0.2"&gt;4.2 外部监测&lt;/h6&gt;
+
+&lt;p&gt;&lt;/body&gt;
+&lt;/html&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Mon, 25 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-25:gangadoc-html.html</guid><category>linux</category><category>ganga</category><category>物理</category><category>software</category></item><item><title>IBackend文档解析</title><link>zsneoks.github.com/ibackend-htmlname.html</link><description>&lt;p&gt;类图：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="IBackend类图" src="./images/IBackend.png" title="IBackend类图" /&gt;&lt;/p&gt;
+&lt;p&gt;文档解析：&lt;/p&gt;
+&lt;h3&gt;1.setup(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Ganga.core服务启动时由每个作业调用的一个钩子。在监测子系统enabled之前调用。可以被backend用来进行一些特殊的setup(比如远程backned的ssh传输管道）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2.master_submit(self,rjobs,subjobconfigs,masterjobconfig,keep_going=false)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;提交主作业和所有子作业&lt;/li&gt;
+&lt;li&gt;masterjobconfig是共享的，单独的subjob配置在subjobconfig中定义&lt;/li&gt;
+&lt;li&gt;单个作业（无split的提交也通过本方法执行。在这种情况下subjobconfig只包含一个元素——作业本身。&lt;/li&gt;
+&lt;li&gt;默认实现是调用每个单独作业的submit()方法&lt;/li&gt;
+&lt;li&gt;如果任何子作业fails则整个过程被忽略并抛出一个IncompleteSubmissionError&lt;/li&gt;
+&lt;li&gt;子作业已经submit的保持submitted&lt;/li&gt;
+&lt;li&gt;默认实现不处理masterjobconfig(因此子类中一般可以重写本方法）&lt;/li&gt;
+&lt;li&gt;在IBackend_submit()中keep_going是可选的，用以允许不支持keep_going=True的backend实现，这些backend在某些情况下可能要调用IBackend.master_submit()来工作，这样就不需要重写本方法。很多情况中该参数并不重要，因此由开发维护人员决定是否启用对该参数的支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3.submit(self,subjobconfig,master_input_sandbox)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;提交一个单独的作业。成功返回1&lt;/li&gt;
+&lt;li&gt;master_input_sandbox是一个列表，内容为所有子作业共享的文件名单&lt;/li&gt;
+&lt;li&gt;不直接由框架调用，只被master_submit()方法的默认实现调用。因此如果master_submit()可以实现对单作业的提交，则本方法是多余的。&lt;/li&gt;
+&lt;li&gt;4.0.x后的变化
+  &lt;ul&gt;
+  &lt;li&gt;subjobconfig与老接口的jobconfig等效&lt;/li&gt;
+  &lt;li&gt;jobid已经废弃将移除&lt;/li&gt;
+  &lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4.master_prepare(self,masterjobconfig)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;准备主作业（共享的沙盒文件）。由master_submit()调用三次。沙盒根据self._packed_input_sandbox标志（一个类属性）产生&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;5.master_auto_resubmit(self,rjobs)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一个钩子，在有人想重写自动resubmit行为时可以使用。否则等效于普通的resubmit。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;6.master_resubmit(self,rjobs,backend=None)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;resubmit(状态是submitted的）作业。&lt;/li&gt;
+&lt;li&gt;配置phase会跳过。&lt;/li&gt;
+&lt;li&gt;默认的实现是一个等效bulk的操作&lt;/li&gt;
+&lt;li&gt;如果重写，要保证在主作业上调用过updateMasterJobstatus()，以使主作业能监控循环上被监控。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;7.master_kill(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;kill作业和所有子作业。成功返回1.&lt;/li&gt;
+&lt;li&gt;默认的实现是使用kill()方法并在所有子作业上仿照bulk操作&lt;/li&gt;
+&lt;li&gt;在有failure的情况下依然会尽可能多的kill掉子作业。&lt;/li&gt;
+&lt;li&gt;若操作未完成则抛出IncompleteKillError()异常&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;8.kill(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;kill作业（和所有子作业）&lt;/li&gt;
+&lt;li&gt;从不会由框架调用。只会被默认的master_kill()调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;9.peek(self,filename='',command='')&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;允许查看作业在backend上的输出文件&lt;/li&gt;
+&lt;li&gt;由command命令查看filename文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;10.remove(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;主要用于远程(ssh)backend.当作业被移除的时候这个backend方法被调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;11.master_updateMonitoringInformation(jobs)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;静态方法&lt;/li&gt;
+&lt;li&gt;更新作业的监控信息：
+  &lt;ul&gt;
+  &lt;li&gt;在Backendk需要监控的作业列表（包括状态为submitted和running的作业）&lt;/li&gt;
+  &lt;li&gt;上述作业列表中不包含子作业&lt;/li&gt;
+  &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;默认实现是叠代遍历子作业并执行updateMonitoringInformation()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;12.updateMonitoringInformation(jobs)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;静态方法&lt;/li&gt;
+&lt;li&gt;更新单作业的监控信息。这个作业是指一个作业列表，可包含子作业和无分片作业&lt;/li&gt;
+&lt;li&gt;框架中不会直接调用。可能仅由master_updateMonitoringInformation()默认实现来调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;13.timedetails(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;返回所有可用的backend指定的时间戳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;14.getStateTime(self,status)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在作业转变到running和completed状态时取得时间戳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;15.check_auto_resubmit(self)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一个钩子，用于检查作业是否能自动resubmitted.&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">木大</dc:creator><pubDate>Mon, 25 Jun 2012 00:00:00 +0800</pubDate><guid>tag:zsneoks.github.com,2012-06-25:ibackend-htmlname.html</guid><category>linux</category><category>ganga</category><category>物理</category></item></channel></rss>

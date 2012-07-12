@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>IBackend文档解析</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
+        <link href="zsneoks.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="木大 Atom Feed" />
+        
+        <link href="zsneoks.github.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="木大 RSS Feed" />
+        
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie.css"/>
+                <script src="./js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="./css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+
+        <header id="banner" class="body">
+                <h1><a href=".">木大 </a></h1>
+                <nav><ul>
+                
+                
+                
+                
+                
+                    <li class="active"><a href="./category/Ganga.html">Ganga</a></li>
+                
+                    <li ><a href="./category/linux.html">linux</a></li>
+                
+                    <li ><a href="./category/关于.html">关于</a></li>
+                
+                    <li ><a href="./category/测试.html">测试</a></li>
+                
+                    <li ><a href="./category/物理.html">物理</a></li>
+                
+                </ul></nav>
+        </header><!-- /#banner -->
+        
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="ibackend-htmlname.html" rel="bookmark"
+           title="Permalink to IBackend文档解析">IBackend文档解析</a></h1>
+      
+    </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
+        <abbr class="published" title="2012-06-25T00:00:00">
+                一 25 六月 2012
+        </abbr>
+
+        
+        <address class="vcard author">
+                By <a class="url fn" href="./author/木大.html">木大</a>
+        </address>
+        
+<p>In <a href="./category/Ganga.html">Ganga</a>. </p>
+<p>tags: <a href="./tag/linux.html">linux</a><a href="./tag/ganga.html">ganga</a><a href="./tag/物理.html">物理</a></p>
+
+
+</footer><!-- /.post-info -->
+      <p>类图：</p>
+<p><img alt="IBackend类图" src="static/images/IBackend.png" title="IBackend类图" /></p>
+<p>文档解析：</p>
+<h3>1.setup(self)</h3>
+<ul>
+<li>Ganga.core服务启动时由每个作业调用的一个钩子。在监测子系统enabled之前调用。可以被backend用来进行一些特殊的setup(比如远程backned的ssh传输管道）</li>
+</ul>
+<h3>2.master_submit(self,rjobs,subjobconfigs,masterjobconfig,keep_going=false)</h3>
+<ul>
+<li>提交主作业和所有子作业</li>
+<li>masterjobconfig是共享的，单独的subjob配置在subjobconfig中定义</li>
+<li>单个作业（无split的提交也通过本方法执行。在这种情况下subjobconfig只包含一个元素——作业本身。</li>
+<li>默认实现是调用每个单独作业的submit()方法</li>
+<li>如果任何子作业fails则整个过程被忽略并抛出一个IncompleteSubmissionError</li>
+<li>子作业已经submit的保持submitted</li>
+<li>默认实现不处理masterjobconfig(因此子类中一般可以重写本方法）</li>
+<li>在IBackend_submit()中keep_going是可选的，用以允许不支持keep_going=True的backend实现，这些backend在某些情况下可能要调用IBackend.master_submit()来工作，这样就不需要重写本方法。很多情况中该参数并不重要，因此由开发维护人员决定是否启用对该参数的支持。</li>
+</ul>
+<h3>3.submit(self,subjobconfig,master_input_sandbox)</h3>
+<ul>
+<li>提交一个单独的作业。成功返回1</li>
+<li>master_input_sandbox是一个列表，内容为所有子作业共享的文件名单</li>
+<li>不直接由框架调用，只被master_submit()方法的默认实现调用。因此如果master_submit()可以实现对单作业的提交，则本方法是多余的。</li>
+<li>4.0.x后的变化
+  <ul>
+  <li>subjobconfig与老接口的jobconfig等效</li>
+  <li>jobid已经废弃将移除</li>
+  </ul></li>
+</ul>
+<h3>4.master_prepare(self,masterjobconfig)</h3>
+<ul>
+<li>准备主作业（共享的沙盒文件）。由master_submit()调用三次。沙盒根据self._packed_input_sandbox标志（一个类属性）产生</li>
+</ul>
+<h3>5.master_auto_resubmit(self,rjobs)</h3>
+<ul>
+<li>一个钩子，在有人想重写自动resubmit行为时可以使用。否则等效于普通的resubmit。</li>
+</ul>
+<h3>6.master_resubmit(self,rjobs,backend=None)</h3>
+<ul>
+<li>resubmit(状态是submitted的）作业。</li>
+<li>配置phase会跳过。</li>
+<li>默认的实现是一个等效bulk的操作</li>
+<li>如果重写，要保证在主作业上调用过updateMasterJobstatus()，以使主作业能监控循环上被监控。</li>
+</ul>
+<h3>7.master_kill(self)</h3>
+<ul>
+<li>kill作业和所有子作业。成功返回1.</li>
+<li>默认的实现是使用kill()方法并在所有子作业上仿照bulk操作</li>
+<li>在有failure的情况下依然会尽可能多的kill掉子作业。</li>
+<li>若操作未完成则抛出IncompleteKillError()异常</li>
+</ul>
+<h3>8.kill(self)</h3>
+<ul>
+<li>kill作业（和所有子作业）</li>
+<li>从不会由框架调用。只会被默认的master_kill()调用。</li>
+</ul>
+<h3>9.peek(self,filename='',command='')</h3>
+<ul>
+<li>允许查看作业在backend上的输出文件</li>
+<li>由command命令查看filename文件</li>
+</ul>
+<h3>10.remove(self)</h3>
+<ul>
+<li>主要用于远程(ssh)backend.当作业被移除的时候这个backend方法被调用。</li>
+</ul>
+<h3>11.master_updateMonitoringInformation(jobs)</h3>
+<ul>
+<li>静态方法</li>
+<li>更新作业的监控信息：
+  <ul>
+  <li>在Backendk需要监控的作业列表（包括状态为submitted和running的作业）</li>
+  <li>上述作业列表中不包含子作业</li>
+  </ul></li>
+<li>默认实现是叠代遍历子作业并执行updateMonitoringInformation()</li>
+</ul>
+<h3>12.updateMonitoringInformation(jobs)</h3>
+<ul>
+<li>静态方法</li>
+<li>更新单作业的监控信息。这个作业是指一个作业列表，可包含子作业和无分片作业</li>
+<li>框架中不会直接调用。可能仅由master_updateMonitoringInformation()默认实现来调用。</li>
+</ul>
+<h3>13.timedetails(self)</h3>
+<ul>
+<li>返回所有可用的backend指定的时间戳</li>
+</ul>
+<h3>14.getStateTime(self,status)</h3>
+<ul>
+<li>在作业转变到running和completed状态时取得时间戳</li>
+</ul>
+<h3>15.check_auto_resubmit(self)</h3>
+<ul>
+<li>一个钩子，用于检查作业是否能自动resubmitted.</li>
+</ul>
+    </div><!-- /.entry-content -->
+    
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "ibackend-htmlname.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://zsneoks.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+
+  </article>
+</section>
+
+        <section id="extras" class="body">
+        
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                        
+                            <li><a href="http://docs.notmyidea.org/alexis/pelican/">Pelican</a></li>
+                        
+                            <li><a href="http://python.org">Python.org</a></li>
+                        
+                            <li><a href="http://jinja.pocoo.org">Jinja2</a></li>
+                        
+                        </ul>
+                </div><!-- /.blogroll -->
+        
+        
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="zsneoks.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            
+                            <li><a href="zsneoks.github.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            
+
+                        
+                            <li><a href="http://twitter.com/zsneoks">twitter</a></li>
+                        
+                            <li><a href="http://lastfm.com/user/zsneoks">lastfm</a></li>
+                        
+                            <li><a href="http://github.com/zsneoks">github</a></li>
+                        
+                        </ul>
+                </div><!-- /.social -->
+        
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32881388-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'zsneoks';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+</body>
+</html>
